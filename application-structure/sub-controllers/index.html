@@ -1,0 +1,1136 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Controllori - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="352" height="448" viewBox="0 0 352 448" id="bitbucket"><path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875 1.5q-9.75-4.25-13.375-14.5t-.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875 6.875 16.875zm27.75-5.25q-3.5-26.75-28.25-41T154 165.25q-15.75 7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2 38-21t12.5-42zM291.25 74q-5-6.75-14-11.125t-14.5-5.5T245 54.25q-72.75-11.75-141.5.5-10.75 1.75-16.5 3t-13.75 5.5T60.75 74q7.5 7 19 11.375t18.375 5.5T120 93.75Q177 101 232 94q15.75-2 22.375-3t18.125-5.375T291.25 74zm14.25 258.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5 12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5T88.75 412 70.5 401.125t-13-15.375q-6.25-24-14.25-73l1.5-4 4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2 9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875 10T291.75 288q-63 31.5-152.5 22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875T25 232.75q-2.25-12.5-6.625-37.5t-7-40.375T5.5 118 0 78.5Q.75 72 4.375 66.375T12.25 57t11.25-7.5T35 43.875t12-4.625q31.25-11.5 78.25-16 94.75-9.25 169 12.5Q333 47.25 348 66.25q4 5 4.125 12.75t-1.375 13.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Struttura dell'Applicazione
+                </span>
+              
+            
+            Controllori
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link md-tabs__link--active">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Controllori
+      </label>
+    
+    <a href="./" title="Controllori" class="md-nav__link md-nav__link--active">
+      Controllori
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#azioni" title="Azioni" class="md-nav__link">
+    Azioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#itinerari" title="Itinerari" class="md-nav__link">
+    Itinerari
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-un-controller" title="Creazione di un controller" class="md-nav__link">
+    Creazione di un controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nome-del-codice-dei-controller" title="Nome del codice dei controller" class="md-nav__link">
+    Nome del codice dei controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mappa-dei-controller" title="Mappa dei controller" class="md-nav__link">
+    Mappa dei controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controller-di-default" title="Controller di default" class="md-nav__link">
+    Controller di default
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-delle-azioni" title="Creazione delle azioni" class="md-nav__link">
+    Creazione delle azioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id-dellazione" title="ID dell'azione" class="md-nav__link">
+    ID dell'azione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azioni-in-linea-inline" title="Azioni in linea (inline)" class="md-nav__link">
+    Azioni in linea (inline)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azioni-autonome-standalone" title="Azioni autonome (standalone)" class="md-nav__link">
+    Azioni autonome (standalone)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risultati-dellazione" title="Risultati dell'azione" class="md-nav__link">
+    Risultati dell'azione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametri-dellazione" title="Parametri dell'azione" class="md-nav__link">
+    Parametri dell'azione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azioni-predefinite" title="Azioni predefinite" class="md-nav__link">
+    Azioni predefinite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-di-vita-del-controllore" title="Ciclo di vita del controllore" class="md-nav__link">
+    Ciclo di vita del controllore
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#azioni" title="Azioni" class="md-nav__link">
+    Azioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#itinerari" title="Itinerari" class="md-nav__link">
+    Itinerari
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-un-controller" title="Creazione di un controller" class="md-nav__link">
+    Creazione di un controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nome-del-codice-dei-controller" title="Nome del codice dei controller" class="md-nav__link">
+    Nome del codice dei controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mappa-dei-controller" title="Mappa dei controller" class="md-nav__link">
+    Mappa dei controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controller-di-default" title="Controller di default" class="md-nav__link">
+    Controller di default
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-delle-azioni" title="Creazione delle azioni" class="md-nav__link">
+    Creazione delle azioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id-dellazione" title="ID dell'azione" class="md-nav__link">
+    ID dell'azione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azioni-in-linea-inline" title="Azioni in linea (inline)" class="md-nav__link">
+    Azioni in linea (inline)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azioni-autonome-standalone" title="Azioni autonome (standalone)" class="md-nav__link">
+    Azioni autonome (standalone)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risultati-dellazione" title="Risultati dell'azione" class="md-nav__link">
+    Risultati dell'azione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametri-dellazione" title="Parametri dell'azione" class="md-nav__link">
+    Parametri dell'azione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azioni-predefinite" title="Azioni predefinite" class="md-nav__link">
+    Azioni predefinite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-di-vita-del-controllore" title="Ciclo di vita del controllore" class="md-nav__link">
+    Ciclo di vita del controllore
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://bitbucket.org/xnerd/yii2docs/src/default/docs/application-structure/sub-controllers.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="controllori-controllers">Controllori  (Controllers)<a class="headerlink" href="#controllori-controllers" title="Permanent link">&para;</a></h1>
+<p>I controllori(controller) sono parte dell'architettura MVC. Sono oggetti di classi che si estendono da <strong><em>yii \ base \ Controller</em></strong> e sono responsabili delle richieste di elaborazione e della generazione di risposte. In particolare, dopo aver assunto il controllo delle applicazioni, i controller analizzeranno i dati ricevuti dalla richieste in entrata, li passano ai modelli, iniettano i risultati dei modelli nelle viste(view) e, infine, generano risposte in uscita.</p>
+<h2 id="azioni">Azioni<a class="headerlink" href="#azioni" title="Permanent link">&para;</a></h2>
+<p>I controller sono composti da azioni che sono le unità più semplici che gli utenti finali possono richiederne l'esecuzione. Un controller può avere una o più azioni.
+L'esempio seguente mostra un controller <code>post</code> con due azioni: azione di vista ( <code>view</code>) e azione di creazione ( <code>create</code>):</p>
+<pre><code>namespace app\controllers;
+
+use Yii;
+use app\models\Post;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+
+class PostController extends Controller{
+    public function actionView($id){
+        $model = Post::findOne($id);
+        if ($model === null) {
+            throw new NotFoundHttpException;
+        }
+
+        return $this-&gt;render('view', [
+            'model' =&gt; $model,
+        ]);
+    }
+
+    public function actionCreate(){
+        $model = new Post;
+
+        if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;save()) {
+            return $this-&gt;redirect(['view', 'id' =&gt; $model-&gt;id]);
+        } else {
+            return $this-&gt;render('create', [
+                'model' =&gt; $model,
+            ]);
+        }
+    }
+}
+</code></pre>
+<p>Nell'azione di vista( definita dal metodo <code>actionView()</code>),carica il modello secondo l'ID del modello richiesto. Se il modello viene caricato correttamente, lo visualizzerà utilizzando un vista denominata <code>view</code>. Altrimenti verrà lanciata un'eccezione.</p>
+<p>Nell'azione di creazione( definita dal metodo <code>actionCreate()</code>), carica il modello secondo l'ID del modello richiesto. In primo luogo cerca di popolare una nuova istanza del modello utilizzando i dati di richiesta e salvarli all'interno del modello. Se entrambe le azioni avvengono con successo, reindirizzerà il browser all'azione <code>view</code> con l'ID del modello appena creato. Altrimenti verrà visualizzata la vista di creazione (<code>create</code>) attraverso la quale gli utenti possono fornire l'input necessario.</p>
+<h2 id="itinerari">Itinerari<a class="headerlink" href="#itinerari" title="Permanent link">&para;</a></h2>
+<p>Gli utenti finali gestiscono le azioni attraverso i percorsi. Un percorso è una stringa che consiste nelle seguenti parti:</p>
+<ul>
+<li>un modulo ID: questo esiste solo se il controller appartiene a un modulo non applicativo;</li>
+<li>un controller ID: una stringa che identifica in modo univoco il controller tra tutti i controller della stessa applicazione;</li>
+<li>un ID d'azione: una stringa che identifica in modo univoco l'azione tra tutte le azioni all'interno dello stesso controller.</li>
+</ul>
+<p>I percorsi hanno il seguente formato:</p>
+<pre><code>ControllerID/ActionID
+</code></pre>
+<p>oppure il seguente formato se il controller appartiene a un modulo:</p>
+<pre><code>ModuleID/ControllerID/ActionID
+</code></pre>
+<p>Quindi, se un utente possa richiedere il seguente URL (http://hostname/index.php?r=site/index), verrà eseguita l'azione di <code>index</code> nel controller del <code>site</code>.</p>
+<h2 id="creazione-di-un-controller">Creazione di un controller<a class="headerlink" href="#creazione-di-un-controller" title="Permanent link">&para;</a></h2>
+<p>Nelle applicazioni Web, i controller devono estendere <strong><em>yii \ web \ Controller</em></strong>. Analogamente nelle applicazioni console,i controller devono estendersi da <strong><em>yii \ web \ Controller</em></strong>. Il seguente codice definisce un controller <code>site</code>.</p>
+<pre><code>namespace app\controllers;
+
+use yii\web\Controller;
+
+class SiteController extends Controller{
+}
+</code></pre>
+<p>Di solito, un controllore è progettato per gestire le richieste relative a un particolare tipo di risorsa. Per questo motivo, gli ID controller sono spesso nomi che si riferiscono ai tipi delle risorse che gestiscono. Ad esempio, è possibile utilizzare <code>article</code> come ID di un controller che gestisce i dati dell'articolo.</p>
+<p>Per impostazione predefinita, gli ID controller devono contenere solo questi caratteri: lettere minuscole, cifre, sottolineature, trattini e barre in avanti. Ad esempio, <code>article</code> e <code>post-comment</code> sono entrambi ID controller validi, mentre <code>article?</code>,<code>PostComment</code>,<code>admin\post</code> non lo sono.</p>
+<p>Un ID controller può anche contenere un prefisso della sotto-directory. Ad esempio, <code>admin/article</code> sta per un controller <code>article</code> nella sotto-directory <code>admin</code> sotto lo spazio dei nomi del controller. I caratteri validi per i prefissi della sotto-directory includono: lettere maiuscole o minuscole, cifre, sottolineature, trattini, ect.</p>
+<h2 id="nome-del-codice-dei-controller">Nome del codice dei controller<a class="headerlink" href="#nome-del-codice-dei-controller" title="Permanent link">&para;</a></h2>
+<p>I nomi delle classi di controller possono essere derivati da un ID controller secondo la seguente procedura:</p>
+<ol>
+<li>ruotare la prima lettera in ogni parola separata da trattini in maiuscolo. Notare che se l'ID del controller contiene barre di scorrimento, questa regola si applica solo alla parte dopo l'ultima barra dell'ID;</li>
+<li>rimuovere i trattini e sostituire gli "slash" con i "backslash".</li>
+<li>aggiungi il suffisso <code>Controller</code>.</li>
+<li>prendere il namespace del controller.</li>
+</ol>
+<p>Di seguito sono riportati alcuni esempi, supponendo che i namespace dei controller prendano il valore predefinito <code>app\controllers</code>:</p>
+<ul>
+<li><code>article</code> diventa <code>app\controllers\ArticleController</code>;</li>
+<li><code>post-comment</code> diventa <code>app\controllers\PostCommentController</code>;</li>
+<li><code>admin/post-comment</code> diventa <code>app\controllers\admin\PostCommentController</code>;</li>
+<li><code>adminPanels/post-comment</code> diventa <code>app\controllers\adminPanels\PostCommentController</code>.</li>
+</ul>
+<p>Le classi del controllore devono essere <strong><em>autoloadable</em></strong>. Per questo motivo, negli esempi precedenti, la classe controller <code>article</code> dovrebbe essere salvata dove lo pseudonimo è <code>@app/controllers/ArticleController.php</code>; mentre il controller <code>admin/post-comment</code> dovrebbero essere in <code>@app/controllers/admin/PostCommentController.php</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>L'ultimo esempio <code>admin/post-comment</code> mostra come è possibile inserire un controller sotto una sotto-directory del namespace del controller. Questo è utile quando si desidera organizzare i controller in più categorie e non si desidera utilizzare i moduli.</p>
+</div>
+<h2 id="mappa-dei-controller">Mappa dei controller<a class="headerlink" href="#mappa-dei-controller" title="Permanent link">&para;</a></h2>
+<p>E' possibile configurare la mappa del controller per superare i vincoli degli ID del controller e dei nomi di classe descritti in precedenza. Ciò è principalmente utile quando si utilizzano controllori di terze parti e non si ha il controllo sui nomi delle classi.
+E' possibile configurare la mappa dei controller nella configurazione dell'applicazione.</p>
+<p>Esempio:</p>
+<pre><code>[
+    'controllerMap' =&gt; [
+        // declares "account" controller using a class name
+        'account' =&gt; 'app\controllers\UserController',
+
+        // declares "article" controller using a configuration array
+        'article' =&gt; [
+            'class' =&gt; 'app\controllers\PostController',
+            'enableCsrfValidation' =&gt; false,
+        ],
+    ],
+]
+</code></pre>
+<h2 id="controller-di-default">Controller di default<a class="headerlink" href="#controller-di-default" title="Permanent link">&para;</a></h2>
+<p>Ogni applicazione dispone di un controller predefinito specificato tramite la proprietà <strong><em>yii \ base \ Application :: $ defaultRoute</em></strong>. Quando una richiesta non specifica un percorso, verrà utilizzato il percorso specificato da questa proprietà. Per le applicazioni Web, il suo valore è <code>site</code>, mentre per le applicazioni tramite console è <code>help</code>.
+E' possibile modificare il controller di default con la seguente configurazione dell'applicazione:</p>
+<pre><code>[
+    'defaultRoute' =&gt; 'main',
+]
+</code></pre>
+<h2 id="creazione-delle-azioni">Creazione delle azioni<a class="headerlink" href="#creazione-delle-azioni" title="Permanent link">&para;</a></h2>
+<p>La creazione delle azioni è semplice, come definite i cosiddetti "metodi di azione" in una classe controller. Un metodo di azione è un metodo "pubblico" il nome inizia con un <code>action</code>. Il valore restituito da un metodo di azione rappresenta i dati di risposta che dovranno essere inviati poi all'utente finale. Il seguente codice definisce due azioni: l'azione <code>index</code> e l'azione <code>hello-world</code>:</p>
+<pre><code>namespace app\controllers;
+
+use yii\web\Controller;
+
+class SiteController extends Controller{
+
+    public function actionIndex(){
+
+        return $this-&gt;render('index');
+
+    }
+    public function actionHelloWorld(){
+
+        return 'Hello World';
+
+    }
+}
+</code></pre>
+<h2 id="id-dellazione">ID dell'azione<a class="headerlink" href="#id-dellazione" title="Permanent link">&para;</a></h2>
+<p>Un'azione è spesso progettata per eseguire una particolare manipolazione di una risorsa. Per questo motivo, gli ID dell'azione sono solitamente verbi ( come per esempio <code>view</code>, <code>update</code>, ect..).</p>
+<p>Per impostazione predefinita, l'ID dell'azione deve contenere solo questi caratteri: lettere minuscole,cifre,sottolineature,e trattini. Ad esempio, <code>view</code>,<code>update2</code>, e <code>comment-post</code> sono tutti ID di azioni valide, mentre <code>view?</code> e <code>Update</code> non lo sono.</p>
+<p>E' possibile creare azioni in due modi: azioni in linea e azioni autonome. Un'azione inline è definita come un metodo della classe controller, mentre un'azione autonoma è una classe che estende <strong><em> yii \ base \ Action </em></strong> o le sue classi figlio. Le azioni in linea sono più veloci e semplici da creare e sono spesso preferite se non si intende riutilizzarle. Le azioni autonome invece sono principalmente create per essere utilizzate in diversi controller o essere ridistribuite come estensioni.</p>
+<h2 id="azioni-in-linea-inline">Azioni in linea (inline)<a class="headerlink" href="#azioni-in-linea-inline" title="Permanent link">&para;</a></h2>
+<p>I nomi dei metodi di azione sono derivati dal proprio ID secondo la seguente procedura:
+1. Ruotare la prima lettera in ogni parola dell'ID dell'azione in caso di maiuscolo.
+2. Rimuovere i trattini.
+3. Usare il prefisso <code>action</code>.</p>
+<p>Ad esempio <code>index</code> diventa <code>actonIndex</code> e <code>hello-world</code> diventa <code>actionHelloWorld</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>I nomi dei metodi d'azione sono sensibili alla distinzione tra minuscole e maiuscole. Se si dispone di un metodo denominato <code>ActionIndex</code>, non verrà considerato come un metodo di azione e pertanto la richiesta per l'azione <code>index</code> provocherà un'eccezione. Si noti inoltre che i metodi d'azione devono essere pubblici. Un metodo provato o privato <strong><em>NON</em></strong> definisce un'azione in linea.</p>
+</div>
+<h2 id="azioni-autonome-standalone">Azioni autonome (standalone)<a class="headerlink" href="#azioni-autonome-standalone" title="Permanent link">&para;</a></h2>
+<p>Per utilizzare un'azione autonoma, devi dichiararla nella mappa d'azione prevenendo il metodo <strong><em> yii \ base \ Controller :: actions() </em></strong> nelle classi di controllo, come nel seguente esempio:</p>
+<pre><code>public function actions(){
+
+    return [
+        // declares "error" action using a class name
+        'error' =&gt; 'yii\web\ErrorAction',
+
+        // declares "view" action using a configuration array
+        'view' =&gt; [
+            'class' =&gt; 'yii\web\ViewAction',
+            'viewPrefix' =&gt; '',
+        ],
+    ];
+}
+</code></pre>
+<p>Come si può vedere, il metodo <code>actions()</code> dovrebbe restituire un array dove i valori sono l'ID delle azioni e il loro nome. A differenza delle azioni in linea, gli ID di azione per azioni autonome possono contenere caratteri arbitrari, a condizione che siano dichiarati nel metodo <code>actions()</code>.</p>
+<p>Per creare una classe di azioni autonome, è necessario estendere <strong><em> yii \ base \ Action </em></strong> o una sua classe figlia, e implementare un metodo denominato <code>run()</code>.</p>
+<pre><code>&lt;?php
+namespace app\components;
+
+use yii\base\Action;
+
+class HelloWorldAction extends Action{
+
+    public function run(){
+
+        return "Hello World";
+    }
+}
+</code></pre>
+<h2 id="risultati-dellazione">Risultati dell'azione<a class="headerlink" href="#risultati-dellazione" title="Permanent link">&para;</a></h2>
+<p>Il valore restituito da un metodo di azione ( o del metodo <code>run()</code>) è molto significativo. Questo valore può essere un oggetto di risposta che verrà inviato all'utente finale come risposta.</p>
+<ul>
+<li>Per applicazioni Web, il valore di ritorno può essere anche un dato arbitrario che verrà assegnato ai dati di <strong><em> yii \ web \ Response :: $ </em></strong> e deve essere ulteriormente convertito in una stringa che rappresenta il corpo della risposta.</li>
+<li>Per le applicazioni tramite console, il valore di ritorno può anche essere un intero che rappresenta lo stato di uscita dell'esecuzione del comando.</li>
+</ul>
+<p>Negli esempi mostrati sopra, i risultati dell'azione sono tutte stringhe che saranno trattate come il corpo di risposta da inviare all'utente finale.
+Il seguente esempio vi mostra come un'azione può reindirizzare il browser a un nuovo URL restituendo un oggetto di risposta ( perchè il metodo <strong><em>redirect()</em></strong> restituisce un oggetto in risposta).</p>
+<pre><code>public function actionForward(){
+
+    // redirect the user browser to http://example.com
+    return $this-&gt;redirect('http://example.com');
+}
+</code></pre>
+<h2 id="parametri-dellazione">Parametri dell'azione<a class="headerlink" href="#parametri-dellazione" title="Permanent link">&para;</a></h2>
+<p>I metodi di azione delle azioni in linea, dei metodi <code>run()</code>, e per le azioni autonome possono assumere parametri, chiamati <strong><em> parametri d'azione </em></strong>. I loro valori sono ottenuti dalle richieste che vengono effettuate. Per le applicazioni Web, viene richiamato il valore di ogni parametro d'azione<code>$_GET</code> più il nome del parametro come chiave, mentre per le applicazioni tramite console, questi parametri corrispondono agli argomenti della riga di comando.</p>
+<p>Nell'esempio seguente, l'azione <code>view</code> ( azione in linea ) ha dichiarato due parametri: <code>$id</code> e <code>$version</code>.</p>
+<pre><code>namespace app\controllers;
+
+use yii\web\Controller;
+
+class PostController extends Controller{
+
+    public function actionView($id, $version = null){
+
+        // ...
+    }
+}
+</code></pre>
+<p>I parametri della nostra azione saranno popolati come segue per le possibili richieste che possiamo effettuare:
+- <code>http://hostname/index.php?r=post/view&amp;id=123</code>: il parametro <code>$id</code> verrà compilato con il valore <code>123</code>, mentre <code>$version</code> è ancora <code>null</code> perchè non esiste alcun parametro di query <code>version</code>.
+- <code>http://hostname/index.php?r=post/view&amp;id=123&amp;version=2</code>: I due parametri <code>$id</code> e <code>$version</code> sono riempiti con i valori di <code>123</code> e <code>2</code>.
+- <code>http://hostname/index.php?r=post/view</code>: viene generata un'eccezione perchè il parametro <code>$id</code> richiesto non è fornito nella richiesta.
+- <code>http://hostname/index.php?r=post/view&amp;id[]=123</code>: verrà generata anche quì un'eccezione perchè il parametro <code>$id</code> riceve un valore di array inaspettato, come <code>['123']</code>.</p>
+<p>Se desideriamo che un parametro di azione possa accettare valori come matrice,array, e necessario distinguerlo come segue:</p>
+<pre><code>public function actionView(array $id, $version = null){
+
+    // ...
+}
+</code></pre>
+<p>Ora se la richiesta fosse <code>http://hostname/index.php?r=post/view&amp;id[]=123</code>, il parametro <code>$id</code> prenderà il valore di <code>['123']</code>. Se la richiesta fosse <code>http://hostname/index.php?r=post/view&amp;id=123</code> il parametro <code>$id</code> riceverà ancora lo stesso valore dell'array perchè il valore scalare <code>'123'</code> verrà auomtaticamente trasformato in array.
+Gli esempi precedenti mostrano principalmente come funzionano i parametri d'azione per le applicazioni Web.</p>
+<h2 id="azioni-predefinite">Azioni predefinite<a class="headerlink" href="#azioni-predefinite" title="Permanent link">&para;</a></h2>
+<p>Ogni controller ha un'azione predefinita specificata tramite la proprietà <strong><em> yii \ base \ Controller :: $defaultAction </em></strong>. Quando un percorso contiene solo il controller ID, significa che viene richiesta l'azione predefinita del controller specificato.
+Per impostazione predefinita, questa azione è impostata come <code>index</code>. Se si desidera modificare il valore predefinito, vi basterà sovrascrivere questa proprietà nella classe controller, come segue nell'esempio:</p>
+<pre><code>namespace app\controllers;
+
+use yii\web\Controller;
+
+class SiteController extends Controller{
+
+    public $defaultAction = 'home';
+
+    public function actionHome(){
+
+        return $this-&gt;render('home');
+    }
+}
+</code></pre>
+<h2 id="ciclo-di-vita-del-controllore">Ciclo di vita del controllore<a class="headerlink" href="#ciclo-di-vita-del-controllore" title="Permanent link">&para;</a></h2>
+<p>Quando si elabora una richiesta, un'applicazione creerà un controller di base al percorso richiesto. Il controllore sarà sottoposto al seguente ciclo di vita per soddisfare la richiesta:</p>
+<ol>
+<li>Il metodo <strong><em> yii \ base \ Controller :: init() </em></strong> viene chiamato dopo che il controller viene creato e configurato.</li>
+<li>Il controller crea un oggetto di azione in base all'ID dell'azione richiesta:<ul>
+<li>Se l'ID dell'azione non è specificato, verrà utilizzato l'ID dell'azione predefinita.</li>
+<li>Se l'ID dell'azione si trova nella mappa d'azione, verrà creata un'azione autonoma.</li>
+<li>Se l'ID dell'azione è il risultato corrispondente a un metodo d'azione, verrà creata una nuova azione in linea;</li>
+<li>In caso contrario verrà generata un'eccezione.</li>
+</ul>
+</li>
+<li>Il controllore chiama sequenzialmente il metodo <code>beforeAction()</code>  dell'applicazione.<ul>
+<li>Se una delle chiamate restituisce <code>false</code>, il resto dei metodi <code>beforeAction()</code> non chiamati verranno ignorati e l'esecuzione dell'azione verrà annullata.</li>
+<li>Per impostazione predefinita, ogni chiamata del metodo <code>beforeAction()</code> innescherà un evento <code>beforeAction</code> a cui è possibile associare un gestore.</li>
+</ul>
+</li>
+<li>Il controllore esegue l'azione.<ul>
+<li>I parametri dell'azione saranno analizzati e popolati dai dati di richiesta.</li>
+</ul>
+</li>
+<li>Il controllore chiama sequenzialmente il metodo del controller <code>afterAction()</code>.<ul>
+<li>Per impostazione predefinita, ogni chiamata del metodo <code>afterAction()</code> innescherà un evento <code>afterAction</code> a cui è possibile associare un gestore.</li>
+</ul>
+</li>
+<li>L'applicazione prenderà il risultato dell'azione e lo assegnerà alla risposta.</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-application-components/" title="Componenti applicativi" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Componenti applicativi
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-models/" title="Modelli" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Modelli
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1073 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Applicazioni - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="352" height="448" viewBox="0 0 352 448" id="bitbucket"><path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875 1.5q-9.75-4.25-13.375-14.5t-.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875 6.875 16.875zm27.75-5.25q-3.5-26.75-28.25-41T154 165.25q-15.75 7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2 38-21t12.5-42zM291.25 74q-5-6.75-14-11.125t-14.5-5.5T245 54.25q-72.75-11.75-141.5.5-10.75 1.75-16.5 3t-13.75 5.5T60.75 74q7.5 7 19 11.375t18.375 5.5T120 93.75Q177 101 232 94q15.75-2 22.375-3t18.125-5.375T291.25 74zm14.25 258.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5 12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5T88.75 412 70.5 401.125t-13-15.375q-6.25-24-14.25-73l1.5-4 4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2 9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875 10T291.75 288q-63 31.5-152.5 22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875T25 232.75q-2.25-12.5-6.625-37.5t-7-40.375T5.5 118 0 78.5Q.75 72 4.375 66.375T12.25 57t11.25-7.5T35 43.875t12-4.625q31.25-11.5 78.25-16 94.75-9.25 169 12.5Q333 47.25 348 66.25q4 5 4.125 12.75t-1.375 13.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Struttura dell'Applicazione
+                </span>
+              
+            
+            Applicazioni
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link md-tabs__link--active">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Applicazioni
+      </label>
+    
+    <a href="./" title="Applicazioni" class="md-nav__link md-nav__link--active">
+      Applicazioni
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurazione-dellapplicazione" title="Configurazione dell'applicazione" class="md-nav__link">
+    Configurazione dell'applicazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proprieta-dellapplicazione" title="Proprietà dell'applicazione" class="md-nav__link">
+    Proprietà dell'applicazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proprieta-richieste" title="Proprietà richieste" class="md-nav__link">
+    Proprietà richieste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proprieta-importanti" title="Proprietà importanti" class="md-nav__link">
+    Proprietà importanti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proprieta-utili" title="Proprietà Utili" class="md-nav__link">
+    Proprietà Utili
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventi-dellapplicazione" title="Eventi dell'applicazione" class="md-nav__link">
+    Eventi dell'applicazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-di-vita-dellapplicazione" title="Ciclo di vita dell'applicazione" class="md-nav__link">
+    Ciclo di vita dell'applicazione
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurazione-dellapplicazione" title="Configurazione dell'applicazione" class="md-nav__link">
+    Configurazione dell'applicazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proprieta-dellapplicazione" title="Proprietà dell'applicazione" class="md-nav__link">
+    Proprietà dell'applicazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proprieta-richieste" title="Proprietà richieste" class="md-nav__link">
+    Proprietà richieste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proprieta-importanti" title="Proprietà importanti" class="md-nav__link">
+    Proprietà importanti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proprieta-utili" title="Proprietà Utili" class="md-nav__link">
+    Proprietà Utili
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventi-dellapplicazione" title="Eventi dell'applicazione" class="md-nav__link">
+    Eventi dell'applicazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-di-vita-dellapplicazione" title="Ciclo di vita dell'applicazione" class="md-nav__link">
+    Ciclo di vita dell'applicazione
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://bitbucket.org/xnerd/yii2docs/src/default/docs/application-structure/sub-applications.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="applicazioni">Applicazioni<a class="headerlink" href="#applicazioni" title="Permanent link">&para;</a></h1>
+<p>Le applicazioni sono oggetti che regolano la struttura complessiva e il ciclo di vita dei sistemi applicativi di Yii. Ogni sistema applicativo Yii contiene un singolo oggetto di applicazione che viene creato nell'entry script ed è globalmente accessibile tramite l'espressione <code>\Yii::$app</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A seconda del contesto, quando diciamo "un'applicazione", può significare o un oggetto dell'applicazione o un sistema applicativo</p>
+</div>
+<p>Esistono due tipo di applicazioni: applicazioni Web e applicazioni Console.  Come indicano i nomi, il primo gestisce principalmente le richieste Web, mentre quest'ultimo gestisce le richieste di comando della console.</p>
+<h2 id="configurazione-dellapplicazione">Configurazione dell'applicazione<a class="headerlink" href="#configurazione-dellapplicazione" title="Permanent link">&para;</a></h2>
+<p>Quando uno script di accesso crea un'applicazione, caricherà una configurazione e la applica all'app, come segue:</p>
+<pre><code>require(__DIR__ . '/../vendor/autoload.php');
+require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
+
+// load application configuration
+$config = require(__DIR__ . '/../config/web.php');
+
+// instantiate and configure the application
+(new yii\web\Application($config))-&gt;run();
+</code></pre>
+<p>Le configurazioni applicative specificano come inizializzare le proprietà degli oggetti applicativi. Poichè le configurazioni di applicazione sono complesse, vengono di solito conservate in file di configurazione come <code>web.php</code> nell'esempio precedente.</p>
+<h2 id="proprieta-dellapplicazione">Proprietà dell'applicazione<a class="headerlink" href="#proprieta-dellapplicazione" title="Permanent link">&para;</a></h2>
+<p>Ci sono molte proprietà che può avere un'applicazione e che dovremmo configurare ne file di configurazione. Queste proprietà descrivono in genere l'ambiente in cui sono in esecuzione applicazioni. Ad esemppio, le applicazioni devono sapere come caricare i controller, dove memorizzare file temporanei, ect.. Adesso andremo ad elencare queste proprietà.</p>
+<h2 id="proprieta-richieste">Proprietà richieste<a class="headerlink" href="#proprieta-richieste" title="Permanent link">&para;</a></h2>
+<p>In qualsiasi applicazione, è necessario almeno configurare le seguenti due proprietà:</p>
+<p>ID</p>
+<p>La proprietà ID specifica un id univoco che differenzia un'applicazione da un'altra. Sebbene non sia un requisito, per una migliore interoperabilità è consigliabile utilizzare solo caratteri alfanumerici quando si specifica un ID dell'applicazione.</p>
+<p>basePath</p>
+<p>La proprietà "basePath" specifica la directory principale di un'applicazione. E' la directory che contiene tutto il codice sorgente protetto di un sistema applicativo. In base a tale directory, normalmente ci saranno sotto-directory come <code>models</code>, <code>views</code> e <code>controllers</code> che contengono il codice sorgente corrispondente al pattern MVC.
+E' possibile configurare la proprietà "basePath" utilizzando un percorso di directory o un alias di percorso. In entrambe le forme, la directory corrispondente deve esistere oppure verrà lanciata un'eccezione. Il percorso viene normalizzato chiamando la funzione <code>realpath()</code>.</p>
+<h2 id="proprieta-importanti">Proprietà importanti<a class="headerlink" href="#proprieta-importanti" title="Permanent link">&para;</a></h2>
+<p>Le proprietà descritte in questa sottosezione spesso devono essere configurare perchè differiscono da diverse applicazioni.</p>
+<p>Alias</p>
+<p>Questa proprietà consente di definire un insieme di alias in termini di array. Le chiavi dell'array sono nomi di alias e i valori dell'array sono le corrispondenti definizioni del percorso. Per esempio:</p>
+<pre><code>[
+    'aliases' =&gt; [
+        '@name1' =&gt; 'path/to/path1',
+        '@name2' =&gt; 'path/to/path2',
+    ],
+]
+</code></pre>
+<p>Questa proprietà viene utilizzata per richiamare un'applicazione che potrebbe avere un nome differente a quello indicato nell'ID.</p>
+<p>Bootstrap</p>
+<p>Questa è una proprietà molto utile. Consente di specificare una serie di componenti che devono essere eseguiti durante il processo di avvio dell'applicazione. Ad esempio, se si desidera che un modulo personalizza le regole URL, è possibile elencare l'ID come elemento di questa proprietà.
+Ogni componente elencato in questa proprietà può essere specificato in uno dei seguenti formati:
+- un ID di un'applicazione specificato tramite componenti,
+- un modulo ID specificato tramite moduli,
+- un nome di una classe,
+- un array di configurazione,
+- una funzione anonima che crea e restituisce un determinato componente.</p>
+<p>Esempio:</p>
+<pre><code>[
+    'bootstrap' =&gt; [
+        // an application component ID or module ID
+        'demo',
+
+        // a class name
+        'app\components\Profiler',
+
+        // a configuration array
+        [
+            'class' =&gt; 'app\components\Profiler',
+            'level' =&gt; 3,
+        ],
+
+        // an anonymous function
+        function () {
+            return new app\components\Profiler();
+        }
+    ],
+]
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>se un ID di un modulo è lo stesso ID di un componente dell'applicazione, il componente verrà utilizzato durante il processo di avvio. Se si desidera usare il modulo invece del componente, è possibile specificarlo utilizzando una funzione anonima come segue:</p>
+<pre><code>[
+    function () {
+        return Yii::$app-&gt;getModule('user');
+    },
+]
+</code></pre>
+</div>
+<p>Durante il processo di avvio ogni componente viene instanziato. Se la classe dei componenti implementa “ yii /base / BootstrapInterface", verrà anche chiamato il metodo "bootstrap()". Questo metodo può contenere ID di eventuali moduli che voglio caricare prima di alcuni ( per es. il modulo ‘log’ per tener traccia di eventuali errori nella fase di caricamento ).</p>
+<p>CatchAll</p>
+<p>Questa proprietà è supportata solo dalle applicazioni Web. Specifica un'azione del controller che dovrebbe gestire tutte le richieste dell'utente. Questo viene utilizzato principalmente quando l'applicazione è in modalità di manutenzione (debug) e deve gestire tutte le richieste in entrata tramite un'unica azione.
+La configurazione è una matrice il cui primo elemento specifica il percorso dell'azione. Il resto degli elementi della matrice specifica i parametri da associare all'azione. </p>
+<p>Esempio:</p>
+<pre><code>[
+    'catchAll' =&gt; [
+        'offline/notice',
+        'param1' =&gt; 'value1',
+        'param2' =&gt; 'value2',
+    ],
+]
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Il pannello di debug sull'ambiente di sviluppo non funziona quando questa proprietà è abilitata.</p>
+</div>
+<p>Componenti - (components)</p>
+<p>Questa è la proprietà più importante. Consente di registrare un elenco di componenti denominati "application component" che è possibile utilizzare in altri luoghi. </p>
+<p>Esempio:</p>
+<pre><code>[
+    'components' =&gt; [
+        'cache' =&gt; [
+            'class' =&gt; 'yii\caching\FileCache',
+        ],
+        'user' =&gt; [
+            'identityClass' =&gt; 'app\models\User',
+            'enableAutoLogin' =&gt; true,
+        ],
+    ],  
+]
+</code></pre>
+<p>Ogni componente dell'applicazione viene specificata come array di chiave valore.</p>
+<p>Esempio 2:</p>
+<p>'components' =&gt; [
+        'user' =&gt; [
+            'identityClass' =&gt; 'common\models\User',
+            'enableAutoLogin' =&gt; true,
+        ],]</p>
+<p>Nella parte di codice sopra, si vede la struttura chiave-valore applicata.
+La prima chiave che troviamo è “User” cioè l’identificavo (ID) del modulo/componente, e il suo valore, è composto a sua volta da un array chiave-valore, dove le chiavi questa volta sono identificativi o della classe principale del modulo (identityClass) o di una sua configurazione (enableAutoLogin).</p>
+<p>ControllerMap</p>
+<p>Questa proprietà consente di mappare un controller ID in una classe arbitraria del controller. Per impostazione predefinitam Yii mapperà gli ID alle classi di controller basate su una convenzione ( ad esempio l'ID <code>post</code> verrà mappato <code>app\controller\PostController</code>). Configurando questa proprietà, è possibile rompere la convenzione per specifici controller. Nell'esempio seguente, <code>account</code> verrà mappato <code>app\controllers\UserController</code>, mentre <code>article</code> verrà mappato su <code>app\controllers\PostController</code>.</p>
+<pre><code>[
+    'controllerMap' =&gt; [
+        'account' =&gt; 'app\controllers\UserController',
+        'article' =&gt; [
+            'class' =&gt; 'app\controllers\PostController',
+            'enableCsrfValidation' =&gt; false,
+        ],
+    ],  
+]
+</code></pre>
+<p>Le chiavi dell'array rappresentano gli ID del controller, mentre i valori dell'array rappresentano i nomi o le configurazioni dei nomi delle classi di controllo corrispondenti.</p>
+<p>ControllerNamespace</p>
+<p>Questa proprietà specifica i namespace predefiniti in cui le classi controller devono essere posizionate. Come posizione di default li troveremo in <code>app\controllers</code>. Se è un ID del controller <code>post</code>, per convenzione corrisponderebbe il nome della classe di controllo <code>PostController</code> e il nome della classe completamente qualificato <code>app\controllers\PostController</code>.
+Le classi del controller possono anche essere posizionate sotto le sotto-directory della directory corrispondente a questi namespace. Ad esempio, dato un ID controller <code>admin/post</code>, la corrispondente classe del controller completamente qualificata sarebbe <code>app\controllers\admin\PostController</code>.
+E' importante che le classi di controllo pienamente qualificate debbano essere "autoloadable" e i namespace delle classi di controller corrispondino al valore di questa proprietà. Altrimenti riceverai un errore "Pagina non trovata" quando si accede alla nostra applicazione.</p>
+<p>Lingua - (language)</p>
+<p>Questa proprietà specifica la lingua in cui l'applicazionedeve visualizzare il contenuto agli utenti finali. Il valore predefinito di questa proprietà è <code>en</code> ( inglese ). E' necessario configurare questa proprietà se vogliamo che l'applicazione possa supportare più lingue.
+Il valore di questa proprietà determina diversi aspetti di internalizzazione, tra cui la traduzione dei messaggi, la formattazione della data, la formattazione del numero, ecc..</p>
+<p>Moduli - (modules)</p>
+<p>Questa proprietà specifica i moduli che contiene l'applicazione. I moduli vengono visti come sotto-applicazioni della nostra applicazione padre.</p>
+<p>Esempio:</p>
+<pre><code>[
+    'modules' =&gt; [
+        // a "booking" module specified with the module class
+        'booking' =&gt; 'app\modules\booking\BookingModule',
+
+        // a "comment" module specified with a configuration array
+        'comment' =&gt; [
+            'class' =&gt; 'app\modules\comment\CommentModule',
+            'db' =&gt; 'db',
+        ],
+    ],  
+]
+</code></pre>
+<p>Nome - (name)</p>
+<p>Questa proprietà specifica il nome dell'applicazione che può essere visualizzato agli utenti finali. A differenza della proprietà ID, che dovrebbe assumere un valore univoco, il valore di questa proprietà è usato principalmente per scopi di visualizzazione. Non deve essere univoco.</p>
+<p>Parametri - (params)</p>
+<p>Questa proprietà specifica una serie di parametri applicativi accessibili a livello globale. Invece di utilizzare numerosi codici e stringhe dappertutto nel codice, è una buona pratica definirli come parametri dell'app in un unico punto e utilizzare parametri in luoghi dove è necessario. </p>
+<p>Esempio: possiamo utilizzare questa proprietà per definire la dimensione dell'immagine in miniatura come parametro</p>
+<pre><code>[
+    'params' =&gt; [
+        'thumbnail.size' =&gt; [128, 128],
+    ],
+]
+</code></pre>
+<p>A questo punto nel codice in cui bisgona utilizzare il valore della dimensione, possiamo usare il seguente codice:</p>
+<pre><code>$size = \Yii::$app-&gt;params['thumbnail.size'];
+$width = \Yii::$app-&gt;params['thumbnail.size'][0];
+</code></pre>
+<p>In seguito, se si decide di modificare le dimensioni delle miniature, è necessario modificarlo solo nella configurazione dell'applicazione; non è necessario toccare alcun codice dipendente.</p>
+<p>Linguaggio del codice - (sourceLanguage)</p>
+<p>Questa proprietà specifica la lingua in cui è scritto il codice dell'applicazione. Il valore predefinito è <code>en-US</code>, cioè l'inglese (Stati Uniti). E' necessario configurare questo proprietà se il contenuto del testo nel codice non è in inglese.</p>
+<p>Fuso orario - (timeZone)</p>
+<p>Questa proprietà viene fornita come modalità alternativa per impostare il fuso orario predefinito del runtime PHP. Configurando questa proprietà, si sta chiamando essenzialmente la funzione PHP "date_default_timezone_set()“.</p>
+<p>Esempio:</p>
+<pre><code>[
+    'timeZone' =&gt; 'America/Los_Angeles',
+]
+</code></pre>
+<p>Versioni - (version)</p>
+<p>Questa proprietà specifica la versione dell'applicazione. E' predefinito <code>1.0</code>.</p>
+<h2 id="proprieta-utili">Proprietà Utili<a class="headerlink" href="#proprieta-utili" title="Permanent link">&para;</a></h2>
+<p>Le proprietà descritte in questa sottosezione non sono comunemente configurate perchè i loro valori predefiniti derivano da convenzioni comuni. Tuttavia, è possibile configurarli nel caso in cui si desidera rompere le convenzioni.</p>
+<p>Charset</p>
+<p>Questa proprietà specifica il carattere che l'applicazione utilizza. Il valore predefinito è quello <code>UTF-8</code> che dovrebbe essere mantenuto come per la maggior parte delle applicazioni a meno che non si tratti di un sistema legacy che utilizza un sacco di dati non Unicode.</p>
+<p>DefaultRoute</p>
+<p>Questa proprietà specifica il percorso che un'applicazione deve utilizzare quando una richiesta non lo specifica. Ad esempio, <code>help</code>,<code>post/create</code> o <code>admin/post/create</code>. Se non viene dato un ID dell'azione, questa proprietà prende il valore predefinito specificato in “ yii \base \ Controller :: $defaultAction".</p>
+<p>Per le applicazioni Web, il valore predefinito di questa proprietà è <code>site</code>, il che significa che il <code>SiteController</code> e l'azione predefinita devono essere utilizzati. Di conseguenza se si accede all'applicazione senza specificare un percorso, verrà visualizzato il risultato di <code>app\controllers\SiteController::actionIndex()</code>.</p>
+<p>Per le applicazioni tramite console, il valore predefinito è <code>help</code>, il che significa che il comando principale “ yii \ console \ controllers \ HelpController::actionIndex()“ deve essere utilizzato. Di conseguenza, se su esegue il comando <code>yii</code> senza fornire argomenti, visualizzerà le informazioni di aiuto(help).</p>
+<p>Estensioni - (extensions)</p>
+<p>Questa proprietà specifica l'elenco delle estensioni installate e utilizzate dall'applicazione. Per impostazione predefinita, l'array verrà restituito dal file <code>@vendor/yiisoft/extensions.php</code>. Il file <code>extensions.php</code> viene generato e mantenuto automaticamente quando si utilizza il Composer per installare le estensioni. Quindi, la maggior parte dei casi, non è necessario configurare questa proprietà.
+Nel caso particolare quando si desidera mantenere manualmente le estensioni, è possibile configurare questa proprietà come segue:</p>
+<pre><code>[
+    'extensions' =&gt; [
+        [
+            'name' =&gt; 'extension name',
+            'version' =&gt; 'version number',
+            'bootstrap' =&gt; 'BootstrapClassName',  // optional, may also be a configuration array
+            'alias' =&gt; [  // optional
+                '@alias1' =&gt; 'to/path1',
+                '@alias2' =&gt; 'to/path2',
+            ],
+        ],
+
+        // ... more extensions like the above ...
+
+    ],
+]
+</code></pre>
+<p>Come potete vedere, la proprietà prende una serie di specifiche di estensione. Ogni estensione è specificata con una matrice composta da elementi <code>name</code> e <code>version</code>.</p>
+<p>Disposizione - (layout)</p>
+<p>Questa proprietà specifica il nome del layout predefinito che dovrebbe essere utilizzato quando si effettua una visualizzazione. Il valore di defult è <code>main</code>, significa che il file di layout <code>main.php</code> sotto il percorso di layout dovrebbe essere usato. Se entrambi i percorsi di layout e il percorso di visualizzazione stanno prendendo i valori predefiniti, il file di layout predefinito può essere rappresentato come alias di percorso <code>@app/views/layouts/main.php</code>.
+E' possibile configurare questa proprietà <code>false</code> se si desidera disattivare l'impostazione predefinita di layout.</p>
+<p>layoutPath</p>
+<p>Questa proprietà specifica il percorso in cui dovrebbero essere caricati i file di layout. Il valore predefinito è la sotto-directory <code>layouts</code> sotto il percorso di visualizzazione. Se il percorso di visualizzazione sta prendendo il suo valore predefinito, il percorso di layout può essere rappresentato come alias di percorso: <code>@app/views/layouts</code>.</p>
+<p>runtimepath</p>
+<p>Questa proprietà specifica il percorso in cui possono essere generati file temporanei, ad esempio file di log, file di cache.Il valore predefinito è la directory rappresentata dall'alias <code>@app/runtime</code>.</p>
+<p>viewPath</p>
+<p>Questa proprietà specifica la directory principale in cui si trovano i file di visualizzazione. Il valore predefinito della directory è rappresentata dall'alias <code>@app/views</code>.</p>
+<p>vendorPath</p>
+<p>Questa proprietà specifica la directory del fornitore gestita dal Composer. Contriene tutte le livrerie di terze parti utilizzate dall'applicazione, incluso il framework Yii. Il valore predefinito è la directory rappresentata dall'alias <code>@aap/vendor</code>.</p>
+<p>enableCoreCommands</p>
+<p>Questa proprietà è supportata solo dalle applicazioni tramite console. Specifica se i comandi base inclusi nella versione di Yii dovrebbero essere abilitati. Il valore predefinito è <code>true</code>.</p>
+<h2 id="eventi-dellapplicazione">Eventi dell'applicazione<a class="headerlink" href="#eventi-dellapplicazione" title="Permanent link">&para;</a></h2>
+<p>Un'applicazione attiva diversi eventi durante il ciclo di vita di una richiesta. E' possibile associare i gestori di eventi nelle configurazioni dell'applicazione come segue:</p>
+<pre><code>[
+    'on beforeRequest' =&gt; function ($event) {
+        // ...
+    },
+]
+</code></pre>
+<p>In alternativa è possibile associare i gestori di eventi durante il processo di avvio dopo che viene creata l'istanza dell'applicazione.</p>
+<p>Esempio:</p>
+<pre><code>\Yii::$app-&gt;on(\yii\base\Application::EVENT_BEFORE_REQUEST, function ($event) {
+    // ...
+});
+</code></pre>
+<p>EVENT_BEFORE_REQUEST</p>
+<p>Questo evento viene attivato <strong><em>prima</em></strong> che un'applicazione gestisca una richiesta. Il nome effettivo dell'evento è <code>beforeRequest</code>.</p>
+<p>EVENT_AFTER_REQUEST</p>
+<p>Questo evento viene attivato <strong><em>dopo</em></strong> che un'applicazione gestisca una richiesta, ma <strong><em>prima</em></strong> di inviare la risposta. Il nome effettivo dell'evento è <code>afterRequest</code>.
+Quando questo evento viene attivato, la gestione delle richieste è completata e si può prendere questa possibilità per eseguire una successiva elaborazione della richiesta o personalizzare la risposta.</p>
+<p>EVENT_BEFORE_ACTION</p>
+<p>Questo evento viene attivato <strong><em>prima</em></strong> di eseguire tutte le azioni del controller. Il nome effettivo dell'evento è <code>beforeAction</code>.
+Il parametro dell'evento è un'istanza di <strong><em>yii \ base \ ActioneEvent</em></strong>. Un gestore di evento può impostare la proprietà dell'actionEvent [isValid()] ad essere <code>false</code> e smettere di eseguire l'azione. </p>
+<p>Esempio:</p>
+<pre><code>[
+    'on beforeAction' =&gt; function ($event) {
+        if (some condition) {
+            $event-&gt;isValid = false;
+        } else {
+        }
+    },
+]
+</code></pre>
+<p>Si noti che lo stesso evento <code>beforeAction</code> viene attivato anche dai moduli e dai controller. Gli oggetti applicativi sono i primi che innescano questo evento, seguito da moduli (se esistono) e infire da controllori. Se settiamo l'evento a <code>false</code> tramite il metodo [isValid()] tutti gli eventi successivi non vettanno attivati.</p>
+<p>EVENT_AFTER_ACTION</p>
+<p>Questo evento viene attivato <strong><em>dopo</em></strong> l'esecuzione di ogni azione del controller. Il nome effettivo dell'evento è <code>afterAction</code>.
+Il parametro che andremo a settare all'evento è un'istanza di <strong><em>yii \ base \ ActionEvent</em></strong>. Attraverso la proprietà Yii dell'evento, un gestore di eventi può accedere o modificare il risultato dell'azione.</p>
+<p>Esempio:</p>
+<pre><code>[
+    'on afterAction' =&gt; function ($event) {
+        if (some condition) {
+            // modify $event-&gt;result
+        } else {
+        }
+    },
+]
+</code></pre>
+<p>Si noti che lo stesso evento <code>afterAction</code> viene attivato anche dai moduli e dai controller. Questi oggetti innescano questo evento nell'ordine inverso come per quello del <code>beforeAction</code>. Cioè, i controller sono i primi oggetti che innescano questo evento, seguito dai moduli ( ovviamente se esistono )e infine dalle applicazioni.</p>
+<h2 id="ciclo-di-vita-dellapplicazione">Ciclo di vita dell'applicazione<a class="headerlink" href="#ciclo-di-vita-dellapplicazione" title="Permanent link">&para;</a></h2>
+<p><img alt="Screenshot" src="../../img/application-structure/Ciclo-vita-applicazione.png" /></p>
+<p>Quando viene eseguito uno script di inserimento (entry script) per gestire una richiesta, un'applicazione sarà sottoposta al seguente ciclo di vita:</p>
+<ol>
+<li>Lo script di inserimento carica la configurazione dell'applicazione come un array.</li>
+<li>Lo script di inserimento crea una nuova istanza dell'applicazione:<ul>
+<li>viene chiamato <strong><em>preInit()</em></strong>, che configura alcune proprietà dell'applicazione al alta priorità ( come per esempio il <strong><em>basePath</em></strong>);</li>
+<li>registrare eventuali errori nel <strong><em>gestore di errori</em></strong>;</li>
+<li>configurare le proprietà dell'applicazione;</li>
+<li>viene chiamato <strong><em>init()</em></strong> che chiama ulteriormente <strong><em>bootstrap()</em></strong> per eseguire questi ultimi componenti.</li>
+</ul>
+</li>
+<li>L'entry script chiama <strong><em>yii \ base Application :: run()</em></strong> per eseguire l'applicazione:<ul>
+<li>viene attivato l'evento <strong><em>EVENT_BEFORE_REQUEST</em></strong>;</li>
+<li>viene controllata la richiesta. Viene convertita la richiesta in un percorso con i relativi parametri, viene creato un modulo, i controller e gli oggetti di azione come specificato nel percorso e infine viene eseguita l'azione;</li>
+<li>viene attivato l'evento <strong><em>EVENT_AFTER_REQUEST</em></strong>;</li>
+<li>infine viene inviata una risposta all'utente finale.</li>
+</ul>
+</li>
+<li>L'entry script riceve lo stato di uscita dall'applicazione e completa l'elaborazione delle richieste.</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-entry-script/" title="Entry Script" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Entry Script
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-application-components/" title="Componenti applicativi" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Componenti applicativi
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1115 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Filtri - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="352" height="448" viewBox="0 0 352 448" id="bitbucket"><path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875 1.5q-9.75-4.25-13.375-14.5t-.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875 6.875 16.875zm27.75-5.25q-3.5-26.75-28.25-41T154 165.25q-15.75 7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2 38-21t12.5-42zM291.25 74q-5-6.75-14-11.125t-14.5-5.5T245 54.25q-72.75-11.75-141.5.5-10.75 1.75-16.5 3t-13.75 5.5T60.75 74q7.5 7 19 11.375t18.375 5.5T120 93.75Q177 101 232 94q15.75-2 22.375-3t18.125-5.375T291.25 74zm14.25 258.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5 12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5T88.75 412 70.5 401.125t-13-15.375q-6.25-24-14.25-73l1.5-4 4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2 9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875 10T291.75 288q-63 31.5-152.5 22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875T25 232.75q-2.25-12.5-6.625-37.5t-7-40.375T5.5 118 0 78.5Q.75 72 4.375 66.375T12.25 57t11.25-7.5T35 43.875t12-4.625q31.25-11.5 78.25-16 94.75-9.25 169 12.5Q333 47.25 348 66.25q4 5 4.125 12.75t-1.375 13.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Struttura dell'Applicazione
+                </span>
+              
+            
+            Filtri
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link md-tabs__link--active">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Filtri
+      </label>
+    
+    <a href="./" title="Filtri" class="md-nav__link md-nav__link--active">
+      Filtri
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzando-i-filtri" title="Utilizzando i filtri" class="md-nav__link">
+    Utilizzando i filtri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-filtri" title="Creazione di filtri" class="md-nav__link">
+    Creazione di filtri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtri-principali" title="Filtri principali" class="md-nav__link">
+    Filtri principali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controllo-allaccesso" title="Controllo all'accesso" class="md-nav__link">
+    Controllo all'accesso
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtri-del-metodo-di-autenticazione" title="Filtri del metodo di autenticazione" class="md-nav__link">
+    Filtri del metodo di autenticazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contentnegotiator" title="ContentNegotiator" class="md-nav__link">
+    ContentNegotiator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpcache" title="HttpCache" class="md-nav__link">
+    HttpCache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagecache" title="PageCache" class="md-nav__link">
+    PageCache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ratelimiter" title="RateLimiter" class="md-nav__link">
+    RateLimiter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verbfilter" title="VerbFilter" class="md-nav__link">
+    VerbFilter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cors" title="Cors" class="md-nav__link">
+    Cors
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzando-i-filtri" title="Utilizzando i filtri" class="md-nav__link">
+    Utilizzando i filtri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-filtri" title="Creazione di filtri" class="md-nav__link">
+    Creazione di filtri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtri-principali" title="Filtri principali" class="md-nav__link">
+    Filtri principali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controllo-allaccesso" title="Controllo all'accesso" class="md-nav__link">
+    Controllo all'accesso
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtri-del-metodo-di-autenticazione" title="Filtri del metodo di autenticazione" class="md-nav__link">
+    Filtri del metodo di autenticazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contentnegotiator" title="ContentNegotiator" class="md-nav__link">
+    ContentNegotiator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpcache" title="HttpCache" class="md-nav__link">
+    HttpCache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagecache" title="PageCache" class="md-nav__link">
+    PageCache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ratelimiter" title="RateLimiter" class="md-nav__link">
+    RateLimiter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verbfilter" title="VerbFilter" class="md-nav__link">
+    VerbFilter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cors" title="Cors" class="md-nav__link">
+    Cors
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://bitbucket.org/xnerd/yii2docs/src/default/docs/application-structure/sub-filters.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="filtri-filters">Filtri (filters)<a class="headerlink" href="#filtri-filters" title="Permanent link">&para;</a></h1>
+<p>I filtri sono oggetti che vengono eseguiti prima e / o dopo le azioni del controllore. Ad esempio, un filtro di controllo dell'accesso può essere eseguito dalle azioni per garantire che sia loro consentito l'accesso da parte di determinati utenti finali; un filtro di compressione del contenuto può essere eseguito dopo le azioni per comptrimere il contenuto della risposta prima di inviarlo agli utenti finali.</p>
+<p>Un filtro può consistere in un pre-filtro (logica di filtraggio applicata prima delle azioni) e / o un post-filtro (logica applicata dopo le azioni).</p>
+<h2 id="utilizzando-i-filtri">Utilizzando i filtri<a class="headerlink" href="#utilizzando-i-filtri" title="Permanent link">&para;</a></h2>
+<p>I filtri ahnno un comportamente abbastanza particolare. Pertanto, l'uso dei filtri è uguale all'utilizzo dei "behaviors".E' possibile dichiarare i filtri di una classe controller sovrascrivendo il suo metodo <strong><em>behaviors()</em></strong> come il seguente:</p>
+<pre><code>public function behaviors(){
+
+    return [
+        [
+            'class' =&gt; 'yii\filters\HttpCache',
+            'only' =&gt; ['index', 'view'],
+            'lastModified' =&gt; function ($action, $params) {
+                $q = new \yii\db\Query();
+                return $q-&gt;from('user')-&gt;max('updated_at');
+            },
+        ],
+    ];
+}
+</code></pre>
+<p>Per impostazione predefinita, i filtri dichiarati in una classe controller verranno applicati a tutte le azioni in quel controller. Tuttavia, è possibile specificare esplicitamente a quali azioni applicare il filtro configurando la proprietà <strong><em>only</em></strong>. Nell'esempio soprastante, il filtro <code>HttpCache</code> si applica solo alle azioni <code>index</code> e <code>view</code>. E' anche possibile configurare la proprietà <strong><em>except</em></strong> per mettere in blacklist alcune azioni dell'essere filtrate.</p>
+<p>oltre ai controller, puoi anche dichiarare i filtri in un modulo o in un'applicazione. Quando lo fa, i filtri verranno applicate tutte le azioni di controllo che appartengono a tale modulo o applicazione, a meno che non si configurano i filtri "only" e "except" come descritto sopra.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Quando si dichiara filtri in moduli o applicazioni, è necessario utilizzare percorsi invece di ID di azione nelle proprietà <strong><em>only</em></strong> e <strong><em>except</em></strong>. Questo perchè gli ID d'azione da solo non possono specificare completamente le azioni nell'ambito di un modulo o di un'applicazione.</p>
+</div>
+<p>Quando più filtri sono configurati per una singola azione, vengnono applicati in base alle regole descritte di seguito:</p>
+<ol>
+<li>Pre-filtraggio<ul>
+<li>Applicare i filtri dichiarati nell'applicazione nell'ordine in cui sono elencati <code>behaviors()</code>.</li>
+<li>Applicare i filtri dichiarati nel modulo nell'ordine in cui sono elencati <code>behaviors()</code>.</li>
+<li>Applicare i filtri dichiarati nel controller nell'ordine in cui sono elencati <code>behaviors()</code>.</li>
+<li>Se uno qualsiasi dei filtri annulla l'esecuzione dell'azione, i filtri (prefiltri e post-filtri) non verranno applicati.</li>
+</ul>
+</li>
+<li>Esecuzione dell'azione de passa per il pre-filtro.</li>
+<li>Post-filtraggio<ul>
+<li>Applicare i filtri dichiarati nel controller nell'ordine inverso in cui sono elencati <code>behaviors()</code>.</li>
+<li>Applicare i filtri dichiarati nel modulo nell'ordine inverso in cui sono elencati <code>behaviors()</code>.</li>
+<li>Applicare i filtri dichiarati nell'applicazione nell'ordine inverso in cui sono elencati <code>behaviors()</code>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="creazione-di-filtri">Creazione di filtri<a class="headerlink" href="#creazione-di-filtri" title="Permanent link">&para;</a></h2>
+<p>Per creare un nuovo filtro azione, dobbiamo estenderlo da <strong><em>yii \ base \ ActionFilter</em></strong> e sovrascrivi i metodi <strong><em>beforeAction()</em></strong> e / o <strong><em>afterAction()</em></strong>. Il primo verrà eseguito prima dell'esecuzione di un'azione mentre il secondo dopo l'esecuzione di un'azione. Il valore di ritorno di <strong><em>beforeAction()</em></strong> determina se un'azione deve essere eseguita o meno. Se il valore è <code>false</code>, i filtri dopo questo verranno saltati e l'azione non verrà eseguita.</p>
+<p>L'esempio seguente mostra un filtro che registra il tempo di esecuzione dell'azione:</p>
+<pre><code>namespace app\components;
+
+use Yii;
+use yii\base\ActionFilter;
+
+class ActionTimeFilter extends ActionFilter{
+
+    private $_startTime;
+
+    public function beforeAction($action){
+
+        $this-&gt;_startTime = microtime(true);
+        return parent::beforeAction($action);
+    }
+
+    public function afterAction($action, $result){
+
+        $time = microtime(true) - $this-&gt;_startTime;
+        Yii::trace("Action '{$action-&gt;uniqueId}' spent $time second.");
+        return parent::afterAction($action, $result);
+    }
+}
+</code></pre>
+<h2 id="filtri-principali">Filtri principali<a class="headerlink" href="#filtri-principali" title="Permanent link">&para;</a></h2>
+<p>Yii fornisce un set di filtri comunemente usati, trovati principalmente sotto il namespace <code>yii\filters</code>. Di seguit, introdurremo brevemente questi filtri.</p>
+<h2 id="controllo-allaccesso">Controllo all'accesso<a class="headerlink" href="#controllo-allaccesso" title="Permanent link">&para;</a></h2>
+<p><strong><em>AccessControl</em></strong> fornisce un semplice controllo degli accessi basato su un insieme di regole. In particolare, prima che un'azione venga eseguita, AccessControl esaminerà le regole elencate e troverà il primo che corrisponde alle variabili di contesto correnti (come l'indirizzo IP dell'utente, lo stato di accesso dell'utente, ecc..). La regola di corrispondenza determinerà se consentire o negare l'esecuzione dell'azione richiesta. Se nessuna regola corrisponde, l'accesso verrà negato.</p>
+<p>L'esempio seguente mostra come consentire agli utenti autenticati di accedere alle azione <code>create</code> e <code>update</code>, mentre negando tutti gli altri utenti di accedere a queste due azioni.</p>
+<pre><code>use yii\filters\AccessControl;
+
+public function behaviors(){
+
+    return [
+        'access' =&gt; [
+            'class' =&gt; AccessControl::className(),
+            'only' =&gt; ['create', 'update'],
+            'rules' =&gt; [
+                // allow authenticated users
+                [
+                    'allow' =&gt; true,
+                    'roles' =&gt; ['@'],
+                ],
+                // everything else is denied by default
+            ],
+        ],
+    ];
+}
+</code></pre>
+<h2 id="filtri-del-metodo-di-autenticazione">Filtri del metodo di autenticazione<a class="headerlink" href="#filtri-del-metodo-di-autenticazione" title="Permanent link">&para;</a></h2>
+<p>I filtri del metodo di autenticazione vengono utilizzati per autenticare un utente utilizzando vari metodi, come <strong><em>HTTP Basic Auth</em></strong>, <strong><em>OAuth 2</em></strong>. Queste classi di filtri sono tutte sotto il namespace <code>yii\filters\auth</code>.</p>
+<p>L'esempio seguente mostra come utilizzare <strong><em>yii \ filters \ auth \ HttpBasicAuth</em></strong> per autenticare un utente utilizzando un token di accesso basato sul metodo di autenticazione HTTP di base. Si noti che affinchè funzioni, la classe di identità dell'utente deve implementare il metodo <strong><em>findIdentityByAccessToken()</em></strong>.</p>
+<pre><code>use yii\filters\auth\HttpBasicAuth;
+
+public function behaviors(){
+
+    return [
+        'basicAuth' =&gt; [
+            'class' =&gt; HttpBasicAuth::className(),
+        ],
+    ];
+}
+</code></pre>
+<p>I filtri del metodo di autenticazione sono comunemente usati nell'implementazione delle API Restful.</p>
+<h2 id="contentnegotiator">ContentNegotiator<a class="headerlink" href="#contentnegotiator" title="Permanent link">&para;</a></h2>
+<p><strong><em>ContentNegotiator</em></strong> supporta la negoziazione del formato di risposta e la negoziazione della lingua dell'applicazione. Proverà a determinare il formato di risposta e / o la lingua esaminando i parametri <code>GET</code> e l'intestazione HTTP <code>Accept</code>.</p>
+<p>Nell'esempio seguente, ContentNegotiator è configurato per supportare i formati di risposta JSON e XML e le lingue inglese (Stati Uniti) e tedesca.</p>
+<p>use yii\filters\ContentNegotiator;
+use yii\web\Response;</p>
+<pre><code>public function behaviors(){
+
+    return [
+        [
+            'class' =&gt; ContentNegotiator::className(),
+            'formats' =&gt; [
+                'application/json' =&gt; Response::FORMAT_JSON,
+                'application/xml' =&gt; Response::FORMAT_XML,
+            ],
+            'languages' =&gt; [
+                'en-US',
+                'de',
+            ],
+        ],
+    ];
+}
+</code></pre>
+<p>Spesso i formati e le lingue di risposta devono essere determinati molto prima durante il ciclo di vita dell'applicazione. Per questo motivo, ContentNegotiator è progettato in modo tale da poter essere utilizzato anche come componente di bootstrap oltre a essere utilizzato come filtro. Ad esempio, puoi configurarlo nella configurazione dell'applicazione come segue:</p>
+<pre><code>use yii\filters\ContentNegotiator;
+use yii\web\Response;
+
+[
+    'bootstrap' =&gt; [
+        [
+            'class' =&gt; ContentNegotiator::className(),
+            'formats' =&gt; [
+                'application/json' =&gt; Response::FORMAT_JSON,
+                'application/xml' =&gt; Response::FORMAT_XML,
+            ],
+            'languages' =&gt; [
+                'en-US',
+                'de',
+            ],
+        ],
+    ],
+];
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nel caso in cui il tipo di contenuto e la lingua preferiti non possano essere determinati da una richiesta, verranno utilizzati il primo formato e la lingua elencati nei campi <strong><em>formats</em></strong> e <strong><em>languages</em></strong>.</p>
+</div>
+<h2 id="httpcache">HttpCache<a class="headerlink" href="#httpcache" title="Permanent link">&para;</a></h2>
+<p><strong><em>HttpCache</em></strong> implementa il caching sul lato client utilizzando le intestazioni HTTP <code>Last-Modified</code> e <code>Etag</code>.
+Per esempio:</p>
+<pre><code>use yii\filters\HttpCache;
+
+public function behaviors(){
+
+    return [
+        [
+            'class' =&gt; HttpCache::className(),
+            'only' =&gt; ['index'],
+            'lastModified' =&gt; function ($action, $params) {
+                $q = new \yii\db\Query();
+                return $q-&gt;from('user')-&gt;max('updated_at');
+            },
+        ],
+    ];
+}
+</code></pre>
+<h2 id="pagecache">PageCache<a class="headerlink" href="#pagecache" title="Permanent link">&para;</a></h2>
+<p><strong><em>PageCache</em></strong> implementa il catching lato server di pagine intere. Nell'esempio seguente, PageCache viene applicato all'azione <code>index</code> per memorizzare nella cache l'intera pagina per un massimo di 60 secondi o finchè il conteggio delle voci nella tabella <code>post</code> non cambia. Memorizza anche diverse versioni della pagina a seconda della lingua dell'applicazione scelta.</p>
+<pre><code>use yii\filters\PageCache;
+use yii\caching\DbDependency;
+
+public function behaviors(){
+
+    return [
+        'pageCache' =&gt; [
+            'class' =&gt; PageCache::className(),
+            'only' =&gt; ['index'],
+            'duration' =&gt; 60,
+            'dependency' =&gt; [
+                'class' =&gt; DbDependency::className(),
+                'sql' =&gt; 'SELECT COUNT(*) FROM post',
+            ],
+            'variations' =&gt; [
+                \Yii::$app-&gt;language,
+            ]
+        ],
+    ];
+}
+</code></pre>
+<h2 id="ratelimiter">RateLimiter<a class="headerlink" href="#ratelimiter" title="Permanent link">&para;</a></h2>
+<p><strong><em>RateLimiter</em></strong> implementa un algoritmo di limitazione della velocità basato sull'algoritmo <strong><em>leaky bucket</em></strong>. Viene principalmente utilizzato nell'implementazione di ApiRESTful.</p>
+<h2 id="verbfilter">VerbFilter<a class="headerlink" href="#verbfilter" title="Permanent link">&para;</a></h2>
+<p><strong><em>VerbFilter</em></strong> controlla se i metodi di richiesta HTTP sono consentiti dalle azioni richieste. Se non è consentito, genererà un'eccezione HTTP 405. Nell'esempio seguente, VerbFIlter viene dichiarato per specificare un set tipico di metodi di richiesta consentiti per le azioni CRUD.</p>
+<pre><code>use yii\filters\VerbFilter;
+
+public function behaviors(){
+
+    return [
+        'verbs' =&gt; [
+            'class' =&gt; VerbFilter::className(),
+            'actions' =&gt; [
+                'index'  =&gt; ['get'],
+                'view'   =&gt; ['get'],
+                'create' =&gt; ['get', 'post'],
+                'update' =&gt; ['get', 'put', 'post'],
+                'delete' =&gt; ['post', 'delete'],
+            ],
+        ],
+    ];
+}
+</code></pre>
+<h2 id="cors">Cors<a class="headerlink" href="#cors" title="Permanent link">&para;</a></h2>
+<p>Condivisione delle risorse tra origini <strong><em>CORS</em></strong> è un meccanismo che consente a molte risorse (ad es. Caratters, JavaScript, ecc..). Su una pagina Web di essere richieste da un altro dominio al di fuori del dominio da cui proviene la risorsa. In particolare, le chiamate AJAX di JavaScript possono utilizzare il meccanismo XMLHttpRequest. Tali richieste "interdominio" sarebbero altrimenti vietate dai browser Web, secondo la stessa politica di sicurezza dell'origine. CORS definisce un modo in cui il browser e il server possono interagire per determinare se consentire o meno la richiesta di origine incrociata.</p>
+<p>Il <strong><em>filtro Cors</em></strong> deve essere definito prima dei filtri di autenticazione / autorizzazione per assicurarsi che le intestazioni CORS vengano sempre inviate.</p>
+<pre><code>use yii\filters\Cors;
+use yii\helpers\ArrayHelper;
+
+public function behaviors(){
+
+    return ArrayHelper::merge([
+        [
+            'class' =&gt; Cors::className(),
+        ],
+    ], parent::behaviors());
+}
+</code></pre>
+<p>Controllare anche la sezione sui controller REST se si desidera aggiungere il filtro CORS a una classe <strong><em>yii \ rest \ ActiveController</em></strong> nella propria API.</p>
+<p>Il filtraggio Cors può essere ottimizzato usando la proprietà <strong><em>$Cors</em></strong>.</p>
+<ul>
+<li><code>cors['Origin']</code>: array utilizzato per definire le origini consentite. Può essere <code>['*']</code>(tutti) o <code>['http://www.myserver.net', 'http://www.myotherserver.com']</code>. Predefinito a <code>['*']</code>.</li>
+<li><code>cors['Access-Control-Request-Method']</code>: rappresenta un array di verbi che sono consentiti da Yii come <code>['GET', 'OPTIONS', 'HEAD']</code>. L'array predefinito è <code>['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS']</code>.</li>
+<li><code>cors['Access-Control-Request-Headers']</code>: matrice di intestazioni consentite da Yii. Possono essere <code>['*']</code> tutte le intestazioni o specifiche <code>['X-Request-With']</code>. Predefinito a <code>['*']</code>.</li>
+<li><code>cors['Access-Control-Allow-Credentials']</code>: questa regola controlla se la richiesta corrente può essere fatta usando le credenziali. Può essere <code>true</code>, <code>false</code> o <code>null</code>(non impostato). Predefinito a <code>null</code>.</li>
+<li><code>cors['Access-Control-Max-Age']</code>: definisce la durata della richiesta pre-flight. Il valore predefinito è <code>86400</code>.</li>
+</ul>
+<p>Ad esempio, consentendo CORS come URL di origine (<code>http://www.myserver.net</code>) con il metodo <code>GET</code>, <code>HEAD</code> e <code>OPTIONS</code>:</p>
+<pre><code>use yii\filters\Cors;
+use yii\helpers\ArrayHelper;
+
+public function behaviors(){
+    return ArrayHelper::merge([
+        [
+            'class' =&gt; Cors::className(),
+            'cors' =&gt; [
+                'Origin' =&gt; ['http://www.myserver.net'],
+                'Access-Control-Request-Method' =&gt; ['GET', 'HEAD', 'OPTIONS'],
+            ],
+        ],
+    ], parent::behaviors());
+}
+</code></pre>
+<p>E' possibile ottimizzare le intestazioni CORS sostituendo i parametri predefiniti in base all'azione. Ad esempio aggiungendo <code>Access-Control-Allow-Credentials</code> per l'azione di <code>login</code> potrebbe essere fatto in questo modo:</p>
+<pre><code>use yii\filters\Cors;
+use yii\helpers\ArrayHelper;
+
+public function behaviors(){
+
+    return ArrayHelper::merge([
+        [
+            'class' =&gt; Cors::className(),
+            'cors' =&gt; [
+                'Origin' =&gt; ['http://www.myserver.net'],
+                'Access-Control-Request-Method' =&gt; ['GET', 'HEAD', 'OPTIONS'],
+            ],
+            'actions' =&gt; [
+                'login' =&gt; [
+                    'Access-Control-Allow-Credentials' =&gt; true,
+                ]
+            ]
+        ],
+    ], parent::behaviors());
+}
+</code></pre>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-modules/" title="Moduli" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Moduli
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-widget/" title="Widget" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Widget
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

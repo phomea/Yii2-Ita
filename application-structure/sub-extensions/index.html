@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Estensioni - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="352" height="448" viewBox="0 0 352 448" id="bitbucket"><path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875 1.5q-9.75-4.25-13.375-14.5t-.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875 6.875 16.875zm27.75-5.25q-3.5-26.75-28.25-41T154 165.25q-15.75 7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2 38-21t12.5-42zM291.25 74q-5-6.75-14-11.125t-14.5-5.5T245 54.25q-72.75-11.75-141.5.5-10.75 1.75-16.5 3t-13.75 5.5T60.75 74q7.5 7 19 11.375t18.375 5.5T120 93.75Q177 101 232 94q15.75-2 22.375-3t18.125-5.375T291.25 74zm14.25 258.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5 12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5T88.75 412 70.5 401.125t-13-15.375q-6.25-24-14.25-73l1.5-4 4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2 9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875 10T291.75 288q-63 31.5-152.5 22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875T25 232.75q-2.25-12.5-6.625-37.5t-7-40.375T5.5 118 0 78.5Q.75 72 4.375 66.375T12.25 57t11.25-7.5T35 43.875t12-4.625q31.25-11.5 78.25-16 94.75-9.25 169 12.5Q333 47.25 348 66.25q4 5 4.125 12.75t-1.375 13.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Struttura dell'Applicazione
+                </span>
+              
+            
+            Estensioni
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link md-tabs__link--active">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Estensioni
+      </label>
+    
+    <a href="./" title="Estensioni" class="md-nav__link md-nav__link--active">
+      Estensioni
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzando-le-estensioni" title="Utilizzando le estensioni" class="md-nav__link">
+    Utilizzando le estensioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installare-manualmente-le-estensioni" title="Installare manualmente le estensioni" class="md-nav__link">
+    Installare manualmente le estensioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-unestensione" title="Creazione di un'estensione" class="md-nav__link">
+    Creazione di un'estensione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composerjson" title="Composer.json" class="md-nav__link">
+    Composer.json
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estensioni-principali" title="Estensioni principali" class="md-nav__link">
+    Estensioni principali
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzando-le-estensioni" title="Utilizzando le estensioni" class="md-nav__link">
+    Utilizzando le estensioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installare-manualmente-le-estensioni" title="Installare manualmente le estensioni" class="md-nav__link">
+    Installare manualmente le estensioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-unestensione" title="Creazione di un'estensione" class="md-nav__link">
+    Creazione di un'estensione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composerjson" title="Composer.json" class="md-nav__link">
+    Composer.json
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estensioni-principali" title="Estensioni principali" class="md-nav__link">
+    Estensioni principali
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://bitbucket.org/xnerd/yii2docs/src/default/docs/application-structure/sub-extensions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="estensioni">Estensioni<a class="headerlink" href="#estensioni" title="Permanent link">&para;</a></h1>
+<p>Le estensioni sono pacchetti software ridistribuibili progettati specificamente per essere utilizzati nella applicazioni Yii e offrono funzionalità pronte all'uso. Ad esempio, l'estensione <strong><em>yiisoft / yii2-debug</em></strong> aggiunge una comoda barra di debug nella parte inferiore di ogni pagina dell'applicazione per aiutarti a comprendere più facilmente come vengono generate le pagine. Puoi usare le estensioni per accellerare il tuo processo di sviluppo. Puoi anche impacchettare il tuo codice come estensione per condividere con altre persone il tuo grande lavoro.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Utiliziamo il termine "estensione" per fare riferimento ai pacchetti software specifici di Yii. Per pacchetti software generici che possono essere utilizzati senza Yii, faremo riferimento a loro usando il termine di "pacchetto" o "libreria".</p>
+</div>
+<h2 id="utilizzando-le-estensioni">Utilizzando le estensioni<a class="headerlink" href="#utilizzando-le-estensioni" title="Permanent link">&para;</a></h2>
+<p>Per utilizzare un'estensione, è necessario prima installarla. La maggior parte delle estensioni sono distribuite come pacchetti di <strong><em>Composer</em></strong> che possono essere installati seguendo due semplici passaggi:
+1. modificare il file <code>composer.json</code> dell'applicazione e specificare quali estensioni (pacchetti di Composer) si desidera installare.
+2. eseguire <code>composer install</code> per installare le estensioni specificate.</p>
+<p>Si noti che potrebbe essere necessario installare il Composer se non lo si possiede.</p>
+<p>Per impostazione predefinita, il Composer installa i pacchetti registrati su <strong><em>Packagist</em></strong>, il più grande repository per i pacchetti Composer open source. Puoi cercare estensioni su Packagist. Puoi anche creare il tuo repository e configurare il Composer per usarlo. Questo è utile se stai sviluppando estensioni private che vuoi condividere solo nei tuoi progetti.</p>
+<p>Le estensioni installate da Composer sono memorizzate nella directory <code>BasePath/vendor</code>, dove <code>BasePath</code> fa riferimento al percorso base dell'applicazione.
+Poichè il Composer è un gestore delle dipendenze, quando installa un pacchetto, installa anche tutti i suoi pacchetti dipendenti.</p>
+<p>Ad esempio, per installare l'estensione <code>yiisoft/yii2-imagine</code>, dobbiamo modificare il nostro <code>composer.json</code>, simile al seguente:</p>
+<pre><code>{
+    // ...
+
+    "require": {
+        // ... other dependencies
+
+        "yiisoft/yii2-imagine": "*"
+    }
+}
+</code></pre>
+<p>Dopo l'installazione, dovresti vedere la directory <code>yiisoft/yii2-imagine</code> sotto <code>BasePath/vendor</code>. Dovresti anche vedere un'altra directory <code>imagine/imagine</code> che contiene il pacchetto dipendente installato.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Il <code>yiisoft/yii2-imagine</code> è un'estensione nucleo sviluppato e mantenuto dal team di sviluppo di Yii. Tutte le estensioni base sono ospitate su <strong><em>Packagist</em></strong> e sono denominate come <code>yiisoft/yii2-xyz</code>, dove <code>xyz</code> stanno per le diverse versioni.</p>
+</div>
+<p>Ora puoi usare le estensioni installate che faranno parte della tua applicazione. L'esempio seguente mostra come utilizzare la classe <code>yii\imagine\Image</code> fornita dall'estensione <code>yiisoft/yii2-imagine</code>:</p>
+<pre><code>use Yii;
+use yii\imagine\Image;
+
+// generate a thumbnail image
+Image::thumbnail('@webroot/img/test-image.jpg', 120, 120)
+    -&gt;save(Yii::getAlias('@runtime/thumb-test-image.jpg'), ['quality' =&gt; 50]);
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Le classi delle estensioni vengono caricate automaticamente dal caricatore automatico della classe Yii.</p>
+</div>
+<h2 id="installare-manualmente-le-estensioni">Installare manualmente le estensioni<a class="headerlink" href="#installare-manualmente-le-estensioni" title="Permanent link">&para;</a></h2>
+<p>In alcune rare occasioni, potresti voler installare alcune o tutte le estensioni manualmente, piuttosto che affidarti al Composer. Per fare ciò, dovresti:</p>
+<ol>
+<li>scaricare i file dell'archivio dell'estensione e decomprimerli nella directory <code>vendor</code>.</li>
+<li>installare i caricatori automatici della classe forniti dalle estensioni, se presenti.</li>
+<li>scaricare e installare le estensioni dipendenti come da istruzioni.</li>
+</ol>
+<p>Se un'estensione non ha un autoloader di classe ma segue lo standard <strong><em>PSR-4</em></strong>, è possibile utilizzare il caricatore automatico di classe fornito da Yii per caricare automaticamente le classe di estensione. Tutto quello che devi fare è solo dichiarare un alias di root per la directory dell'estensione. Ad esempio, supponendo di aver installato un'estensione nella directory <code>vendor/mycompany/myext</code> e le classi di estensione si trovano nel namespace <code>myext</code>, è possibile includere il seguente codice nella configurazione dell'applicazione:</p>
+<pre><code>[
+    'aliases' =&gt; [
+        '@myext' =&gt; '@vendor/mycompany/myext',
+    ],
+]
+</code></pre>
+<h2 id="creazione-di-unestensione">Creazione di un'estensione<a class="headerlink" href="#creazione-di-unestensione" title="Permanent link">&para;</a></h2>
+<p>Potresti considerare di creare un'estensione quando senti la necessità di condividere con altre persone il tuo codice. Un'estensione può contenere qualsiasi codice che preferisci, come una classe helper, un widget, un modulo, ecc..</p>
+<p>Si consiglia di creare un'estensione in termini di un pacchetto Composer in modo che possa essere installato in modo più semplice e che possa essere anche utilizzato da altri utenti.</p>
+<p>Di seguito sono riportati i passaggi di base che è possibile seguire per creare un'estensione come pacchetto di Composer.</p>
+<ol>
+<li>Crea un progetto per la tua estensione e ospitalo si una repository VCS, come per esempio <strong><em>github.com</em></strong>. Il lavoro di sviluppo e manutensione per l'estensione dovrebbe essere fatto su questa directory.</li>
+<li>Sotto la directory root del progetto, crea un file chiamato <code>composer.json</code> come richiesto dal Composer.</li>
+<li>Registra la tua estensione come una repository Composer, come Packagist, in modo che altri utenti possano trovare e installare la tua estensione usando il Composer.</li>
+</ol>
+<h2 id="composerjson">Composer.json<a class="headerlink" href="#composerjson" title="Permanent link">&para;</a></h2>
+<p>Ogni pacchetto di Composer deve avere un file <code>composer.json</code> nella sua directory principale. Il file contiene i metadati relativi al pacchetto. L'esempio seguente mostra il file <code>composer.json</code> per l'estensione <code>yiisoft/yii2-imagine</code>:</p>
+<pre><code>{
+    // package name
+    "name": "yiisoft/yii2-imagine",
+
+    // package type
+    "type": "yii2-extension",
+
+    "description": "The Imagine integration for the Yii framework",
+    "keywords": ["yii2", "imagine", "image", "helper"],
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?labels=ext%3Aimagine",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
+    },
+    "authors": [
+        {
+            "name": "Lorenzo Milicia",
+            "email": "lorenzo.milicia4@gmail.com"
+        }
+    ],
+
+    // package dependencies
+    "require": {
+        "yiisoft/yii2": "~2.0.0",
+        "imagine/imagine": "v0.5.0"
+    },
+
+    // class autoloading specs
+    "autoload": {
+        "psr-4": {
+            "yii\\imagine\\": ""
+        }
+    }
+}
+</code></pre>
+<h2 id="estensioni-principali">Estensioni principali<a class="headerlink" href="#estensioni-principali" title="Permanent link">&para;</a></h2>
+<p>Yii fornisce le seguenti estensioni principali sviluppate e gestite dal team di sviluppatori di Yii. Sono tutti registrati su Packagist. Ecco un elenco delle principali estensioni:</p>
+<ul>
+<li><strong><em>yiisoft / yii2-apidoc</em></strong>: fornisce un generatore di documentazione API estensibile e ad alte prestazioni. Viene anche utilizzato per generare la documentazione dell'API del framework principale.</li>
+<li><strong><em>yiisoft / yii2-authclient</em></strong>: fornisce un insieme di client di autenticazione comunemente utilizzati, come il client OAuth2 di Facebook, il client GitHub OAuth2.</li>
+<li><strong><em>yiisoft / yii2-bootstrap</em></strong>: fornisce un set di widget che incapsulano i componenti e i plugin Bootstrap .</li>
+<li><strong><em>yiisoft / yii2-codeception</em></strong>: fornisce supporto di test basato su Codeception .</li>
+<li><strong><em>yiisoft / yii2-debug</em></strong>: fornisce il supporto per il debug per le applicazioni Yii. Quando viene utilizzata questa estensione, nella parte inferiore di ogni pagina viene visualizzata una barra degli strumenti del debugger. L'estensione fornisce anche una serie di pagine autonome per visualizzare informazioni di debug più dettagliate.</li>
+<li><strong><em>yiisoft / yii2-elasticsearch</em></strong>: fornisce il supporto per l'utilizzo di Elasticsearch . Comprende il supporto di query / ricerca di base e implementa anche il pattern Active Record che consente di archiviare i record attivi in ​​Elasticsearch.</li>
+<li><strong><em>yiisoft / yii2-faker</em></strong>: fornisce il supporto per l'utilizzo di Faker per generare dati falsi per te.</li>
+<li><strong><em>yiisoft / yii2-gii</em></strong>: fornisce un generatore di codice basato sul Web che è altamente estensibile e può essere utilizzato per generare rapidamente modelli, moduli, moduli, CRUD, ecc.</li>
+<li><strong><em>yiisoft / yii2-httpclient</em></strong>: fornisce un client HTTP.</li>
+<li><strong><em>yiisoft / yii2-imagine</em></strong>: fornisce funzioni di manipolazione delle immagini di uso comune basate su Imagine .</li>
+<li><strong><em>yiisoft / yii2-jui</em></strong>: fornisce un insieme di widget che incapsulano le interazioni e i widget dell'interfaccia utente JQuery .</li>
+<li><strong><em>yiisoft / yii2-mongodb</em></strong>: fornisce il supporto per l'utilizzo di MongoDB . Include funzionalità come query di base, record attivi, migrazioni, memorizzazione nella cache, generazione di codice, ecc.</li>
+<li><strong><em>yiisoft / yii2-redis</em></strong>: fornisce il supporto per l'utilizzo di redis . Include funzionalità come query di base, record attivi, memorizzazione nella cache, ecc.</li>
+<li><strong><em>yiisoft / yii2-smarty</em></strong>: fornisce un motore di template basato su Smarty .</li>
+<li><strong><em>yiisoft / yii2-sfinge</em></strong>: fornisce il supporto per l'uso di Sfinge . Include funzionalità come query di base, Active Record, generazione di codice, ecc.</li>
+<li><strong><em>yiisoft / yii2-swiftmailer</em></strong>: fornisce funzioni di invio e-mail basate su swiftmailer .</li>
+<li><strong><em>yiisoft / yii2-twig</em></strong>: fornisce un motore di template basato su Twig .</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-assets/" title="Assets" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Assets
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

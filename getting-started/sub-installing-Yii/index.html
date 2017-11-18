@@ -1,0 +1,811 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Installazione di Yii - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="352" height="448" viewBox="0 0 352 448" id="bitbucket"><path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875 1.5q-9.75-4.25-13.375-14.5t-.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875 6.875 16.875zm27.75-5.25q-3.5-26.75-28.25-41T154 165.25q-15.75 7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2 38-21t12.5-42zM291.25 74q-5-6.75-14-11.125t-14.5-5.5T245 54.25q-72.75-11.75-141.5.5-10.75 1.75-16.5 3t-13.75 5.5T60.75 74q7.5 7 19 11.375t18.375 5.5T120 93.75Q177 101 232 94q15.75-2 22.375-3t18.125-5.375T291.25 74zm14.25 258.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5 12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5T88.75 412 70.5 401.125t-13-15.375q-6.25-24-14.25-73l1.5-4 4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2 9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875 10T291.75 288q-63 31.5-152.5 22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875T25 232.75q-2.25-12.5-6.625-37.5t-7-40.375T5.5 118 0 78.5Q.75 72 4.375 66.375T12.25 57t11.25-7.5T35 43.875t12-4.625q31.25-11.5 78.25-16 94.75-9.25 169 12.5Q333 47.25 348 66.25q4 5 4.125 12.75t-1.375 13.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Come Iniziare
+                </span>
+              
+            
+            Installazione di Yii
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="Come Iniziare" class="md-tabs__link md-tabs__link--active">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../application-structure/sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Installazione di Yii
+      </label>
+    
+    <a href="./" title="Installazione di Yii" class="md-nav__link md-nav__link--active">
+      Installazione di Yii
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installazione-tramite-composer" title="Installazione tramite Composer" class="md-nav__link">
+    Installazione tramite Composer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installazione-di-yii_1" title="Installazione di Yii" class="md-nav__link">
+    Installazione di Yii
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installazione-da-un-file-di-archivio" title="Installazione da un file di archivio" class="md-nav__link">
+    Installazione da un file di archivio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifica-dellinstallazione" title="Verifica dell'installazione" class="md-nav__link">
+    Verifica dell'installazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurazione-del-server-web" title="Configurazione del server Web" class="md-nav__link">
+    Configurazione del server Web
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installazione-tramite-composer" title="Installazione tramite Composer" class="md-nav__link">
+    Installazione tramite Composer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installazione-di-yii_1" title="Installazione di Yii" class="md-nav__link">
+    Installazione di Yii
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installazione-da-un-file-di-archivio" title="Installazione da un file di archivio" class="md-nav__link">
+    Installazione da un file di archivio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifica-dellinstallazione" title="Verifica dell'installazione" class="md-nav__link">
+    Verifica dell'installazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurazione-del-server-web" title="Configurazione del server Web" class="md-nav__link">
+    Configurazione del server Web
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://bitbucket.org/xnerd/yii2docs/src/default/docs/getting-started/sub-installing-Yii.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="installazione-di-yii">Installazione di Yii<a class="headerlink" href="#installazione-di-yii" title="Permanent link">&para;</a></h1>
+<p>E’ possibile installare Yii in due modi. Installarlo trami Composer oppure installarlo da un file di archivio. Il primo è il metodo migliore, in quanto consente di installare nuove estensioni oppure di aggiornare Yii in modo semplice.
+In questa e nelle prossime sezioni descriveremo come installare Yii e di come implementare tutte le sue funzionalità e i suoi utilizzi. Esistono due versioni di Yii: la versione base (basic) e la versione avanzata(advanced). La basic è diversa dall’advanced principalmente per l’organizzazione del codice. Nel primo avremo una struttura MVC, mentre nell’advanced avremmo due strutture MVC separate. La parte “backend” e la parte “frontend”.</p>
+<p>Info: Il modello della versione basic è adatto allo sviluppo del 90% delle applicazioni Web. Se sei nuovo a Yii, ti consigliamo di attenersi al modello della versione basic per la sua semplicità e le sue funzionalità.</p>
+<h2 id="installazione-tramite-composer">Installazione tramite Composer<a class="headerlink" href="#installazione-tramite-composer" title="Permanent link">&para;</a></h2>
+<p>Se è la prima volta che installi il Composer, puoi seguire le istruzioni di <a href="https://getcomposer.org/download/">https://getcomposer.org/download/</a> . Su Linux e Max OS X, eseguire i seguenti comandi:</p>
+<pre><code>curl -sS https://getcomposer.org/installer | php 
+mv composer.phar /usr/local/bin/composer
+</code></pre>
+<p>In questa guida tutti i comandi del compositore presuppongono di aver installato il compositore a livello globale in modo che sia disponibile come comando<code>composer</code>. </p>
+<p>Se hai già installato Composer, assicuratevi di utilizzare una versione aggiornata. E' possibile aggiornare il proprio Composer con il comando <code>composer self-update</code>.</p>
+<h2 id="installazione-di-yii_1">Installazione di Yii<a class="headerlink" href="#installazione-di-yii_1" title="Permanent link">&para;</a></h2>
+<p>Con Composer installato, è possibile installare Yii eseguendo i seguenti comandi in una cartella accessibile a Web.</p>
+<pre><code>composer global require "fxp/composer-asset-plugin:^1.3.1"
+composer create-project --prefer-dist yiisoft/yii2-app-basic basic
+</code></pre>
+<p>Il primo comando installa il plugin asset del Composer che consente di gestire le dipendenze del pacchetto. Basta eseguirlo solo una volta. Il secondo comando installa l'ultima versione stabile di Yii in una directory denominata <code>basic</code>. Se si desidera è possibile scegliere un nome diverso per la directory di destinazione.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Se si desidera installare l'ultima versione di sviluppo di Yii, è possibile utilizzare il seguente comando che permette di aggiungere un'opzione di stabilità</p>
+<pre><code>composer create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
+</code></pre>
+</div>
+<h2 id="installazione-da-un-file-di-archivio">Installazione da un file di archivio<a class="headerlink" href="#installazione-da-un-file-di-archivio" title="Permanent link">&para;</a></h2>
+<p>L'installazione di Yii da un file di archivio prevede 3 passaggi:
+1. Scaricare il file dall'archivio di http://www.yiiframework.com/download/.
+2. Scompattare il file scaricato in una cartella accessibile a web.
+3. Modificare il file <code>config/web.php</code> immettendo una chiave segreta per la <code>cookieValidationKey</code> (voce di configurazione). Questo avviene automaticamente se si installa Yii con Composer).</p>
+<pre><code>// !!! insert a secret key in the following (if it is empty) - this is required 
+       by cookie validation
+
+'cookieValidationKey' =&gt; 'enter your secret key here',
+</code></pre>
+<h2 id="verifica-dellinstallazione">Verifica dell'installazione<a class="headerlink" href="#verifica-dellinstallazione" title="Permanent link">&para;</a></h2>
+<p>Una volta completata l'installazione, configurare il server Web (vedere le sezione successiva)  oppure utilizzare il server Web incorporato PHP eseguendo il seguente comando della console nella <code>web</code> directory del progetto</p>
+<pre><code>php yii serve
+</code></pre>
+<ul>
+<li>
+<p>Nota: per impostazione predefinita, il server HTTP ascolterà la porta 8080. Tuttavia, se la porta è già in uso o si desidera utilizzare più applicazioni in questo modo, è possibile specificare quale porta deve essere utilizzata. Basta aggiungere l'argomento -port</p>
+<p>php yii serve --port=8888</p>
+</li>
+</ul>
+<p>E' possibile usare il browser per accedere all'applicazione Yii installata con il seguente URL:</p>
+<pre><code>http://localhost:8080/
+</code></pre>
+<p><img alt="Screenshot" src="../../img/getting-started/Homepage.png" />     </p>
+<p>Dovresti avere una schermata uguale a quella sopra. Se ciò non si vede, controlla se l'installazione PHP soddisfa i requisiti di Yii. E' possibile verificare se i requisiti minimi sono soddisfatti utilizzando uno dei sequenti approcci:
+- Copia <code>\requirements.php</code> di <code>/web/requirements.php</code> e quindi utilizzare un browser per accedervi attraverso il seguene link <code>http://localhost/requirements.php</code>
+- Eseguire i seguenti comandi
+    cd basic
+    php requirements.php</p>
+<p>E' necessario configurare l'installazione PHP in modo da soddisfare i requisiti minimi di Yii.</p>
+<h2 id="configurazione-del-server-web">Configurazione del server Web<a class="headerlink" href="#configurazione-del-server-web" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>E' possibile saltare questa sezione per ora se si sta seguendo la guida di Yii senza alcuna intenzione di distribuirla a un server di produzione.</p>
+</div>
+<p>Su un server di produzione, è possibile configurare il server Web in modo che l'applicazione sia accessibile tramite l'URL <code>http://www.example.com/index.php</code> anzichè <code>http://www.example.com/basic/web/index.php</code>. Tale configurazione richiede di indicare la radice del documento del server Web nella cartella<code>basic/web</code>.
+Si potrebbe anche desiderare di nascondere nell'URL <code>index.php</code>.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../.." title="Homepage" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Homepage
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Iniziamo con un "Ciao"
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

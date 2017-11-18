@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>/getting-started/sub-installing-Yii/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting-started/sub-saying-hello/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting-started/sub-working-with-forms/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting-started/sub-working-with-database/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting-started/sub-generate-code-gii/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting-started/sub-looking-ahead/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/application-structure/sub-overview/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-entry-script/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-applications/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-application-components/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-controllers/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-models/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-views/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-modules/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-filters/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-widget/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-assets/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/application-structure/sub-extensions/</loc>
+     <lastmod>2017-11-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>

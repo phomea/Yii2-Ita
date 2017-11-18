@@ -1,0 +1,1390 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Viste - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="352" height="448" viewBox="0 0 352 448" id="bitbucket"><path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875 1.5q-9.75-4.25-13.375-14.5t-.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875 6.875 16.875zm27.75-5.25q-3.5-26.75-28.25-41T154 165.25q-15.75 7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2 38-21t12.5-42zM291.25 74q-5-6.75-14-11.125t-14.5-5.5T245 54.25q-72.75-11.75-141.5.5-10.75 1.75-16.5 3t-13.75 5.5T60.75 74q7.5 7 19 11.375t18.375 5.5T120 93.75Q177 101 232 94q15.75-2 22.375-3t18.125-5.375T291.25 74zm14.25 258.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5 12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5T88.75 412 70.5 401.125t-13-15.375q-6.25-24-14.25-73l1.5-4 4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2 9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875 10T291.75 288q-63 31.5-152.5 22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875T25 232.75q-2.25-12.5-6.625-37.5t-7-40.375T5.5 118 0 78.5Q.75 72 4.375 66.375T12.25 57t11.25-7.5T35 43.875t12-4.625q31.25-11.5 78.25-16 94.75-9.25 169 12.5Q333 47.25 348 66.25q4 5 4.125 12.75t-1.375 13.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Struttura dell'Applicazione
+                </span>
+              
+            
+            Viste
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link md-tabs__link--active">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Viste
+      </label>
+    
+    <a href="./" title="Viste" class="md-nav__link md-nav__link--active">
+      Viste
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-viste" title="Creazione di viste" class="md-nav__link">
+    Creazione di viste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sicurezza" title="Sicurezza" class="md-nav__link">
+    Sicurezza
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizzazione-delle-viste" title="Organizzazione delle viste" class="md-nav__link">
+    Organizzazione delle viste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viste-di-rendering" title="Viste di rendering" class="md-nav__link">
+    Viste di rendering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-nei-controllori-controller" title="Rendering nei controllori (controller)" class="md-nav__link">
+    Rendering nei controllori (controller)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-nei-widget" title="Rendering nei widget" class="md-nav__link">
+    Rendering nei widget
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-nelle-viste-view" title="Rendering nelle viste (view)" class="md-nav__link">
+    Rendering nelle viste (view)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viste-denominate" title="Viste denominate" class="md-nav__link">
+    Viste denominate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accesso-ai-dati-nelle-viste" title="Accesso ai dati nelle viste" class="md-nav__link">
+    Accesso ai dati nelle viste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condivisione-dei-dati-tra-le-viste" title="Condivisione dei dati tra le viste" class="md-nav__link">
+    Condivisione dei dati tra le viste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" title="Layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazioen-di-un-layout" title="Creazioen di un layout" class="md-nav__link">
+    Creazioen di un layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accesso-ai-dati-nei-layout" title="Accesso ai dati nei layout" class="md-nav__link">
+    Accesso ai dati nei layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzando-i-layout" title="Utilizzando i layout" class="md-nav__link">
+    Utilizzando i layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-nidificati" title="Layout nidificati" class="md-nav__link">
+    Layout nidificati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usare-i-blocchi" title="Usare i blocchi" class="md-nav__link">
+    Usare i blocchi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-del-view-components" title="Utilizzo del "View Components"" class="md-nav__link">
+    Utilizzo del "View Components"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impostazione-dei-titoli-delle-pagine" title="Impostazione dei titoli delle pagine" class="md-nav__link">
+    Impostazione dei titoli delle pagine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registrazione-dei-meta-tag" title="Registrazione dei meta tag" class="md-nav__link">
+    Registrazione dei meta tag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registrazione-dei-tag-nei-collegamenti" title="Registrazione dei tag nei collegamenti" class="md-nav__link">
+    Registrazione dei tag nei collegamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizzazione-degli-eventi" title="Visualizzazione degli eventi" class="md-nav__link">
+    Visualizzazione degli eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-di-pagine-statiche" title="Rendering di pagine statiche" class="md-nav__link">
+    Rendering di pagine statiche
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-viste" title="Creazione di viste" class="md-nav__link">
+    Creazione di viste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sicurezza" title="Sicurezza" class="md-nav__link">
+    Sicurezza
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizzazione-delle-viste" title="Organizzazione delle viste" class="md-nav__link">
+    Organizzazione delle viste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viste-di-rendering" title="Viste di rendering" class="md-nav__link">
+    Viste di rendering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-nei-controllori-controller" title="Rendering nei controllori (controller)" class="md-nav__link">
+    Rendering nei controllori (controller)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-nei-widget" title="Rendering nei widget" class="md-nav__link">
+    Rendering nei widget
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-nelle-viste-view" title="Rendering nelle viste (view)" class="md-nav__link">
+    Rendering nelle viste (view)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viste-denominate" title="Viste denominate" class="md-nav__link">
+    Viste denominate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accesso-ai-dati-nelle-viste" title="Accesso ai dati nelle viste" class="md-nav__link">
+    Accesso ai dati nelle viste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condivisione-dei-dati-tra-le-viste" title="Condivisione dei dati tra le viste" class="md-nav__link">
+    Condivisione dei dati tra le viste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" title="Layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazioen-di-un-layout" title="Creazioen di un layout" class="md-nav__link">
+    Creazioen di un layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accesso-ai-dati-nei-layout" title="Accesso ai dati nei layout" class="md-nav__link">
+    Accesso ai dati nei layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzando-i-layout" title="Utilizzando i layout" class="md-nav__link">
+    Utilizzando i layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-nidificati" title="Layout nidificati" class="md-nav__link">
+    Layout nidificati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usare-i-blocchi" title="Usare i blocchi" class="md-nav__link">
+    Usare i blocchi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-del-view-components" title="Utilizzo del "View Components"" class="md-nav__link">
+    Utilizzo del "View Components"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impostazione-dei-titoli-delle-pagine" title="Impostazione dei titoli delle pagine" class="md-nav__link">
+    Impostazione dei titoli delle pagine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registrazione-dei-meta-tag" title="Registrazione dei meta tag" class="md-nav__link">
+    Registrazione dei meta tag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registrazione-dei-tag-nei-collegamenti" title="Registrazione dei tag nei collegamenti" class="md-nav__link">
+    Registrazione dei tag nei collegamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizzazione-degli-eventi" title="Visualizzazione degli eventi" class="md-nav__link">
+    Visualizzazione degli eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-di-pagine-statiche" title="Rendering di pagine statiche" class="md-nav__link">
+    Rendering di pagine statiche
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://bitbucket.org/xnerd/yii2docs/src/default/docs/application-structure/sub-views.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="viste-views">Viste (views)<a class="headerlink" href="#viste-views" title="Permanent link">&para;</a></h1>
+<p>Le viste sono parte dell'architettura MVC. Essi sono responsabili del codice per la presentazione dei dati agli utenti finali. In un'applicazione Web, le visualizzazioni vengono generalmente create in termini di modelli di visualizzazione che sono file di script PHP contenenti principalmente codice HTML e codice PHP. Sono gestiti dalla "view application component“ che fornisce metodi comunemente utilizzati per facilitare la composizione e la visualizzazione delle view.</p>
+<h2 id="creazione-di-viste">Creazione di viste<a class="headerlink" href="#creazione-di-viste" title="Permanent link">&para;</a></h2>
+<p>Come già detto, una vista è semplicemente uno script PHP mescolato con codice HTML e PHP. Di seguito è riportata una vista che presenta un modulo di accesso. Come potete vedere, il codice PHP viene visualizzato per generare contenuto dinamico, come il titolo della pagina e il modulo, mentre il codice HTML li organizza in una pagina HTML presentabile.</p>
+<pre><code>&lt;?php
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $form yii\widgets\ActiveForm */
+/* @var $model app\models\LoginForm */
+
+$this-&gt;title = 'Login';
+?&gt;
+&lt;h1&gt;&lt;?= Html::encode($this-&gt;title) ?&gt;&lt;/h1&gt;
+
+&lt;p&gt;Please fill out the following fields to login:&lt;/p&gt;
+
+&lt;?php $form = ActiveForm::begin(); ?&gt;
+    &lt;?= $form-&gt;field($model, 'username') ?&gt;
+    &lt;?= $form-&gt;field($model, 'password')-&gt;passwordInput() ?&gt;
+    &lt;?= Html::submitButton('Login') ?&gt;  
+&lt;?php ActiveForm::end(); ?&gt;
+</code></pre>
+<p>All'interno di una vista, è possibile accedere a alla variabile <code>$this</code>, che si riferisce alla gestione della struttura di visualizzazione e al rendering di questo modello di visualizzazione.</p>
+<p>Oltre a <code>this</code>, ci possono essere altre variabili predefinite in una vista, come <code>$model</code> nell'esempio precedente. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Le variabili predefinite sono elencate in un blocco di commento all'inizio di una vista in modo che possano essere riconosciute da IDE. E' anche un buon modo per documentare le tue opinioni.</p>
+</div>
+<h2 id="sicurezza">Sicurezza<a class="headerlink" href="#sicurezza" title="Permanent link">&para;</a></h2>
+<p>Quando si creano viste che generano pagine HTML, è importante che i dati provenienti dagli utenti finali siano controllati. Altrimenti la tua applicazione potrebbe essere soggetta agli attachi di <strong><em> scripting cross-site </em></strong>.</p>
+<p>Per visualizzare un testo semplice, abbiamo bisogno di codificarlo come prima cosa chiamando <strong><em> yii \ helpers \ Html :: encode() </em></strong>. Ad esempio, il seguente codice codifica il nome utente prima di visualizzarlo:</p>
+<pre><code>&lt;?php
+use yii\helpers\Html;
+?&gt;
+
+&lt;div class="username"&gt;
+    &lt;?= Html::encode($user-&gt;name) ?&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Per visualizzare il contenuto HTML, utilizzare <strong><em> yii \ helpers \ HtmlPurifier </em></strong> per filtrare prima il contenuto. Ad esempio, il codice seguente filtra il contenuto postale prima di visualizzarlo:</p>
+<pre><code>&lt;?php
+use yii\helpers\HtmlPurifier;
+?&gt;
+
+&lt;div class="post"&gt;
+    &lt;?= HtmlPurifier::process($post-&gt;text) ?&gt;
+&lt;/div&gt;
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Mentre HTML Purifier fa un ottimo lavoro per rendere l'output sicuro, non è veloce. E' opportuno considerare la memorizzazione nella cache del risultato di filtraggio se la tua applicazione richiede elevate prestazioni.</p>
+</div>
+<h2 id="organizzazione-delle-viste">Organizzazione delle viste<a class="headerlink" href="#organizzazione-delle-viste" title="Permanent link">&para;</a></h2>
+<p>Come controllers e models, ci sono convenzioni per organizzare le viste:</p>
+<ul>
+<li>Per le visualizzazioni rese da un controller, dovrebbero essere posizionate sotto la directory <code>@app/views/ControllerID</code> per impostazione predefinita, dove <code>ControllerID</code> si riferisce all'ID del controller. Ad esempio, se la classe controller è <code>PostController</code>, la directory sarebbe <code>@app/views/post</code>; se è <code>PostCommentController</code>, la directory sarebbe <code>app/views/post-comment</code>. Nel caso in cui il controller appartiene a un modulo della directory si troverebbe <code>views/ControllerID</code> sotto <strong><em> yii \ base \ Module :: basePath </em></strong>.</li>
+<li>Per le viste rese da un widget, dovrebbero essere posizionate sotto la <code>WidgetPath/views</code> directory per impostazione predefinita, dove si trova la directory <code>WidgetPath</code> contenente il file della classe widget.</li>
+<li>Per le visualizzazioni rese da altri oggetti, si consiglia di seguire la convenzione simile a quella relativa ai widget.</li>
+</ul>
+<p>E' possibile personalizzare queste directory di visualizzazione predefinite, usando il metodo <strong><em> yii \ base \ ViewContextInterface :: getViewPath() </em></strong> dei controller o dei widget.</p>
+<h2 id="viste-di-rendering">Viste di rendering<a class="headerlink" href="#viste-di-rendering" title="Permanent link">&para;</a></h2>
+<p>E' possibile restituire visualizzazioni in controller, widget o in qualsiasi altro luogo chiamando metodi di rendering delle visualizzazioni. Questi metodi condividono una firma simile mostrata come segue.</p>
+<pre><code>/**
+* @param string $view view name or file path, depending on the actual rendering method
+* @param array $params the data to be passed to the view
+* @return string rendering result
+*/
+methodName($view, $params = [])
+</code></pre>
+<h2 id="rendering-nei-controllori-controller">Rendering nei controllori (controller)<a class="headerlink" href="#rendering-nei-controllori-controller" title="Permanent link">&para;</a></h2>
+<p>All'interno dei controllori, è possibile chiamare i seguenti metodi di controllo per restituire le view:</p>
+<ul>
+<li><strong><em>render()</em></strong>: restituisce una vista denominata e gli applica un layout al risultato di rendering.</li>
+<li><strong><em>renderPartial()</em></strong>: restituisce una vista denominata senza alcun layout.</li>
+<li><strong><em>renderAjax()</em></strong>: restituisce una vista denominata senza alcun layout e ci aggiunge tutti gli script e file JS / CSS registrati. Viene di solito usato come risposta alle richieste Web di AJAX.</li>
+<li><strong><em>renderFile()</em></strong>: restituisce una vista specificata in termini di percorso o alias del file di visualizzazione.</li>
+<li><strong><em>renderContent()</em></strong>: restituisce una stringa statica incorporandola nel layout attualmente applicabile.</li>
+</ul>
+<p>Per esempio:</p>
+<pre><code>namespace app\controllers;
+
+use Yii;
+use app\models\Post;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+
+class PostController extends Controller{
+
+    public function actionView($id){
+
+        $model = Post::findOne($id);
+        if ($model === null) {
+            throw new NotFoundHttpException;
+        }
+
+        // renders a view named "view" and applies a layout to it
+        return $this-&gt;render('view', [
+            'model' =&gt; $model,
+        ]);
+    }
+}
+</code></pre>
+<h2 id="rendering-nei-widget">Rendering nei widget<a class="headerlink" href="#rendering-nei-widget" title="Permanent link">&para;</a></h2>
+<p>Nei widget è possibile chiamare i seguneti widget per restituire le view:</p>
+<ul>
+<li><strong><em>render()</em></strong>: restituisce una vista denominata.</li>
+<li><strong><em>renderFile()</em></strong>: restituisce una vista specificata in termini di percorso o alias del file di visualizzazione.</li>
+</ul>
+<p>Per esempio:</p>
+<pre><code>namespace app\components;
+
+use yii\base\Widget;
+use yii\helpers\Html;
+
+class ListWidget extends Widget{
+
+    public $items = [];
+
+    public function run(){
+
+        // renders a view named "list"
+        return $this-&gt;render('list', [
+            'items' =&gt; $this-&gt;items,
+        ]);
+    }
+}
+</code></pre>
+<h2 id="rendering-nelle-viste-view">Rendering nelle viste (view)<a class="headerlink" href="#rendering-nelle-viste-view" title="Permanent link">&para;</a></h2>
+<p>E' possibile eseguire una visualizzazione in un'altra visione chiamando uno dei seguenti metodi forniti dal "view component":</p>
+<ul>
+<li><strong><em>render()</em></strong>: restituisce una vista denominata.</li>
+<li><strong><em>renderAjax()</em></strong>: restituisce una vista denominata e ci aggiunge tutti gli script e file JS / CSS registrati. Viene di solito usato come risposta alle richieste Web di AJAX.</li>
+<li><strong><em>renderFile()</em></strong>: restituisce una vista specificata in termini di percorso o alias del file di visualizzazione.</li>
+</ul>
+<p>Ad esempio, il codice riportato di seguito in una visualizzazione restituisce il file di visualizzazione <code>_overview.php</code> nella stessa directory della view attualmente resa. Ricorda che <code>$this</code> si riferisce al componente stesso di view:</p>
+<pre><code>&lt;?= $this-&gt;render('_overview') ?&gt;
+</code></pre>
+<h2 id="viste-denominate">Viste denominate<a class="headerlink" href="#viste-denominate" title="Permanent link">&para;</a></h2>
+<p>Un nome di visualizzazione viene convertito nel percorso del file di viisualizzazzione corrispondente in base alle seguenti regole:</p>
+<ul>
+<li>Un nome di visualizzazione può omettere il nome dell'estensione del file. In questo caso, <code>.php</code> verrà utilizzato come estensione. Ad esempio, il nome della vista <code>about</code> corrisponde al nome del file <code>about.php</code>.</li>
+<li>Se il nome della visualizzazione inizia con <code>//</code>, il percorso del file corrispondente dovrebbe essere <code>@app/views/ViewName</code>. Cioè, la vista viene visualizzata sotto il metodo <code>viewPath()</code>. Ad esempio,<code>//site/about</code> verrà convertito in <code>@app/views/site/about.php</code>.</li>
+<li>Se il nome della visualizzione inizia con <code>/</code>, il percorso del file viene formato prefigurando il nome della vista con il metodo <code>viewPath()</code> del modulo attualmente attivo. Se non esiste un modulo attivo, verrà utilizzato <code>@app/views/ViewName</code>. Ad esempio, <code>/user/create</code> verrà convertito in <code>@aap/modules/views/user/create.php</code> se attualmente il modulo attivo è <code>user</code>. Se non esiste un modulo attivo, il percorso del file di visualizzazione sarà <code>@app/views/user/create.php</code>.</li>
+<li>Se la vista viene eseguita con un "context" e implementa <strong><em> yii \ base \ ViewContextInterface </em></strong>, il percorso del file di visualizzazione viene formato prefigurando il percorso di visualizzazione del context con il nome della vista. Questo principalmente si applica ai punti di vista resti all'interno di controller e widget. Ad esempio, <code>about</code> verrà convertito <code>@app/views/site/about.php</code> se il contesto è il controller <code>SiteController</code>.</li>
+<li>Se una vista viene visualizzata in un'altra visualizzazione, la directory contenente l'altro file di visualizzazione sarà il prefisso al nuovo nome di visualizzazione per formare il percorso effettivo. Ad esempio, <code>item</code> verrà convertito in <code>@app/views/site/about.php</code> se viene visualizzato nella vista <code>@app/views/post/index.php</code>.</li>
+</ul>
+<p>Secondo le regole precedenti, la chiamata <code>$this-&gt;render('view')</code> in un controller <code>app\controllers\PostController</code> restituirà effettivamente il file di visualizzazione <code>@app/views/post/view.php</code>, mentre quando richiamiamo <code>$this-&gt;render('_overview')</code> di quella vista restituirà il file di visualizzazione <code>@app/views/post/_overview.php</code>.</p>
+<h2 id="accesso-ai-dati-nelle-viste">Accesso ai dati nelle viste<a class="headerlink" href="#accesso-ai-dati-nelle-viste" title="Permanent link">&para;</a></h2>
+<p>Esistono due approcci per accedere ai dati all'interno di una vista: push e pull.</p>
+<p>Passando i dati come secondo parametro ai metodi di views, significa che si sta utilizzando l'approccio push. I dati dovrebbero essere rappresentati come una matrice di coppie nome-valore. Quando viene eseguito il rendering della view, la funzione PHP <code>extract()</code> viene usata quando voglia che il nostro array venga estratto e associato a variabili distinte nella nostra vista. Ad esempio, il seguente codice di rendering della vista di un controller invierà due varabili alla views <code>report</code>: <code>$foo = \</code> e <code>$bar = 2</code>.</p>
+<pre><code>echo $this-&gt;render('report', [
+    'foo' =&gt; 1,
+    'bar' =&gt; 2,
+]);
+</code></pre>
+<p>L'approccio pull permetterà di recuperare attivamente i dati dalla componente di visualizzazione o da altri oggetti accessibili nelle viste ( ad esempio <code>Yii::$app</code>). Utilizzando il seguente codice come esempio, all'interno della vista è possibile ottenere l'oggetto controller dall'espressione <code>$this-&gt;context</code>. Di conseguenza, è possibile accedere a qualsiasi proprietà o metodo del controller nella views di <code>report</code>, ad esempio l'ID del controller come mostrato di seguito:</p>
+<pre><code>The controller ID is: &lt;?= $this-&gt;context-&gt;id ?&gt;
+</code></pre>
+<p>L'approccio push è solitamente il modo preferito perchè permette di accedere ai dati delle viste, poichè rende le visualizzazioni meno dipendenti dagli oggetti di contesto. Il suo svantaggio è che è necessario costruire manualmente l'array di dati tutto il tempo, che potrebbe diventare noioso e soggetto a errori se una vista è condivisa e resa in luoghi diversi.</p>
+<h2 id="condivisione-dei-dati-tra-le-viste">Condivisione dei dati tra le viste<a class="headerlink" href="#condivisione-dei-dati-tra-le-viste" title="Permanent link">&para;</a></h2>
+<p>Il componente di visualizzazione fornisce la proprietà <strong><em>params</em></strong> che è possibile utilizzare per condividere i dati tra le viste. 
+Ad esempio, in una view <code>about</code>, è possibile avere il seguente codice che specifica il segmento corrente dei breadcrumb.</p>
+<pre><code>$this-&gt;params['breadcrumbs'][] = 'About Us';
+</code></pre>
+<p>Quando nel file di layout puoi visualizzare i breadcrumb usando i dati passati attraverso parametri:</p>
+<pre><code>&lt;?= yii\widgets\Breadcrumbs::widget([
+    'links' =&gt; isset($this-&gt;params['breadcrumbs']) ? $this-&gt;params['breadcrumbs'] : [],
+]) ?&gt;
+</code></pre>
+<h2 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">&para;</a></h2>
+<p>I layout sono un tipo speciale di viste che rappresentano le parti comune di più viste. Ad esempio, le pagine per la maggior parte delle applicazioni Web condividono la stessa intestazione e il piè di pagina, Mentre è possibile ripetere la stessa intestazione e il piè di pagina ad ogni vista, un modo migliore è quello di farlo una volta in un layout e poi incorporarlo ad esso.</p>
+<h2 id="creazioen-di-un-layout">Creazioen di un layout<a class="headerlink" href="#creazioen-di-un-layout" title="Permanent link">&para;</a></h2>
+<p>I layout sono anche viste, ed essendo delle viste possono essere create come in modo molto simile. Per impostazione predefinita, i layout sono memorizzati nella directory <code>@app/views/layouts</code>. Per i layout utilizzati all'interno di una modulo, devono essere memorizzati nella directory <code>views/layouts</code> sotto <code>yii \ base \ Module :: basePath</code>. E' possibile personalizzare la directory di layout predefinita configurando la proprietà <code>yii \ base \ Module :: layoutPath</code> dell'applicazione o dei moduli.</p>
+<p>L'esempio seguente mostra come appare un layout. Si noti che a scopo illustrativo, abbiamo notevolmente semplificato il codice nel layout. In pratica, potresti voler aggiungere più contenuti ad esso, come "head tag", menu principale, ecc.</p>
+<pre><code>&lt;?php
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $content string */
+?&gt;
+&lt;?php $this-&gt;beginPage() ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"/&gt;
+    &lt;?= Html::csrfMetaTags() ?&gt;
+    &lt;title&gt;&lt;?= Html::encode($this-&gt;title) ?&gt;&lt;/title&gt;
+    &lt;?php $this-&gt;head() ?&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;?php $this-&gt;beginBody() ?&gt;
+    &lt;header&gt;My Company&lt;/header&gt;
+    &lt;?= $content ?&gt;
+    &lt;footer&gt;&amp;copy; 2014 by My Company&lt;/footer&gt;
+&lt;?php $this-&gt;endBody() ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;?php $this-&gt;endPage() ?&gt;
+</code></pre>
+<p>Come puoi vedere, il layout genera i tag HTML comuni a tutte le pagine. All'interno della sezione <code>&lt;body&gt;</code>, il layout richiama la variabile <code>$content</code> che rappresenta il risultato del rendering delle viste del contenuto e viene inserito nel layout quando viene chiamato <strong><em>yii \ base \ Controller :: render()</em></strong>.</p>
+<p>La maggior parte dei layout dovrebbe chiamare i seguenti metodi come mostrato nel codice sopra. Questi metodi attivano principalmente eventi relativi al processo di rendering in modo che gli script e i tag registrati in altri luoghi possano essere iniettati correttamente nelle posizioni in cui vengono chiamati questi metodi.</p>
+<ul>
+<li><strong><em>beginPage()</em></strong>: questo metodo dovrebbe essere chiamato all'inizio del layout. Si innesca l'evento <strong><em>l'EVENT_BEGIN_PAGE</em></strong>  che indica l'inizio di una pagina.</li>
+<li><strong><em>endPage()</em></strong>: questo metodo dovrebbe essere chiamato alla file del layout. Si innesca l'evento <strong><em>l'EVENT_END_PAGE</em></strong> che indica la fine di una partita.</li>
+<li><strong><em>head()</em></strong>: questo metodo dovrebbe essere chiamato all'interno del tag <code>&lt;head&gt;</code> nella sezione di una pagina HTML. Genera un segnaposto che verrà sostituito con il codice HTML head registrato ( ad es. Tag link, meta tag) quando una pagina termina in rendering.</li>
+<li><strong><em>beginBody()</em></strong>: questo metodo dovrebbe essere chiamato all'inizio della sezione <code>&lt;body&gt;</code>. Si innesca l'evento <strong><em>l'EVENT_BEGIN_BODY</em></strong> e genera una segnaposto che sarà sostituito dal codice HTML registrato ( ad es. Javascript()) destinato al corpo del nostro programma.</li>
+<li><strong><em>endBody()</em></strong>: questo metodo dovrebbe essere chiamato alla fine della sezione <code>&lt;body&gt;</code>. Si innesca l'evento <strong><em>l'EVENT_END_BODY</em></strong> e genera un segnaposto che sarà sostituito dal codice HTML registrato  ( ad es. Javascript()) destinato alla posizione finale del corpo del programma.</li>
+</ul>
+<h2 id="accesso-ai-dati-nei-layout">Accesso ai dati nei layout<a class="headerlink" href="#accesso-ai-dati-nei-layout" title="Permanent link">&para;</a></h2>
+<p>All'interno di un layout, hai accesso a due variabili predefinite: <code>$this</code> e <code>$content</code>, Il primo si riferisce alla componente della vista, come nelle viste normali, mentre il secondo contiene il risultato del rendering di una vista del contenuto che viene renderizzata chiamando il metodo <code>render()</code> nei controller.</p>
+<p>Se si desidera accedere ad altri dati nei layout, è necessario utilizzare il metodo pull ( come descritto nella sottosezione "Accesso ai dati nella vista ). Se si desidera trasferire dati da una vista di contenuto a un layout, è possibile utilizzare il metodo descritto nella sottosezione "Viste di condivisione dati".</p>
+<h2 id="utilizzando-i-layout">Utilizzando i layout<a class="headerlink" href="#utilizzando-i-layout" title="Permanent link">&para;</a></h2>
+<p>Come descritto nella sottosezione "Rendering nei Controller, quando si esegue il rendering di una vista chiamando il metodo <strong><em>render()</em></strong> in un controller, verrà applicato un layout al risultato del rendering. Per impostazione predefinita, verrà utilizzato il layout <code>@app/views/layouts/main.php</code>.</p>
+<p>E' possibile utilizzare un layout diverso configurando il layout <strong><em>yii \ base \ Application :: $</em></strong> o <strong><em>yii \ base \ Controller :: $</em></strong>. Il primo regola il layout utilizzato da tutti i controller, mentre il secondo sovrascrive il primo per i singoli controller. Ad esempio, il codice seguente rende il controller <code>post</code> da utilizzare come layout durante il rendering delle sue viste. ( url file: <code>@app/views/layouts/post.php</code>). Altri controller, supponendo che la loro proprietà <code>layout</code> non sia stata modificata, utilizzeranno comunque <code>@app/views/layouts/main.php</code> il layout di default.</p>
+<pre><code>namespace app\controllers;
+
+use yii\web\Controller;
+
+class PostController extends Controller{
+
+    public $layout = 'post';
+
+    // ...
+}
+</code></pre>
+<p>Per i controllori appartenenti a un modulo, è possibile configurare anche la proprietà di layout del modulo per utilizzare un particolare layout per questi controller.</p>
+<p>Poichè la proprietà <code>layout</code> può essere configurata a diversi livelli ( controller,moduli,applicazione ), dietro la scena, Yii prende due passaggi per determinare qual è il file di layout effettivo utilizzato per un particolare controller.</p>
+<p>Nel primo passaggio, determina il valore di layout e il modulo di contesto:</p>
+<ul>
+<li>Se la proprietà di layout del controller <strong><em> yii \ base \ Controller :: $ </em></strong> non è <code>null</code>, è consigliabile usarlo come valore di layout e il modulo del controller come modulo del contesto.</li>
+<li>Se la proprietà di layout del controller <strong><em> yii \ base \ Controller :: $ </em></strong> è <code>null</code>, conviene cercare tra tutti i moduli degli antenati ( inclusa l'applicazione stessa ) del controller e trovare il primo modulo la cui proprietà layout non è <code>null</code>. Usa quel modulo e il suo valore di layout come modulo di contesto e valore scelto. Se tale modulo non può essere trovato, significa che non verrà applicato alcun layout.</li>
+</ul>
+<p>Nella seconda fase, determina il file di layout effettivo di base al valore di layout e al modulo di contesto determinato nel primo passaggio. Il valore di layout può essere:</p>
+<ul>
+<li>un percorso alias ( es. <code>@app/views/layouts/main</code>).</li>
+<li>un percorso assoluto ( es. <code>/main</code>): il valore del layout inizia con una barra. Il file di layout effettivo verrà cercato sotto <strong><em> yii \ base \ Application :: layoutPath </em></strong> dell'applicazione che viene impostato automaticamente <code>@app/views/layouts</code>.</li>
+<li>un percorso relativo (es. <code>main</code>): il file di layout effettivo verrà cercato sotto <strong><em>yii \ base \ Module :: layoutPath</em></strong> del modulo di contesto, che per impostazione predefinita si trova nella directory <code>views/layouts</code> sotto <strong><em> yii \ base \ Module :: basePath </em></strong>.</li>
+<li>il valore booleano <code>false</code>: non verrà applicato alcun layout.</li>
+</ul>
+<p>Se il valore di layout non contiene un'estensione di file, utilizzerà quella predefinita <code>.php</code>.</p>
+<h2 id="layout-nidificati">Layout nidificati<a class="headerlink" href="#layout-nidificati" title="Permanent link">&para;</a></h2>
+<p>A volte potresti voler annidare un layout in un altro. Ad esempio, in diverse sezioni di un sito Web, se si desidera utilizzare layout diversi, mentre tutti questi layout condividono lo stesso layout di base che genera la struttura generale della pagina HTML5. E' possibile raggiungere questo obiettivo chiamando il metodo <strong><em>beginContent()</em></strong> e <strong><em>endContent()</em></strong> nei layout figli come il seguente:</p>
+<pre><code>&lt;?php $this-&gt;beginContent('@app/views/layouts/base.php'); ?&gt;
+
+...child layout content here...
+
+&lt;?php $this-&gt;endContent(); ?&gt;
+</code></pre>
+<p>Come mostrato sopra, il contenuto del layout figlio deve essere racchiuso tra <strong><em>beginContent()</em></strong> e <strong><em>endContent()</em></strong>. Il parametro passato a <strong><em>beginContent()</em></strong> specifica qual è il layout principale. Può essere un file di layout o un alias. </p>
+<p>Utilizzando l'approccio sopra, è possibile nidificare i layout in più livelli.</p>
+<h2 id="usare-i-blocchi">Usare i blocchi<a class="headerlink" href="#usare-i-blocchi" title="Permanent link">&para;</a></h2>
+<p>I blocchi consentono di specificare il contenuto della vista in un punto mentre lo si visualizza in un altro. Sono spesso usati insieme ai layout. Ad esempio, è possibile definire un blocco in una vista del contenuto e visualizzarlo nel layout.</p>
+<p>I metodi si chiamano <strong><em>beginBlock()</em></strong> e <strong><em>endBlock()</em></strong>. E' possibile accedere al blocco tramite <code>$view-&gt;blocks[$blockID]</code>, dove a <code>$blockID</code> verrà assegnato un ID univoco al momento della sua definizione.</p>
+<p>L'esempio seguente mostra come utilizzare i blocchi per personalizzare parti specifiche di un layout in una vista del contenuto.</p>
+<p>Innanzitutto, in una vista del contenuto, possiamo definire uno o più blocchi ( come segue ):</p>
+<pre><code>...
+
+&lt;?php $this-&gt;beginBlock('block1'); ?&gt;
+
+...content of block1...
+
+&lt;?php $this-&gt;endBlock(); ?&gt;
+
+...
+
+&lt;?php $this-&gt;beginBlock('block3'); ?&gt;
+
+...content of block3...
+
+&lt;?php $this-&gt;endBlock(); ?&gt;
+</code></pre>
+<p>Quindi nella vista layout possiamo visualizzare i blocchi se sono disponibili o visualizzare i contenuti predefiniti se un blocco non è definito.</p>
+<pre><code>...
+&lt;?php if (isset($this-&gt;blocks['block1'])): ?&gt;
+    &lt;?= $this-&gt;blocks['block1'] ?&gt;
+&lt;?php else: ?&gt;
+    ... default content for block1 ...
+&lt;?php endif; ?&gt;
+
+...
+
+&lt;?php if (isset($this-&gt;blocks['block2'])): ?&gt;
+    &lt;?= $this-&gt;blocks['block2'] ?&gt;
+&lt;?php else: ?&gt;
+    ... default content for block2 ...
+&lt;?php endif; ?&gt;
+
+...
+
+&lt;?php if (isset($this-&gt;blocks['block3'])): ?&gt;
+    &lt;?= $this-&gt;blocks['block3'] ?&gt;
+&lt;?php else: ?&gt;
+    ... default content for block3 ...
+&lt;?php endif; ?&gt;
+...
+</code></pre>
+<h2 id="utilizzo-del-view-components">Utilizzo del "View Components"<a class="headerlink" href="#utilizzo-del-view-components" title="Permanent link">&para;</a></h2>
+<p>Visualizza componenti ( o View COmponents) offre molte funzionalità relative alla vista. Mentre è possibile ottenere i componenti di visualizzazione creando singole istanze di <strong><em> yii \ base \ View </em></strong> o della relativa classe figlio, nella maggior parte dei casi si utilizzerà principalmente il componente <code>view</code> dell'applicazione. E' possibile configurare questo componente nella configurazione dell'applicazione come la seguente:</p>
+<pre><code>[
+    // ...
+    'components' =&gt; [
+        'view' =&gt; [
+            'class' =&gt; 'app\components\View',
+        ],
+        // ...
+    ],
+]
+</code></pre>
+<p>i componenti View forniscono le seguenti utili funzionalità relative alla vista, ciascuna descritta in maggiori dettagli in una sezione separata:</p>
+<ul>
+<li><strong><em>tematizzazione(theming)</em></strong>: consente di sviluppare e modificare il tema per il proprio sito Web.</li>
+<li><strong><em>catching dei frammenti</em></strong>: consente di memorizzare nella cache un frammento all'interno di una pagina Web.</li>
+<li><strong><em>gestione degli script client</em></strong>: supporta la registrazione e il rendering di CSS e JavaScript.</li>
+<li><strong><em>gestione dei pacchetti di asset</em></strong>: supporta la registrazione e il rendering di pacchetti e di risorse.</li>
+<li><strong><em>motori di template alternativi</em></strong>: consente di utilizzare altri motori di template, come <strong><em>Twig</em></strong>, <strong><em>Smarty</em></strong>.</li>
+</ul>
+<p>E' inoltre possibile utilizzare frequentamente le seguenti funzionalità secondarie ma utili durante lo sviluppo di pagine Web.</p>
+<h2 id="impostazione-dei-titoli-delle-pagine">Impostazione dei titoli delle pagine<a class="headerlink" href="#impostazione-dei-titoli-delle-pagine" title="Permanent link">&para;</a></h2>
+<p>Ogni pagina Web dovrebbe avere un titolo. Normalmente il tag del titolo viene visualizzato in un layout. Tuttavia, in pratica il titolo è spesso determinato nelle visualizzazioni del contenuto piuttosto che nei layout. Per risolvere questo problema, <strong><em>yii \ web \ View</em></strong> fornisce la proprietà <strong><em>title</em></strong> per consentire il passaggio delle informazioni sul titolo dalle viste del contenuto ai layout.</p>
+<p>Per utilizzare questa funzione, in ciascuna vista del contenuto, è possibile impostare il titolo della pagina come segue:</p>
+<pre><code>&lt;?php
+$this-&gt;title = 'My page title';
+?&gt;
+</code></pre>
+<p>Quindi, nei layout, assicurati di avere il seguente codice nella sezione <code>&lt;head&gt;</code>:</p>
+<pre><code>&lt;title&gt;&lt;?= Html::encode($this-&gt;title) ?&gt;&lt;/title&gt;
+</code></pre>
+<h2 id="registrazione-dei-meta-tag">Registrazione dei meta tag<a class="headerlink" href="#registrazione-dei-meta-tag" title="Permanent link">&para;</a></h2>
+<p>Le pagine Web di solito hanno bisogno di generare vari meta tag richiesti da parti diverse. Come i titoli di pagina, i meta tag compaiono nella sezione <code>&lt;head&gt;</code> e di solito sono generati nei layout.</p>
+<p>Se si desidera specificare quali metatag generati nelle viste del contenuto, è possibile chiamare <strong><em>yii \ web \ View :: registerMetaTag()</em></strong> in una vista del contenuto, come la seguente:</p>
+<pre><code>&lt;?php
+$this-&gt;registerMetaTag(['name' =&gt; 'keywords', 'content' =&gt; 'yii, framework, php']);
+?&gt;
+</code></pre>
+<p>Il codice sopra riportato registrerà un meta tag "keywords" con il componente di visualizzazione. Il meta tag registrato viene visualizzato dopo che il layout ha completato il rendering. Il seguente codice HTML verrà generato e inserito nel punto in cui si chiama <strong><em> yii \ web \ View :: head() </em></strong> nei layout:</p>
+<pre><code>&lt;meta name="keywords" content="yii, framework, php"&gt;
+</code></pre>
+<p>Nota che se chiami più volte <strong><em> yii \ web \ View :: registerMetaTag() </em></strong>, registrerà più meta tag, indipendentemente dal fatto che i meta tag siano uguali o meno.
+Per assicurarti che ci sia solo una singola istanza di un tipo di meta tag, puoi specificare una chiave come secondo parametro quando chiami il metodo. Ad esempio, il seguente codice registra due meta tag "description".
+Tuttavia, verrà reso solo il secondo.</p>
+<pre><code>$this-&gt;registerMetaTag(['name' =&gt; 'description', 'content' =&gt; 'This is my cool website made with Yii!'], 'description');
+$this-&gt;registerMetaTag(['name' =&gt; 'description', 'content' =&gt; 'This website is about funny raccoons.'], 'description');
+</code></pre>
+<h2 id="registrazione-dei-tag-nei-collegamenti">Registrazione dei tag nei collegamenti<a class="headerlink" href="#registrazione-dei-tag-nei-collegamenti" title="Permanent link">&para;</a></h2>
+<p>Come i meta tag, i tag di collegamento sono utili in molti casi, come personalizzare le favicon, puntare al feed RSS. Puoi lavorare con tag di collegamento in modo simile ai meta tag usando <strong><em> yii \ web \ View :: registerLinkTag() </em></strong>. Ad esempio, in una vista del contenuto, puoi registrare un tag link come segue:</p>
+<pre><code>$this-&gt;registerLinkTag([
+    'title' =&gt; 'Live News for Yii',
+    'rel' =&gt; 'alternate',
+    'type' =&gt; 'application/rss+xml',
+    'href' =&gt; 'http://www.yiiframework.com/rss.xml/',
+]);
+</code></pre>
+<p>Il codice precedente comporterà</p>
+<pre><code>&lt;link title="Live News for Yii" rel="alternate" type="application/rss+xml" href="http://www.yiiframework.com/rss.xml/"&gt;
+</code></pre>
+<p>Simile al metodo <strong><em>registerMetaTag()</em></strong>, è possibile specificare una chiave quando si chiama <strong><em>registerLinkTag()</em></strong> per evitare di generare tag di collegamento ripetuti.</p>
+<h2 id="visualizzazione-degli-eventi">Visualizzazione degli eventi<a class="headerlink" href="#visualizzazione-degli-eventi" title="Permanent link">&para;</a></h2>
+<p>I componenti di visualizzazione attivano numerosi eventi durante il processo di visualizzazione della vista. E' possibile rispondere a questi eventi per iniettare il contenuto di viste o elaborare i risultati del rendering prima che vengano inviati agli utenti finali.</p>
+<p>-<strong><em>EVENT_BEFORE_RENDER</em></strong>: attivato dall'inizio del rendering di un file in un controller. I gestori di questo evento possono impostare <strong><em>yii \ base \ ViewEvent :: $isValid</em></strong> ad essere <code>false</code> per annullare il processo di rendering. 
+- <strong><em>EVENT_AFTER_RENDER</em></strong>: attivato dopo il rendering di un file tramite la chiamata del metodo <strong><em>yii \ base \ View :: afterRender()</em></strong>. I gestori di questo evento possono ottenere il risultato del rendering tramite l'output <strong><em>yii \ base \ ViewEvent :: $</em></strong> e possono modificare questa proprietà per modificare il risultato del rendering.
+- <strong><em>EVENT_BEGIN_PAGE</em></strong>: attivato dalla chiamata del metodo <strong><em>yii \ base \ View :: beginPage()</em></strong> nei layout.
+- <strong><em>EVENT_END_PAGE</em></strong>: attivato dalla chiamata del metodo <strong><em>yii \ base \ View :: endPage()</em></strong> nei layout.
+- <strong><em>EVENT_BEGIN_BODY</em></strong>: attivato dalla chiamata del metodo <strong><em>yii \ base \ View :: beginBody()</em></strong> nei layout.
+- <strong><em>EVENT_END_BODY</em></strong>: attivato dalla chiamata del metodo <strong><em>yii \ base \ View :: endBody()</em></strong> nei layout. </p>
+<p>Ad esempio, il codice seguente applica la data corrente alla fine del corpo della pagina:</p>
+<pre><code>\Yii::$app-&gt;view-&gt;on(View::EVENT_END_BODY, function () {
+    echo date('Y-m-d');
+});
+</code></pre>
+<h2 id="rendering-di-pagine-statiche">Rendering di pagine statiche<a class="headerlink" href="#rendering-di-pagine-statiche" title="Permanent link">&para;</a></h2>
+<p>Le pagine statiche si riferiscono a quelle pagine Web il cui contenuto principale è per lo più statico senza la necessità di accedere ai dati dinamici trasferiti dai controller.</p>
+<p>E' possibile generare pagine statiche inserendo il proprio codice nella vista e quindi utilizzando il codice come segue in un controller:</p>
+<pre><code>public function actionAbout(){
+
+    return $this-&gt;render('about');
+
+}
+</code></pre>
+<p>Se un sito Web contiene molte pagine statiche, sarebbe molto noioso ripetere il codice simile molte volte. Per risolvere questo problema, è possibile introdurre un'azione autonoma denominata <strong><em> yii \ base \ ViewAction </em></strong> in un controller. Per esempio:</p>
+<pre><code>namespace app\controllers;
+
+use yii\web\Controller;
+
+class SiteController extends Controller{
+
+    public function actions(){
+
+        return [
+            'page' =&gt; [
+                'class' =&gt; 'yii\web\ViewAction',
+            ],
+        ];
+    }
+}
+</code></pre>
+<p>Ora se crei una vista <code>about</code> sotto la directory <code>@app/views/site/pages</code>, sarai in grado di visualizzare questa vista con il seguente URL:</p>
+<pre><code>http://localhost/index.php?r=site%2Fpage&amp;view=about
+</code></pre>
+<p>Il parametro <code>view</code> passato in modo <code>GET</code> dice al metodo <strong><em>yii \ web \ ViewAction</em></strong> quale vista è richiesta. L'azione cercherà quindi questa vista sotto la directory <code>@app/views/site/pages</code>. E' possibile configurare <strong><em>yii \ web \ ViewAction :: $viewPrefix</em></strong> per modificare la directory per la ricerca di queste viste.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-models/" title="Modelli" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Modelli
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-modules/" title="Moduli" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Moduli
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

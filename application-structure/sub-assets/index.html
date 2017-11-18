@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Assets - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="352" height="448" viewBox="0 0 352 448" id="bitbucket"><path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875 1.5q-9.75-4.25-13.375-14.5t-.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875 6.875 16.875zm27.75-5.25q-3.5-26.75-28.25-41T154 165.25q-15.75 7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2 38-21t12.5-42zM291.25 74q-5-6.75-14-11.125t-14.5-5.5T245 54.25q-72.75-11.75-141.5.5-10.75 1.75-16.5 3t-13.75 5.5T60.75 74q7.5 7 19 11.375t18.375 5.5T120 93.75Q177 101 232 94q15.75-2 22.375-3t18.125-5.375T291.25 74zm14.25 258.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5 12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5T88.75 412 70.5 401.125t-13-15.375q-6.25-24-14.25-73l1.5-4 4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2 9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875 10T291.75 288q-63 31.5-152.5 22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875T25 232.75q-2.25-12.5-6.625-37.5t-7-40.375T5.5 118 0 78.5Q.75 72 4.375 66.375T12.25 57t11.25-7.5T35 43.875t12-4.625q31.25-11.5 78.25-16 94.75-9.25 169 12.5Q333 47.25 348 66.25q4 5 4.125 12.75t-1.375 13.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Struttura dell'Applicazione
+                </span>
+              
+            
+            Assets
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link md-tabs__link--active">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://bitbucket.org/xnerd/yii2docs" title="Go to repository" class="md-source" data-md-source="bitbucket">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#bitbucket" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Bitbucket
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Assets
+      </label>
+    
+    <a href="./" title="Assets" class="md-nav__link md-nav__link--active">
+      Assets
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definizione-dei-pacchetti-di-asset" title="Definizione dei pacchetti di asset" class="md-nav__link">
+    Definizione dei pacchetti di asset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posizioni-delle-risorse" title="Posizioni delle risorse" class="md-nav__link">
+    Posizioni delle risorse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dipendenze-delle-risorse" title="Dipendenze delle risorse" class="md-nav__link">
+    Dipendenze delle risorse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opzioni-degli-asset" title="Opzioni degli asset" class="md-nav__link">
+    Opzioni degli asset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-dei-pacchetti-di-asset" title="Utilizzo dei pacchetti di asset" class="md-nav__link">
+    Utilizzo dei pacchetti di asset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundle-di-asset-dinamici" title="Bundle di asset dinamici" class="md-nav__link">
+    Bundle di asset dinamici
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definizione-dei-pacchetti-di-asset" title="Definizione dei pacchetti di asset" class="md-nav__link">
+    Definizione dei pacchetti di asset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posizioni-delle-risorse" title="Posizioni delle risorse" class="md-nav__link">
+    Posizioni delle risorse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dipendenze-delle-risorse" title="Dipendenze delle risorse" class="md-nav__link">
+    Dipendenze delle risorse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opzioni-degli-asset" title="Opzioni degli asset" class="md-nav__link">
+    Opzioni degli asset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-dei-pacchetti-di-asset" title="Utilizzo dei pacchetti di asset" class="md-nav__link">
+    Utilizzo dei pacchetti di asset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundle-di-asset-dinamici" title="Bundle di asset dinamici" class="md-nav__link">
+    Bundle di asset dinamici
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://bitbucket.org/xnerd/yii2docs/src/default/docs/application-structure/sub-assets.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="risorse-assets">Risorse (Assets)<a class="headerlink" href="#risorse-assets" title="Permanent link">&para;</a></h1>
+<p>Una risorsa in Yii è un file a cui è possibile fare riferimento in una pagina Web. Può essere un file CSS, un file JavaScript, un'immagine o un file video, ecc.. Le risorse si trovano in directory accessibili dal Web e sono servite direttamente dai server Web.</p>
+<p>Spesso è preferibile gestire le risorse a livello di programmazione. Ad esempio, quando si utilizza il widget <strong><em>yii \ jui \ DatePicker</em></strong> in una pagina, verranno automaticamente inclusi i file CSS e JavaScript richiesti, invece di chiedere di trovare manualmente questi file e includerli. E quando si aggiorna il widget a una nuova versione, verrà automaticamente utilizzata la nuova versione dei file di asset. In questo tutorial, descriveremo la potente capacità di gestione degli asset fornita da Yii.</p>
+<h2 id="definizione-dei-pacchetti-di-asset">Definizione dei pacchetti di asset<a class="headerlink" href="#definizione-dei-pacchetti-di-asset" title="Permanent link">&para;</a></h2>
+<p>I pacchetti di asset sono specificati come classi PHP che si estendono da <strong><em>yii \ web \ AssetBundle</em></strong>. Il nome di un bundle è semplicemente il suo nome relativo alla classe PHP. una classe di asset bundle dovrebbe essere autoloadable. Solitamente specifica dove si trovano le risorse, quali file CSS e JavaScript, e ci dice anche quale pacchetto dipende da altri bundle.</p>
+<p>Il seguente codice definisce il pacchetto di asset principale utilizzato dal progetto del modello base:</p>
+<pre><code>&lt;?php
+
+namespace app\assets;
+
+use yii\web\AssetBundle;
+
+class AppAsset extends AssetBundle{
+
+    public $basePath = '@webroot';
+    public $baseUrl = '@web';
+    public $css = [
+        'css/site.css',
+        ['css/print.css', 'media' =&gt; 'print'],
+    ];
+    public $js = [
+    ];
+    public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+    ];
+}
+</code></pre>
+<p>La classe <code>AppAsset</code> specifica che il file di asset si trovano nella directory <code>@webroot</code> che corrisponde all'URL <code>@web</code>; il pacchetto contiene un singolo file CSS <code>css/site.css</code>. e nessun file JavaScript. Il pacchetto dipende da altri due bundle: <strong><em>yii \ base \ YiiAsset</em></strong> e <strong><em>yii \ bootstrap \ BootstrapAsset</em></strong>. Una spiegazione più dettagliata della proprietà <strong><em>yii \ web \ AssetBundle</em></strong> può essere trovata nel modo seguente:</p>
+<ul>
+<li><strong><em>sourcePath</em></strong>: specifica la directory root che contiene i file di asset in questo pacchetto. Questa proprietà deve essere impostata se la directory principale non è accessibile dal Web. In caso contrario, è necessario impostare la proprietà <strong><em>basePath</em></strong> e  la proprietà <strong><em>baseurl</em></strong>. Gli alias di percorso possono essere utilizzati.</li>
+<li><strong><em>basePath</em></strong>: specifica una directory accessibile dal Web che contiene i file di asset in questo pacchetto. Quando si specifica la proprietà <strong><em>sourcePath</em></strong>, il gestore risorse pubblica le risorse di questo pacchetto in una directory accessibile dal Web, e sovrascrive di conseguenza questa proprietà. È necessario impostarla se i file delle risorse sono già in una directory accessibile dal Web e non è necessario pubblicare gli asset. Gli alias di percorso possono essere utilizzati.</li>
+<li><strong><em>baseUrl</em></strong>: specifica l'URL corrispondente alla directory basePath. Come basePath , se si specifica la proprietà sourcePath , il gestore risorse pubblicherà le risorse e sovrascriverà di conseguenza questa proprietà. Gli alias di percorso possono essere utilizzati.</li>
+<li><strong><em>css</em></strong>: specifica un array che elenca i file CSS contenuti in questo pacchetto. Si noti che solo la barra "/" deve essere utilizzata come separatore di directory. Ogni file può essere specificato da solo come stringa o in un array insieme ai tag di attributo e ai relativi valori.</li>
+<li>
+<p><strong><em>js</em></strong>: specifica un array che elenca i file JavaScript contenuti in questo pacchetto. Il formato di questo array è lo stesso di quello del css . Ogni file JavaScript può essere specificato in uno dei seguenti due formati:</p>
+<ol>
+<li>un percorso relativo che rappresenta un file JavaScript locale (es js/main.js.). Il percorso effettivo del file può essere determinato anteponendo <strong><em>yii \ web \ AssetManager :: $ basePath</em></strong> al percorso relativo e l'URL effettivo del file può essere determinato anteponendo <strong><em>yii \ web \ AssetManager :: $ baseUrl</em></strong> al percorso relativo.</li>
+<li>un URL assoluto che rappresenta un file JavaScript esterno. Ad esempio <code>http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js</code> o <code>//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js.</code>.</li>
+</ol>
+</li>
+<li>
+<p><strong><em>depends</em></strong>: specifica un array che elenca i nomi dei bundle di asset da cui dipende questo bundle (sarà spiegato nei prossimi paragrafi).</p>
+</li>
+<li><strong><em>jsOptions</em></strong>: specifica le opzioni che verranno passate al metodo <strong><em>yii \ web \ View :: registerJsFile ()</em></strong> quando viene chiamato per registrare ogni file JavaScript in questo pacchetto.</li>
+<li><strong><em>cssOptions</em></strong>: specifica le opzioni che verranno passate al metodo <strong><em>yii \ web \ View :: registerCssFile ()</em></strong> quando viene chiamato per registrare ogni file CSS in questo pacchetto.</li>
+<li><strong><em>publishOptions</em></strong>: specifica le opzioni che verranno passate al metodo <strong><em>yii \ web \ AssetManager :: publish ()</em></strong> quando viene chiamato per pubblicare i file di risorse dall'origine in una directory Web. Viene utilizzato solo se si specifica la proprietà <strong><em>sourcePath</em></strong>.</li>
+</ul>
+<h2 id="posizioni-delle-risorse">Posizioni delle risorse<a class="headerlink" href="#posizioni-delle-risorse" title="Permanent link">&para;</a></h2>
+<p>Le risorse, in base alla loro posizione, possono essere classificate come:</p>
+<ul>
+<li><strong><em>source assets</em></strong>: i file delle risorse si trovano insieme al codice sorgente PHP che non può essere direttamente accessibile via Web. Per utilizzare le source assets in una pagina, devono essere copiati in una directory Web e trasformati nelle cosiddette risorse pubbliche. Questo processo è chiamato <strong><em>asset publishing</em></strong> che verrà descritto nei paragrafi successivi.</li>
+<li><strong><em>risorse pubblicate</em></strong>: i file delle risorse si trovano in una directory Web e possono quindi essere accessibili direttamente via Web.</li>
+<li><strong><em>risorse esterne</em></strong>: i file delle risorse si trovano su un server Web diverso da quello che ospita la tua applicazione Web.</li>
+</ul>
+<p>Quando si definisce una classe bundle di asset, se si specifica la proprietà <strong><em>sourcePath</em></strong>, significa che tutte le risorse elencate, stanno utilizzando percorsi relativi e saranno considerate come source assets. Se non si specifica questa proprietà, significa che tali risorse sono risorse pubblicate (public assets) (è necessario specificare <strong><em>basePath</em></strong> e <strong><em>baseUrl</em></strong> per consentire a Yii di sapere dove si trovano).</p>
+<p>Si consiglia di posizionare le risorse appartenenti a un'applicazione in una directory Web, per evitare il processo di pubblicazione di asset non necessario e non voluto. Questo è il motivo per cui <code>`AppAssetper</code>,nell'esempio precedente, gli viene specificato il <strong><em>basePath</em></strong>, anziché il <strong><em>sourcePath</em></strong>.</p>
+<p>Per le estensioni, poiché le loro risorse si trovano insieme al loro codice sorgente nelle directory che non sono accessibili dal Web, è necessario specificare la proprietà <strong><em>sourcePath</em></strong> quando si definiscono le classi di pacchetti di asset relativi ad essi.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Non utilizzare il percorso di origine <code>@webroot/assetscome</code>. Questa directory viene utilizzata come impostazione predefinita dal gestore risorse, per salvare i file di asset pubblicati dalla loro posizione di origine. Qualsiasi contenuto in questa directory, è considerato temporaneamente e potrebbe essere soggetto a rimozione.</p>
+</div>
+<h2 id="dipendenze-delle-risorse">Dipendenze delle risorse<a class="headerlink" href="#dipendenze-delle-risorse" title="Permanent link">&para;</a></h2>
+<p>Quando includi più file CSS o JavaScript in una pagina Web, devono seguire un certo ordine per evitare problemi di sovrascrittura. Ad esempio, se si utilizza un widget dell'interfaccia utente jQuery in una pagina Web, è necessario assicurarsi che il file jQuery JavaScript sia incluso prima del file JavaScript dell'interfaccia jQuery. Chiamiamo questi controlli "dipendenze tra le risorse".</p>
+<p>Le dipendenze delle risorse vengono principalmente specificate tramite la proprietà <strong><em>yii \ web \ AssetBundle :: $ depends</em></strong>. Nell'esempio <code>AppAsset</code>, il fascio di asset dipende da altri due fasci di attività:<strong><em>Yii \ web \ YiiAsset</em></strong> e <strong><em>Yii \ bootstrap \ BootstrapAsset</em></strong>, il che significa che i file CSS e JavaScript in <code>AppAsset</code> saranno incluse dopo quei file nei due pacchetti dipendenti.</p>
+<p>Le dipendenze delle risorse sono transitive. Ciò significa che se il pacchetto A dipende da B, che dipende da C, A dipenderà anche da C.</p>
+<h2 id="opzioni-degli-asset">Opzioni degli asset<a class="headerlink" href="#opzioni-degli-asset" title="Permanent link">&para;</a></h2>
+<p>È possibile specificare le proprietà <strong><em>cssOptions</em></strong> e <strong><em>jsOptions</em></strong> per personalizzare il modo in cui i file CSS e JavaScript sono inclusi in una pagina. I valori di queste proprietà verranno passati ai metodi <strong><em>yii \ web \ View :: registerCssFile ()</em></strong> e <strong><em>yii \ web \ View :: registerJsFile ()</em></strong>, quando verranno chiamati dalla view per includere file CSS e JavaScript.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le opzioni impostate in una classe di bundle di asset, si applicano a ogni file CSS / JavaScript nel pacchetto. Se si desidera utilizzare diverse opzioni per file diversi, è necessario utilizzare il formato indicato sopra o creare pacchetti di risorse separati e utilizzare un set di opzioni in ciascun pacchetto.</p>
+</div>
+<p>Ad esempio, per includere in modo condizionale un file CSS per i browser con IE9 (Internet Explorer 9) o inferiore, è possibile utilizzare la seguente opzione:</p>
+<pre><code>public $cssOptions = ['condition' =&gt; 'lte IE9'];
+</code></pre>
+<p>Ciò causerà l'inclusione di un file CSS nel pacchetto utilizzando i seguenti tag HTML:</p>
+<pre><code>&lt;!--[if lte IE9]&gt;
+&lt;link rel="stylesheet" href="path/to/foo.css"&gt;
+&lt;![endif]--&gt;
+</code></pre>
+<p>Per racchiudere i tag di collegamento CSS generati all'interno di <code>noscript&gt;</code>, puoi configurare <code>cssOptions</code> come segue:</p>
+<pre><code>public $cssOptions = ['noscript' =&gt; true];
+</code></pre>
+<p>Per includere un file JavaScript nella sezione head di una pagina, puoi utilizzare la seguente opzione:</p>
+<pre><code>public $jsOptions = ['position' =&gt; \yii\web\View::POS_HEAD];
+</code></pre>
+<p>Per impostazione predefinita, quando un pacchetto di risorse viene pubblicato, tutti i contenuti nella directory specificata da <strong><em>yii \ web \ AssetBundle :: $ sourcePath</em></strong> verranno pubblicati. È possibile personalizzare questo comportamento configurando la proprietà <strong><em>publishOptions</em></strong>. Ad esempio, per pubblicare solo una o alcune sottodirectory di <strong><em>yii \ web \ AssetBundle :: $ sourcePath</em></strong>, è possibile effettuare quanto segue nella classe bundle degli asset:</p>
+<pre><code>&lt;?php
+namespace app\assets;
+
+use yii\web\AssetBundle;
+
+class FontAwesomeAsset extends AssetBundle {
+
+    public $sourcePath = '@bower/font-awesome'; 
+    public $css = [ 
+        'css/font-awesome.min.css', 
+    ];
+    public $publishOptions = [
+        'only' =&gt; [
+            'fonts/',
+            'css/',
+        ]
+    ];
+}
+</code></pre>
+<p>L'esempio precedente definisce un pacchetto di risorse per il pacchetto "fontawesome" . Specificando l'opzione di pubblicazione <code>only</code>, verranno pubblicate solo le sottodirectory <code>fonts</code>e <code>css</code>.</p>
+<h2 id="utilizzo-dei-pacchetti-di-asset">Utilizzo dei pacchetti di asset<a class="headerlink" href="#utilizzo-dei-pacchetti-di-asset" title="Permanent link">&para;</a></h2>
+<p>Per utilizzare un pacchetto di risorse, dobbiamo registrarlo con una vista chiamando il metodo <strong><em>yii \ web \ AssetBundle :: register ()</em></strong>. Ad esempio, in un modello di vista è possibile registrare un pacchetto di asset come il seguente:  </p>
+<pre><code>use app\assets\AppAsset;
+AppAsset::register($this);  // $this represents the view object
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Il metodo <strong><em>yii \ web \ AssetBundle :: register()</em></strong> restituisce un oggetto bundle di asset contenente le informazioni sulle risorse pubblicate, come  <strong><em>basePath</em></strong> e <strong><em>baseUrl</em></strong>.</p>
+</div>
+<p>Se si sta registrando un pacchetto di risorse in altri luoghi, è necessario fornire l'oggetto di visualizzazione necessario. Ad esempio, per registrare un pacchetto di risorse in una classe widget , è possibile ottenere l'oggetto vista per <code>$this-&gt;view</code>.</p>
+<p>Quando un bundle di asset è registrato con una view, Yii registrerà tutti i suoi bundle di asset dipendenti. Se un pacchetto di risorse si trova in una directory inaccessibile attraverso il Web, verrà pubblicato in una directory Web. Successivamente, quando la vista esegue il rendering di una pagina, genererà tag <code>&lt;link&gt;</code>e  <code>&lt;script&gt;</code> per i file CSS e JavaScript elencati nei pacchetti registrati. L'ordine di questi tag è determinato dalle dipendenze tra i bundle registrati e dall'ordine delle risorse elencate nelle proprietà <strong><em>yii \ web \ AssetBundle :: $ css</em></strong> e <strong><em>yii \ web \ AssetBundle :: $ js</em></strong>.</p>
+<h2 id="bundle-di-asset-dinamici">Bundle di asset dinamici<a class="headerlink" href="#bundle-di-asset-dinamici" title="Permanent link">&para;</a></h2>
+<p>Essendo un normale pacchetto di risorse di classe PHP, è possibile avere alcune logiche aggiuntive ad esso correlate e può modificare dinamicamente i parametri interni. Ad esempio: è possibile utilizzare una sofisticata libreria JavaScript, che fornisce internazionalizzazione in file di origine separati: ciascuno per ciascuna lingua supportata. Quindi dovrai aggiungere un particolare file ".js" alla tua pagina per far funzionare la traduzione della libreria. Questo può essere ottenuto sovrascrivendo il metodo yii \ web \ AssetBundle :: init () :</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-widget/" title="Widget" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Widget
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-extensions/" title="Estensioni" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Estensioni
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
