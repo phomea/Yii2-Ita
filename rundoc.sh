@@ -9,6 +9,8 @@ if [ "$1" = "release" ]; then
     . yii2docs/bin/activate
     echo "🌼   >>>  Installazione requirements"
     pip install -r requirements.txt
+    echo "🔶   >>>  Deploy on Github"
+    mkdocs gh-deploy
 else
     . yii2docs/bin/activate
 fi
