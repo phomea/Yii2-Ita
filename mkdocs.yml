@@ -1,0 +1,46 @@
+site_name: YII2 - La guida italiana
+pages:
+- Homepage: 'index.md'
+- Come Iniziare:    
+    - Installazione di Yii: 'getting-started/sub-installing-Yii.md'
+    - Iniziamo con un "Ciao": 'getting-started/sub-saying-hello.md'
+    - Lavoriamo con i moduli: 'getting-started/sub-working-with-forms.md'
+    - Lavoriamo con i database: 'getting-started/sub-working-with-database.md'
+    - Generare codice con Gii: 'getting-started/sub-generate-code-gii.md'
+    - Guardiamo avanti: 'getting-started/sub-looking-ahead.md'
+- Struttura dell'Applicazione:
+    - Panoramica: 'application-structure/sub-overview.md'
+    - Entry Script: 'application-structure/sub-entry-script.md'
+    - Applicazioni: 'application-structure/sub-applications.md' 
+    - Componenti applicativi: 'application-structure/sub-application-components.md'
+    - Controllori: 'application-structure/sub-controllers.md'
+    - Modelli: 'application-structure/sub-models.md'
+    - Viste: 'application-structure/sub-views.md'
+    - Moduli: 'application-structure/sub-modules.md'
+    - Filtri: 'application-structure/sub-filters.md'
+    - Widget: 'application-structure/sub-widget.md'
+    - Assets: 'application-structure/sub-assets.md'
+    - Estensioni: 'application-structure/sub-extensions.md'    
+theme: 'material'
+extra:
+      primary: 'teal'
+
+markdown_extensions:
+    - admonition
+    - def_list
+    - toc:
+        permalink: true
+    - footnotes
+    - meta
+
+extra:
+  feature:
+    tabs: true
+  palette:
+    primary: 'teal'
+    accent: 'deep orange'
+
+site_author: Lorenzo Milicia
+copyright: © MIT - Lorenzo Milicia - 2017
+repo_url: https://bitbucket.org/xnerd/yii2docs
+repo_name: Bitbucket
