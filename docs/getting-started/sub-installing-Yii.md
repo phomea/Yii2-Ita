@@ -1,6 +1,6 @@
 # Installazione di Yii
 
-E’ possibile installare Yii in due modi. Installarlo trami Composer oppure installarlo da un file di archivio. Il primo è il metodo migliore, in quanto consente di installare nuove estensioni oppure di aggiornare Yii in modo semplice.
+E’ possibile installare Yii in due modi. Installarlo tramite Composer oppure installarlo da un file di archivio. Il primo è il metodo migliore, in quanto consente di installare nuove estensioni oppure di aggiornare Yii in modo semplice.
 In questa e nelle prossime sezioni descriveremo come installare Yii e di come implementare tutte le sue funzionalità e i suoi utilizzi. Esistono due versioni di Yii: la versione base (basic) e la versione avanzata(advanced). La basic è diversa dall’advanced principalmente per l’organizzazione del codice. Nel primo avremo una struttura MVC, mentre nell’advanced avremmo due strutture MVC separate. La parte “backend” e la parte “frontend”.
 
 Info: Il modello della versione basic è adatto allo sviluppo del 90% delle applicazioni Web. Se sei nuovo a Yii, ti consigliamo di attenersi al modello della versione basic per la sua semplicità e le sue funzionalità.

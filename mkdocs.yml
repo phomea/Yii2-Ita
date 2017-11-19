@@ -20,7 +20,16 @@ pages:
     - Filtri: 'application-structure/sub-filters.md'
     - Widget: 'application-structure/sub-widget.md'
     - Assets: 'application-structure/sub-assets.md'
-    - Estensioni: 'application-structure/sub-extensions.md'    
+    - Estensioni: 'application-structure/sub-extensions.md'
+- Gestione delle richieste:
+    - Panoramica sulla gestione delle richieste: 'handling-requests/sub-request-overview.md'
+    - Bootstrapping: 'handling-requests/sub-bootstrapping.md'
+    - Routing e creazione degli URL: 'handling-requests/sub-routing-url-creation.md'
+    - Requests: 'handling-requests/sub-requests.md'
+    - Responses: 'handling-requests/sub-responses.md'
+    - Session & Cookies: 'handling-requests/sub-session-cookies.md'
+    - Gestione degli errori: 'handling-requests/sub-handling-error.md'
+    - Registrazione: 'handling-requests/sub-logging.md'
 theme: 'material'
 extra:
       primary: 'teal'
