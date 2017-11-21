@@ -52,6 +52,6 @@ extra:
 site_author: Lorenzo Milicia
 copyright: © MIT - Lorenzo Milicia - 2017
 repo_url: https://github.com/Milicia4/Yii2-Ita.git
-google_analytics: ['UA-109845735-1', 'https://milicia4.github.io/Yii2-Ita/']
+google_analytics: ['UA-109845735-1', 'auto']
 site_description: Guida italiana del framework PHP Yii 2.0
 repo_name: GitHub
