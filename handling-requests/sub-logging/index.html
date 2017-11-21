@@ -658,10 +658,95 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Registrazione
+      </label>
     
     <a href="./" title="Registrazione" class="md-nav__link md-nav__link--active">
       Registrazione
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#registrazione-dei-messaggi" title="Registrazione dei messaggi" class="md-nav__link">
+    Registrazione dei messaggi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registrare-gli-obiettivi" title="Registrare gli obiettivi" class="md-nav__link">
+    Registrare gli obiettivi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtro-dei-messaggi" title="Filtro dei messaggi" class="md-nav__link">
+    Filtro dei messaggi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formattazione-del-messaggio" title="Formattazione del messaggio" class="md-nav__link">
+    Formattazione del messaggio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traccia-dei-messaggi-tramite-livelli" title="Traccia dei messaggi tramite livelli" class="md-nav__link">
+    Traccia dei messaggi tramite livelli
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flushing-e-esportazione-dei-messaggi" title="Flushing e esportazione dei messaggi" class="md-nav__link">
+    Flushing e esportazione dei messaggi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attivare-i-registri-del-registro" title="Attivare i registri del registro" class="md-nav__link">
+    Attivare i registri del registro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-nuovi-obiettivi" title="Creazione di nuovi obiettivi" class="md-nav__link">
+    Creazione di nuovi obiettivi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-profiling" title="Performance profiling" class="md-nav__link">
+    Performance profiling
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -685,6 +770,78 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#registrazione-dei-messaggi" title="Registrazione dei messaggi" class="md-nav__link">
+    Registrazione dei messaggi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registrare-gli-obiettivi" title="Registrare gli obiettivi" class="md-nav__link">
+    Registrare gli obiettivi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtro-dei-messaggi" title="Filtro dei messaggi" class="md-nav__link">
+    Filtro dei messaggi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formattazione-del-messaggio" title="Formattazione del messaggio" class="md-nav__link">
+    Formattazione del messaggio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traccia-dei-messaggi-tramite-livelli" title="Traccia dei messaggi tramite livelli" class="md-nav__link">
+    Traccia dei messaggi tramite livelli
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flushing-e-esportazione-dei-messaggi" title="Flushing e esportazione dei messaggi" class="md-nav__link">
+    Flushing e esportazione dei messaggi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attivare-i-registri-del-registro" title="Attivare i registri del registro" class="md-nav__link">
+    Attivare i registri del registro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-nuovi-obiettivi" title="Creazione di nuovi obiettivi" class="md-nav__link">
+    Creazione di nuovi obiettivi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-profiling" title="Performance profiling" class="md-nav__link">
+    Performance profiling
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -699,9 +856,237 @@
                   <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/handling-requests/sub-logging.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Registrazione</h1>
-                
-                
+                <h1 id="registrazione">Registrazione<a class="headerlink" href="#registrazione" title="Permanent link">&para;</a></h1>
+<p>Yii fornisce un potente framework di registrazione che è altamente personalizzabile ed estensibile. Utilizzando questo framework, puoi facilmente registrare vari tipi di messaggi, filtrarli e riunirli a target diversi, come file, database, e-mail.</p>
+<p>L'utilizzo del framework di registrazione Yii prevede i passaggi seguenti:</p>
+<ul>
+<li>Registra i messaggi di log in vari punti del tuo codice;</li>
+<li>Configurare le destinazioni dei registri nella configurazione dell'applicazione per filtrare ed esportare i messaggi di registro;</li>
+<li>Esaminare i messaggi registrati filtrati esportati da destinazioni diverse (ad esempio il debugger Yii ).</li>
+</ul>
+<p>In questa sezione, descriveremo principalmente i primi due passaggi.</p>
+<h2 id="registrazione-dei-messaggi">Registrazione dei messaggi<a class="headerlink" href="#registrazione-dei-messaggi" title="Permanent link">&para;</a></h2>
+<p>Registrare i messaggi di registro è semplice, come chiamare uno dei seguenti metodi di registrazione:</p>
+<ul>
+<li><strong><em>Yii :: trace()</em></strong>: registra un messaggio per tracciare come funziona un pezzo di codice. Questo è principalmente per uso di sviluppo.</li>
+<li><strong><em>Yii :: info()</em></strong>: registra un messaggio che trasmette alcune informazioni utili.</li>
+<li><strong><em>Yii :: warning()</em></strong>: registra un messaggio di avviso che indica che è accaduto qualcosa di inaspettato;</li>
+<li><strong><em>Yii :: error()</em></strong>: registra un errore fatale che dovrebbe essere esaminato il prima possibile.</li>
+</ul>
+<p>Questi metodi di registrazione, permettono di reigstrare i messaggi di registro a vari livelli e categorie di gravità. Condividono la stessa firma di funzione <code>function</code> (<code>$message</code>, <code>$category = 'application'</code>), dove <code>$message</code> sta per il messaggio di registro da registrare, mentre <code>$category</code> è la categoria del messaggio di registro. Il codice nell'esempio seguente registra un messaggio di traccia sotto la categoria predefinita application:</p>
+<pre><code>Yii::trace('start calculating average revenue');
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>I messaggi di registro possono essere stringhe e anche dati complessi, come matrici o oggetti. È responsabilità degli obiettivi di registro gestire adeguatamente i messaggi di registro. Per impostazione predefinita, se un messaggio di registro non è una stringa, verrà esportato come stringa chiamando <strong><em>yii \ helpers \ VarDumper :: export()</em></strong>.</p>
+</div>
+<p>Per organizzare e filtrare meglio i messaggi di registro, si consiglia di specificare una categoria appropriata per ciascun messaggio di registro. È possibile scegliere uno schema di denominazione gerarchico per categorie, che renderà più semplice per le destinazioni di registro filtrare i messaggi in base alle loro categorie. Uno schema di denominazione semplice ma efficace consiste nell'utilizzare la costante magica PHP <strong><em><strong>METHOD</strong></em></strong> per i nomi delle categorie. Questo è anche l'approccio utilizzato nel codice del core Yii. Per esempio,</p>
+<pre><code>Yii::trace('start calculating average revenue', __METHOD__);
+</code></pre>
+<p>La costante <strong><em><strong>METHOD</strong></em></strong>  viene valutata come il nome del metodo (preceduto dal nome completo della classe) in cui appare la costante. Ad esempio, è uguale alla stringa <code>'app\controllers\RevenueController::calculate'</code> se la suddetta linea di codice è chiamata all'interno di questo metodo.</p>
+<h2 id="registrare-gli-obiettivi">Registrare gli obiettivi<a class="headerlink" href="#registrare-gli-obiettivi" title="Permanent link">&para;</a></h2>
+<p>Una destinazione del log è un'istanza della classe <strong><em>yii \ log \ Target</em></strong> o della sua classe figlio. Filtra i messaggi di registro in base ai livelli di gravità e alle categorie e quindi li esporta su un supporto. Ad esempio, una destinazione del database esporta i messaggi di log filtrati in una tabella di database, mentre una destinazione di posta elettronica esporta i messaggi di registro in indirizzi di posta elettronica specificati.</p>
+<p>È possibile registrare più destinazioni di registro in un'applicazione configurandole tramite il componente <code>log</code> dell'applicazione nella configurazione dell'applicazione, come nell'esempio seguente:</p>
+<pre><code>return [
+    // the "log" component must be loaded during bootstrapping time
+    'bootstrap' =&gt; ['log'],
+
+    'components' =&gt; [
+        'log' =&gt; [
+            'targets' =&gt; [
+                [
+                    'class' =&gt; 'yii\log\DbTarget',
+                    'levels' =&gt; ['error', 'warning'],
+                ],
+                [
+                    'class' =&gt; 'yii\log\EmailTarget',
+                    'levels' =&gt; ['error'],
+                    'categories' =&gt; ['yii\db\*'],
+                    'message' =&gt; [
+                    'from' =&gt; ['log@example.com'],
+                    'to' =&gt; ['admin@example.com', 'developer@example.com'],
+                    'subject' =&gt; 'Database errors at example.com',
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Il componente <code>log</code> deve essere caricato durante il tempo in cui è attivo il componente <code>bootstrap</code>,in modo che possa inviare prontamente messaggi di log alle destinazioni. Questo è il motivo per cui è elencato nella matrice <code>bootstrap</code> come nell'esempio mostrato sopra.</p>
+</div>
+<p>Nel codice precedente, due destinazioni di registro sono registrate nella proprietà <strong><em>yii \ log \ Dispatcher :: $ target</em></strong>:</p>
+<ul>
+<li>il primo target seleziona i messaggi di errore e di avviso e li salva in una tabella del database;</li>
+<li>il secondo target seleziona i messaggi di errore nelle categorie di cui iniziano i nomi <code>yii\db\</code> e li invia in un messaggio di posta elettronica a entrambi <code>admin@example.com</code> e <code>developer@example.com</code>.</li>
+</ul>
+<p>Yii viene fornito con i seguenti obiettivi di registro incorporati.</p>
+<ul>
+<li><strong>yii \ log \ DbTarget</strong>: memorizza i messaggi di log in una tabella di database.</li>
+<li><strong>yii \ log \ EmailTarget</strong>: invia messaggi di log a indirizzi di posta elettronica pre-specificati.</li>
+<li><strong>yii \ log \ FileTarget</strong>: salva i messaggi di log nei file.</li>
+<li><strong>yii \ log \ SyslogTarget</strong>: salva i messaggi di log in syslog chiamando la funzione PHP <code>syslog()</code>.</li>
+</ul>
+<p>Di seguito, descriveremo le caratteristiche comuni a tutti gli obiettivi di registro.</p>
+<h2 id="filtro-dei-messaggi">Filtro dei messaggi<a class="headerlink" href="#filtro-dei-messaggi" title="Permanent link">&para;</a></h2>
+<p>Per ciascuna destinazione del registro, è possibile configurare le proprietà dei livelli e delle categorie <strong>yii \ log \ Target ::</strong> per specificare i livelli di gravità e le categorie dei messaggi che l'obiettivo deve elaborare.</p>
+<p>La proprietà <strong>yii \ log \ Target :: levels</strong> accettano una matrice costituita da uno o più dei seguenti valori:</p>
+<ul>
+<li><code>error</code>: corrispondente ai messaggi registrati da <strong>Yii :: error ()</strong>.</li>
+<li><code>warning</code>: corrispondente ai messaggi registrati da <strong>Yii :: warning ()</strong>.</li>
+<li><code>info</code>: corrispondente ai messaggi registrati da <strong>Yii :: info ()</strong>.</li>
+<li><code>trace</code>: corrisponde ai messaggi registrati da <strong>Yii :: trace ()</strong>.</li>
+<li><code>profile</code>: corrispondente ai messaggi registrati da <strong>Yii :: beginProfile ()</strong> e <strong>Yii :: endProfile ()</strong> , che verranno spiegati in maggior dettaglio nella sottosezione "Profiling".</li>
+</ul>
+<p>Se non si specifica la proprietà <strong>yii \ log \ Target :: levels</strong>, significa che la destinazione elaborerà i messaggi di qualsiasi livello di gravità.</p>
+<p>La proprietà <strong>categories</strong> accetta un array costituito da nomi o pattern di categorie messaggi. Una destinazione elaborerà solo i messaggi la cui categoria può essere trovata o corrispondere a uno dei modelli in questo array. Un modello di categoria è un prefisso del nome della categoria con un asterisco <code>*</code> all'estremità. Un nome di categoria corrisponde a un modello di categoria se inizia con lo stesso prefisso del modello. Ad esempio, <strong>yii\db\Command::execute</strong> e <strong>yii\db\Command::query</strong> vengono utilizzati come nomi di categorie per i messaggi di registro registrati nella classe <strong>yii \ db \ Command</strong>. Entrambi corrispondono allo schema <strong><em> yii\db* </em></strong>.</p>
+<p>Se non si specifica la proprietà delle categorie, significa che la destinazione elaborerà i messaggi di qualsiasi categoria.</p>
+<p>Oltre a inserire nella <strong>whitelist</strong> le categorie in base alla loro proprietà, è possibile aggiungere anche determinate categorie per la proprietà <code>except</code>. Se la categoria di un messaggio viene trovata o corrisponde a uno dei pattern in questa proprietà, NON verrà elaborata dalla destinazione.</p>
+<p>La seguente configurazione specifica che la destinazione deve elaborare solo i messaggi di errore e di avvertimento nelle categorie i cui nomi corrispondono a <strong><em>yii\db*</em></strong> o <strong><em> yii\web\HttpException:</em> </strong>*, ma non a quelli <strong><em> yii\web\HttpException:404 </em></strong>.</p>
+<pre><code>[
+    'class' =&gt; 'yii\log\FileTarget',
+    'levels' =&gt; ['error', 'warning'],
+    'categories' =&gt; [
+        'yii\db\*',
+        'yii\web\HttpException:*',
+    ],
+    'except' =&gt; [
+        'yii\web\HttpException:404',
+    ],
+]
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Quando viene rilevata un'eccezione HTTP dal gestore degli errori , verrà registrato un messaggio di errore con il nome della categoria nel formato di <strong>yii\web\HttpException:ErrorCode</strong>. Ad esempio, <strong>yii \ web \ NotFoundHttpException</strong> causerà un messaggio di errore di categoria <strong>yii\web\HttpException:404</strong>.</p>
+</div>
+<h2 id="formattazione-del-messaggio">Formattazione del messaggio<a class="headerlink" href="#formattazione-del-messaggio" title="Permanent link">&para;</a></h2>
+<p>Le destinazioni log esportano i messaggi di log filtrati in un determinato formato. Ad esempio, se si installa una destinazione del registro della classe <strong>yii \ log \ FileTarget</strong>, è possibile trovare un messaggio di registro simile al seguente nel <code>runtime/log/app.logfile</code>:</p>
+<pre><code>2014-10-04 18:10:15 [::1][][-][trace][yii\base\Module::getModule] Loading module: debug
+</code></pre>
+<p>Per impostazione predefinita, i messaggi di registro verranno formattati come segue da <strong>yii \ log \ Target :: formatMessage ()</strong>:</p>
+<pre><code>Timestamp [IP address][User ID][Session ID][Severity Level][Category] Message Text
+</code></pre>
+<p>È possibile personalizzare questo formato configurando la proprietà <strong>yii \ log \ Target :: $</strong> che accetta una chiamata PHP restituendo un prefisso con un messaggio personalizzato. Ad esempio, il codice seguente configura una destinazione del registro per aggiungere un prefisso a ciascun messaggio con l'ID utente corrente (l'indirizzo IP e l'ID sessione vengono rimossi per motivi di riservatezza).</p>
+<pre><code>[
+    'class' =&gt; 'yii\log\FileTarget',
+    'prefix' =&gt; function ($message) {
+        $user = Yii::$app-&gt;has('user', true) ? Yii::$app-&gt;get('user') : null;
+        $userID = $user ? $user-&gt;getId(false) : '-';
+        return "[$userID]";
+    }
+]
+</code></pre>
+<p>Oltre ai prefissi dei messaggi, gli obiettivi di registro aggiungono anche alcune informazioni di contesto a ciascun batch relativo ai messaggi di registro. Per impostazione predefinita, sono inclusi i valori di queste variabili PHP globali: <code>$_GET</code>, <code>$_POST</code>, <code>$_FILES</code>, <code>$_COOKIE</code>, <code>$_SESSION</code> e <code>$_SERVER</code>. È possibile modificare questo comportamento configurando la proprietà <strong>yii \ log \ Target :: $ logVars</strong> con i nomi delle variabili globali che si desidera includere dalla destinazione del registro. Ad esempio, la seguente configurazione di destinazione del registro specifica che solo il valore della variabile <code>$_SERVER</code> verrà aggiunta ai messaggi di registro.</p>
+<pre><code>[
+    'class' =&gt; 'yii\log\FileTarget',
+    'logVars' =&gt; ['_SERVER'],
+]
+</code></pre>
+<p>È possibile configurare <code>logVars</code> così che sia una matrice vuota per disabilitare completamente l'inclusione delle informazioni di contesto. Altrimenti se si desidera implementare il proprio modo di fornire informazioni di contesto, è possibile sovrascrivere il metodo <strong>yii \ log \ Target :: getContextMessage ()</strong>.</p>
+<h2 id="traccia-dei-messaggi-tramite-livelli">Traccia dei messaggi tramite livelli<a class="headerlink" href="#traccia-dei-messaggi-tramite-livelli" title="Permanent link">&para;</a></h2>
+<p>Durante lo sviluppo, è spesso preferibile vedere da dove proviene ogni messaggio di registro. Questo può essere ottenuto configurando la proprietà <strong>yii \ log \ Dispatcher :: traceLevel</strong> del componente <code>log</code> come la seguente:</p>
+<pre><code>return [
+    'bootstrap' =&gt; ['log'],
+    'components' =&gt; [
+        'log' =&gt; [
+            'traceLevel' =&gt; YII_DEBUG ? 3 : 0,
+            'targets' =&gt; [...],
+        ],
+    ],
+];
+</code></pre>
+<p>La configurazione dell'applicazione sopra imposta <strong>yii \ log \ Dispatcher :: traceLevel</strong> può essere 3 se <code>YII_DEBUG</code> è a 0 e se <code>YII_DEBUG</code> è off. Ciò significa che, se <code>YII_DEBUG</code> è attivo, ogni messaggio di registro verrà aggiunto con almeno 3 livelli dello stack di chiamate a cui viene registrato il messaggio di registro; e se <code>YII_DEBUG</code> è disattivato,non verranno incluse le informazioni sullo stack di chiamata.</p>
+<h2 id="flushing-e-esportazione-dei-messaggi">Flushing e esportazione dei messaggi<a class="headerlink" href="#flushing-e-esportazione-dei-messaggi" title="Permanent link">&para;</a></h2>
+<p>Come già detto, i messaggi di log sono mantenuti in un array dall'oggetto <code>logger</code>. Per limitare il consumo di memoria da parte di questo array, il registratore scaricherà i messaggi registrati sugli obiettivi del registro ogni volta che l'array accumula un certo numero di messaggi di registro. È possibile personalizzare questo numero configurando la proprietà <strong>yii \ log \ Dispatcher :: flushInterval</strong> del componente <code>log</code>:</p>
+<pre><code>return [
+    'bootstrap' =&gt; ['log'],
+    'components' =&gt; [
+        'log' =&gt; [
+            'flushInterval' =&gt; 100,   // default is 1000
+            'targets' =&gt; [...],
+        ],
+    ],
+];
+</code></pre>
+<p>Quando l' oggetto <code>logger</code> scarica i messaggi di log per registrare gli obiettivi , non vengono esportati immediatamente. Invece, l'esportazione del messaggio si verifica solo quando una destinazione del registro accumula un certo numero di messaggi filtrati. È possibile personalizzare questo numero configurando la proprietà <strong>exportInterval</strong> dei singoli target di registro , come il seguente,</p>
+<pre><code>[
+    'class' =&gt; 'yii\log\FileTarget',
+    'exportInterval' =&gt; 100,  // default is 1000
+]
+</code></pre>
+<p>A causa dell'impostazione del livello di scarico e di esportazione, per impostazione predefinita quando si chiama <strong>Yii::trace()</strong> o qualsiasi altro metodo di registrazione, NON si vedrà immediatamente il messaggio di registro nelle destinazioni del registro. Questo potrebbe essere un problema per alcune applicazioni per console di lunga durata. Per visualizzare immediatamente ciascun messaggio di registro nelle destinazioni del registro, è necessario impostare sia <strong>yii \ log \ Dispatcher :: flushInterval</strong> che <strong>exportInterval</strong> a 1, come mostrato di seguito:</p>
+<pre><code>return [
+    'bootstrap' =&gt; ['log'],
+    'components' =&gt; [
+        'log' =&gt; [
+            'flushInterval' =&gt; 1,
+            'targets' =&gt; [
+                [
+                    'class' =&gt; 'yii\log\FileTarget',
+                    'exportInterval' =&gt; 1,
+                ],
+            ],
+        ],
+    ],
+];
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Il flusso e l'esportazione frequente di messaggi, peggiora le prestazioni dell'applicazione.</p>
+</div>
+<h2 id="attivare-i-registri-del-registro">Attivare i registri del registro<a class="headerlink" href="#attivare-i-registri-del-registro" title="Permanent link">&para;</a></h2>
+<p>È possibile abilitare o disabilitare una destinazione del registro configurando la proprietà <strong>yii \ log \ Target :: enabled</strong>. Puoi farlo tramite la configurazione di destinazione del registro o la seguente istruzione PHP nel tuo codice:</p>
+<pre><code>Yii::$app-&gt;log-&gt;targets['file']-&gt;enabled = false;
+</code></pre>
+<p>Il codice sopra richiede di nominare un target come <code>file</code>, come illustrato di seguito, utilizzando le chiavi stringa <code>targets</code> nell'array:</p>
+<pre><code>return [
+    'bootstrap' =&gt; ['log'],
+    'components' =&gt; [
+        'log' =&gt; [
+            'targets' =&gt; [
+                'file' =&gt; [
+                    'class' =&gt; 'yii\log\FileTarget',
+                ],
+                'db' =&gt; [
+                    'class' =&gt; 'yii\log\DbTarget',
+                ],
+            ],
+        ],
+    ],
+];
+</code></pre>
+<p>Dalla versione 2.0.13, è possibile configurare <strong>yii \ log \ Target ::</strong> abilitato con una metodo callable per definire una condizione dinamica per l'eventuale abilitazione o meno della destinazione del registro. </p>
+<h2 id="creazione-di-nuovi-obiettivi">Creazione di nuovi obiettivi<a class="headerlink" href="#creazione-di-nuovi-obiettivi" title="Permanent link">&para;</a></h2>
+<p>La creazione di una nuova classe di destinazione del registro è molto semplice. È principalmente necessario implementare il metodo <strong>yii \ log \ Target :: export ()</strong> che invia il contenuto della matrice <strong>yii \ log \ Target :: $</strong> a un supporto designato. È possibile chiamare il metodo <strong>yii \ log \ Target :: formatMessage()</strong> per formattare ciascun messaggio. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Invece di creare i propri logger, è possibile provare qualsiasi programma di registrazione compatibile con <strong>PSR-3</strong> come <strong>Monolog</strong>,utilizzando l'estensione di destinazione del registro PSR.</p>
+</div>
+<h2 id="performance-profiling">Performance profiling<a class="headerlink" href="#performance-profiling" title="Permanent link">&para;</a></h2>
+<p>Il <strong>performance profiling</strong> è un tipo speciale di registrazione dei messaggi che viene utilizzato per misurare il tempo impiegato da determinati blocchi di codice e individuare i colli di bottiglia delle prestazioni. Ad esempio, la classe <strong>yii \ db \ Command</strong> utilizza il profilo delle prestazioni per individuare il tempo impiegato da ciascuna query DB.</p>
+<p>Per utilizzare il profilo delle prestazioni, identificare innanzitutto i blocchi di codice che devono essere profilati. Quindi racchiudi ciascun blocco di codice come segue:</p>
+<pre><code>\Yii::beginProfile('myBenchmark');
+
+...code block being profiled...
+
+\Yii::endProfile('myBenchmark');
+</code></pre>
+<p>dove <code>myBenchmark</code> sta per un token univoco che identifica un blocco di codice. Successivamente, quando si esamina il risultato del profilo, si utilizzerà questo token per individuare il tempo trascorso dal blocco di codice corrispondente.</p>
+<p>È importante assicurarsi che le coppie di <code>beginProfile</code> e <code>endProfile</code> siano correttamente annidate. Per esempio,</p>
+<pre><code>\Yii::beginProfile('block1');
+
+    // some code to be profiled
+
+    \Yii::beginProfile('block2');
+        // some other code to be profiled
+    \Yii::endProfile('block2');
+
+\Yii::endProfile('block1');
+</code></pre>
+<p>Se per caso ti dimentichi di inserire <code>\Yii::endProfile('block1')</code> o cambi l'ordine di <code>\Yii::endProfile('block1')</code> e <code>\Yii::endProfile('block2')</code>, il profilo delle prestazioni non funzionerà.</p>
+<p>Per ogni blocco di codice che viene profilato, viene registrato un messaggio di registro con il livello di gravità profile. È possibile configurare un obiettivo di registro per raccogliere tali messaggi ed esportarli. Il debugger Yii ha un pannello di profilazione delle prestazioni integrato che mostra i risultati del profilo.</p>
                 
                   
                 

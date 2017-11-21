@@ -610,10 +610,74 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Requests
+      </label>
     
     <a href="./" title="Requests" class="md-nav__link md-nav__link--active">
       Requests
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#richiesta-dei-parametri" title="Richiesta dei parametri" class="md-nav__link">
+    Richiesta dei parametri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodi-relativi-alle-richieste" title="Metodi relativi alle richieste" class="md-nav__link">
+    Metodi relativi alle richieste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#richiesta-degli-url" title="Richiesta degli URL" class="md-nav__link">
+    Richiesta degli URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intestazioni-http" title="Intestazioni HTTP" class="md-nav__link">
+    Intestazioni HTTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#informazioni-sul-cliente" title="Informazioni sul cliente" class="md-nav__link">
+    Informazioni sul cliente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy-e-intestazioni-affidabili" title="Proxy e intestazioni affidabili" class="md-nav__link">
+    Proxy e intestazioni affidabili
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -685,6 +749,57 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#richiesta-dei-parametri" title="Richiesta dei parametri" class="md-nav__link">
+    Richiesta dei parametri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodi-relativi-alle-richieste" title="Metodi relativi alle richieste" class="md-nav__link">
+    Metodi relativi alle richieste
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#richiesta-degli-url" title="Richiesta degli URL" class="md-nav__link">
+    Richiesta degli URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intestazioni-http" title="Intestazioni HTTP" class="md-nav__link">
+    Intestazioni HTTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#informazioni-sul-cliente" title="Informazioni sul cliente" class="md-nav__link">
+    Informazioni sul cliente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy-e-intestazioni-affidabili" title="Proxy e intestazioni affidabili" class="md-nav__link">
+    Proxy e intestazioni affidabili
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -699,9 +814,134 @@
                   <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/handling-requests/sub-requests.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Requests</h1>
-                
-                
+                <h1 id="requests">Requests<a class="headerlink" href="#requests" title="Permanent link">&para;</a></h1>
+<p>Le richieste fatte ad un'applicazione sono rappresentate in termini di oggetti <strong><em>yii \ web \ Request</em></strong> che forniscono informazioni come parametri di richiesta, intestazioni HTTP, cookie, ecc. Per una determinata richiesta, è possibile accedere all'oggetto di richiesta corrispondente tramite il componente <code>request</code> dell'applicazione che è un'istanza di <strong><em>yii \ web \ Request</em></strong>, per impostazione predefinita. In questa sezione, descriveremo come puoi utilizzare questo componente nelle tue applicazioni.</p>
+<h2 id="richiesta-dei-parametri">Richiesta dei parametri<a class="headerlink" href="#richiesta-dei-parametri" title="Permanent link">&para;</a></h2>
+<p>Per ottenere i parametri da una richiesta, puoi chiamare i metodi <code>get()</code> e <code>post()</code> del componente <code>request</code>. Restituiscono i valori di <code>$_GET</code> e <code>$_POST</code>. Per esempio,</p>
+<pre><code>$request = Yii::$app-&gt;request;
+
+$get = $request-&gt;get();
+// equivalent to: $get = $_GET;
+
+$id = $request-&gt;get('id');
+// equivalent to: $id = isset($_GET['id']) ? $_GET['id'] : null;
+
+$id = $request-&gt;get('id', 1);
+// equivalent to: $id = isset($_GET['id']) ? $_GET['id'] : 1;
+
+$post = $request-&gt;post();
+// equivalent to: $post = $_POST;
+
+$name = $request-&gt;post('name');
+// equivalent to: $name = isset($_POST['name']) ? $_POST['name'] : null;
+
+$name = $request-&gt;post('name', '');
+// equivalent to: $name = isset($_POST['name']) ? $_POST['name'] : '';
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Invece di accedere direttamente a <code>$_GET</code> e <code>$_POST</code> e recuperare i parametri della richiesta, è consigliabile ottenerli tramite il componente <code>request</code> come mostrato sopra. Ciò renderà più facili i test di scrittura perché è possibile creare un componente di richiesta fittizia con dati di richiesta falsi.</p>
+</div>
+<p>Quando si implementano le API RESTful , è spesso necessario recuperare i parametri inviati tramite PUT, PATCH o altri metodi di richiesta. È possibile ottenere questi parametri chiamando i metodi <strong><em>yii \ web \ Request :: getBodyParam()</em></strong>. Per esempio,</p>
+<pre><code>$request = Yii::$app-&gt;request;
+
+// returns all parameters
+$params = $request-&gt;bodyParams;
+
+// returns the parameter "id"
+$param = $request-&gt;getBodyParam('id');
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A differenza dei parametri <code>GET</code>, i parametri inviati via POST, PUT, PATCH ecc.. vengono inviati nel corpo della richiesta. Il componente <code>request</code> analizzerà questi parametri quando li accederai attraverso i metodi descritti sopra. È possibile personalizzare il modo in cui vengono analizzati questi parametri configurando la proprietà <strong><em>yii \ web \ Request :: $ parsers</em></strong>.</p>
+</div>
+<h2 id="metodi-relativi-alle-richieste">Metodi relativi alle richieste<a class="headerlink" href="#metodi-relativi-alle-richieste" title="Permanent link">&para;</a></h2>
+<p>È possibile ottenere il metodo HTTP utilizzato la richiesta corrente tramite l'espressione <strong><em>Yii::$app-&gt;request-&gt;method</em></strong>. È inoltre disponibile un intero set di proprietà booleane per verificare se il metodo corrente è di un certo tipo. Per esempio,</p>
+<pre><code>$request = Yii::$app-&gt;request;
+
+if ($request-&gt;isAjax) { /* the request is an AJAX request */ }
+if ($request-&gt;isGet)  { /* the request method is GET */ }
+if ($request-&gt;isPost) { /* the request method is POST */ }
+if ($request-&gt;isPut)  { /* the request method is PUT */ }
+</code></pre>
+<h2 id="richiesta-degli-url">Richiesta degli URL<a class="headerlink" href="#richiesta-degli-url" title="Permanent link">&para;</a></h2>
+<p>Il componente <code>request</code> offre molti modi per ispezionare l'URL attualmente richiesto.</p>
+<p>Supponendo che l'URL richiesto sia <code>http://example.com/admin/index.php/product?id=100</code>, puoi ottenere varie parti di questo URL come riepilogato di seguito:</p>
+<ul>
+<li><code>yii \ web \ Request :: url</code>: restituisce <code>/admin/index.php/product?id=100</code>, che è l'URL senza la parte di informazione dell'host.</li>
+<li><code>yii \ web \ Request :: absoluteUrl</code>: restituisce <code>http://example.com/admin/index.php/product?id=100</code>, che è l'URL intero che include la parte di informazioni sull'host.</li>
+<li><code>yii \ web \ Request :: hostInfo</code>: restituisce <code>http://example.com</code>, che è la parte di informazioni sull'host dell'URL.</li>
+<li><code>yii \ web \ Request :: pathInfo</code>: restituisce <code>/product</code>, che è la parte dopo lo script di immissione e prima del punto interrogativo (stringa di query).</li>
+<li><code>yii \ web \ Request :: queryString</code>: restituisce <code>id=100</code>, che è la parte dopo il punto interrogativo.</li>
+<li><code>yii \ web \ Request :: baseUrl</code>: restituisce <code>/admin</code>, che è la parte dopo le informazioni sull'host e prima del nome dello script di immissione.</li>
+<li><code>yii \ web \ Request :: scriptUrl</code>: restituisce <code>/admin/index.php</code>, che è l'URL senza informazioni sul percorso e stringa di query.</li>
+<li><code>yii \ web \ Request :: serverName</code>: restituisce <code>example.com</code>, che è il nome host nell'URL.</li>
+<li><code>yii \ web \ Request :: serverPort</code>: restituisce 80, che è la porta utilizzata dal server Web.</li>
+</ul>
+<h2 id="intestazioni-http">Intestazioni HTTP<a class="headerlink" href="#intestazioni-http" title="Permanent link">&para;</a></h2>
+<p>È possibile ottenere le informazioni dell'intestazione HTTP attraverso la raccolta dell'intestazione restituita dalla proprietà <strong><em>yii \ web \ Request ::</em></strong>. Per esempio,</p>
+<pre><code>// $headers is an object of yii\web\HeaderCollection 
+$headers = Yii::$app-&gt;request-&gt;headers;
+
+// returns the Accept header value
+$accept = $headers-&gt;get('Accept');
+
+if ($headers-&gt;has('User-Agent')) { /* there is User-Agent header */ }
+</code></pre>
+<p>Il componente <code>request</code> fornisce inoltre supporto per l'accesso rapido ad alcune intestazioni comunemente utilizzate, tra cui:</p>
+<ul>
+<li><code>yii \ web \ Request :: userAgent</code>: restituisce il valore <strong><em>User-Agent</em></strong> dell'intestazione.</li>
+<li><code>yii \ web \ Request :: contentType</code>: restituisce il valore <strong>Content-Type</strong> dell'intestazione che indica il tipo MIME dei dati nel corpo della richiesta.</li>
+<li><code>yii \ web \ Request :: acceptableContentTypes</code>: restituisce i tipi MIME di contenuto accettabili dagli utenti. I tipi restituiti sono ordinati in base al loro punteggio di qualità. I tipi con i punteggi più alti verranno restituiti per primi.</li>
+<li><code>yii \ web \ Request :: acceptableLingue</code>: restituisce le lingue accettabili dagli utenti. Le lingue restituite sono ordinate in base al loro livello di preferenza. Il primo elemento rappresenta la lingua più preferita.</li>
+</ul>
+<p>Se l'applicazione supporta più lingue e si desidera visualizzare le pagine nella lingua che è la più preferita dall'utente finale, è possibile utilizzare il metodo di negoziazione della lingua <strong><em>yii \ web \ Request :: getPreferredLanguagd()</em></strong>. Questo metodo prende un elenco di lingue supportate dall'applicazione, le confronta con <strong>yii \ web \ Request :: acceptable</strong> e restituisce la lingua più appropriata.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>E' anche possibile utilizzare il filtro <strong>ContentNegotiator</strong> per determinare in modo dinamico quale tipo di contenuto e lingua devono essere utilizzati nella risposta. Il filtro implementa la negoziazione del contenuto in cima alle proprietà e ai metodi descritti sopra.</p>
+</div>
+<h2 id="informazioni-sul-cliente">Informazioni sul cliente<a class="headerlink" href="#informazioni-sul-cliente" title="Permanent link">&para;</a></h2>
+<p>È possibile ottenere il nome host e l'indirizzo IP del computer client tramite <strong><em>yii \ web \ Request :: userHost</em></strong> e <strong><em>yii \ web \ Request :: userIP</em></strong>. Per esempio,</p>
+<pre><code>$userHost = Yii::$app-&gt;request-&gt;userHost;
+$userIP = Yii::$app-&gt;request-&gt;userIP;
+</code></pre>
+<h2 id="proxy-e-intestazioni-affidabili">Proxy e intestazioni affidabili<a class="headerlink" href="#proxy-e-intestazioni-affidabili" title="Permanent link">&para;</a></h2>
+<p>Nella sezione precedente hai visto come ottenere informazioni utente come host e indirizzo IP. Questo funzionerà immediatamente in una configurazione normale in cui un singolo server web viene utilizzato per servire il sito web. Tuttavia, se l'applicazione Yii funziona dietro un proxy inverso, è necessario aggiungere ulteriore configurazione per recuperare queste informazioni poiché il client diretto ora è il proxy e l'indirizzo IP dell'utente viene passato all'applicazione Yii da un'intestazione impostata dal proxy.</p>
+<p>Non dovresti fidarti ciecamente delle intestazioni fornite dai proxy, a meno che tu non ti fidi esplicitamente del proxy. Dal momento che Yii 2.0.13 supporta la configurazione di proxy fidati tramite le proprietà <code>trustedHosts</code>, <code>secureHeaders</code>, <code>ipHeaders</code> e <code>secureProtocolHeaders</code> del componente <code>request</code>.</p>
+<p>Di seguito è riportata una richiesta di configurazione per un'applicazione che viene eseguita dietro una matrice di proxy inversi, che si trovano nella rete IP <code>10.0.2.0/24</code>:</p>
+<pre><code>'request' =&gt; [
+    // ...
+    'trustedHosts' =&gt; [
+        '/^10\.0\.2\.\d+$/',
+    ],
+],
+</code></pre>
+<p>L'IP viene inviato dal proxy <code>X-Forwarded-For</code> nell'intestazione per impostazione predefinita e viene inviato il protocollo ( <code>http</code> o <code>https</code>) <code>X-Forwarded-Proto</code>.</p>
+<p>Nel caso in cui i proxy utilizzino intestazioni diverse, è possibile utilizzare la configurazione della richiesta per regolarle, ad esempio:</p>
+<pre><code>'request' =&gt; [
+    // ...
+    'trustedHosts' =&gt; [
+        '/^10\.0\.2\.\d+$/' =&gt; [
+            'X-ProxyUser-Ip',
+            'Front-End-Https',
+        ],
+    ],
+    'secureHeaders' =&gt; [
+             'X-Forwarded-For',
+             'X-Forwarded-Host',
+            'X-Forwarded-Proto',
+            'X-Proxy-User-Ip',
+            'Front-End-Https',
+        ];
+    'ipHeaders' =&gt; [
+        'X-Proxy-User-Ip',
+    ],
+    'secureProtocolHeaders' =&gt; [
+        'Front-End-Https' =&gt; ['on']
+    ],
+],
+</code></pre>
+<p>Con la configurazione di cui sopra indicata, tutte le intestazioni elencate <code>secureHeaders</code> sono filtrate dalla richiesta, ad eccezione delle intestazioni <code>X-ProxyUser-Ip</code> e <code>Front-End-Https</code> nel caso in cui la richiesta venga effettuata dal proxy. In questo caso il primo viene utilizzato per recuperare l'IP dell'utente come configurato in <code>ipHeaders</code> e quest'ultimo verrà utilizzato per determinare il risultato di <strong><em>yii \ web \ Request :: getIsSecureConnection()</em></strong>.</p>
                 
                   
                 

@@ -622,10 +622,74 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Responses
+      </label>
     
     <a href="./" title="Responses" class="md-nav__link md-nav__link--active">
       Responses
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stato-del-codice" title="Stato del codice" class="md-nav__link">
+    Stato del codice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intestazioni-http" title="Intestazioni HTTP" class="md-nav__link">
+    Intestazioni HTTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risposta-da-perte-del-body" title="Risposta da perte del Body" class="md-nav__link">
+    Risposta da perte del Body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reindirizzamento-del-browser" title="Reindirizzamento del browser" class="md-nav__link">
+    Reindirizzamento del browser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invio-di-file" title="Invio di file" class="md-nav__link">
+    Invio di file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invio-della-risposta" title="Invio della risposta" class="md-nav__link">
+    Invio della risposta
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -685,6 +749,57 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stato-del-codice" title="Stato del codice" class="md-nav__link">
+    Stato del codice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intestazioni-http" title="Intestazioni HTTP" class="md-nav__link">
+    Intestazioni HTTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risposta-da-perte-del-body" title="Risposta da perte del Body" class="md-nav__link">
+    Risposta da perte del Body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reindirizzamento-del-browser" title="Reindirizzamento del browser" class="md-nav__link">
+    Reindirizzamento del browser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invio-di-file" title="Invio di file" class="md-nav__link">
+    Invio di file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invio-della-risposta" title="Invio della risposta" class="md-nav__link">
+    Invio della risposta
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -699,9 +814,164 @@
                   <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/handling-requests/sub-responses.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Responses</h1>
-                
-                
+                <h1 id="responses">Responses<a class="headerlink" href="#responses" title="Permanent link">&para;</a></h1>
+<p>Quando un'applicazione termina la gestione di una richiesta, genera un oggetto risposta e lo invia all'utente finale. L'oggetto risposta contiene informazioni come il codice di stato HTTP, le intestazioni HTTP e il corpo. L'obiettivo finale dello sviluppo di applicazioni Web è essenzialmente quello di costruire tali oggetti di risposta su varie richieste.</p>
+<p>Nella maggior parte dei casi dovresti occuparti principalmente del componente <code>response</code> dell'applicazione, che è un'istanza di <strong><em>yii \ web \ Response</em></strong>, per impostazione predefinita. Tuttavia, Yii consente anche di creare i propri oggetti di risposta e inviarli agli utenti finali come spiegheremo di seguito.</p>
+<p>In questa sezione, descriveremo come comporre e inviare risposte agli utenti finali.</p>
+<h2 id="stato-del-codice">Stato del codice<a class="headerlink" href="#stato-del-codice" title="Permanent link">&para;</a></h2>
+<p>Una delle prime cose che dovresti fare quando costruisci una risposta è dichiarare se la richiesta è gestita con successo. Questo viene fatto impostando la proprietà <strong><em>yii \ web \ Response :: statusCode</em></strong> che può assumere uno dei codici di stato HTTP validi . Ad esempio, per indicare che la richiesta è stata gestita correttamente, è possibile impostare il codice di stato su 200, come nell'esempio seguente:</p>
+<pre><code>Yii::$app-&gt;response-&gt;statusCode = 200;
+</code></pre>
+<p>Tuttavia, nella maggior parte dei casi non è necessario impostare in modo esplicito il codice di stato. Ciò è dovuto al fatto che il valore predefinito di <strong><em>yii \ web \ Response :: statusCode</em></strong> è 200. E se si desidera indicare che la richiesta non ha esito positivo, è possibile generare un'eccezione HTTP appropriata come la seguente:</p>
+<pre><code>throw new \yii\web\NotFoundHttpException;
+</code></pre>
+<p>Quando il gestore degli errori rileva un'eccezione, estrae il codice di stato dall'eccezione e lo assegna alla risposta. Per l'eccezione precedente <strong><em>yii \ web \ NotFoundHttpException</em></strong>, è associato allo stato HTTP 404. Le seguenti eccezioni HTTP sono predefinite in Yii:</p>
+<ul>
+<li><strong><em>yii \ web \ BadRequestHttpException</em></strong>: codice di stato 400.</li>
+<li><strong><em>yii \ web \ ConflictHttpException</em></strong>: codice di stato 409.</li>
+<li><strong><em>yii \ web \ ForbiddenHttpException</em></strong>: codice di stato 403.</li>
+<li><strong><em>yii \ web \ GoneHttpException</em></strong>: codice di stato 410.</li>
+<li><strong><em>yii \ web \ MethodNotAllowedHttpException</em></strong>: codice di stato 405.</li>
+<li><strong><em>yii \ web \ NotAcceptableHttpException</em></strong>: codice di stato 406.</li>
+<li><strong><em>yii \ web \ NotFoundHttpException</em></strong>: codice di stato 404.</li>
+<li><strong><em>yii \ web \ ServerErrorHttpException</em></strong>: codice di stato 500.</li>
+<li><strong><em>yii \ web \ TooManyRequestsHttpException</em></strong>: codice di stato 429.</li>
+<li><strong><em>yii \ web \ UnauthorizedHttpException</em></strong>: codice di stato 401.</li>
+<li><strong><em>yii \ web \ UnsupportedMediaTypeHttpException</em></strong>: codice di stato 415.</li>
+</ul>
+<p>Se l'eccezione che vuoi lanciare non è tra quelle elencate sopra, puoi crearne una estendendoti da <strong><em>yii \ web \ HttpException</em></strong>, o lanciarla direttamente con un codice di stato, ad esempio,</p>
+<pre><code>throw new \yii\web\HttpException(402);
+</code></pre>
+<h2 id="intestazioni-http">Intestazioni HTTP<a class="headerlink" href="#intestazioni-http" title="Permanent link">&para;</a></h2>
+<p>È possibile inviare intestazioni HTTP manipolando le intestazioni <strong><em>yii \ web \ Response ::</em></strong> nel componente <code>response</code>. Per esempio,</p>
+<pre><code>$headers = Yii::$app-&gt;response-&gt;headers;
+
+// add a Pragma header. Existing Pragma headers will NOT be overwritten.
+$headers-&gt;add('Pragma', 'no-cache');
+
+// set a Pragma header. Any existing Pragma headers will be discarded.
+$headers-&gt;set('Pragma', 'no-cache');
+
+// remove Pragma header(s) and return the removed Pragma header values in an array
+$values = $headers-&gt;remove('Pragma');
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>I nomi delle intestazioni non fanno distinzione tra maiuscole e minuscole. E le intestazioni appena registrate non vengono inviate all'utente finché non viene chiamato il metodo <strong><em>yii \ web \ Response :: send ()</em></strong>.</p>
+</div>
+<h2 id="risposta-da-perte-del-body">Risposta da perte del Body<a class="headerlink" href="#risposta-da-perte-del-body" title="Permanent link">&para;</a></h2>
+<p>La maggior parte delle risposte dovrebbe avere un corpo che dia il contenuto che si desidera mostrare agli utenti finali.</p>
+<p>Se si dispone già di una stringa di corpo formattata, è possibile assegnarla alla proprietà del contenuto <strong><em>yii \ web \ Response :: $</em></strong> della risposta. Per esempio,</p>
+<pre><code>Yii::$app-&gt;response-&gt;content = 'hello world!';
+</code></pre>
+<p>Se i tuoi dati devono essere formattati prima di inviarli agli utenti finali, devi impostare sia il formato che le proprietà dei dati . La proprietà <code>format</code> specifica in quale formato i dati devono essere formattati. Per esempio,</p>
+<pre><code>$response = Yii::$app-&gt;response;
+$response-&gt;format = \yii\web\Response::FORMAT_JSON;
+$response-&gt;data = ['message' =&gt; 'hello world'];
+</code></pre>
+<p>Yii supporta i seguenti formati pronti all'uso, ciascuno implementato da una classe di formattazione . È possibile personalizzare questi formattatori o aggiungerne di nuovi configurando la proprietà <strong><em>yii \ web \ Response :: $ formatters</em></strong>.</p>
+<ul>
+<li><strong><em>HTML</em></strong>: implementato da <strong>yii \ web \ HtmlResponseFormatter</strong>.</li>
+<li><strong><em>XML</em></strong>:  implementato da <strong>yii \ web \ XmlResponseFormatter</strong>.</li>
+<li><strong><em>JSON</em></strong>: implementato da <strong>yii \ web \ JsonResponseFormatter</strong>.</li>
+<li><strong><em>JSONP</em></strong>: implementato da <strong>yii \ web \ JsonResponseFormatter</strong>.</li>
+<li><strong><em>RAW</em></strong>: utilizzare questo formato se si desidera inviare la risposta direttamente senza applicare alcuna formattazione.</li>
+</ul>
+<p>Mentre il corpo della risposta può essere impostato esplicitamente come mostrato sopra, nella maggior parte dei casi è possibile impostarlo implicitamente dal valore di ritorno dei metodi di azione . Un caso d'uso comune è come il seguente:</p>
+<pre><code>public function actionIndex(){
+
+    return $this-&gt;render('index');
+
+}
+</code></pre>
+<p>L'azione <code>index</code> sopra indicata,restituisce il risultato del rendering della vista <code>index</code>. Il valore di ritorno sarà preso dal componente <code>response</code>, formattato e quindi inviato agli utenti finali.</p>
+<p>Poiché,per impostazione predefinita, il formato di risposta è HTML , è necessario restituire una stringa solo in un metodo di azione. Se si desidera utilizzare un formato di risposta diverso, è necessario impostarlo prima di restituire i dati. Per esempio,</p>
+<pre><code>public function actionInfo(){
+
+    \Yii::$app-&gt;response-&gt;format = \yii\web\Response::FORMAT_JSON;
+    return [
+        'message' =&gt; 'hello world',
+        'code' =&gt; 100,
+    ];
+}
+</code></pre>
+<p>Come già accennato, oltre a utilizzare il componente predefinito dell'applicazione<code>response</code>, è anche possibile creare i propri oggetti di risposta e inviarli agli utenti finali. Puoi farlo restituendo tale oggetto in un metodo di azione, come il seguente,</p>
+<pre><code>public function actionInfo(){
+
+    return \Yii::createObject([
+        'class' =&gt; 'yii\web\Response',
+        'format' =&gt; \yii\web\Response::FORMAT_JSON,
+        'data' =&gt; [
+            'message' =&gt; 'hello world',
+            'code' =&gt; 100,
+        ],
+    ]);
+}
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Se si creano oggetti di risposta personalizzati, non sarà possibile sfruttare le configurazioni impostate per il componente <code>response</code> nella configurazione dell'applicazione. Tuttavia, è possibile utilizzare la "dependency injection" per applicare una configurazione comune ai nuovi oggetti risposta.</p>
+</div>
+<h2 id="reindirizzamento-del-browser">Reindirizzamento del browser<a class="headerlink" href="#reindirizzamento-del-browser" title="Permanent link">&para;</a></h2>
+<p>Il reindirizzamento del browser si basa sull'invio dell'intestazione HTTP <code>Location</code>. Poiché questa funzione è comunemente utilizzata, Yii fornisce un supporto speciale per questo.</p>
+<p>È possibile reindirizzare il browser utente a un URL chiamando il metodo <strong><em>yii \ web \ Response :: redirect()</em></strong>. Il metodo imposta l'intestazione <code>Location</code> appropriata con l'URL specificato e restituisce l'oggetto risposta. In un metodo di azione, puoi chiamare la sua versione di collegamento <strong>yii \ web \ Controller :: redirect()</strong>. Per esempio,</p>
+<pre><code>public function actionOld{
+
+    return $this-&gt;redirect('http://example.com/new', 301);
+
+}
+</code></pre>
+<p>Nel codice precedente, il metodo <code>action</code> restituisce il risultato del metodo <code>redirect()</code>. Come spiegato in precedenza, l'oggetto risposta restituito da un metodo di azione verrà utilizzato come risposta inviata agli utenti finali.</p>
+<p>In luoghi diversi da un metodo di azione, è necessario chiamare direttamente<strong><em>yii \ web \ Response :: redirect()</em></strong> seguito da una chiamata concatenata al metodo <strong>yii \ web \ Response :: send()</strong> per garantire che nessun contenuto aggiuntivo venga aggiunto al risposta.</p>
+<pre><code>\Yii::$app-&gt;response-&gt;redirect('http://example.com/new', 301)-&gt;send();
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Per impostazione predefinita, il metodo <strong>yii \ web \ Response :: redirect ()</strong> imposta il codice di stato della risposta su 302 che indica al browser che la risorsa richiesta è temporaneamente posizionata in un URL differente. Puoi passare un codice di stato 301 per dire al browser che la risorsa è stata trasferita permanentemente.</p>
+</div>
+<p>Quando la richiesta corrente è una richiesta AJAX, l'invio dell'intestazione <code>Location</code> non causerà automaticamente il reindirizzamento del browser. Per risolvere questo problema, il metodo <strong>yii \ web \ Response :: redirect()</strong> imposta un'intestazione <code>X-Redirect</code> con l'URL di reindirizzamento come valore. Sul lato client, è possibile scrivere codice JavaScript per leggere questo valore di intestazione e reindirizzare il browser di conseguenza.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Yii viene fornito con un file Javascript chiamato <code>yii.js</code> che fornisce un insieme di utilità JavaScript comunemente utilizzate, incluso il reindirizzamento del browser basato sull'intestazione <code>X-Redirect</code>. Pertanto, se si utilizza questo file JavaScript (registrando il bundle asset <strong>yii \ web \ YiiAsset</strong> ), non è necessario scrivere nulla per supportare il reindirizzamento AJAX.</p>
+</div>
+<h2 id="invio-di-file">Invio di file<a class="headerlink" href="#invio-di-file" title="Permanent link">&para;</a></h2>
+<p>Come il reindirizzamento del browser, l'invio di file è un'altra funzionalità che si basa su intestazioni HTTP specifiche. Yii fornisce una serie di metodi per supportare varie esigenze di invio di file. Hanno tutti il ​​supporto integrato per l'intestazione della gamma HTTP.</p>
+<ul>
+<li><strong><em>yii \ web \ Response :: sendFile()</em></strong>: invia un file esistente a un client.</li>
+<li><strong><em>yii \ web \ Response :: sendContentAsFile()</em></strong>: invia una stringa di testo come file a un client.</li>
+<li><strong><em>yii \ web \ Response :: sendStreamAsFile()</em></strong>: invia un flusso di file esistente come file a un client.</li>
+</ul>
+<p>Questi metodi hanno la stessa firma del metodo con l'oggetto di risposta come valore di ritorno. Se il file da inviare è molto grande, dovresti considerare l'utilizzo di <strong><em>yii \ web \ Response :: sendStreamAsFile()</em></strong> perché è più efficiente in termini di memoria. L'esempio seguente mostra come inviare un file in un'azione del controllore:</p>
+<pre><code>public function actionDownload(){
+
+    return \Yii::$app-&gt;response-&gt;sendFile('path/to/file.txt');
+
+}
+</code></pre>
+<p>Se si chiama il metodo di invio del file in posizioni diverse da un metodo di azione, è necessario chiamare anche il metodo <strong><em>yii \ web \ Response :: send()</em></strong> in seguito per garantire che alla risposta non vengano aggiunti ulteriori contenuti.</p>
+<pre><code>\Yii::$app-&gt;response-&gt;sendFile('path/to/file.txt')-&gt;send();
+</code></pre>
+<p>Alcuni server Web hanno un supporto speciale per l'invio di file chiamato <code>X-Sendfile</code>. L'idea è di reindirizzare la richiesta di un file al server Web che servirà direttamente il file. Di conseguenza, l'applicazione Web può terminare prima mentre il server Web sta inviando il file. Per utilizzare questa funzione, è possibile chiamare <strong><em>yii \ web \ Response :: xSendFile()</em></strong>. Il seguente elenco riepiloga come abilitare la funzione <code>X-Sendfile</code> per alcuni server Web popolari:</p>
+<ul>
+<li>Apache: <strong><em>X-Sendfile</em></strong></li>
+<li>Lighttpd v1.4: <strong><em>X-LIGHTTPD-send-file</em></strong></li>
+<li>Lighttpd v1.5: <strong><em>X-Sendfile</em></strong></li>
+<li>Nginx: <strong><em>X-Accel-Redirect</em></strong></li>
+<li>Cherokee: <strong><em>X-Sendfile</em></strong> e <strong><em>X-Accel-Redirect</em></strong></li>
+</ul>
+<h2 id="invio-della-risposta">Invio della risposta<a class="headerlink" href="#invio-della-risposta" title="Permanent link">&para;</a></h2>
+<p>Il contenuto di una risposta non viene inviato all'utente finché non viene chiamato il metodo <strong><em>yii \ web \ Response :: send ()</em></strong>. Per impostazione predefinita, questo metodo verrà chiamato automaticamente alla fine di <strong>yii \ base \ Application :: run()</strong>. Tuttavia, è possibile chiamare esplicitamente questo metodo per forzare l'invio della risposta immediatamente.</p>
+<p>Il metodo <strong><em>yii \ web \ Response :: send()</em></strong> esegue i seguenti passi per inviare una risposta:</p>
+<ol>
+<li>Innescare l'evento <strong><em>Yii \ web \ Response :: EVENT_BEFORE_SEND</em></strong>.</li>
+<li>Chiama il metodo <strong>yii \ web \ Response :: prepare()</strong> per formattare i dati di risposta nel contenuto della risposta .</li>
+<li>Innescare l'evento <strong><em>Yii \ web \ Response :: EVENT_AFTER_PREPARE</em></strong>.</li>
+<li>Chiama il metodo <strong><em>Yii \ web \ Response :: sendHeaders ()</em></strong> per inviare le intestazioni HTTP registrate.</li>
+<li>Chiamare il metodo <strong><em>yii \ web \ Response :: sendContent ()</em></strong> per inviare il contenuto del corpo della risposta.</li>
+<li>Innescare l'evento <strong><em>Yii \ web \ Response :: EVENT_AFTER_SEND</em></strong>.</li>
+</ol>
+<p>Dopo che il metodo <strong><em>yii \ web \ Response :: send ()</em></strong> viene chiamato una volta, qualsiasi ulteriore chiamata a questo metodo verrà ignorata. Ciò significa che una volta inviata la risposta,non potrai aggiungere altro contenuto ad essa.</p>
+<p>Come puoi vedere, il metodo <strong><em>yii \ web \ Response :: send()</em></strong> attiva numerosi eventi utili. Rispondendo a questi eventi, è possibile regolare o decorare la risposta.</p>
                 
                   
                 

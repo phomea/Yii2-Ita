@@ -646,10 +646,60 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Gestione degli errori
+      </label>
     
     <a href="./" title="Gestione degli errori" class="md-nav__link md-nav__link--active">
       Gestione degli errori
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#utilizziamo-lerror-handle" title="Utilizziamo l'Error Handle" class="md-nav__link">
+    Utilizziamo l'Error Handle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizzazione-della-visualizzazione-degli-errori" title="Personalizzazione della visualizzazione degli errori" class="md-nav__link">
+    Personalizzazione della visualizzazione degli errori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-delle-azioni-di-errori" title="Utilizzo delle azioni di errori" class="md-nav__link">
+    Utilizzo delle azioni di errori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizzazione-del-formato-di-risposta-degli-errori" title="Personalizzazione del formato di risposta degli errori" class="md-nav__link">
+    Personalizzazione del formato di risposta degli errori
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -685,6 +735,43 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#utilizziamo-lerror-handle" title="Utilizziamo l'Error Handle" class="md-nav__link">
+    Utilizziamo l'Error Handle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizzazione-della-visualizzazione-degli-errori" title="Personalizzazione della visualizzazione degli errori" class="md-nav__link">
+    Personalizzazione della visualizzazione degli errori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-delle-azioni-di-errori" title="Utilizzo delle azioni di errori" class="md-nav__link">
+    Utilizzo delle azioni di errori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizzazione-del-formato-di-risposta-degli-errori" title="Personalizzazione del formato di risposta degli errori" class="md-nav__link">
+    Personalizzazione del formato di risposta degli errori
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -699,9 +786,158 @@
                   <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/handling-requests/sub-handling-error.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Gestione degli errori</h1>
-                
-                
+                <h1 id="gestione-degli-errori">Gestione degli errori<a class="headerlink" href="#gestione-degli-errori" title="Permanent link">&para;</a></h1>
+<p>Yii include un gestore di errori incorporato che rende la gestione degli errori un'esperienza molto più piacevole di prima. In particolare, il gestore degli errori Yii effettua le seguenti operazioni per migliorare la gestione degli errori:</p>
+<ul>
+<li>Tutti gli errori PHP non fatali (ad es. avvertimenti, notifiche) vengono convertiti in eccezioni <strong><em>Catchable</em></strong>.</li>
+<li>Eccezioni e errori fatali di PHP vengono visualizzati con informazioni dettagliate sullo stack di chiamata e linee di codice sorgente in modalità di debug.</li>
+<li>Supporta l'utilizzo di un'azione del controller dedicata per visualizzare gli errori.</li>
+<li>Supporta diversi formati di risposta agli errori.</li>
+</ul>
+<p>Il gestore degli errori è abilitato per impostazione predefinita. Si può disabilitarlo definendo la costante <code>YII_ENABLE_ERROR_HANDLER</code> di essere <code>false</code> nell'entry script della vostra applicazione.</p>
+<h2 id="utilizziamo-lerror-handle">Utilizziamo l'Error Handle<a class="headerlink" href="#utilizziamo-lerror-handle" title="Permanent link">&para;</a></h2>
+<p>Il gestore degli errori è registrato come un componente dell'applicazione denominato <code>errorHandler</code>. Puoi configurarlo nella configurazione dell'applicazione come segue:</p>
+<pre><code>return [
+    'components' =&gt; [
+        'errorHandler' =&gt; [
+            'maxSourceLines' =&gt; 20,
+        ],
+    ],
+];
+</code></pre>
+<p>Con la configurazione di cui sopra indicata, il numero di linee di codice sorgente da visualizzare nelle pagine delle eccezioni sarà fino a 20.</p>
+<p>Come già detto, il gestore degli errori trasforma tutti gli errori PHP non fatali in eccezioni <strong><em>Catchable</em></strong>. Ciò significa che è possibile utilizzare il seguente codice per gestire gli errori PHP:</p>
+<pre><code>use Yii;
+use yii\base\ErrorException;
+
+try {
+    10/0;
+} catch (ErrorException $e) {
+    Yii::warning("Division by zero.");
+}
+
+// execution continues...
+</code></pre>
+<p>Se vuoi mostrare una pagina di errore che informa l'utente che la sua richiesta non è valida o inaspettata, puoi semplicemente lanciare un'eccezione HTTP , come <strong><em>yii \ web \ NotFoundHttpException</em></strong>. Il gestore degli errori imposterà correttamente il codice di stato HTTP della risposta e utilizzerà una vista di errore appropriata per visualizzare il messaggio di errore.</p>
+<pre><code>use yii\web\NotFoundHttpException;
+
+throw new NotFoundHttpException();
+</code></pre>
+<h2 id="personalizzazione-della-visualizzazione-degli-errori">Personalizzazione della visualizzazione degli errori<a class="headerlink" href="#personalizzazione-della-visualizzazione-degli-errori" title="Permanent link">&para;</a></h2>
+<p>Il gestore degli errori regola la visualizzazione degli errori in base al valore della costante <code>YII_DEBUG</code>. Quando <code>YII_DEBUG</code> è a <code>true</code>(ovvero in modalità di debug), il gestore degli errori visualizza eccezioni con informazioni dettagliate sullo stack delle chiamate e linee del codice sorgente per facilitare il debugging. E quando <code>YII_DEBUG</code> è a <code>false</code>, verrà visualizzato solo il messaggio di errore per evitare di rivelare informazioni sensibili sull'applicazione.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Se un'eccezione è discendente da <strong><em>yii \ base \ UserException</em></strong>, non verrà visualizzato alcuno stack di chiamate indipendentemente dal valore di <code>YII_DEBUG</code>. Questo perché tali eccezioni sono considerate causate da errori dell'utente e gli sviluppatori non hanno bisogno di aggiustare nulla.</p>
+</div>
+<p>Per impostazione predefinita, il gestore errori visualizza gli errori utilizzando due viste :</p>
+<ul>
+<li><code>@yii/views/errorHandler/error.php</code>: usato quando devono essere visualizzati gli errori SENZA informazioni sullo stack di chiamata. Quando <code>YII_DEBUG</code> è a <code>false</code>, questa è l'unica visualizzazione di errore da visualizzare.</li>
+<li><code>@yii/views/errorHandler/exception.php</code>: usato quando devono essere visualizzati gli errori CON le informazioni sullo stack delle chiamate.</li>
+</ul>
+<p>È possibile configurare le proprietà <code>errorView`` e</code>exceptionView` del gestore degli errori per utilizzare le proprie visualizzazioni per personalizzare la visualizzazione degli errori.</p>
+<h2 id="utilizzo-delle-azioni-di-errori">Utilizzo delle azioni di errori<a class="headerlink" href="#utilizzo-delle-azioni-di-errori" title="Permanent link">&para;</a></h2>
+<p>Un modo migliore per personalizzare la visualizzazione degli errori consiste nell'utilizzare azioni di errore dedicati. Per fare ciò, dobbiamo configurare innanzitutto la proprietà <code>errorAction</code> del componente <code>errorHandler</code> come segue:</p>
+<pre><code>return [
+    'components' =&gt; [
+        'errorHandler' =&gt; [
+            'errorAction' =&gt; 'site/error',
+        ],
+    ]
+];
+</code></pre>
+<p>La proprietà <code>errorAction</code> prende una rotta verso un'azione. La configurazione precedente indica che quando è necessario visualizzare un errore senza informazioni sullo stack di chiamata, l'azione <code>site/error</code> deve essere eseguita.</p>
+<p>È possibile creare l'azione <code>site/error</code> come segue,</p>
+<pre><code>namespace app\controllers;
+
+use Yii;
+use yii\web\Controller;
+
+class SiteController extends Controller{
+
+    public function actions(){
+
+        return [
+            'error' =&gt; [
+                'class' =&gt; 'yii\web\ErrorAction',
+            ],
+        ];
+    }
+}
+</code></pre>
+<p>Il codice precedente definisce l'azione <code>error</code> utilizzando la classe <strong><em>yii \ web \ ErrorAction</em></strong> che esegue il rendering di un errore utilizzando una vista denominata <code>error</code>.</p>
+<p>Oltre a usare <strong><em>yii \ web \ ErrorAction</em></strong>, puoi anche definire l'azione <code>error</code> usando un metodo di azione come il seguente,</p>
+<pre><code>public function actionError(){
+
+    $exception = Yii::$app-&gt;errorHandler-&gt;exception;
+    if ($exception !== null) {
+        return $this-&gt;render('error', ['exception' =&gt; $exception]);
+    }
+}
+</code></pre>
+<p>Ora dovresti creare un file di visualizzazione situato in <code>views/site/error.php</code>. In questo file di visualizzazione, è possibile accedere alle seguenti variabili se l'azione di errore è definita come <strong><em>yii \ web \ ErrorAction</em></strong>:</p>
+<ul>
+<li><code>name</code>: il nome dell'errore;</li>
+<li><code>message</code>: il messaggio di errore;</li>
+<li><code>exception</code>: l'oggetto di eccezione attraverso il quale è possibile recuperare informazioni più utili, come codice di stato HTTP, codice di errore, stack di chiamate di errore, ecc.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Se è necessario reindirizzare la pagina in un gestore errori, conviene farlo nel seguente modo:
+    Yii::$app-&gt;getResponse()-&gt;redirect($url)-&gt;send();
+    return;</p>
+</div>
+<h2 id="personalizzazione-del-formato-di-risposta-degli-errori">Personalizzazione del formato di risposta degli errori<a class="headerlink" href="#personalizzazione-del-formato-di-risposta-degli-errori" title="Permanent link">&para;</a></h2>
+<p>Il gestore degli errori visualizza gli errori in base all'impostazione del formato della risposta. Se il formato della risposta è html, utilizzerà l'errore o la visualizzazione delle eccezioni per visualizzare gli errori, come descritto nell'ultima sottosezione. Per altri formati di risposta, il gestore degli errori assegnerà la rappresentazione dell'array dell'eccezione alla proprietà dei dati <strong><em>yii \ web \ Response :: $</em></strong> che verrà quindi convertita in diversi formati di conseguenza. Ad esempio, se il formato della risposta è <code>json</code>, potresti vedere la seguente risposta:</p>
+<pre><code>HTTP/1.1 404 Not Found
+Date: Sun, 02 Mar 2014 05:31:43 GMT
+Server: Apache/2.2.26 (Unix) DAV/2 PHP/5.4.20 mod_ssl/2.2.26 OpenSSL/0.9.8y
+Transfer-Encoding: chunked
+Content-Type: application/json; charset=UTF-8
+
+{
+    "name": "Not Found Exception",
+    "message": "The requested resource was not found.",
+    "code": 0,
+    "status": 404
+}
+</code></pre>
+<p>È possibile personalizzare il formato di risposta dell'errore rispondendo all'evento <code>beforeSend</code> del componente <code>response</code> nella configurazione dell'applicazione:</p>
+<pre><code>return [
+    // ...
+    'components' =&gt; [
+        'response' =&gt; [
+            'class' =&gt; 'yii\web\Response',
+            'on beforeSend' =&gt; function ($event) {
+                $response = $event-&gt;sender;
+                if ($response-&gt;data !== null) {
+                    $response-&gt;data = [
+                        'success' =&gt; $response-&gt;isSuccessful,
+                        'data' =&gt; $response-&gt;data,
+                    ];
+                    $response-&gt;statusCode = 200;
+                }
+            },
+        ],
+    ],
+];
+</code></pre>
+<p>Il codice sopra indicato riformatterà la risposta all'errore come la seguente:</p>
+<pre><code>HTTP/1.1 200 OK
+Date: Sun, 02 Mar 2014 05:31:43 GMT
+Server: Apache/2.2.26 (Unix) DAV/2 PHP/5.4.20 mod_ssl/2.2.26 OpenSSL/0.9.8y
+Transfer-Encoding: chunked
+Content-Type: application/json; charset=UTF-8
+
+{
+    "success": false,
+    "data": {
+        "name": "Not Found Exception",
+        "message": "The requested resource was not found.",
+        "code": 0,
+        "status": 404
+    }
+}
+</code></pre>
                 
                   
                 
