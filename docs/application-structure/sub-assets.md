@@ -273,7 +273,7 @@ Tieni presente che la personalizzazione effettuata tramite ***yii \ web \ AssetM
     ];
 
 
-##Mappgin degli asset
+##Mapping degli asset
 
 
 A volte potresti voler "correggere" i percorsi dei file di asset errati / incompatibili usati in più bundle. Ad esempio, il pacchetto A utilizza la versione 1.11.1 del file ```jquery.min.js``` e il pacchetto B utilizza la versione 2.1.1 del file ```jquery.js```. Mentre è possibile risolvere il problema personalizzando ogni fascio, un modo più semplice è quello di utilizzare funzione per mappare le attività non corrette a agli oggetti desiderati. Per fare ciò, dobbiamo configurare la proprietà ***yii \ web \ AssetManager :: $ assetMap*** come segue: 

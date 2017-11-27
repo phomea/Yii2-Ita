@@ -30,6 +30,16 @@ pages:
     - Session & Cookies: 'handling-requests/sub-session-cookies.md'
     - Gestione degli errori: 'handling-requests/sub-handling-error.md'
     - Registrazione: 'handling-requests/sub-logging.md'
+- Concetti chiave:
+    - Componenti: 'key-concepts/sub-components.md'
+    - Proprietà: 'key-concepts/sub-properties.md'
+    - Eventi: 'key-concepts/sub-events.md'
+    - Comportamenti (Behaviors): 'key-concepts/sub-behaviors.md'
+    - Configurazioni: 'key-concepts/sub-configurations.md'
+    - Alias: 'key-concepts/sub-alias.md'
+    - Classe "Autoloading": 'key-concepts/sub-autoloading-class.md'
+    - Localizzatore di servizi: 'key-concepts/sub-service-locator.md'
+    - Contenitore Dependency Injection: 'key-concepts/sub-dependency-injection-container.md'   
 theme: 'material'
 extra:
       primary: 'teal'
