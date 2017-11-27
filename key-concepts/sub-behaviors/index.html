@@ -1,0 +1,1332 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Guida italiana del framework PHP Yii 2.0">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Comportamenti (Behaviors) - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Concetti chiave
+                </span>
+              
+            
+            Comportamenti (Behaviors)
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../application-structure/sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../handling-requests/sub-request-overview/" title="Gestione delle richieste" class="md-tabs__link">
+          Gestione delle richieste
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-components/" title="Concetti chiave" class="md-tabs__link md-tabs__link--active">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Gestione delle richieste
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Gestione delle richieste
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-request-overview/" title="Panoramica sulla gestione delle richieste" class="md-nav__link">
+      Panoramica sulla gestione delle richieste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-bootstrapping/" title="Bootstrapping" class="md-nav__link">
+      Bootstrapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-routing-url-creation/" title="Routing e creazione degli URL" class="md-nav__link">
+      Routing e creazione degli URL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-requests/" title="Requests" class="md-nav__link">
+      Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-responses/" title="Responses" class="md-nav__link">
+      Responses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-session-cookies/" title="Session & Cookies" class="md-nav__link">
+      Session & Cookies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-handling-error/" title="Gestione degli errori" class="md-nav__link">
+      Gestione degli errori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-logging/" title="Registrazione" class="md-nav__link">
+      Registrazione
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Comportamenti (Behaviors)
+      </label>
+    
+    <a href="./" title="Comportamenti (Behaviors)" class="md-nav__link md-nav__link--active">
+      Comportamenti (Behaviors)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definizione-dei-comportamenti" title="Definizione dei comportamenti" class="md-nav__link">
+    Definizione dei comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestione-degli-eventi-nei-componenti" title="Gestione degli eventi nei componenti" class="md-nav__link">
+    Gestione degli eventi nei componenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allegare-i-comportamenti" title="Allegare i comportamenti" class="md-nav__link">
+    Allegare i comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-dei-comportamenti" title="Uso dei comportamenti" class="md-nav__link">
+    Uso dei comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scollegare-i-comportamenti" title="Scollegare i comportamenti" class="md-nav__link">
+    Scollegare i comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-di-timestampbehavior" title="Utilizzo di TimestampBehavior" class="md-nav__link">
+    Utilizzo di TimestampBehavior
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#altri-comportamenti" title="Altri comportamenti" class="md-nav__link">
+    Altri comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confronto-tra-behaviors-e-traits-comportamenti-e-tratti" title="Confronto tra Behaviors e Traits (comportamenti e tratti)" class="md-nav__link">
+    Confronto tra Behaviors e Traits (comportamenti e tratti)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragioni-per-usare-i-behaviors" title="Ragioni per usare i Behaviors" class="md-nav__link">
+    Ragioni per usare i Behaviors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragioni-per-usare-i-traits" title="Ragioni per usare i Traits" class="md-nav__link">
+    Ragioni per usare i Traits
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definizione-dei-comportamenti" title="Definizione dei comportamenti" class="md-nav__link">
+    Definizione dei comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestione-degli-eventi-nei-componenti" title="Gestione degli eventi nei componenti" class="md-nav__link">
+    Gestione degli eventi nei componenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allegare-i-comportamenti" title="Allegare i comportamenti" class="md-nav__link">
+    Allegare i comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-dei-comportamenti" title="Uso dei comportamenti" class="md-nav__link">
+    Uso dei comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scollegare-i-comportamenti" title="Scollegare i comportamenti" class="md-nav__link">
+    Scollegare i comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-di-timestampbehavior" title="Utilizzo di TimestampBehavior" class="md-nav__link">
+    Utilizzo di TimestampBehavior
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#altri-comportamenti" title="Altri comportamenti" class="md-nav__link">
+    Altri comportamenti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confronto-tra-behaviors-e-traits-comportamenti-e-tratti" title="Confronto tra Behaviors e Traits (comportamenti e tratti)" class="md-nav__link">
+    Confronto tra Behaviors e Traits (comportamenti e tratti)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragioni-per-usare-i-behaviors" title="Ragioni per usare i Behaviors" class="md-nav__link">
+    Ragioni per usare i Behaviors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragioni-per-usare-i-traits" title="Ragioni per usare i Traits" class="md-nav__link">
+    Ragioni per usare i Traits
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/key-concepts/sub-behaviors.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="comportamenti-behaviors">Comportamenti (Behaviors)<a class="headerlink" href="#comportamenti-behaviors" title="Permanent link">&para;</a></h1>
+<p>I comportamenti ( o Behaviors) sono istanze di <strong>yii \ base \ Behavior</strong> o di una classe figlio. I comportamenti, noti anche come "mixins", consentono di migliorare la funzionalità di una classe che ha componenti già esistenti, senza dover modificare l'ereditarietà della classe stessa. Il collegamento di un behaviors a un componente, "inietta" i metodi e le proprietà del comportamento stesso nel componente, rendendo accessibili tali metodi e proprietà come se fossero definiti nella classe del componente stesso. Inoltre, un comportamento può rispondere agli eventi innescati dal componente che gli consente di personalizzare la normale esecuzione del codice.</p>
+<h2 id="definizione-dei-comportamenti">Definizione dei comportamenti<a class="headerlink" href="#definizione-dei-comportamenti" title="Permanent link">&para;</a></h2>
+<p>Per definire un comportamento, dobbiamo creare una classe che estende <strong>yii \ base \ Behavior</strong> oppure che venga estesa da una classe figlio.</p>
+<p>Per esempio:</p>
+<pre><code>namespace app\components;
+
+use yii\base\Behavior;
+
+class MyBehavior extends Behavior{
+
+    public $prop1;
+
+    private $_prop2;
+
+    public function getProp2(){
+
+        return $this-&gt;_prop2;
+    }
+
+    public function setProp2($value){
+
+        $this-&gt;_prop2 = $value;
+    }
+
+    public function foo(){
+
+        // ...
+    }
+}
+</code></pre>
+<p>Il codice soprastante, definisce la classe di comportamento <code>app\components\MyBehavior</code>, con due proprietà - <code>prop1</code> e <code>prop2</code> - e un metodo <code>foo()</code>. Nota che la proprietà <code>prop2</code> è definita tramite il getter <code>getProp2()</code> e il setter <code>setProp2()</code>. Questo è il caso in cui <strong>yii \ base \ Behavior</strong> estende <strong>yii \ base \ BaseObject</strong> e quindi supporta la definizione delle proprietà tramite getter e setter.</p>
+<p>Poiché questa classe è un comportamento, quando è attaccato ad un componente, questo avrà quindi anche le proprietà <code>prop1</code> e <code>prop2</code> e il metodo <code>foo()</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All'interno di un comportamento, è possibile accedere al componente a cui è collegato il comportamento tramite la proprietà <strong>yii \ base \ Behavior :: $ owner</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Nel caso in cui il metodo di comportamento <strong>yii \ base \ Behavior :: __ get ()</strong> e / o <strong>yii \ base \ Behavior :: __ set()</strong> sia sovrascritto, è necessario eseguire l'override di <strong>yii \ base \ Behavior :: canGetProperty()</strong> e / o <strong>yii \ base \ Behavior :: canSetProperty()</strong>.</p>
+</div>
+<h2 id="gestione-degli-eventi-nei-componenti">Gestione degli eventi nei componenti<a class="headerlink" href="#gestione-degli-eventi-nei-componenti" title="Permanent link">&para;</a></h2>
+<p>Se un comportamento deve rispondere agli eventi innnescati dal componente a cui è collegato, dovrebbe sovrascrivere il metodo <strong>yii \ base \ Behavior :: events()</strong>.</p>
+<p>Per esempio:</p>
+<pre><code>namespace app\components;
+
+use yii\db\ActiveRecord;
+use yii\base\Behavior;
+
+class MyBehavior extends Behavior{
+
+    // ...
+
+    public function events(){
+
+        return [
+            ActiveRecord::EVENT_BEFORE_VALIDATE =&gt; 'beforeValidate',
+        ];
+    }
+
+    public function beforeValidate($event){
+
+        // ...
+    }
+}
+</code></pre>
+<p>Il metodo <strong>events()</strong> dovrebbe restituire un elenco di eventi e i relativi gestori. L'esempio scritto sopra, dichiara che  l'evento <strong>l'EVENT_BEFORE_VALIDATE</strong> esiste e definisce il suo gestore, <code>beforeValidate()</code>. Quando si specifica un gestore di eventi, è possibile utilizzare uno dei seguenti formati:</p>
+<ul>
+<li>una stringa che fa riferimento al nome di un metodo della classe di un comportamento, come nell'esempio precedente.</li>
+<li>una matrice di un oggetto o nome di classe e un nome di un metodo come una stringa (senza parentesi), ad esempio <code>[$object, 'methodName']</code>.</li>
+<li>una funziona anonima.</li>
+</ul>
+<p>La firma di un gestore d ieventi dovrebbe essere la seguente, dove l'evento <code>$event</code> si riferisce al parametro dell'evento stesso.</p>
+<pre><code>function ($event) {
+}
+</code></pre>
+<h2 id="allegare-i-comportamenti">Allegare i comportamenti<a class="headerlink" href="#allegare-i-comportamenti" title="Permanent link">&para;</a></h2>
+<p>E' possibile associare un comportamento a un cmoponente in modo statico o dinamico. Il primo è il più comune.</p>
+<p>Per associare staticamente un comportamento, eseguire l'override del metodo <strong>behaviors()</strong> della classe del componente a cui è collegato il comportamento. Il metodo <strong>behavior()</strong> dovrebbe restituire un elenco di configurazioni di comportamento. Ogni configurazione di comportamento può essere un nome di classe di comportamento o un array di configurazione:</p>
+<pre><code>namespace app\models;
+
+use yii\db\ActiveRecord;
+use app\components\MyBehavior;
+
+class User extends ActiveRecord{
+
+    public function behaviors(){
+
+        return [
+            // anonymous behavior, behavior class name only
+            MyBehavior::className(),
+
+            // named behavior, behavior class name only
+            'myBehavior2' =&gt; MyBehavior::className(),
+
+            // anonymous behavior, configuration array
+            [
+                'class' =&gt; MyBehavior::className(),
+                'prop1' =&gt; 'value1',
+                'prop2' =&gt; 'value2',
+            ],
+
+            // named behavior, configuration array
+            'myBehavior4' =&gt; [
+                'class' =&gt; MyBehavior::className(),
+                'prop1' =&gt; 'value1',
+                'prop2' =&gt; 'value2',
+            ]
+        ];
+    }
+}
+</code></pre>
+<p>È possibile associare un nome a un comportamento specificando la chiave dell'array corrispondente alla configurazione del suo comportamento. In questo caso, il comportamento è chiamato "comportamento denominato". Nell'esempio fatto sopra, ci sono due comportamenti denominati: <code>myBehavior2</code> e <code>myBehavior4</code>. Se un comportamento non è associato a un nome, viene chiamato comportamento anonimo.</p>
+<p>Per allegare un comportamento in modo dinamico, chiamare il metodo <strong>yii \ base \ Component :: attachBehavior()</strong> del componente a cui viene collegato il comportamento:</p>
+<pre><code>use app\components\MyBehavior;
+
+// attach a behavior object
+$component-&gt;attachBehavior('myBehavior1', new MyBehavior);
+
+// attach a behavior class
+$component-&gt;attachBehavior('myBehavior2', MyBehavior::className());
+
+// attach a configuration array
+$component-&gt;attachBehavior('myBehavior3', [
+    'class' =&gt; MyBehavior::className(),
+    'prop1' =&gt; 'value1',
+    'prop2' =&gt; 'value2',
+]);
+</code></pre>
+<p>Puoi collegare più comportamenti contemporaneamente usando il metodo <strong>yii \ base \ Component :: attachBehaviors()</strong>:</p>
+<pre><code>$component-&gt;attachBehaviors([
+    'myBehavior1' =&gt; new MyBehavior,  // a named behavior
+    MyBehavior::className(),          // an anonymous behavior  
+]);
+</code></pre>
+<p>E' inoltre possibile allegare comportamenti tramite configurazioni, come la seguente:</p>
+<pre><code>[
+    'as myBehavior2' =&gt; MyBehavior::className(),
+
+    'as myBehavior3' =&gt; [
+        'class' =&gt; MyBehavior::className(),
+        'prop1' =&gt; 'value1',
+        'prop2' =&gt; 'value2',
+    ],
+]
+</code></pre>
+<h2 id="uso-dei-comportamenti">Uso dei comportamenti<a class="headerlink" href="#uso-dei-comportamenti" title="Permanent link">&para;</a></h2>
+<p>Per usare un comportamento, per prima cosa dobbiamo collegarlo a un componente, seguendo le istruzioni elencate sopra. Una volta che un comportamento è collegato a un componente, il suo utilizzo è immediato.</p>
+<p>E' possibile accedere a una variabile membro "pubblica" o a una proprietà definita da un getter e / o setter del comportamento tramite il componente a cui è collegato:</p>
+<pre><code>// "prop1" is a property defined in the behavior class
+echo $component-&gt;prop1;
+$component-&gt;prop1 = $value;
+</code></pre>
+<p>Puoi anche chiamare un metodo pubblico del comportamento, come segue:</p>
+<pre><code>// foo() is a public method defined in the behavior class
+$component-&gt;foo();
+</code></pre>
+<p>Come puoi vedere, anche <code>$component</code> se non definisce <code>prop1</code> e <code>foo()</code>, possono essere utilizzati come se facessero parte della definizione del componente a causa del comportamento allegato.</p>
+<p>Se due comportamenti definiscono una stessa proprietà o metodo e sono entrambi collegati alla stessa componente, il comportamento che è collegato al componente, prima prevarrà quando la proprietà o il metodo verrà effettuato l'accesso.</p>
+<p>Un comportamento può essere associato a un nome quando è collegato a un componente. Se questo è il caso, puoi accedere all'oggetto comportamentale usando il nome:</p>
+<pre><code>$behavior = $component-&gt;getBehavior('myBehavior');
+</code></pre>
+<p>Puoi anche ottenere tutti i comportamenti collegati a un determinato componente:</p>
+<pre><code>$behaviors = $component-&gt;getBehaviors();
+</code></pre>
+<h2 id="scollegare-i-comportamenti">Scollegare i comportamenti<a class="headerlink" href="#scollegare-i-comportamenti" title="Permanent link">&para;</a></h2>
+<p>Per scollegare un comportamento, dobbiamo chiamare <strong>yii \ base \ Component :: detachBehavior ()</strong> con il nome associato al comportamento:</p>
+<pre><code>$component-&gt;detachBehavior('myBehavior1');
+</code></pre>
+<p>Puoi anche scollegare tutti i comportamenti:</p>
+<pre><code>$component-&gt;detachBehaviors();
+</code></pre>
+<h2 id="utilizzo-di-timestampbehavior">Utilizzo di <code>TimestampBehavior</code><a class="headerlink" href="#utilizzo-di-timestampbehavior" title="Permanent link">&para;</a></h2>
+<p>Per concludere, diamo un'occhiata a <strong>yii \ behaviors \ TimestampBehavior</strong>. Questo comportamento supporta l'aggiornamento automatico degli attributi di timestamp relativo ad un modello di record attivo. Ogni volta che il modello viene salvato tramite il metodo <code>insert()</code>, <code>update()</code> o <code>save()</code>.</p>
+<p>Innanzitutto, allega questo comportamento alla classe <strong>ActiveRecord</strong> che prevedi di utilizzare:</p>
+<pre><code>namespace app\models\User;
+
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
+
+class User extends ActiveRecord{
+
+    // ...
+
+    public function behaviors(){
+
+        return [
+            [
+                'class' =&gt; TimestampBehavior::className(),
+                'attributes' =&gt; [
+                    ActiveRecord::EVENT_BEFORE_INSERT =&gt; ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE =&gt; ['updated_at'],
+                ],
+                // if you're using datetime instead of UNIX timestamp:
+                // 'value' =&gt; new Expression('NOW()'),
+            ],
+        ];
+    }
+}
+</code></pre>
+<p>Con questo codice in atto, se si dispone di un oggetto <code>User</code> e si tenta di salvarlo, lo si troverà <code>created_at</code> e <code>updated_at</code> verranno automaticamente riempito con il timestamp UNIX corrente:</p>
+<pre><code>$user = new User;
+$user-&gt;email = 'test@example.com';
+$user-&gt;save();
+echo $user-&gt;created_at;  // shows the current timestamp
+</code></pre>
+<p>Il <strong>TimestampBehavior</strong> offre anche un metodo utile <strong>touch()</strong>, che assegnerà il timestamp corrente a un attributo specificato e lo salverà nel database:</p>
+<pre><code>$user-&gt;touch('login_time');
+</code></pre>
+<h2 id="altri-comportamenti">Altri comportamenti<a class="headerlink" href="#altri-comportamenti" title="Permanent link">&para;</a></h2>
+<p>Sono disponibili diversi comportamenti interni ed esterni:</p>
+<ul>
+<li><strong>yii \ behaviors \ BlameableBehavior</strong>: riempie automaticamente gli attributi specificati con l'ID utente corrente.</li>
+<li><strong>yii \ behaviors \ SluggableBehavior</strong>: riempie automaticamente l'attributo specificato con un valore che può essere utilizzato come slug in un URL.</li>
+<li><strong>yii \ behaviors \ AttributeBehavior</strong>: assegna automaticamente un valore specificato a uno o più attributi di un oggetto ActiveRecord quando si verificano determinati eventi.</li>
+<li><strong>yii2tech \ ar \ softdelete \ SoftDeleteBehavior</strong> - fornisce metodi per l'eliminazione soft e il ripristino graduale di ActiveRecord, ovvero imposta flag o stato che contrassegna il record come eliminato.</li>
+<li><strong>yii2tech \ ar \ position \ PositionBehavior</strong> - consente di gestire l'ordine dei record in un campo intero fornendo metodi di riordino.</li>
+</ul>
+<h2 id="confronto-tra-behaviors-e-traits-comportamenti-e-tratti">Confronto tra Behaviors e Traits (comportamenti e tratti)<a class="headerlink" href="#confronto-tra-behaviors-e-traits-comportamenti-e-tratti" title="Permanent link">&para;</a></h2>
+<p>Sebbene i Behaviors siano simili ai Traits in quanto entrambi "iniettano" le loro proprietà e i loro metodi nella classe primaria, differiscono in molti aspetti. Come spiegato di seguito, entrambi hanno pro e contro. Sono più simili ai complementi l'un l'altro piuttosto che alle alternative.</p>
+<h2 id="ragioni-per-usare-i-behaviors">Ragioni per usare i Behaviors<a class="headerlink" href="#ragioni-per-usare-i-behaviors" title="Permanent link">&para;</a></h2>
+<p>Le classi Behaviors, come le normali classi, supportano l'ereditarietà. I Traits, d'altra parte, possono essere considerati copia e incolla supportati dalla lingua. Non supportano l'ereditarietà.</p>
+<p>I Behaviors possono essere collegati e scollegati a un componente in modo dinamico senza richiedere modifiche della classe del componente. Per utilizzare un Trait, è necessario modificare il codice della classe che lo utilizza.</p>
+<p>I Behaviors sono configurabili mentre i Traits non lo sono.</p>
+<p>I Behaviors possono personalizzare l'esecuzione del codice di un componente rispondendo ai suoi eventi.</p>
+<p>Quando possono esserci conflitti di nomi tra diversi Behaviors collegati allo stesso componente, i conflitti vengono risolti automaticamente dando la precedenza al comportamento collegato al componente. I conflitti di nome causati da diversi caratteri richiedono la risoluzione manuale rinominando le proprietà oi metodi interessati.</p>
+<h2 id="ragioni-per-usare-i-traits">Ragioni per usare i Traits<a class="headerlink" href="#ragioni-per-usare-i-traits" title="Permanent link">&para;</a></h2>
+<p>I Traits sono molto più efficienti dei comportamenti in quanto i comportamenti sono oggetti che richiedono tempo e memoria.</p>
+<p>Gli IDE sono più amichevoli ai Traits in quanto sono un costrutto di madrelingua.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-events/" title="Eventi" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Eventi
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-configurations/" title="Configurazioni" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Configurazioni
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-109845735-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>

@@ -221,6 +221,19 @@
   
 
       
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -707,6 +720,138 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -759,12 +904,14 @@
                 
                 
                 <h1 id="iniziamo-con-un-ciao">Iniziamo con un "Ciao"<a class="headerlink" href="#iniziamo-con-un-ciao" title="Permanent link">&para;</a></h1>
-<p>Questa sezione descrive come creare una nuova pagina "Ciao" nella nostra applicazione. Per effettuare ciò, dovremmo creare un'azione e una vista.
-- L'applicazione invierà la richiesta di pagina all'azione
-- e l'azione renderà a sua volta la visualizzazione della pagina all'utente finale con su scritta la parola "Ciao".</p>
+<p>Questa sezione descrive come creare una nuova pagina "Ciao" nella nostra applicazione. Per effettuare ciò, dovremmo creare un'azione e una vista.</p>
+<ul>
+<li>L'applicazione invierà la richiesta di pagina all'azione</li>
+<li>e l'azione renderà a sua volta la visualizzazione della pagina all'utente finale con su scritta la parola "Ciao".</li>
+</ul>
 <h2 id="creazione-di-unazione">Creazione di un'azione<a class="headerlink" href="#creazione-di-unazione" title="Permanent link">&para;</a></h2>
-<p>Per l'attività che dovrà scrivere "Ciao", bisogna creare un'azione  <code>say</code> che legge un messaggio (<code>message</code>) come parametro dalla richiesta e visuallizza quel messaggio all'utente. Se la richiesta non fornisce un messaggio come parametro, l'azione visualizzerà come predefinito la parola "Ciao".</p>
-<p>Le azioni devono essere dichiarate nella cartella "controllers". Per semplicità, puoi dichiarare l'azione <code>say</code> nell'esistente <code>SiteController</code>. Questo controller è definito nel file che si trova in <code>controllers/SiteControlle.php</code>. Ecco l'inizio della nostra azione:</p>
+<p>Per l'azione che dovrà scrivere "Ciao", bisogna creare un'azione  <code>say</code> che legge un messaggio (<code>message</code>) come parametro dalla richiesta, e visuallizza quel messaggio all'utente. Se la richiesta non fornisce un messaggio come parametro, l'azione visualizzerà come predefinito la parola "Ciao".</p>
+<p>Le azioni devono essere dichiarate nella cartella <strong>controllers</strong>. Per semplicità, puoi dichiarare l'azione <code>say</code> nell'esistente <code>SiteController</code>. Questo controller è definito nel file che si trova in <code>controllers/SiteControlle.php</code>. Ecco l'inizio della nostra azione:</p>
 <pre><code>&lt;?php
 
 namespace app\controllers;
@@ -783,24 +930,23 @@ class SiteController extends Controller{
 }
 </code></pre>
 <p>Nel codice precedente l'azione <code>say</code> viene definita in un metodo chiamato <code>actionSay</code> nella classe <code>SiteController</code>. Yii utilizza il prefisso <code>action</code> per differenziare i metodi d'azione dai metodi non di azione in una classe di controller. Il nome dopo l'<code>action</code> mappa l'ID dell'azione da effettuare.</p>
-<p>Quando si tratta di denominare le azioni, è necessario capire come Yii tratta gli ID relativi all'azione che richiamiamo. I nomi/numeri relativi all'azione sono sempre indicati in minuscolo. Se un ID di un'azione è composto da più parole, verranno concatenate con i trattini ( per esempio, <code>create-comment</code>). I nomi del metodo di un'azione vengono mappati rimuovendo i trattini dall'ID, capitalizzando la prima lettera di ogni parola con la parola <code>action</code>. Ade esempio, l'ID associato all'azione <code>create-comment</code> corrisponde al nome del metodo dell'azione, che sarà <code>actionCreateComment</code>.</p>
+<p>Quando si tratta di denominare le azioni, è necessario capire come Yii tratta gli ID relativi all'azione che richiamiamo. I nomi/numeri relativi all'azione sono sempre indicati in minuscolo. Se un ID di un'azione è composto da più parole, verranno concatenate con i trattini ( per esempio, <code>create-comment</code>). I nomi del metodo di un'azione vengono mappati rimuovendo i trattini dall'ID, capitalizzando la prima lettera di ogni parola con la parola <code>action</code>. Ad esempio, l'ID associato all'azione <code>create-comment</code> corrisponde al nome del metodo dell'azione, che sarà <code>actionCreateComment</code>.</p>
 <h2 id="creazione-di-una-vista">Creazione di una vista<a class="headerlink" href="#creazione-di-una-vista" title="Permanent link">&para;</a></h2>
-<p>Le viste(views) sono gli script che scrivi per generare una risposta ad una determinata azione e stampata a video. Per l'attività "Ciao", verrà creata una vista relativa al <code>say</code> che avrà il compito di stampare il valore contenuto in <code>$message</code> a video.</p>
+<p>Le viste (views) sono gli script che scrivi per generare una risposta ad una determinata azione e stampata a video. Per l'attività "Ciao", verrà creata una vista relativa al <code>say</code> che avrà il compito di stampare il valore contenuto in <code>$message</code> a video.</p>
 <pre><code>&lt;?php
 use yii\helpers\Html;
 ?&gt;
 &lt;?= Html::encode($message) ?&gt;
 </code></pre>
-<p>La vista relativa al <code>say</code> deve essere salvata nel file <code>views/site/say.php</code>.  Quando il metodo render() [inizializzato nel controller] verrà chiamato in un'azione, cercherà un file PHP denominato come segue:</p>
+<p>La vista relativa al <code>say</code> deve essere salvata nel file <code>views/site/say.php</code>.  Quando il metodo <strong>render()</strong> [inizializzato nel controller] verrà chiamato in un'azione, cercherà un file PHP denominato come segue:</p>
 <p><code>views/ControllerID/ViewsName.php</code></p>
-<p>Si noti che nel codice soprastante il parametro <code>$message</code> è codificato in HTML prima di essere stampato. Ciò è necessario poichè il parametro viene da un utente finale, rendendolo vulnerabile agli attacchi di "scripting cross-site(XSS)
-" incorporando codice JavaScript dannoso all'interno del nostro parametro.</p>
+<p>Si noti che nel codice soprastante il parametro <code>$message</code> è codificato in HTML prima di essere stampato. Ciò è necessario poichè il parametro viene da un utente finale, rendendolo vulnerabile agli attacchi di <strong><em>scripting cross-site(XSS) - [incorporando codice JavaScript dannoso all'interno del nostro parametro]</em></strong>.</p>
 <p>Dopo aver creato l'azione e la vista, puoi accedere alla nuova pagina tramite il seguente URL:</p>
 <pre><code>http://hostname/index.php?r=site%2Fsay&amp;message=Hello+World
 </code></pre>
 <p><img alt="Screenshot" src="../../img/getting-started/Ciao.png" /></p>
-<p>Se tutto è andato bene, visualizzerete a video un messaggio con su scritto "Ciao!".  Questo perchè <code>message</code> viene passato come parametro al metodo nel Controller <code>actionSay()</code>. Il layout della pagina  (intestazione e piè di pagina) resta il solito perchè il metodo render() incorpora automaticamente il risultato della vista del <code>say</code> in un layout di default, che si trova in <code>views/layouts/main.php</code>.</p>
-<p>Il parametro <code>r</code> nell'URL indicata sopra richiede ulteriori spiegazioni. Si tratta del percordo di un ID univoco dell'applicazione che si riferisce ad un'azione. Il formato del percordo è <code>ControllerID/ActionID</code>. Quando l'azione riceve una richiesta, verifica questo parametro utlizzando la parte del <code>ControllerID</code> per determinare quale classe del controller deve essere instanziata per gestire la richiesta. A questo punto, il controllore userà la parte dell'<code>ActionID</code> per determinare quale azione deve essere instanziata. Nel nostro esempio, il percordo <code>site/say</code> verrà controllato nel file <code>SiteController</code> usando l'ID dell'azione <code>say</code>. Di conseguenza verrà richiamato il metodo <code>actionSay()</code>.</p>
+<p>Se tutto è andato bene, visualizzerete a video un messaggio con su scritto "Ciao!".  Questo perchè <code>message</code> viene passato come parametro al metodo <code>actionSay()</code> nel Controller. Il layout della pagina  (intestazione e piè di pagina)resta il solitoì, perchè il metodo <strong>render()</strong> incorpora automaticamente il risultato della vista del <code>say</code> in un layout di default, che si trova in <code>views/layouts/main.php</code>.</p>
+<p>Il parametro <code>r</code> nell'URL indicata sopra, richiede ulteriori spiegazioni. Si tratta del percordo di un ID univoco dell'applicazione che si riferisce ad un'azione. Il formato del percordo è <code>ControllerID/ActionID</code>. Quando l'azione riceve una richiesta, verifica questo parametro utlizzando la parte del <code>ControllerID</code> per determinare quale classe del controller deve essere instanziata per gestire la richiesta. A questo punto, il controllore userà la parte dell'<code>ActionID</code> per determinare quale azione deve essere instanziata. Nel nostro esempio, il percordo <code>site/say</code> verrà controllato nel file <code>SiteController</code> usando l'ID dell'azione <code>say</code>. Di conseguenza verrà richiamato il metodo <code>actionSay()</code>.</p>
                 
                   
                 

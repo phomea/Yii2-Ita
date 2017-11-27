@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,37 +13,37 @@
         
     <url>
      <loc>/getting-started/sub-installing-Yii/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/sub-saying-hello/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/sub-working-with-forms/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/sub-working-with-database/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/sub-generate-code-gii/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/sub-looking-ahead/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -53,73 +53,73 @@
         
     <url>
      <loc>/application-structure/sub-overview/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-entry-script/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-applications/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-application-components/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-controllers/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-models/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-views/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-modules/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-filters/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-widget/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-assets/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/application-structure/sub-extensions/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -129,49 +129,107 @@
         
     <url>
      <loc>/handling-requests/sub-request-overview/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/handling-requests/sub-bootstrapping/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/handling-requests/sub-routing-url-creation/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/handling-requests/sub-requests/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/handling-requests/sub-responses/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/handling-requests/sub-session-cookies/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/handling-requests/sub-handling-error/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/handling-requests/sub-logging/</loc>
-     <lastmod>2017-11-21</lastmod>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/key-concepts/sub-components/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/key-concepts/sub-properties/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/key-concepts/sub-events/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/key-concepts/sub-behaviors/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/key-concepts/sub-configurations/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/key-concepts/sub-alias/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/key-concepts/sub-autoloading-class/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/key-concepts/sub-service-locator/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/key-concepts/sub-dependency-injection-container/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

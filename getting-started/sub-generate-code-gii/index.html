@@ -221,6 +221,19 @@
   
 
       
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -714,6 +727,138 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -772,13 +917,15 @@
                   <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/getting-started/sub-generate-code-gii.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="generare-codice-con-gii">Generare codice con Gii<a class="headerlink" href="#generare-codice-con-gii" title="Permanent link">&para;</a></h1>
-<p>Questa sezione descrive come utilizzare " Gii " per generare automaticamente il codice che implementa alcune funzioni comuni del sito Web. Utilizzare Gii per generare codice in automatico è semplicemente una questione di immissione delle informazioni giuste per le istruzioni visualizzate nelle pagine Web Gii.
-Attraverso questo tutorial, imparerai come:
-- abilitare Gii nella tua applicazione,
-- utilizzare Gii per generare una classe Active Record,
-- utilizzare Gii per generare il codice che implementa le operazioni CRUD per una tabella DB,
-- personalizzare il codice generato da Gii.</p>
+                <h1 id="generare-codice-con-gii">Generare codice con <strong><em>Gii</em></strong><a class="headerlink" href="#generare-codice-con-gii" title="Permanent link">&para;</a></h1>
+<p>Questa sezione descrive come utilizzare <strong><em>Gii</em></strong> per generare automaticamente il codice che implementa alcune funzioni comuni del sito Web. Utilizzare Gii per generare codice in automatico è semplicemente una questione di immissione delle informazioni giuste per le istruzioni visualizzate nelle pagine Web Gii.
+Attraverso questo tutorial, imparerai come:</p>
+<ul>
+<li>abilitare Gii nella tua applicazione,</li>
+<li>utilizzare Gii per generare una classe Active Record,</li>
+<li>utilizzare Gii per generare il codice che implementa le operazioni CRUD per una tabella DB,</li>
+<li>personalizzare il codice generato da Gii.</li>
+</ul>
 <h2 id="partiamo-da-gii">Partiamo da Gii<a class="headerlink" href="#partiamo-da-gii" title="Permanent link">&para;</a></h2>
 <p>Gii viene fornito da Yii come modulo. E' possibile abilitare Gii configurandolo nella proprietà dei moduli nell'applicazione. A seconda del modo in cui è stata creata l'applicazione, è possibile che il codice riportato di seguito sia già fornito nel file di configurazione <code>config/web.php</code>.</p>
 <pre><code>$config = [ ... ];
@@ -790,7 +937,7 @@ if (YII_ENV_DEV) {
     ];
 }
 </code></pre>
-<p>La configurazione soprastante indica che l'applicazione deve includere un modulo denominato <code>gii</code>, che fa parte della classe " yii \ gii \ Module ".
+<p>La configurazione soprastante indica che l'applicazione deve includere un modulo denominato <code>gii</code>, che fa parte della classe <strong>yii \ gii \ Module</strong>.
 Se selezioniamo l'entry script della nostra applicazione ( <code>web/index.php</code>), troverete la seguente riga, il che rende essenzialmente <code>YII_ENV_DEV</code> a <code>true</code></p>
 <pre><code>defined('YII_ENV') or define('YII_ENV', 'dev');
 </code></pre>
@@ -808,41 +955,45 @@ Se selezioniamo l'entry script della nostra applicazione ( <code>web/index.php</
 </div>
 <p><img alt="Screenshot" src="../../img/getting-started/menu_gii.png" /></p>
 <h2 id="generare-una-classe-active-record">Generare una classe Active Record<a class="headerlink" href="#generare-una-classe-active-record" title="Permanent link">&para;</a></h2>
-<p>Per utilizzare Gii nella generazione di una classe Active Record, dovete selezionare "Model Generator" (facendo click sul pulsante "Start"). Quindi compilare il modulo come segue:</p>
+<p>Per utilizzare Gii nella generazione di una classe Active Record, dovete selezionare <strong><em>Model Generator</em></strong> (facendo click sul pulsante <strong>Start</strong>). Quindi compilare il modulo come segue:</p>
 <ul>
 <li>Nome della tabella: <code>country</code></li>
 <li>Classe del modello: <code>Country</code></li>
 </ul>
 <p><img alt="Screenshot" src="../../img/getting-started/active_record_gii.png" /></p>
-<p>Premendo il pulsante "Preview" vedrete il file <code>models/Country.php</code> che verrà creato dall'Active Record. Puoi anche cliccare sul nome del file per visualizzare l'anteprima del suo contenuto.
-Quando si utilizza Gii, se si è già creato lo stesso file, lo sovrascriverà, premendo il pulsante <code>diff</code> accanto al nome del file per vedere le differenze tra il codice che verrà generato e la versione esistente.</p>
+<p>Premendo il pulsante <strong>Preview</strong> vedrete il file <code>models/Country.php</code> che verrà creato dall'Active Record. Puoi anche cliccare sul nome del file per visualizzare l'anteprima del suo contenuto.
+Quando si utilizza Gii, se si è già creato lo stesso file, lo sovrascriverà. Se premiamo il pulsante <code>diff</code> accanto al nome del fil, potrete vedere le differenze tra il codice che verrà generato e la versione esistente.</p>
 <p><img alt="Screenshot" src="../../img/getting-started/preview_active_record.png" /></p>
-<p>Quando sovrascriverete un file esistente, selezionate la casella accanto a "overwrite" e quindi fate clic sul pulsante "Generate". Se invece si crea un nuovo file, è sufficiente fare clic sul pulsante "Generate".
+<p>Quando sovrascriverete un file esistente, selezionate la casella accanto a <strong>overwrite</strong> e quindi fate clic sul pulsante <strong>Generate</strong>. Se invece si crea un nuovo file, è sufficiente fare clic sul pulsante <strong>Generate</strong>.
 Successivamente, verrà visualizzata una pagina di conferma, per essere sicuri che il codice sia stato generato in modo corretto o meno. Se si avesse un file esistente, verrà visualizzato anche un messaggio dove verrà indicato che è stato sovrascritto il codice appena generato.</p>
 <h2 id="generazione-codice-di-un-crud">Generazione codice di un CRUD<a class="headerlink" href="#generazione-codice-di-un-crud" title="Permanent link">&para;</a></h2>
-<p>CRUD sta per "Create - Read - Update - Delete". Rappresentano le 4 attività comuni che si effettuano sui dati nella maggior parte dei siti Web. Per creare funzionalità CRUD usando Gii, dobbiamo selezione l'opzione "CRUD Generator" (nella pagina indice di Gii). Continuando con l'esempio dei "paesi", compilare il modulo come segue:
-- Model Class: <code>app\models\Country</code>
-- Search Model Class: <code>app\models\CountrySearch</code>
-- Controller Class: <code>app\controllers\CountryController</code></p>
+<p>CRUD sta per <strong><em>Create - Read - Update - Delete</em></strong>. Rappresentano le 4 attività comuni che si effettuano sui dati nella maggior parte dei siti Web. Per creare funzionalità CRUD usando Gii, dobbiamo selezione l'opzione <strong>CRUD Generator</strong> (nella pagina indice di Gii). Continuando con l'esempio dei "paesi", compiliamo il modulo come segue:</p>
+<ul>
+<li>Model Class: <code>app\models\Country</code></li>
+<li>Search Model Class: <code>app\models\CountrySearch</code></li>
+<li>Controller Class: <code>app\controllers\CountryController</code></li>
+</ul>
 <p><img alt="Screenshot" src="../../img/getting-started/CRUD_insert_class.png" /></p>
-<p>Premendo il pulsante "preview", verrà visualizzato un elenco di file da generare, come mostrato di seguito:</p>
+<p>Premendo il pulsante <strong>preview</strong>, verrà visualizzato un elenco di file da generare, come mostrato di seguito:</p>
 <p><img alt="Screenshot" src="../../img/getting-started/CRUD_preview.png" /></p>
-<p>Se in precedenza avete creato i file <code>controllers/CountryController.php</code> e <code>views/country/index.php</code> nella sezione 'Lavorare con i database', controllare la casella "overwrite" per sostituirli.</p>
+<p>Se in precedenza avete creato i file <code>controllers/CountryController.php</code> e <code>views/country/index.php</code> nella sezione <strong>Lavorare con i database</strong>, dovete controllare la casella <strong>overwrite</strong> per sostituirli.</p>
 <p>Per vedere se tutto quello che abbiamo fatto funziona, copiamo il seguente URL nel nostro browser</p>
 <pre><code>http://hostname/index.php?r=country%2Findex
 </code></pre>
 <p>A questo punto vedrai una griglia di dati che mostra i paesi inseriti in precedenza nel nostro database. Puoi ordinare la griglia, oppure filtrarla immettendo le condizioni di filtro nelle intestazioni di colonna.
-Per ogni paese visualizzato nella griglia, è possibile scegliere di visualizzarli, modificarli o elimiarli. Puoi anche scegliere di aggiungere un nuovo paese sul pulsante "Create Country" nella parte superiore della griglia.</p>
+Per ogni paese visualizzato nella griglia, è possibile scegliere di visualizzarli, modificarli o elimiarli. Puoi anche scegliere di aggiungere un nuovo paese sul pulsante <strong>Create Country</strong> nella parte superiore della griglia.</p>
 <p><img alt="Screenshot" src="../../img/getting-started/CRUD_views_country.png" /></p>
 <p>Schermata relativa alla modifica di un paese:</p>
 <p><img alt="Screenshot" src="../../img/getting-started/CRUD_update.png" /></p>
-<p>Di seguito è riportato l'elenco dei file generati da Gii, nel caso in cui si desidera esaminare, implementare (o personalizzare) le funzionalità:
-- Controller: <code>controllers/CountryController.php</code>
-- Models: <code>models/Country.php</code> e <code>models/CountrySearch.php</code>
-- Views: <code>views/country/*.php</code></p>
+<p>Di seguito è riportato l'elenco dei file generati da Gii, nel caso in cui si desidera esaminare, implementare (o personalizzare) le funzionalità:</p>
+<ul>
+<li>Controller: <code>controllers/CountryController.php</code></li>
+<li>Models: <code>models/Country.php</code> e <code>models/CountrySearch.php</code></li>
+<li>Views: <code>views/country/*.php</code></li>
+</ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Gii è stato progettato per essere uno strumento di generazione di codici estremamente personalizzabile e estensibile. Se utilizziamo Gii accelleriamo notevolmente la velocità nello sviluppo delle applicazioni.</p>
+<p><strong><em>Gii</em></strong> è stato progettato per essere uno strumento di generazione di codici estremamente personalizzabile e estensibile. Se utilizziamo <strong><em>Gii</em></strong> accelleriamo notevolmente la velocità nello sviluppo delle applicazioni.</p>
 </div>
                 
                   

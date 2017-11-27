@@ -221,6 +221,19 @@
   
 
       
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -673,6 +686,138 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -705,13 +850,15 @@
                 
                 <h1 id="panoramica">Panoramica<a class="headerlink" href="#panoramica" title="Permanent link">&para;</a></h1>
 <p>Le applicazioni Yii sono organizzate in base al modello MVC ( model - view - controller ). I model (modelli) rappresentano i dati, la logica aziendale e le regole; le view (viste) rappresentano la rappresentazione dei modelli; e i controller (controllori) prendono l'input e lo trasformano in comandi per i model e le view.</p>
-<p>Oltre al MVC, le applicazioni Yii hanno anche le seguenti entità:
-- Entry script: sono script PHP che sono direttamente accessibili dagli utenti finali. Sono responsabili dell'avvio di un ciclo che permette la gestione delle richieste da parte dell'utente.
-- Application: sono oggetti accessibili a livello globale che gestiscono i componenti dell'applicazione e le coordinano per soddisfare le richieste.
-- Application component: sono oggetti registrati con applicazioni e forniscono veri servizi per soddisfare le richieste.
-- Module: sono pacchetti autonomi che contengono pattern MVC completi da soli. Un'applicazione può essere organizzata in termini di moduli multipli.
-- Filtri: rappresentano il codice che deve essere richiamato prima e dopo la gestione effettiva di ogni richiesta da parte dei controllori.
-- Widget: sono oggetti che possono essere incorporati nelle view(viste).Possono contenere la logica dei controller e possono essere anche riutilizzati in viste diverse.</p>
+<p>Oltre al MVC, le applicazioni Yii hanno anche le seguenti entità:</p>
+<ul>
+<li><strong>Entry script</strong>: sono script PHP che sono direttamente accessibili dagli utenti finali. Sono responsabili dell'avvio di un ciclo che permette la gestione delle richieste da parte dell'utente.</li>
+<li><strong>Application</strong>: sono oggetti accessibili a livello globale che gestiscono i componenti dell'applicazione e le coordinano per soddisfare le richieste.</li>
+<li><strong>Application component</strong>: sono oggetti registrati con applicazioni e forniscono veri servizi per soddisfare le richieste.</li>
+<li><strong>Module</strong>: sono pacchetti autonomi che contengono pattern MVC completi da soli. Un'applicazione può essere organizzata in termini di moduli multipli.</li>
+<li><strong>Filtri</strong>: rappresentano il codice che deve essere richiamato prima e dopo la gestione effettiva di ogni richiesta da parte dei controllori.</li>
+<li><strong>Widget</strong>: sono oggetti che possono essere incorporati nelle view (viste).Possono contenere la logica dei controller e possono essere anche riutilizzati in viste diverse.</li>
+</ul>
 <p>Il seguente schema mostra la struttura statica di un'applicazione:</p>
 <p><img alt="Screenshot" src="../../img/application-structure/Struttura-statica-applicazione.png" /> </p>
                 

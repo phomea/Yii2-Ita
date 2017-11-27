@@ -221,6 +221,19 @@
   
 
       
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -728,6 +741,138 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -801,15 +946,17 @@
                 
                 
                 <h1 id="lavorare-con-i-database">Lavorare con i database<a class="headerlink" href="#lavorare-con-i-database" title="Permanent link">&para;</a></h1>
-<p>Questa sezione descrive come creare una nuova pagina che visualizza i dati di una paese recuperati da una tabella di database denominata <code>country</code>. Per raggiungere questo obiettivo, sarà possibile configurare una connessione di database,creare una classe "Active Record", definire un'azione e creare una vista.
-Attraverso questo tutorial, imparerai come:
-- configurare una connessione DB,
-- definire una classe Active Record,
-- scrivere una query utilizzando la classe Active Record,
-- visualizzare i dati in una vista in modo paginato.</p>
+<p>Questa sezione descrive come creare una nuova pagina che visualizza i dati di una paese recuperati da una tabella di database denominata <code>country</code>. Per raggiungere questo obiettivo, sarà possibile configurare una connessione di database, creare una classe <strong>Active Record</strong>, definire un'azione e creare una vista.
+Attraverso questo tutorial, imparerai come:</p>
+<ul>
+<li>configurare una connessione DB,</li>
+<li>definire una classe Active Record,</li>
+<li>scrivere una query utilizzando la classe Active Record,</li>
+<li>visualizzare i dati in una vista in modo paginato.</li>
+</ul>
 <p>Tieni presente che per terminare questa sezione, dovresti avere conoscenze e esperienze di base nell'utilizzo dei database. In particolare, si dovrebbe sapere come creare un database e come seguire le istruzioni SQL utilizzando uno strumento client del DB.</p>
 <h2 id="preparazione-del-database">Preparazione del Database<a class="headerlink" href="#preparazione-del-database" title="Permanent link">&para;</a></h2>
-<p>Per iniziare, creare un database denominato <code>yii2basic</code>, da cui recupererai i dati nell'applicazione. E' possibile creare un database SQLite,MySQL, MSSQL, Oracle, in quanto Yii ha un supporto integrato per molte applicazioni di database. Nella seguente descrizione, per assumeremo la descrizione di un database MySQL.</p>
+<p>Per iniziare, dobbiamo creare un database denominato <code>yii2basic</code>, da cui recupererai i dati nell'applicazione. E' possibile creare un database <strong>SQLite</strong>,<strong>MySQL</strong>,<strong>MSSQL</strong>,<strong>Oracle</strong>, in quanto Yii ha un supporto integrato per molte applicazioni di database. Nella seguente descrizione, attueremo una descizione dei database <strong>MySQL</strong>.</p>
 <p>A questo punto, dobbiamo creare una tabella denominata <code>country</code> nel database e inserire alcuni dati di esempio. E' possibile eseguire le seguenti istruzioni SQL per effettuarlo:</p>
 <pre><code>CREATE TABLE `country` (
     `code` CHAR(2) NOT NULL PRIMARY KEY,
@@ -828,7 +975,7 @@ INSERT INTO `country` VALUES ('IN','India',1285400000);
 INSERT INTO `country` VALUES ('RU','Russia',146519759);
 INSERT INTO `country` VALUES ('US','United States',322976000);
 </code></pre>
-<p>A questo punto,hai un database denominato <code>yii2basic</code> e all'interno di essa una tabella denominata <code>country</code> con tre colonne contenenti dieci righe di dati.</p>
+<p>A questo punto, hai un database denominato <code>yii2basic</code> e all'interno di esso, una tabella denominata <code>country</code> con tre colonne contenenti dieci righe di dati.</p>
 <h2 id="configurazione-di-una-connessione-db">Configurazione di una connessione DB<a class="headerlink" href="#configurazione-di-una-connessione-db" title="Permanent link">&para;</a></h2>
 <p>Prima di procedere, assicurarsi di aver installato sia l'estensione  del PDO di PHP che il driver PDO per il database che si sta utilizzando.
 Con quelli installati, aprire il file <code>config/db.php</code> e cambiare i parametri per far si che la connessione con il DB avvenga con successo. Per impostazione predefinita, il file è composto come segue:</p>
@@ -842,13 +989,13 @@ return [
     'charset' =&gt; 'utf8',
 ];
 </code></pre>
-<p>Il file <code>config/db.php</code> è uno strumento di configurazione tipico basato su file. Questo particolare file di configurazione specifica i parametri necessari per creare e inizializzare un'istanza del " yii \ db \ Connection " in cui è possibile eseguire query SQL nei confronti del database sottostante.</p>
+<p>Il file <code>config/db.php</code> è uno strumento di configurazione tipico basato su file. Questo particolare file di configurazione specifica i parametri necessari per creare e inizializzare un'istanza del <strong><em>yii \ db \ Connection</em></strong> in cui è possibile eseguire query SQL nei confronti del database sottostante.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Il file <code>config.db</code> verrà incluso nella configurazione principale dell'applicazione <code>config/web.php</code>, che specifica come inizializzare l'istanza della stessa.</p>
 </div>
 <h2 id="creazione-di-un-record-attivo">Creazione di un record attivo<a class="headerlink" href="#creazione-di-un-record-attivo" title="Permanent link">&para;</a></h2>
-<p>Per rappresentare e recuperare dati nella tabella <code>country</code>, dobbiamo creare una classe " Active Record " generata all'interno di un altra classe chiamata <code>Country</code> e salvarla all'interno della directory <code>models/Country.php</code>.</p>
+<p>Per rappresentare e recuperare dati nella tabella <code>country</code>, dobbiamo creare una classe <strong>Active Record</strong> generata all'interno di un altra classe chiamata <code>Country</code> e salvarla all'interno della directory <code>models/Country.php</code>.</p>
 <pre><code>&lt;?php
 
 namespace app\models;
@@ -859,10 +1006,10 @@ class Country extends ActiveRecord
 {
 }
 </code></pre>
-<p>La classe <code>Country</code> estende la classe "Active Record". Non c'è bisogno di scrivere nessun codice all'interno di esso! Con il codice precedente, Yii indovina il nome della tabella associata al nome della classe.</p>
+<p>La classe <code>Country</code> estende la classe <strong>Active Record</strong>. Non c'è bisogno di scrivere nessun codice all'interno di esso! Con il codice precedente, Yii indovina il nome della tabella associata al nome della classe.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Se non è possibile eseguire una corrispondenza diretta dal nome della classe al nome della tabella del DB,è possibile utilizzare il metodo "tableName()" per specificare esplicitamente il nome della tabella associato.</p>
+<p>Se non è possibile eseguire una corrispondenza diretta dal nome della classe al nome della tabella del DB, è  possibile utilizzare il metodo <strong>tableName()</strong> per specificare esplicitamente il nome della tabella associato.</p>
 </div>
 <p>Utilizzando la classe <code>Country</code>, è possibile modificare facilmente i dati nella tabella <code>country</code>, come mostrato in questi frammenti:</p>
 <pre><code>use app\models\Country;
@@ -882,7 +1029,7 @@ $country-&gt;save();
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Active Record è un metodo molto potente e utile per accedere e manipolare i dati del database in modo orientato agli oggetti. Potete trovare informazioni più dettaglia nella sezione Active Record spiegata successivamente. In alternativa è possibile interagire con un database utilizzando un metodo di accesso ai dati di livello inferiore denominato "Data Accesso Objects".</p>
+<p>Active Record è un metodo molto potente e utile per accedere e manipolare i dati del database in modo orientato agli oggetti. Potete trovare informazioni più dettagliate nella sezione <strong>Active Record</strong> spiegata successivamente. In alternativa è possibile interagire con un database utilizzando un metodo di accesso ai dati di livello inferiore denominato <strong>Data Accesso Objects</strong>.</p>
 </div>
 <h2 id="creazione-di-unazione">Creazione di un'azione<a class="headerlink" href="#creazione-di-unazione" title="Permanent link">&para;</a></h2>
 <p>Per far si che i dati inseriti nel nostro database vengano visualizzati all'utente finale, è necessario creare una nuova azione. Invece di inserire la nuova azione nel <code>site</code> controller, come nelle sezioni precedenti, è più logico creare un nuovo controller specificamente per tutte le azioni relative ai dati del paese. Denominare questo nuovo controller <code>CountryController</code> e creare un'azione <code>index</code> in esso, come mostrato in seguito.</p>
@@ -918,13 +1065,15 @@ class CountryController extends Controller{
 }
 </code></pre>
 <p>Salvare il precedente codice nella seguente directory: <code>controller/CountryController.php</code>.
-L'azione <code>index</code> chiama <code>Country::find()</code>. Questo metodo Active Record crea una query DB e recupera tutti i dati dalla tabella <code>country</code> nel nostro DB.
-Per limitare il numero di paesi restituiti in ogni richiesta, la query viene  paginata con l'aiuto di un oggetto " yii \ data \ Pagination ". L'oggetto <code>Pagination</code> serve per due scopi:
-- Imposta le clausole di '<code>offset</code> e di <code>limit</code> per l'istruzione SQL rappresentato nella query in modo che restituisce solo una singola pagina di dati alla volta (max 5 righe in una pagina),
-- viene utilizzato nella visualizzazione di un pager costituito da un elenco di pulsanti di pagina, come verrà spiegato nella sottosezione successiva.</p>
-<p>Alla fine l'azione <code>index</code> rende una vista denominata <code>index</code> e passa i dati del paese così come le informazioni di paginazione.</p>
+L'azione <code>index</code> chiama <strong>Country::find()</strong>. Questo metodo <strong><em>Active Record</em></strong> crea una query DB e recupera tutti i dati dalla tabella <code>country</code> nel nostro DB.
+Per limitare il numero di paesi restituiti in ogni richiesta, la query viene  paginata con l'aiuto di un oggetto  <strong><em>yii \ data \ Pagination</em></strong>. L'oggetto <code>Pagination</code> serve per due scopi:</p>
+<ul>
+<li>Imposta le clausole di <code>offset</code> e di <code>limit</code> per l'istruzione SQL rappresentato nella query in modo che restituisce solo una singola pagina di dati alla volta (max 5 righe in una pagina),</li>
+<li>viene utilizzato nella visualizzazione di un <strong>pager</strong> costituito da un elenco di pulsanti di pagina, come verrà spiegato nella sottosezione successiva.</li>
+</ul>
+<p>Alla fine, l'azione <code>index</code> rende una vista denominata <code>index</code> e passa i dati del paese così come le informazioni di paginazione.</p>
 <h2 id="creazione-di-una-vista">Creazione di una vista<a class="headerlink" href="#creazione-di-una-vista" title="Permanent link">&para;</a></h2>
-<p>Sotto la directory delle <code>views</code>, create una sotto-directory denominata <code>country</code>. Questa cartella verrà utilizzata per contenere tutte le viste rese dal controllore <code>country</code>. All'interno della directory <code>views/country</code>, creare un file denominato <code>index.php</code> contenente quanto segue:</p>
+<p>Sotto la directory delle <code>views</code>, dobbiamo creare una sotto-directory denominata <code>country</code>. Questa cartella verrà utilizzata per contenere tutte le viste rese dal controllore <code>country</code>. All'interno della directory <code>views/country</code>, creiamo un file denominato <code>index.php</code> contenente quanto segue:</p>
 <pre><code>&lt;?php
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
@@ -941,12 +1090,12 @@ use yii\widgets\LinkPager;
 
 &lt;?= LinkPager::widget(['pagination' =&gt; $pagination]) ?&gt;
 </code></pre>
-<p>La vista presenta due sezioni relative alla visualizzazione dei dati del paese. Nella prima parte, i dati che ci vengono forniti riguardante i paesi vengono attraversati e resi come un elenco HTML non ordinato. Nella seconda parte viene utilizzato un widget " yii \ widgets \ LinkPager " utlizzando le informazioni di paginazione passate dall'azione. Il widget <code>LinkPager</code> visualizza un elenco di pulsanti per la pagina. Facendo clic su uno di essi verranno aggiornati i dati del paese nella pagina corrispondente.
+<p>La vista presenta due sezioni relative alla visualizzazione dei dati del paese. Nella prima parte, i dati che ci vengono forniti riguardante i paesi vengono attraversati e resi come un elenco HTML non ordinato. Nella seconda parte viene utilizzato un widget <strong>yii \ widgets \ LinkPager</strong> utlizzando le informazioni di paginazione passate dall'azione. Il widget <code>LinkPager</code> visualizza un elenco di pulsanti per la pagina. Facendo clic su uno di essi verranno aggiornati i dati del paese nella pagina corrispondente.
 Per vedere se e come funziona il codice precedente, dobbiamo incollare il seguente URL nel nostro browser</p>
 <pre><code>http://hostname/index.php?r=country%2Findex
 </code></pre>
 <p><img alt="Screenshot" src="../../img/getting-started/Country.png" /></p>
-<p>In un primo momento, vedrai una pagina che mostra 5 paesi. Sotto i paesi, vedrete un pager con 4 pulsanti. Se fai clic sul pulsante "2", la pagina visualizzerà altri cinque paesi che si troveranno nel nostro database. Con il seguente URL se lo copiate e lo incollate nel vostro browser, vedrete a video la seconda pagina dei paesi.</p>
+<p>In un primo momento, vedrai una pagina che mostra 5 paesi. Sotto i paesi, vedrete un pager con 4 pulsanti. Se fai clic sul pulsante <strong>2</strong>, la pagina visualizzerà altri cinque paesi che si troveranno nel nostro database. Con il seguente URL se lo copiate e lo incollate nel vostro browser, vedrete a video la seconda pagina dei paesi.</p>
 <pre><code>http://hostname/index.php?r=country%2Findex&amp;page=2
 </code></pre>
                 

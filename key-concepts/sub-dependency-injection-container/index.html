@@ -1,0 +1,1445 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Guida italiana del framework PHP Yii 2.0">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Contenitore Dependency Injection - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Concetti chiave
+                </span>
+              
+            
+            Contenitore Dependency Injection
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../application-structure/sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../handling-requests/sub-request-overview/" title="Gestione delle richieste" class="md-tabs__link">
+          Gestione delle richieste
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-components/" title="Concetti chiave" class="md-tabs__link md-tabs__link--active">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Gestione delle richieste
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Gestione delle richieste
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-request-overview/" title="Panoramica sulla gestione delle richieste" class="md-nav__link">
+      Panoramica sulla gestione delle richieste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-bootstrapping/" title="Bootstrapping" class="md-nav__link">
+      Bootstrapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-routing-url-creation/" title="Routing e creazione degli URL" class="md-nav__link">
+      Routing e creazione degli URL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-requests/" title="Requests" class="md-nav__link">
+      Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-responses/" title="Responses" class="md-nav__link">
+      Responses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-session-cookies/" title="Session & Cookies" class="md-nav__link">
+      Session & Cookies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-handling-error/" title="Gestione degli errori" class="md-nav__link">
+      Gestione degli errori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-logging/" title="Registrazione" class="md-nav__link">
+      Registrazione
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Contenitore Dependency Injection
+      </label>
+    
+    <a href="./" title="Contenitore Dependency Injection" class="md-nav__link md-nav__link--active">
+      Contenitore Dependency Injection
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-injection" title="Dependency Injection" class="md-nav__link">
+    Dependency Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#costructor-injection" title="Costructor Injection" class="md-nav__link">
+    Costructor Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-injection" title="Method Injection" class="md-nav__link">
+    Method Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setter-e-property-injection" title="Setter e Property Injection" class="md-nav__link">
+    Setter e Property Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php-callable-injection" title="PHP Callable Injection" class="md-nav__link">
+    PHP Callable Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registrazione-delle-dipendenze" title="Registrazione delle dipendenze" class="md-nav__link">
+    Registrazione delle dipendenze
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risolvere-le-dipendenze" title="Risolvere le dipendenze" class="md-nav__link">
+    Risolvere le dipendenze
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-pratico" title="Uso pratico" class="md-nav__link">
+    Uso pratico
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-pratico-avanzato" title="Uso pratico avanzato" class="md-nav__link">
+    Uso pratico avanzato
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quando-registrare-le-dipendenze" title="Quando registrare le dipendenze" class="md-nav__link">
+    Quando registrare le dipendenze
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-injection" title="Dependency Injection" class="md-nav__link">
+    Dependency Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#costructor-injection" title="Costructor Injection" class="md-nav__link">
+    Costructor Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-injection" title="Method Injection" class="md-nav__link">
+    Method Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setter-e-property-injection" title="Setter e Property Injection" class="md-nav__link">
+    Setter e Property Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php-callable-injection" title="PHP Callable Injection" class="md-nav__link">
+    PHP Callable Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registrazione-delle-dipendenze" title="Registrazione delle dipendenze" class="md-nav__link">
+    Registrazione delle dipendenze
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risolvere-le-dipendenze" title="Risolvere le dipendenze" class="md-nav__link">
+    Risolvere le dipendenze
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-pratico" title="Uso pratico" class="md-nav__link">
+    Uso pratico
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-pratico-avanzato" title="Uso pratico avanzato" class="md-nav__link">
+    Uso pratico avanzato
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quando-registrare-le-dipendenze" title="Quando registrare le dipendenze" class="md-nav__link">
+    Quando registrare le dipendenze
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/key-concepts/sub-dependency-injection-container.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="contenitore-dependency-injection">Contenitore Dependency Injection<a class="headerlink" href="#contenitore-dependency-injection" title="Permanent link">&para;</a></h1>
+<p>Un contenitore DI (dependency injection) è un oggetto che sa istanziare e configurare oggetti e tutti i loro oggetti dipendenti. Qui spiegheremo principalmente l'utilizzo del contenitore DI fornito da Yii.</p>
+<h2 id="dependency-injection">Dependency Injection<a class="headerlink" href="#dependency-injection" title="Permanent link">&para;</a></h2>
+<p>Yii fornisce la funzione contenitore DI attraverso la classe <strong>yii \ di \ Container</strong>. Supporta i seguenti tipi di injection di dipendenza:</p>
+<ul>
+<li>Costructor Injection;</li>
+<li>Method Injection;</li>
+<li>Setter e property injection;</li>
+<li>PHP callable injection;</li>
+</ul>
+<h2 id="costructor-injection">Costructor Injection<a class="headerlink" href="#costructor-injection" title="Permanent link">&para;</a></h2>
+<p>Il contenitore DI supporta il costructor injection con l'aiuto del tipo <code>hint</code> per i parametri del costruttore. Gli hint del tipo indicano al contenitore quali classi o interfacce dipendono quando viene utilizzato per creare un nuovo oggetto. Il contenitore proverà a ottenere le istanze delle classi o interfacce dipendenti e quindi le inserirà nel nuovo oggetto tramite il costruttore. Per esempio,</p>
+<pre><code>class Foo{
+
+    public function __construct(Bar $bar){
+
+    }
+}
+
+$foo = $container-&gt;get('Foo');
+// which is equivalent to the following:
+$bar = new Bar;
+$foo = new Foo($bar);
+</code></pre>
+<h2 id="method-injection">Method Injection<a class="headerlink" href="#method-injection" title="Permanent link">&para;</a></h2>
+<p>Di solito le dipendenze di una classe vengono passate al costruttore e sono disponibili all'interno della classe durante l'intero ciclo di vita. Con il Method Injection è possibile fornire una dipendenza che è necessaria solo per un singolo metodo della classe e passarla al costruttore, e potrebbe non essere possibile o potrebbe causare un sovraccarico nella maggior parte dei casi d'uso.</p>
+<p>Un metodo di classe può essere definito come il metodo <code>doSomething()</code> nel seguente esempio:</p>
+<pre><code>class MyClass extends \yii\base\Component{
+
+    public function __construct(/*Some lightweight dependencies here*/, $config = []){
+
+        // ...
+    }
+
+    public function doSomething($param1, \my\heavy\Dependency $something){
+
+        // do something with $something
+    }
+}
+</code></pre>
+<p>Puoi chiamare quel metodo passando un'istanza di <code>\my\heavy\Dependencyt</code> e stesso o usando <strong>yii \ di \ Container :: invoke()</strong> come segue:</p>
+<pre><code>$obj = new MyClass(/*...*/);
+Yii::$container-&gt;invoke([$obj, 'doSomething'], ['param1' =&gt; 42]); // $something will be provided by the DI container
+</code></pre>
+<h2 id="setter-e-property-injection">Setter e Property Injection<a class="headerlink" href="#setter-e-property-injection" title="Permanent link">&para;</a></h2>
+<p>Il setter e il property injection sono supportati attraverso le configurazioni. Quando si registra una dipendenza o quando si crea un nuovo oggetto, è possibile fornire una configurazione che verrà utilizzata dal contenitore per iniettare le dipendenze tramite i setter o le proprietà corrispondenti. Per esempio,</p>
+<pre><code>use yii\base\BaseObject;
+
+class Foo extends BaseObject{
+
+    public $bar;
+
+    private $_qux;
+
+    public function getQux(){
+
+        return $this-&gt;_qux;
+    }
+
+    public function setQux(Qux $qux){
+
+        $this-&gt;_qux = $qux;
+    }
+}
+
+$container-&gt;get('Foo', [], [
+    'bar' =&gt; $container-&gt;get('Bar'),
+    'qux' =&gt; $container-&gt;get('Qux'),
+]);
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Il metodo <strong>yii \ di \ Container :: get()</strong> accetta il suo terzo parametro come array di configurazione da applicare all'oggetto che si sta creando. Se la classe implementa l' interfaccia <strong>yii \ base \ Configurable</strong> (es. <strong>Yii \ base \ BaseObject</strong> ), l'array di configurazione verrà passato come ultimo parametro al costruttore della classe; in caso contrario, la configurazione verrà applicata dopo la creazione dell'oggetto.</p>
+</div>
+<h2 id="php-callable-injection">PHP Callable Injection<a class="headerlink" href="#php-callable-injection" title="Permanent link">&para;</a></h2>
+<p>In questo caso, il contenitore utilizzerà un PHP registrato callable per creare nuove istanze di una classe. Ogni volta che viene chiamato <strong>yii \ di \ Container :: get()</strong>, verrà richiamato il callable corrispondente. Il callable è responsabile di risolvere le dipendenze e iniettarle in modo appropriato sugli oggetti appena creati. Per esempio,</p>
+<pre><code>$container-&gt;set('Foo', function () {
+    $foo = new Foo(new Bar);
+    // ... other initializations ...
+    return $foo;
+});
+
+$foo = $container-&gt;get('Foo');
+</code></pre>
+<p>Per nascondere la logica complessa per la costruzione di un nuovo oggetto, è possibile utilizzare un metodo di classe statico come callable. Per esempio,</p>
+<pre><code>class FooBuilder{
+
+    public static function build(){
+
+        $foo = new Foo(new Bar);
+        // ... other initializations ...
+        return $foo;
+    }
+}
+
+$container-&gt;set('Foo', ['app\helper\FooBuilder', 'build']);
+
+$foo = $container-&gt;get('Foo');
+</code></pre>
+<p>In questo modo, la persona che desidera configurare la classe <code>Foo</code> non deve più essere consapevole di come è stata creata.</p>
+<h2 id="registrazione-delle-dipendenze">Registrazione delle dipendenze<a class="headerlink" href="#registrazione-delle-dipendenze" title="Permanent link">&para;</a></h2>
+<p>È possibile utilizzare <strong>yii \ di \ Container :: set()</strong> per registrare le dipendenze. La registrazione richiede un nome di dipendenza e una definizione di dipendenza. Un nome di dipendenza può essere un nome di classe, un nome di interfaccia o un nome di alias; e una definizione di dipendenza può essere un nome di classe, un array di configurazione o un callable PHP.</p>
+<pre><code>$container = new \yii\di\Container;
+
+// register a class name as is. This can be skipped.
+$container-&gt;set('yii\db\Connection');
+
+// register an interface
+// When a class depends on the interface, the corresponding class
+// will be instantiated as the dependent object
+$container-&gt;set('yii\mail\MailInterface', 'yii\swiftmailer\Mailer');
+
+// register an alias name. You can use $container-&gt;get('foo')
+// to create an instance of Connection
+$container-&gt;set('foo', 'yii\db\Connection');
+
+// register a class with configuration. The configuration
+// will be applied when the class is instantiated by get()
+$container-&gt;set('yii\db\Connection', [
+    'dsn' =&gt; 'mysql:host=127.0.0.1;dbname=demo',
+    'username' =&gt; 'root',
+    'password' =&gt; '',
+    'charset' =&gt; 'utf8',
+]);
+
+// register an alias name with class configuration
+// In this case, a "class" element is required to specify the class
+$container-&gt;set('db', [
+    'class' =&gt; 'yii\db\Connection',
+    'dsn' =&gt; 'mysql:host=127.0.0.1;dbname=demo',
+    'username' =&gt; 'root',
+    'password' =&gt; '',
+    'charset' =&gt; 'utf8',
+]);
+
+// register a PHP callable
+// The callable will be executed each time when $container-&gt;get('db') is called
+$container-&gt;set('db', function ($container, $params, $config) {
+    return new \yii\db\Connection($config);
+});
+
+// register a component instance
+// $container-&gt;get('pageCache') will return the same instance each time it is called
+$container-&gt;set('pageCache', new FileCache);
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Se il nome di una dipendenza è uguale alla definizione di dipendenza corrispondente, non è necessario registrarlo con il contenitore DI.</p>
+</div>
+<p>Una dipendenza registrata tramite <code>set()</code> genererà un'istanza ogni volta che è necessaria la dipendenza. È possibile utilizzare <strong>yii \ di \ Container :: setSingleton()</strong> per registrare una dipendenza che genera solo una singola istanza:</p>
+<pre><code>$container-&gt;setSingleton('yii\db\Connection', [
+    'dsn' =&gt; 'mysql:host=127.0.0.1;dbname=demo',
+    'username' =&gt; 'root',
+    'password' =&gt; '',
+    'charset' =&gt; 'utf8',
+]);
+</code></pre>
+<h2 id="risolvere-le-dipendenze">Risolvere le dipendenze<a class="headerlink" href="#risolvere-le-dipendenze" title="Permanent link">&para;</a></h2>
+<p>Dopo aver registrato le dipendenze, è possibile utilizzare il contenitore DI per creare nuovi oggetti e il contenitore risolverà automaticamente le dipendenze istanziandole e inserendole negli oggetti appena creati. La risoluzione delle dipendenze è ricorsiva, il che significa che se una dipendenza ha altre dipendenze, anche queste dipendenze verranno risolte automaticamente.</p>
+<p>Puoi usare <code>get()</code> per creare o ottenere istanze di oggetti. Il metodo accetta un nome di dipendenza, che può essere un nome di classe, un nome di interfaccia o un nome alias. Il nome della dipendenza può essere registrato tramite <code>set()</code> o <code>setSingleton()</code>. Opzionalmente è possibile fornire un elenco di parametri del costruttore della classe e una configurazione per configurare l'oggetto appena creato.</p>
+<p>Per esempio:</p>
+<pre><code>// "db" is a previously registered alias name
+$db = $container-&gt;get('db');
+
+// equivalent to: $engine = new \app\components\SearchEngine($apiKey, $apiSecret, ['type' =&gt; 1]);
+$engine = $container-&gt;get('app\components\SearchEngine', [$apiKey, $apiSecret], ['type' =&gt; 1]);
+</code></pre>
+<p>Dietro la scena, il contenitore DI fa molto più lavoro rispetto alla semplice creazione di un nuovo oggetto. Il contenitore, prima ispezionerà il costruttore della classe per scoprire i nomi di classe o interfaccia dipendenti, e dopo risolverà automaticamente tali dipendenze in modo ricorsivo.</p>
+<p>Il seguente codice mostra un esempio più sofisticato. La classe <code>UserLister</code> dipende da un oggetto che implementa l'interfaccia <code>UserFinderInterface</code>; la classe <code>UserFinder</code> implementa questa interfaccia e dipende da un oggetto <code>Connection</code>. Tutte queste dipendenze sono dichiarate tramite il suggerimento sul tipo dei parametri del costruttore della classe. Con la registrazione delle dipendenze delle proprietà, il contenitore DI è in grado di risolvere automaticamente queste dipendenze e crea una nuova istanza <code>UserLister</code> con una semplice chiamata di <code>get('userLister')</code>.</p>
+<pre><code>namespace app\models;
+
+use yii\base\BaseObject;
+use yii\db\Connection;
+use yii\di\Container;
+
+interface UserFinderInterface{
+
+    function findUser();
+}
+
+class UserFinder extends BaseObject implements UserFinderInterface{
+
+    public $db;
+
+    public function __construct(Connection $db, $config = []){
+
+        $this-&gt;db = $db;
+        parent::__construct($config);
+    }
+
+    public function findUser(){
+
+    }
+}
+
+class UserLister extends BaseObject{
+
+    public $finder;
+
+    public function __construct(UserFinderInterface $finder, $config = []){
+
+        $this-&gt;finder = $finder;
+        parent::__construct($config);
+    }
+}
+
+$container = new Container;
+$container-&gt;set('yii\db\Connection', [
+    'dsn' =&gt; '...',
+]);
+$container-&gt;set('app\models\UserFinderInterface', [
+    'class' =&gt; 'app\models\UserFinder',
+]);
+$container-&gt;set('userLister', 'app\models\UserLister');
+
+$lister = $container-&gt;get('userLister');
+
+// which is equivalent to:
+
+$db = new \yii\db\Connection(['dsn' =&gt; '...']);
+$finder = new UserFinder($db);
+$lister = new UserLister($finder);
+</code></pre>
+<h2 id="uso-pratico">Uso pratico<a class="headerlink" href="#uso-pratico" title="Permanent link">&para;</a></h2>
+<p>Yii crea un contenitore DI quando si include il file <code>Yii.php</code> nell'entry script della propria applicazione. Il contenitore DI è accessibile tramite il contenitore <strong>Yii :: $</strong>. Quando chiamate <strong>Yii :: createObject()</strong>, il metodo chiamerà effettivamente il metodo <code>get()</code> del contenitore per creare un nuovo oggetto. Come sopra indicato, il contenitore DI risolverà automaticamente le dipendenze (se presenti) e le inietterà nell'oggetto ottenuto. Poiché Yii usa <strong>Yii :: createObject()</strong> nella maggior parte del suo codice per creare nuovi oggetti, questo significa che puoi personalizzare gli oggetti globalmente trattando con <strong>Yii :: $ container</strong>.</p>
+<p>Ad esempio, personalizziamo globalmente il numero predefinito di pulsanti di impaginazione di <strong>yii \ widgets \ LinkPager</strong>.</p>
+<pre><code>\Yii::$container-&gt;set('yii\widgets\LinkPager', ['maxButtonCount' =&gt; 5]);
+</code></pre>
+<p>Ora se si utilizza il widget in una vista con il seguente codice, la proprietà <code>maxButtonCount</code> verrà inizializzata come 5 invece del valore predefinito 10 come definito nella classe.</p>
+<pre><code>echo \yii\widgets\LinkPager::widget();
+</code></pre>
+<p>E' comunque possibile sovrascrivere il valore impostato tramite il contenitore DI, tuttavia:</p>
+<pre><code>echo \yii\widgets\LinkPager::widget(['maxButtonCount' =&gt; 20]);
+</code></pre>
+<p>Un altro esempio è quello di sfruttare l'injection del costruttore in modo automatico. Supponiamo che la classe del controller dipenda da altri oggetti, come un servizio di prenotazione di un hotel. È possibile dichiarare la dipendenza tramite un parametro del costruttore e lasciare che il contenitore DI lo risolva automaticamente.</p>
+<pre><code>namespace app\controllers;
+
+use yii\web\Controller;
+use app\components\BookingInterface;
+
+class HotelController extends Controller{
+
+    protected $bookingService;
+
+    public function __construct($id, $module, BookingInterface $bookingService, $config = []){
+
+        $this-&gt;bookingService = $bookingService;
+        parent::__construct($id, $module, $config);
+    }
+}
+</code></pre>
+<p>Se accedi a questo controller dal browser, vedrai un errore <code>BookingInterface</code> che non può essere istanziato. Questo perché è necessario indicare al contenitore DI come gestire questa dipendenza:</p>
+<pre><code>\Yii::$container-&gt;set('app\components\BookingInterface', 'app\components\BookingService');
+</code></pre>
+<p>Ora, se si accede nuovamente al controller, <code>app\components\BookingService</code> verrà creata e iniettata un'istanza come terzo parametro per il costruttore del controllore.</p>
+<h2 id="uso-pratico-avanzato">Uso pratico avanzato<a class="headerlink" href="#uso-pratico-avanzato" title="Permanent link">&para;</a></h2>
+<p>Supponiamo che lavoriamo sull'applicazione API e abbiamo:</p>
+<ul>
+<li>la classe <code>app\components\Request</code> che si estende <code>yii\web\Request</code> e fornisce funzionalità aggiuntive;</li>
+<li>la classe <code>app\components\Response</code> che si estende <code>yii\web\Response</code> e dovrebbe avere la proprietà <code>format</code> impostata <code>json</code> sulla creazione;</li>
+<li>
+<p>le classi <code>app\storage\FileStorage</code> e <code>app\storage\DocumentsReader</code> che implementano alcune logiche sul lavoro con i documenti che si trovano in qualche archivio di file:</p>
+<p>class FileStorage{</p>
+<pre><code>public function __construct($root) {
+    // whatever
+}
+</code></pre>
+<p>}</p>
+<p>class DocumentsReader{</p>
+<pre><code>public function __construct(FileStorage $fs) {
+    // whatever
+}
+</code></pre>
+<p>}</p>
+</li>
+</ul>
+<p>È possibile configurare più definizioni contemporaneamente, passando l'array di configurazione al metodo <code>setDefinitions()</code> o <code>setSingletons()</code>. Iterando sull'array di configurazione, i metodi chiameranno <code>set()</code> o <code>setSingleton()</code> rispettivamente per ciascun elemento.</p>
+<p>Il formato dell'array di configurazione è:</p>
+<ul>
+<li><code>key</code>: nome della classe, nome dell'interfaccia o nome di un alias. La chiave verrà passata al metodo <code>set()</code> come primo argomento <code>$class</code>.</li>
+<li><code>value</code>: la definizione associata a <code>$class</code>. I valori possibili sono descritti nella documentazione <code>set()</code> per il parametro <code>$definition</code>. Sarà passato al metodo <code>set()</code> come secondo argomento <code>$definition</code>.</li>
+</ul>
+<p>Ad esempio, configuriamo il nostro contenitore per seguire i requisiti sopra citati:</p>
+<pre><code>$container-&gt;setDefinitions([
+    'yii\web\Request' =&gt; 'app\components\Request',
+    'yii\web\Response' =&gt; [
+        'class' =&gt; 'app\components\Response',
+        'format' =&gt; 'json'
+    ],
+    'app\storage\DocumentsReader' =&gt; function () {
+        $fs = new app\storage\FileStorage('/var/tempfiles');
+        return new app\storage\DocumentsReader($fs);
+    }
+]);
+
+$reader = $container-&gt;get('app\storage\DocumentsReader'); 
+// Will create DocumentReader object with its dependencies as described in the config
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Il contenitore può essere configurato in stile dichiarativo utilizzando la configurazione dell'applicazione dalla versione 2.0.11.</p>
+</div>
+<p>Tutto funziona, ma nel caso avessimo bisogno di creare una classe <code>DocumentWriter</code>, dovremmo copiare e incollare la linea che crea l'oggetto  <code>FileStorage</code>, che non è il modo più intelligente, ovviamente.</p>
+<p>Come descritto nella sottosezione Resolving Dependencies ,<code>set()</code> e <code>setSingleton()</code> possono facoltativamente assumere i parametri del costruttore della dipendenza come terzo argomento. Per impostare i parametri del costruttore, è possibile utilizzare il seguente formato di matrice di configurazione:</p>
+<ul>
+<li><code>key</code>: nome della classe, nome dell'interfaccia o nome di un alias. La chiave verrà passata al metodo <code>set()</code> come primo argomento <code>$class</code>.</li>
+<li><code>value</code>: array di due elementi. Il primo elemento sarà passato al metodo <code>set()</code> come secondo argomento <code>$definition</code>, mentre il secondo sarà <code>$params</code>.</li>
+</ul>
+<p>Modifichiamo il nostro esempio:</p>
+<pre><code>$container-&gt;setDefinitions([
+    'tempFileStorage' =&gt; [ // we've created an alias for convenience
+        ['class' =&gt; 'app\storage\FileStorage'],
+        ['/var/tempfiles'] // could be extracted from some config files
+    ],
+    'app\storage\DocumentsReader' =&gt; [
+        ['class' =&gt; 'app\storage\DocumentsReader'],
+        [Instance::of('tempFileStorage')]
+    ],
+    'app\storage\DocumentsWriter' =&gt; [
+        ['class' =&gt; 'app\storage\DocumentsWriter'],
+        [Instance::of('tempFileStorage')]
+    ]
+]);
+
+$reader = $container-&gt;get('app\storage\DocumentsReader); 
+// Will behave exactly the same as in the previous example.
+</code></pre>
+<p>Potresti notare la notazione <code>Instance::of('tempFileStorage')</code>. Significa che il Container fornirà implicitamente una dipendenza registrata con il nome <code>tempFileStorage</code> e la passerà come primo argomento del costruttore <code>app\storage\DocumentsWriter</code>.</p>
+<p>Un altro passo sull'ottimizzazione della configurazione consiste nel registrare alcune dipendenze come singleton. Una dipendenza registrata tramite <code>set()</code> verrà istanziata ogni volta che è necessario. Alcune classi non cambiano lo stato durante il runtime, pertanto possono essere registrate come singleton per aumentare le prestazioni dell'applicazione.</p>
+<p>Un buon esempio potrebbe essere la classe <code>app\storage\FileStorage</code>, che esegue alcune operazioni sul file system con una semplice API (ad esempio <code>$fs-&gt;read()</code>, <code>$fs-&gt;write()</code>). Queste operazioni non cambiano lo stato della classe interna, quindi possiamo creare la sua istanza una volta e usarla più volte.</p>
+<pre><code>$container-&gt;setSingletons([
+    'tempFileStorage' =&gt; [
+        ['class' =&gt; 'app\storage\FileStorage'],
+        ['/var/tempfiles']
+    ],
+]);
+
+$container-&gt;setDefinitions([
+    'app\storage\DocumentsReader' =&gt; [
+        ['class' =&gt; 'app\storage\DocumentsReader'],
+        [Instance::of('tempFileStorage')]
+    ],
+    'app\storage\DocumentsWriter' =&gt; [
+        ['class' =&gt; 'app\storage\DocumentsWriter'],
+        [Instance::of('tempFileStorage')]
+    ]
+]);
+
+$reader = $container-&gt;get('app\storage\DocumentsReader');
+</code></pre>
+<h2 id="quando-registrare-le-dipendenze">Quando registrare le dipendenze<a class="headerlink" href="#quando-registrare-le-dipendenze" title="Permanent link">&para;</a></h2>
+<p>Poiché le dipendenze sono necessarie quando vengono creati nuovi oggetti, la loro registrazione dovrebbe essere fatta il prima possibile. Le seguenti sono le pratiche raccomandate:</p>
+<ul>
+<li>Se sei lo sviluppatore di un'applicazione, puoi registrare le tue dipendenze usando la configurazione dell'applicazione.</li>
+<li>Se sei lo sviluppatore di un'estensione ridistribuibile , puoi registrare le dipendenze nella classe di avvio automatico dell'estensione.</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-service-locator/" title="Localizzatore di servizi" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Localizzatore di servizi
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-109845735-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>

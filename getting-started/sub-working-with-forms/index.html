@@ -221,6 +221,19 @@
   
 
       
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -714,6 +727,138 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -773,14 +918,16 @@
                 
                 
                 <h1 id="lavorare-con-i-moduli">Lavorare con i moduli<a class="headerlink" href="#lavorare-con-i-moduli" title="Permanent link">&para;</a></h1>
-<p>Questa sezione descrive come creare una nuova pagina con un modulo per ottenere dati/informazioni dall'utente. La pagina visualizzerà una maschera con due campi di immmissione. Un campo per il nome e l'altra per l'e-mail. Dopo aver ricevuto i due valori dall'utente, la pagina ristamperà i valori inseriti per conferma.</p>
-<p>Attraverso questo tutorial imparerai come:
-- creare un modello per rappresentare i dati inseriti da un utente attraverso un modulo.
-- dichiarare regole per convalidare i dati inseriti.
-- costruire un modulo HTML in una views.</p>
+<p>Questa sezione descrive come creare una nuova pagina con un modulo, per ottenere dati/informazioni dall'utente. La pagina visualizzerà una maschera con due campi di immmissione. Un campo per il nome e l'altra per l'e-mail. Dopo aver ricevuto i due valori dall'utente, la pagina ristamperà i valori inseriti per conferma.</p>
+<p>Attraverso questo tutorial imparerai come:</p>
+<ul>
+<li>creare un modello per rappresentare i dati inseriti da un utente attraverso un modulo.</li>
+<li>dichiarare regole per convalidare i dati inseriti.</li>
+<li>costruire un modulo HTML in una views.</li>
+</ul>
 <h2 id="creazione-di-un-modello">Creazione di un modello<a class="headerlink" href="#creazione-di-un-modello" title="Permanent link">&para;</a></h2>
 <p>I dati da richiedere all'utente finale verranno rappresentati da una classe <code>EntryForm</code> (come mostrata di seguito) e salvata nella seguente directory <code>models/EntryForm.php</code>.</p>
-<p>Codice EntryForm.php</p>
+<p><strong>Codice EntryForm.php</strong></p>
 <pre><code>&lt;?php
 
 namespace app\models;
@@ -802,12 +949,12 @@ class EntryForm extends Model{
     }
 }
 </code></pre>
-<p>La classe <code>EntryForm</code> contiene due valori pubblici: <code>name</code> e <code>email</code>, utilizzati per memorizzare i dati immessi dall'utente. Inoltre contiene un metodo denominato <code>rules()</code> che restituisce un insieme di regole per la convalida dei dati. Le regole di convalida scritte in precedenza controllano:</p>
+<p>La classe <code>EntryForm</code> contiene due valori pubblici: <code>name</code> e <code>email</code>. Questi valori vengono utilizzati per memorizzare i dati immessi dall'utente. Inoltre contiene un metodo denominato <code>rules()</code> che restituisce un insieme di regole per la convalida dei dati. Le regole di convalida scritte in precedenza controllano:</p>
 <ul>
 <li>entrambe le variabili <code>name</code> e <code>email</code> che non siano vuote e che siano stati inseriti dei valori;</li>
 <li>che il campo <code>email</code> deve coincidere con un indirizzo e-mail valido.</li>
 </ul>
-<p>Se si dispone di un oggetto <code>EntryForm</code> popolato con i dati immessi dall'utente, è possibile chiamare il metodo validate() per attivare la routine di convalida dei dati. Se avviene un errore di convalida dei dati, verrà stabilito il valore "true" alla proprietà hasErrors e possiamo anche conoscere quali errori di convalida si verificano.</p>
+<p>Se si dispone di un oggetto <code>EntryForm</code> popolato con i dati immessi dall'utente, è possibile chiamare il metodo <strong>validate()</strong> per attivare la routine di convalida dei dati. Se avviene un errore di convalida dei dati, verrà stabilito il valore <strong>true</strong> alla proprietà <strong>hasErrors</strong> e possiamo anche conoscere quali errori di convalida si verificano.</p>
 <pre><code>&lt;?php
     $model = new EntryForm();
     $model-&gt;name = 'Qiang';
@@ -851,15 +998,15 @@ class SiteController extends Controller{
     }
 }
 </code></pre>
-<p>Per prima cosa viene creato un oggetto di tipo <code>EntryForm</code>. A questo punto cercherà di popolare il modello con i dati $_POST forniti da Yii. Se il modello è stato popolato correttamente, l'azione richiamerà il metodo validate() per assicurarsi che i valori immessi siano validi.</p>
+<p>Per prima cosa viene creato un oggetto di tipo <code>EntryForm</code>. A questo punto cercherà di popolare il modello con i dati <strong>$_POST</strong> forniti da Yii. Se il modello è stato popolato correttamente, l'azione richiamerà il metodo <strong>validate()</strong> per assicurarsi che i valori immessi siano validi.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>L'espressione <code>Yii::$app</code> rappresenta l'istanza di applicazione, che è un singleton accessibile a livello globale. E' anche un servizio che fornisce componenti quali <code>request , response , db</code>, ecc per supportare una specifica funzionalità. Nel codice precedente il componente <code>request</code> viene utilizzato per accedere ai dati in <code>$_POST</code>.</p>
+<p>L'espressione <code>Yii::$app</code> rappresenta l'istanza di applicazione, che è un singleton accessibile a livello globale. E' anche un servizio che fornisce componenti quali <code>request</code> , <code>response</code> , <code>db</code>, ecc.. per supportare una specifica funzionalità. Nel codice precedente il componente <code>request</code> viene utilizzato per accedere ai dati in <code>$_POST</code>.</p>
 </div>
-<p>Se tutto va bene, l'azione renderà una vista denominata <code>entry-confirm</code> per confermare la presentazione dei dati in modo corretto all'utente. Se non vengono inviati i dati in modo corretto oppure i dati contengono errori, avremmo la visualizzazione dell'<code>entry</code>, in cui verrà mostrata la maschera HTML insieme a tutti i messaggi di errori ( o di convalida).</p>
+<p>Se tutto va bene, l'azione renderà una vista denominata <code>entry-confirm</code> per confermare la presentazione dei dati in modo corretto all'utente. Se non vengono inviati i dati in modo corretto, oppure i dati contengono errori, avremmo la visualizzazione dell'<code>entry</code>, in cui verrà mostrata la maschera HTML insieme a tutti i messaggi di errori ( o di convalida).</p>
 <h2 id="creazione-di-viste">Creazione di Viste<a class="headerlink" href="#creazione-di-viste" title="Permanent link">&para;</a></h2>
 <p>Infine, dobbiamo creare due file view denominati <code>entry-form</code> e <code>entry</code>. All'interno del primo file avverrà la visualizzazione del nome e dell'email inseriti dall'utente. Questi dati devono essere memorizzati nella seguente directory: <code>views/site/entry-confirm.php</code>.</p>
-<p>ENTRY-CONFIRM.php</p>
+<p><strong>ENTRY-CONFIRM.php</strong></p>
 <pre><code>&lt;?php
 use yii\helpers\Html;
 ?&gt;
@@ -870,8 +1017,8 @@ use yii\helpers\Html;
     &lt;li&gt;&lt;label&gt;Email&lt;/label&gt;: &lt;?= Html::encode($model-&gt;email) ?&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
-<p>Mentre all'interno del file <code>entry</code> ci sarà la visualizzazione del modulo in HTML dove l'utente dovrà inserire i propri dati. Questo file deve essere memorizzato nella seguente directory: <code>views/site/entry.php</code>.</p>
-<p>ENTRY.php</p>
+<p>All'interno del file <code>entry</code> ci sarà la visualizzazione del modulo in HTML dove l'utente dovrà inserire i propri dati. Questo file deve essere memorizzato nella seguente directory: <code>views/site/entry.php</code>.</p>
+<p><strong>ENTRY.php</strong></p>
 <pre><code>&lt;?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -888,12 +1035,12 @@ use yii\widgets\ActiveForm;
 
 &lt;?php ActiveForm::end(); ?&gt;
 </code></pre>
-<p>La vista <code>entry.php</code> utilizza un potente widget denominato "ActiveForm" per creare il modulo HTML. I metodi <code>begin()</code> e <code>end()</code> vengono usati per tag di apertura e chiusura. Tra le due chiamate , i campi di input vengono creati dal metodo <code>field()</code>. Il primo campo è relativo al nome, mentre il secondo è relativo all'email. Dopo i campi di input, il metodo "submitButton" viene chiamato per generare il pulsante di invio.</p>
+<p>La vista <code>entry.php</code> utilizza un potente widget denominato <strong>ActiveForm</strong> per creare il modulo HTML. I metodi <code>begin()</code> e <code>end()</code> vengono usati per tag di apertura e chiusura. Tra le due chiamate , i campi di input vengono creati dal metodo <code>field()</code>. Il primo campo è relativo al nome, mentre il secondo è relativo all'email. Dopo i campi di input, il metodo <strong>submitButton</strong> viene chiamato per generare il pulsante di invio.</p>
 <p>Per controllare se tutto funziona, bisogna inserire il seguente URL nel browser</p>
 <pre><code>http://hostname/index.php?r=site%2Fentry
 </code></pre>
 <p><img alt="Screenshot" src="../../img/getting-started/input_form.png" /></p>
-<p>Dopo aver inserito un nome e una e-mail validi e facendo sul pulsante "Submit", verrà visualizzata una pagina che visualizzerà i dati appena immessi.</p>
+<p>Dopo aver inserito un nome e una e-mail validi e facendo sul pulsante <strong>Submit</strong>, verrà visualizzata una pagina che visualizzerà i dati appena immessi.</p>
 <p><img alt="Screenshot" src="../../img/getting-started/output_form.png" /></p>
                 
                   

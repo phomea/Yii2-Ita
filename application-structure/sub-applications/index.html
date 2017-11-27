@@ -221,6 +221,19 @@
   
 
       
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -742,6 +755,138 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -832,9 +977,9 @@
 <p>Le applicazioni sono oggetti che regolano la struttura complessiva e il ciclo di vita dei sistemi applicativi di Yii. Ogni sistema applicativo Yii contiene un singolo oggetto di applicazione che viene creato nell'entry script ed è globalmente accessibile tramite l'espressione <code>\Yii::$app</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>A seconda del contesto, quando diciamo "un'applicazione", può significare o un oggetto dell'applicazione o un sistema applicativo</p>
+<p>A seconda del contesto, quando diciamo <strong>un'applicazione</strong>, può significare o un oggetto dell'applicazione o un sistema applicativo.</p>
 </div>
-<p>Esistono due tipo di applicazioni: applicazioni Web e applicazioni Console.  Come indicano i nomi, il primo gestisce principalmente le richieste Web, mentre quest'ultimo gestisce le richieste di comando della console.</p>
+<p>Esistono due tipi di applicazioni: <strong>applicazioni Web</strong> e <strong>applicazioni Console</strong>.  Come indicano i nomi, il primo gestisce principalmente le richieste Web, mentre quest'ultimo gestisce le richieste di comando della console.</p>
 <h2 id="configurazione-dellapplicazione">Configurazione dell'applicazione<a class="headerlink" href="#configurazione-dellapplicazione" title="Permanent link">&para;</a></h2>
 <p>Quando uno script di accesso crea un'applicazione, caricherà una configurazione e la applica all'app, come segue:</p>
 <pre><code>require(__DIR__ . '/../vendor/autoload.php');
@@ -848,17 +993,17 @@ $config = require(__DIR__ . '/../config/web.php');
 </code></pre>
 <p>Le configurazioni applicative specificano come inizializzare le proprietà degli oggetti applicativi. Poichè le configurazioni di applicazione sono complesse, vengono di solito conservate in file di configurazione come <code>web.php</code> nell'esempio precedente.</p>
 <h2 id="proprieta-dellapplicazione">Proprietà dell'applicazione<a class="headerlink" href="#proprieta-dellapplicazione" title="Permanent link">&para;</a></h2>
-<p>Ci sono molte proprietà che può avere un'applicazione e che dovremmo configurare ne file di configurazione. Queste proprietà descrivono in genere l'ambiente in cui sono in esecuzione applicazioni. Ad esemppio, le applicazioni devono sapere come caricare i controller, dove memorizzare file temporanei, ect.. Adesso andremo ad elencare queste proprietà.</p>
+<p>Ci sono molte proprietà che può avere un'applicazione e che dovremmo configurare nei file di configurazione. Queste proprietà descrivono in genere l'ambiente in cui sono in esecuzione applicazioni. Ad esemppio, le applicazioni devono sapere come caricare i controller, dove memorizzare file temporanei, ecc.. Adesso andremo ad elencare queste proprietà.</p>
 <h2 id="proprieta-richieste">Proprietà richieste<a class="headerlink" href="#proprieta-richieste" title="Permanent link">&para;</a></h2>
 <p>In qualsiasi applicazione, è necessario almeno configurare le seguenti due proprietà:</p>
-<p>ID</p>
+<p><strong><em>ID</em></strong></p>
 <p>La proprietà ID specifica un id univoco che differenzia un'applicazione da un'altra. Sebbene non sia un requisito, per una migliore interoperabilità è consigliabile utilizzare solo caratteri alfanumerici quando si specifica un ID dell'applicazione.</p>
-<p>basePath</p>
-<p>La proprietà "basePath" specifica la directory principale di un'applicazione. E' la directory che contiene tutto il codice sorgente protetto di un sistema applicativo. In base a tale directory, normalmente ci saranno sotto-directory come <code>models</code>, <code>views</code> e <code>controllers</code> che contengono il codice sorgente corrispondente al pattern MVC.
-E' possibile configurare la proprietà "basePath" utilizzando un percorso di directory o un alias di percorso. In entrambe le forme, la directory corrispondente deve esistere oppure verrà lanciata un'eccezione. Il percorso viene normalizzato chiamando la funzione <code>realpath()</code>.</p>
+<p><strong><em>basePath</em></strong></p>
+<p>La proprietà <strong>basePath</strong> specifica la directory principale di un'applicazione. E' la directory che contiene tutto il codice sorgente protetto di un sistema applicativo. In base a tale directory, normalmente ci saranno sotto-directory come <code>models</code>, <code>views</code> e <code>controllers</code> che contengono il codice sorgente corrispondente al pattern MVC.
+E' possibile configurare la proprietà <strong>basePath</strong> utilizzando un percorso di directory o un alias di percorso. In entrambe le forme, la directory corrispondente deve esistere oppure verrà lanciata un'eccezione. Il percorso viene normalizzato chiamando la funzione <code>realpath()</code>.</p>
 <h2 id="proprieta-importanti">Proprietà importanti<a class="headerlink" href="#proprieta-importanti" title="Permanent link">&para;</a></h2>
-<p>Le proprietà descritte in questa sottosezione spesso devono essere configurare perchè differiscono da diverse applicazioni.</p>
-<p>Alias</p>
+<p>Le proprietà descritte in questa sottosezione spesso devono essere configurate perchè differiscono da diverse applicazioni.</p>
+<p><strong><em>Alias</em></strong></p>
 <p>Questa proprietà consente di definire un insieme di alias in termini di array. Le chiavi dell'array sono nomi di alias e i valori dell'array sono le corrispondenti definizioni del percorso. Per esempio:</p>
 <pre><code>[
     'aliases' =&gt; [
@@ -868,14 +1013,16 @@ E' possibile configurare la proprietà "basePath" utilizzando un percorso di dir
 ]
 </code></pre>
 <p>Questa proprietà viene utilizzata per richiamare un'applicazione che potrebbe avere un nome differente a quello indicato nell'ID.</p>
-<p>Bootstrap</p>
+<p><strong><em>Bootstrap</em></strong></p>
 <p>Questa è una proprietà molto utile. Consente di specificare una serie di componenti che devono essere eseguiti durante il processo di avvio dell'applicazione. Ad esempio, se si desidera che un modulo personalizza le regole URL, è possibile elencare l'ID come elemento di questa proprietà.
-Ogni componente elencato in questa proprietà può essere specificato in uno dei seguenti formati:
-- un ID di un'applicazione specificato tramite componenti,
-- un modulo ID specificato tramite moduli,
-- un nome di una classe,
-- un array di configurazione,
-- una funzione anonima che crea e restituisce un determinato componente.</p>
+Ogni componente elencato in questa proprietà può essere specificato in uno dei seguenti formati:</p>
+<ul>
+<li>un ID di un'applicazione specificato tramite componenti,</li>
+<li>un modulo ID specificato tramite moduli,</li>
+<li>un nome di una classe,</li>
+<li>un array di configurazione,</li>
+<li>una funzione anonima che crea e restituisce un determinato componente.</li>
+</ul>
 <p>Esempio:</p>
 <pre><code>[
     'bootstrap' =&gt; [
@@ -908,9 +1055,9 @@ Ogni componente elencato in questa proprietà può essere specificato in uno dei
 ]
 </code></pre>
 </div>
-<p>Durante il processo di avvio ogni componente viene instanziato. Se la classe dei componenti implementa “ yii /base / BootstrapInterface", verrà anche chiamato il metodo "bootstrap()". Questo metodo può contenere ID di eventuali moduli che voglio caricare prima di alcuni ( per es. il modulo ‘log’ per tener traccia di eventuali errori nella fase di caricamento ).</p>
-<p>CatchAll</p>
-<p>Questa proprietà è supportata solo dalle applicazioni Web. Specifica un'azione del controller che dovrebbe gestire tutte le richieste dell'utente. Questo viene utilizzato principalmente quando l'applicazione è in modalità di manutenzione (debug) e deve gestire tutte le richieste in entrata tramite un'unica azione.
+<p>Durante il processo di avvio, ogni componente viene instanziato. Se la classe dei componenti implementa <strong>yii /base / BootstrapInterface</strong>, verrà anche chiamato il metodo <strong>bootstrap()</strong>. Questo metodo può contenere ID di eventuali moduli che voglio caricare prima di alcuni ( per es. il modulo ‘log’ per tener traccia di eventuali errori nella fase di caricamento ).</p>
+<p><strong><em>CatchAll</em></strong></p>
+<p>Questa proprietà è supportata solo dalle applicazioni Web. Specifica un'azione del controller che dovrebbe gestire tutte le richieste dell'utente. Questo viene utilizzato principalmente quando l'applicazione è in modalità di debug e deve gestire tutte le richieste in entrata tramite un'unica azione.
 La configurazione è una matrice il cui primo elemento specifica il percorso dell'azione. Il resto degli elementi della matrice specifica i parametri da associare all'azione. </p>
 <p>Esempio:</p>
 <pre><code>[
@@ -925,8 +1072,8 @@ La configurazione è una matrice il cui primo elemento specifica il percorso del
 <p class="admonition-title">Info</p>
 <p>Il pannello di debug sull'ambiente di sviluppo non funziona quando questa proprietà è abilitata.</p>
 </div>
-<p>Componenti - (components)</p>
-<p>Questa è la proprietà più importante. Consente di registrare un elenco di componenti denominati "application component" che è possibile utilizzare in altri luoghi. </p>
+<p><strong><em>Componenti - (components)</em></strong></p>
+<p>Questa è la proprietà più importante. Consente di registrare un elenco di componenti denominati <strong>application component</strong> che è possibile utilizzare in altri luoghi. </p>
 <p>Esempio:</p>
 <pre><code>[
     'components' =&gt; [
@@ -947,9 +1094,9 @@ La configurazione è una matrice il cui primo elemento specifica il percorso del
             'identityClass' =&gt; 'common\models\User',
             'enableAutoLogin' =&gt; true,
         ],]</p>
-<p>Nella parte di codice sopra, si vede la struttura chiave-valore applicata.
-La prima chiave che troviamo è “User” cioè l’identificavo (ID) del modulo/componente, e il suo valore, è composto a sua volta da un array chiave-valore, dove le chiavi questa volta sono identificativi o della classe principale del modulo (identityClass) o di una sua configurazione (enableAutoLogin).</p>
-<p>ControllerMap</p>
+<p>Nella parte di codice sopra stante, si vede la struttura chiave-valore applicata.
+La prima chiave che troviamo è <strong>User</strong> cioè l’identificavo (ID) del modulo/componente, e il suo valore, è composto a sua volta da un array chiave-valore, dove le chiavi questa volta sono identificativi o della classe principale del modulo <strong>identityClass</strong> o di una sua configurazione <strong>enableAutoLogin</strong>.</p>
+<p><strong><em>ControllerMap</em></strong></p>
 <p>Questa proprietà consente di mappare un controller ID in una classe arbitraria del controller. Per impostazione predefinitam Yii mapperà gli ID alle classi di controller basate su una convenzione ( ad esempio l'ID <code>post</code> verrà mappato <code>app\controller\PostController</code>). Configurando questa proprietà, è possibile rompere la convenzione per specifici controller. Nell'esempio seguente, <code>account</code> verrà mappato <code>app\controllers\UserController</code>, mentre <code>article</code> verrà mappato su <code>app\controllers\PostController</code>.</p>
 <pre><code>[
     'controllerMap' =&gt; [
@@ -962,14 +1109,14 @@ La prima chiave che troviamo è “User” cioè l’identificavo (ID) del modul
 ]
 </code></pre>
 <p>Le chiavi dell'array rappresentano gli ID del controller, mentre i valori dell'array rappresentano i nomi o le configurazioni dei nomi delle classi di controllo corrispondenti.</p>
-<p>ControllerNamespace</p>
-<p>Questa proprietà specifica i namespace predefiniti in cui le classi controller devono essere posizionate. Come posizione di default li troveremo in <code>app\controllers</code>. Se è un ID del controller <code>post</code>, per convenzione corrisponderebbe il nome della classe di controllo <code>PostController</code> e il nome della classe completamente qualificato <code>app\controllers\PostController</code>.
-Le classi del controller possono anche essere posizionate sotto le sotto-directory della directory corrispondente a questi namespace. Ad esempio, dato un ID controller <code>admin/post</code>, la corrispondente classe del controller completamente qualificata sarebbe <code>app\controllers\admin\PostController</code>.
-E' importante che le classi di controllo pienamente qualificate debbano essere "autoloadable" e i namespace delle classi di controller corrispondino al valore di questa proprietà. Altrimenti riceverai un errore "Pagina non trovata" quando si accede alla nostra applicazione.</p>
-<p>Lingua - (language)</p>
+<p><strong><em>ControllerNamespace</em></strong></p>
+<p>Questa proprietà specifica i namespace predefiniti in cui le classi controller devono essere posizionate. Come posizione di default li troveremo in <code>app\controllers</code>. Se è un ID del controller <code>post</code>, per convenzione, corrisponderebbe il nome della classe di controllo <code>PostController</code> e il nome della classe completamente qualificato <code>app\controllers\PostController</code>.</p>
+<p>Le classi del controller possono anche essere posizionate sotto le sotto-directory della directory corrispondente a questi namespace. Ad esempio, dato un ID controller <code>admin/post</code>, la corrispondente classe del controller completamente qualificata sarebbe <code>app\controllers\admin\PostController</code>.</p>
+<p>E' importante che le classi di controllo pienamente qualificate debbano essere <strong>autoloadable</strong> e i namespace delle classi di controller corrispondino al valore di questa proprietà. Altrimenti riceverai un errore <strong>Pagina non trovata</strong> quando si accede alla nostra applicazione.</p>
+<p><strong><em>Lingua - (language)</em></strong></p>
 <p>Questa proprietà specifica la lingua in cui l'applicazionedeve visualizzare il contenuto agli utenti finali. Il valore predefinito di questa proprietà è <code>en</code> ( inglese ). E' necessario configurare questa proprietà se vogliamo che l'applicazione possa supportare più lingue.
 Il valore di questa proprietà determina diversi aspetti di internalizzazione, tra cui la traduzione dei messaggi, la formattazione della data, la formattazione del numero, ecc..</p>
-<p>Moduli - (modules)</p>
+<p><strong><em>Moduli - (modules)</em></strong></p>
 <p>Questa proprietà specifica i moduli che contiene l'applicazione. I moduli vengono visti come sotto-applicazioni della nostra applicazione padre.</p>
 <p>Esempio:</p>
 <pre><code>[
@@ -985,9 +1132,9 @@ Il valore di questa proprietà determina diversi aspetti di internalizzazione, t
     ],  
 ]
 </code></pre>
-<p>Nome - (name)</p>
+<p><strong><em>Nome - (name)</em></strong></p>
 <p>Questa proprietà specifica il nome dell'applicazione che può essere visualizzato agli utenti finali. A differenza della proprietà ID, che dovrebbe assumere un valore univoco, il valore di questa proprietà è usato principalmente per scopi di visualizzazione. Non deve essere univoco.</p>
-<p>Parametri - (params)</p>
+<p><strong><em>Parametri - (params)</em></strong></p>
 <p>Questa proprietà specifica una serie di parametri applicativi accessibili a livello globale. Invece di utilizzare numerosi codici e stringhe dappertutto nel codice, è una buona pratica definirli come parametri dell'app in un unico punto e utilizzare parametri in luoghi dove è necessario. </p>
 <p>Esempio: possiamo utilizzare questa proprietà per definire la dimensione dell'immagine in miniatura come parametro</p>
 <pre><code>[
@@ -1001,26 +1148,26 @@ Il valore di questa proprietà determina diversi aspetti di internalizzazione, t
 $width = \Yii::$app-&gt;params['thumbnail.size'][0];
 </code></pre>
 <p>In seguito, se si decide di modificare le dimensioni delle miniature, è necessario modificarlo solo nella configurazione dell'applicazione; non è necessario toccare alcun codice dipendente.</p>
-<p>Linguaggio del codice - (sourceLanguage)</p>
+<p><strong><em>Linguaggio del codice - (sourceLanguage)</em></strong></p>
 <p>Questa proprietà specifica la lingua in cui è scritto il codice dell'applicazione. Il valore predefinito è <code>en-US</code>, cioè l'inglese (Stati Uniti). E' necessario configurare questo proprietà se il contenuto del testo nel codice non è in inglese.</p>
-<p>Fuso orario - (timeZone)</p>
-<p>Questa proprietà viene fornita come modalità alternativa per impostare il fuso orario predefinito del runtime PHP. Configurando questa proprietà, si sta chiamando essenzialmente la funzione PHP "date_default_timezone_set()“.</p>
+<p><strong><em>Fuso orario - (timeZone)</em></strong></p>
+<p>Questa proprietà viene fornita come modalità alternativa per impostare il fuso orario predefinito del runtime PHP. Configurando questa proprietà, si sta chiamando essenzialmente la funzione PHP <strong>date_default_timezone_set()</strong>.</p>
 <p>Esempio:</p>
 <pre><code>[
     'timeZone' =&gt; 'America/Los_Angeles',
 ]
 </code></pre>
-<p>Versioni - (version)</p>
+<p><strong><em>Versioni - (version)</em></strong></p>
 <p>Questa proprietà specifica la versione dell'applicazione. E' predefinito <code>1.0</code>.</p>
 <h2 id="proprieta-utili">Proprietà Utili<a class="headerlink" href="#proprieta-utili" title="Permanent link">&para;</a></h2>
 <p>Le proprietà descritte in questa sottosezione non sono comunemente configurate perchè i loro valori predefiniti derivano da convenzioni comuni. Tuttavia, è possibile configurarli nel caso in cui si desidera rompere le convenzioni.</p>
-<p>Charset</p>
+<p><strong><em>Charset</em></strong></p>
 <p>Questa proprietà specifica il carattere che l'applicazione utilizza. Il valore predefinito è quello <code>UTF-8</code> che dovrebbe essere mantenuto come per la maggior parte delle applicazioni a meno che non si tratti di un sistema legacy che utilizza un sacco di dati non Unicode.</p>
-<p>DefaultRoute</p>
-<p>Questa proprietà specifica il percorso che un'applicazione deve utilizzare quando una richiesta non lo specifica. Ad esempio, <code>help</code>,<code>post/create</code> o <code>admin/post/create</code>. Se non viene dato un ID dell'azione, questa proprietà prende il valore predefinito specificato in “ yii \base \ Controller :: $defaultAction".</p>
+<p><strong><em>DefaultRoute</em></strong></p>
+<p>Questa proprietà specifica il percorso che un'applicazione deve utilizzare quando una richiesta non lo specifica. Ad esempio, <code>help</code>,<code>post/create</code> o <code>admin/post/create</code>. Se non viene dato un ID dell'azione, questa proprietà prende il valore predefinito specificato in <strong>yii \base \ Controller :: $defaultAction</strong>.</p>
 <p>Per le applicazioni Web, il valore predefinito di questa proprietà è <code>site</code>, il che significa che il <code>SiteController</code> e l'azione predefinita devono essere utilizzati. Di conseguenza se si accede all'applicazione senza specificare un percorso, verrà visualizzato il risultato di <code>app\controllers\SiteController::actionIndex()</code>.</p>
-<p>Per le applicazioni tramite console, il valore predefinito è <code>help</code>, il che significa che il comando principale “ yii \ console \ controllers \ HelpController::actionIndex()“ deve essere utilizzato. Di conseguenza, se su esegue il comando <code>yii</code> senza fornire argomenti, visualizzerà le informazioni di aiuto(help).</p>
-<p>Estensioni - (extensions)</p>
+<p>Per le applicazioni tramite console, il valore predefinito è <code>help</code>, il che significa che il comando principale  <strong>yii \ console \ controllers \ HelpController::actionIndex()</strong> deve essere utilizzato. Di conseguenza, se su esegue il comando <code>yii</code> senza fornire argomenti, visualizzerà le informazioni di aiuto (help).</p>
+<p><strong><em>Estensioni - (extensions)</em></strong></p>
 <p>Questa proprietà specifica l'elenco delle estensioni installate e utilizzate dall'applicazione. Per impostazione predefinita, l'array verrà restituito dal file <code>@vendor/yiisoft/extensions.php</code>. Il file <code>extensions.php</code> viene generato e mantenuto automaticamente quando si utilizza il Composer per installare le estensioni. Quindi, la maggior parte dei casi, non è necessario configurare questa proprietà.
 Nel caso particolare quando si desidera mantenere manualmente le estensioni, è possibile configurare questa proprietà come segue:</p>
 <pre><code>[
@@ -1041,18 +1188,18 @@ Nel caso particolare quando si desidera mantenere manualmente le estensioni, è 
 ]
 </code></pre>
 <p>Come potete vedere, la proprietà prende una serie di specifiche di estensione. Ogni estensione è specificata con una matrice composta da elementi <code>name</code> e <code>version</code>.</p>
-<p>Disposizione - (layout)</p>
+<p><strong><em>Disposizione - (layout)</em></strong></p>
 <p>Questa proprietà specifica il nome del layout predefinito che dovrebbe essere utilizzato quando si effettua una visualizzazione. Il valore di defult è <code>main</code>, significa che il file di layout <code>main.php</code> sotto il percorso di layout dovrebbe essere usato. Se entrambi i percorsi di layout e il percorso di visualizzazione stanno prendendo i valori predefiniti, il file di layout predefinito può essere rappresentato come alias di percorso <code>@app/views/layouts/main.php</code>.
 E' possibile configurare questa proprietà <code>false</code> se si desidera disattivare l'impostazione predefinita di layout.</p>
-<p>layoutPath</p>
+<p><strong><em>layoutPath</em></strong></p>
 <p>Questa proprietà specifica il percorso in cui dovrebbero essere caricati i file di layout. Il valore predefinito è la sotto-directory <code>layouts</code> sotto il percorso di visualizzazione. Se il percorso di visualizzazione sta prendendo il suo valore predefinito, il percorso di layout può essere rappresentato come alias di percorso: <code>@app/views/layouts</code>.</p>
-<p>runtimepath</p>
+<p><strong><em>runtimepath</em></strong></p>
 <p>Questa proprietà specifica il percorso in cui possono essere generati file temporanei, ad esempio file di log, file di cache.Il valore predefinito è la directory rappresentata dall'alias <code>@app/runtime</code>.</p>
-<p>viewPath</p>
+<p><strong><em>viewPath</em></strong></p>
 <p>Questa proprietà specifica la directory principale in cui si trovano i file di visualizzazione. Il valore predefinito della directory è rappresentata dall'alias <code>@app/views</code>.</p>
-<p>vendorPath</p>
+<p><strong><em>vendorPath</em></strong></p>
 <p>Questa proprietà specifica la directory del fornitore gestita dal Composer. Contriene tutte le livrerie di terze parti utilizzate dall'applicazione, incluso il framework Yii. Il valore predefinito è la directory rappresentata dall'alias <code>@aap/vendor</code>.</p>
-<p>enableCoreCommands</p>
+<p><strong><em>enableCoreCommands</em></strong></p>
 <p>Questa proprietà è supportata solo dalle applicazioni tramite console. Specifica se i comandi base inclusi nella versione di Yii dovrebbero essere abilitati. Il valore predefinito è <code>true</code>.</p>
 <h2 id="eventi-dellapplicazione">Eventi dell'applicazione<a class="headerlink" href="#eventi-dellapplicazione" title="Permanent link">&para;</a></h2>
 <p>Un'applicazione attiva diversi eventi durante il ciclo di vita di una richiesta. E' possibile associare i gestori di eventi nelle configurazioni dell'applicazione come segue:</p>
@@ -1068,12 +1215,12 @@ E' possibile configurare questa proprietà <code>false</code> se si desidera dis
     // ...
 });
 </code></pre>
-<p>EVENT_BEFORE_REQUEST</p>
+<p><strong><em>EVENT_BEFORE_REQUEST</em></strong></p>
 <p>Questo evento viene attivato <strong><em>prima</em></strong> che un'applicazione gestisca una richiesta. Il nome effettivo dell'evento è <code>beforeRequest</code>.</p>
-<p>EVENT_AFTER_REQUEST</p>
+<p><strong><em>EVENT_AFTER_REQUEST</em></strong></p>
 <p>Questo evento viene attivato <strong><em>dopo</em></strong> che un'applicazione gestisca una richiesta, ma <strong><em>prima</em></strong> di inviare la risposta. Il nome effettivo dell'evento è <code>afterRequest</code>.
 Quando questo evento viene attivato, la gestione delle richieste è completata e si può prendere questa possibilità per eseguire una successiva elaborazione della richiesta o personalizzare la risposta.</p>
-<p>EVENT_BEFORE_ACTION</p>
+<p><strong><em>EVENT_BEFORE_ACTION</em></strong></p>
 <p>Questo evento viene attivato <strong><em>prima</em></strong> di eseguire tutte le azioni del controller. Il nome effettivo dell'evento è <code>beforeAction</code>.
 Il parametro dell'evento è un'istanza di <strong><em>yii \ base \ ActioneEvent</em></strong>. Un gestore di evento può impostare la proprietà dell'actionEvent [isValid()] ad essere <code>false</code> e smettere di eseguire l'azione. </p>
 <p>Esempio:</p>
@@ -1087,7 +1234,7 @@ Il parametro dell'evento è un'istanza di <strong><em>yii \ base \ ActioneEvent<
 ]
 </code></pre>
 <p>Si noti che lo stesso evento <code>beforeAction</code> viene attivato anche dai moduli e dai controller. Gli oggetti applicativi sono i primi che innescano questo evento, seguito da moduli (se esistono) e infire da controllori. Se settiamo l'evento a <code>false</code> tramite il metodo [isValid()] tutti gli eventi successivi non vettanno attivati.</p>
-<p>EVENT_AFTER_ACTION</p>
+<p><strong><em>EVENT_AFTER_ACTION</em></strong></p>
 <p>Questo evento viene attivato <strong><em>dopo</em></strong> l'esecuzione di ogni azione del controller. Il nome effettivo dell'evento è <code>afterAction</code>.
 Il parametro che andremo a settare all'evento è un'istanza di <strong><em>yii \ base \ ActionEvent</em></strong>. Attraverso la proprietà Yii dell'evento, un gestore di eventi può accedere o modificare il risultato dell'azione.</p>
 <p>Esempio:</p>

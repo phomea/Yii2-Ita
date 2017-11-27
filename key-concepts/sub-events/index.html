@@ -1,0 +1,1303 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Guida italiana del framework PHP Yii 2.0">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Eventi - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Concetti chiave
+                </span>
+              
+            
+            Eventi
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../application-structure/sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../handling-requests/sub-request-overview/" title="Gestione delle richieste" class="md-tabs__link">
+          Gestione delle richieste
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-components/" title="Concetti chiave" class="md-tabs__link md-tabs__link--active">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Gestione delle richieste
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Gestione delle richieste
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-request-overview/" title="Panoramica sulla gestione delle richieste" class="md-nav__link">
+      Panoramica sulla gestione delle richieste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-bootstrapping/" title="Bootstrapping" class="md-nav__link">
+      Bootstrapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-routing-url-creation/" title="Routing e creazione degli URL" class="md-nav__link">
+      Routing e creazione degli URL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-requests/" title="Requests" class="md-nav__link">
+      Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-responses/" title="Responses" class="md-nav__link">
+      Responses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-session-cookies/" title="Session & Cookies" class="md-nav__link">
+      Session & Cookies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-handling-error/" title="Gestione degli errori" class="md-nav__link">
+      Gestione degli errori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-logging/" title="Registrazione" class="md-nav__link">
+      Registrazione
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Eventi
+      </label>
+    
+    <a href="./" title="Eventi" class="md-nav__link md-nav__link--active">
+      Eventi
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gestore-degli-eventi" title="Gestore degli eventi" class="md-nav__link">
+    Gestore degli eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associazione-tra-gestori-di-eventi" title="Associazione tra gestori di eventi" class="md-nav__link">
+    Associazione tra gestori di eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordine-del-gestore-di-eventi" title="Ordine del gestore di eventi" class="md-nav__link">
+    Ordine del gestore di eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventi-triggering" title="Eventi Triggering" class="md-nav__link">
+    Eventi Triggering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scollegare-i-gestori-degli-eventi" title="Scollegare i gestori degli eventi" class="md-nav__link">
+    Scollegare i gestori degli eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestori-di-eventi-al-livello-di-una-classe" title="Gestori di eventi al livello di una classe" class="md-nav__link">
+    Gestori di eventi al livello di una classe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventi-che-utilizzano-le-interfacce" title="Eventi che utilizzano le interfacce" class="md-nav__link">
+    Eventi che utilizzano le interfacce
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventi-globali" title="Eventi globali" class="md-nav__link">
+    Eventi globali
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gestore-degli-eventi" title="Gestore degli eventi" class="md-nav__link">
+    Gestore degli eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associazione-tra-gestori-di-eventi" title="Associazione tra gestori di eventi" class="md-nav__link">
+    Associazione tra gestori di eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordine-del-gestore-di-eventi" title="Ordine del gestore di eventi" class="md-nav__link">
+    Ordine del gestore di eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventi-triggering" title="Eventi Triggering" class="md-nav__link">
+    Eventi Triggering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scollegare-i-gestori-degli-eventi" title="Scollegare i gestori degli eventi" class="md-nav__link">
+    Scollegare i gestori degli eventi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestori-di-eventi-al-livello-di-una-classe" title="Gestori di eventi al livello di una classe" class="md-nav__link">
+    Gestori di eventi al livello di una classe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventi-che-utilizzano-le-interfacce" title="Eventi che utilizzano le interfacce" class="md-nav__link">
+    Eventi che utilizzano le interfacce
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventi-globali" title="Eventi globali" class="md-nav__link">
+    Eventi globali
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/key-concepts/sub-events.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="eventi">Eventi<a class="headerlink" href="#eventi" title="Permanent link">&para;</a></h1>
+<p>Gli eventi consentono di inserire codice personalizzato nel codice esistente in determinati punti di esecuzione. È possibile associare un codice personalizzato a un evento in modo che quando viene attivato l'evento, il codice venga eseguito automaticamente. Ad esempio, un oggetto <strong>mailer</strong> può attivare un evento <code>messageSent</code> quando invia correttamente un messaggio. Se si desidera tenere traccia dei messaggi inviati correttamente, è possibile semplicemente allegare il codice di monitoraggio all'evento <code>messageSent</code>.</p>
+<p>Yii introduce una classe base chiamata <strong>yii \ base \ Component</strong> per supportare gli eventi. Se una classe ha bisogno di attivare eventi, dovrebbe estendersi da <strong>yii \ base \ Component</strong> o da una classe figlio.</p>
+<h2 id="gestore-degli-eventi">Gestore degli eventi<a class="headerlink" href="#gestore-degli-eventi" title="Permanent link">&para;</a></h2>
+<p>Un gestore di eventi è un <strong>callback PHP</strong> che viene eseguito quando viene attivato l'evento a cui è collegato. È possibile utilizzare uno dei seguenti callback:</p>
+<ul>
+<li>una funzione PHP globale specificata come una stringa (senza parentesi), ad esempio <code>'trim'</code>;</li>
+<li>un metodo oggetto specificato come matrice di un oggetto e un nome di metodo come una stringa (senza parentesi), ad esempio <code>[$object, 'methodName']</code>;</li>
+<li>un metodo di classe statica specificato come matrice di un nome di classe e un nome di metodo come una stringa (senza parentesi), ad esempio <code>['ClassName', 'methodName']</code>;</li>
+<li>una funzione anonima, ad es <code>function ($event) { ... }</code>.</li>
+</ul>
+<p>La firma di un gestore di eventi è:</p>
+<pre><code>function ($event) {
+    // $event is an object of yii\base\Event or a child class
+}
+</code></pre>
+<p>Attraverso il paraemtro <code>$event</code>, un gestore di eventi può ottenere le seguenti informazioni sull'evento che si è verificato:</p>
+<ul>
+<li>nome dell'evento;</li>
+<li>mittente dell'evento: l'oggetto che chiama il metodo <code>trigger()</code>;</li>
+<li>dati personalizzati: i dati che vengono forniti quando si collega il gestore degli eventi (spiegato in seguito).</li>
+</ul>
+<h2 id="associazione-tra-gestori-di-eventi">Associazione tra gestori di eventi<a class="headerlink" href="#associazione-tra-gestori-di-eventi" title="Permanent link">&para;</a></h2>
+<p>È possibile associare un gestore a un evento chiamando il metodo <strong>yii \ base \ Component :: on ()</strong>. Per esempio:</p>
+<pre><code>$foo = new Foo;
+
+// this handler is a global function
+$foo-&gt;on(Foo::EVENT_HELLO, 'function_name');
+
+// this handler is an object method
+$foo-&gt;on(Foo::EVENT_HELLO, [$object, 'methodName']);
+
+// this handler is a static class method
+$foo-&gt;on(Foo::EVENT_HELLO, ['app\components\Bar', 'methodName']);
+
+// this handler is an anonymous function
+$foo-&gt;on(Foo::EVENT_HELLO, function ($event) {
+    // event handling logic
+});
+</code></pre>
+<p>È inoltre possibile associare gestori di eventi tramite configurazioni.</p>
+<p>Quando si allega un gestore di eventi, è possibile fornire dati aggiuntivi come un terzo parametro per <strong>yii \ base \ Component :: on()</strong>. I dati saranno resi disponibili al gestore quando l'evento viene attivato e il gestore viene chiamato. Per esempio:</p>
+<pre><code>// The following code will display "abc" when the event is triggered
+// because $event-&gt;data contains the data passed as the 3rd argument to "on"
+$foo-&gt;on(Foo::EVENT_HELLO, 'function_name', 'abc');
+
+function function_name($event) {
+    echo $event-&gt;data;
+}
+</code></pre>
+<h2 id="ordine-del-gestore-di-eventi">Ordine del gestore di eventi<a class="headerlink" href="#ordine-del-gestore-di-eventi" title="Permanent link">&para;</a></h2>
+<p>Puoi associare uno o più gestori a un singolo evento. Quando viene attivato un evento, i gestori collegati verranno richiamati nell'ordine in cui sono stati associati all'evento. Se un gestore deve interrompere l'invocazione dei gestori che lo seguono, può impostare la proprietà manipolata <strong>yii \ base \ Event :: $</strong> del parametro <code>$event</code> con il valore  <code>true</code>:</p>
+<pre><code>$foo-&gt;on(Foo::EVENT_HELLO, function ($event) {
+    $event-&gt;handled = true;
+});
+</code></pre>
+<p>Per impostazione predefinita, un gestore appena collegato viene aggiunto alla coda del gestore esistente per l'evento. Di conseguenza, il gestore verrà chiamato all'ultimo posto quando viene attivato l'evento. Per inserire il nuovo gestore all'inizio della coda del gestore in modo che il gestore venga chiamato per primo, puoi chiamare <strong>yii \ base \ Component :: on()</strong>, passando il valore <code>false</code> per il quarto parametro <code>$append</code>:</p>
+<pre><code>$foo-&gt;on(Foo::EVENT_HELLO, function ($event) {
+    // ...
+}, $data, false);
+</code></pre>
+<h2 id="eventi-triggering">Eventi Triggering<a class="headerlink" href="#eventi-triggering" title="Permanent link">&para;</a></h2>
+<p>Gli eventi Triggering vengono attivati ​​chiamando il metodo <strong>yii \ base \ Component :: trigger()</strong>. Il metodo richiede un nome evento e facoltativamente un oggetto evento che descrive i parametri da passare ai gestori eventi. Per esempio:</p>
+<pre><code>namespace app\components;
+
+use yii\base\Component;
+use yii\base\Event;
+
+class Foo extends Component{
+
+    const EVENT_HELLO = 'hello';
+
+    public function bar(){
+
+        $this-&gt;trigger(self::EVENT_HELLO);
+    }
+}
+</code></pre>
+<p>Con il codice precedente, tutte le chiamate a <code>bar()</code> faranno scattare un evento chiamato <strong>hello</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Si consiglia di utilizzare le costanti di classe per rappresentare i nomi degli eventi. Nell'esempio sopra, la costante <strong><em>EVENT_HELLO</em></strong> rappresenta l'evento <code>hello</code>. Questo approccio ha tre vantaggi. In primo luogo, impedisce errori di battitura. In secondo luogo, può rendere gli eventi riconoscibili per il supporto di completamento automatico IDE. Terzo, puoi dire quali eventi sono supportati in una classe semplicemente controllando le sue dichiarazioni costanti.</p>
+</div>
+<p>A volte, quando si attiva un evento, è possibile passare informazioni aggiuntive ai gestori di eventi. Ad esempio, un mailer potrebbe voler passare le informazioni del messaggio ai gestori dell'evento <code>messageSent</code> in modo che possano conoscere i dettagli dei messaggi inviati. Per fare ciò, è possibile fornire un oggetto evento come secondo parametro al metodo <strong>yii \ base \ Component :: trigger()</strong>. L'oggetto evento deve essere un'istanza della classe <strong>yii \ base \ Event</strong> o di una classe figlio. Per esempio:</p>
+<pre><code>namespace app\components;
+
+use yii\base\Component;
+use yii\base\Event;
+
+class MessageEvent extends Event{
+
+    public $message;
+}
+
+class Mailer extends Component{
+
+    const EVENT_MESSAGE_SENT = 'messageSent';
+
+    public function send($message){
+
+        // ...sending $message...
+
+        $event = new MessageEvent;
+        $event-&gt;message = $message;
+        $this-&gt;trigger(self::EVENT_MESSAGE_SENT, $event);
+    }
+}
+</code></pre>
+<p>Quando viene chiamato il metodo <strong>yii \ base \ Component :: trigger()</strong>, chiamerà tutti i gestori collegati all'evento denominato.</p>
+<h2 id="scollegare-i-gestori-degli-eventi">Scollegare i gestori degli eventi<a class="headerlink" href="#scollegare-i-gestori-degli-eventi" title="Permanent link">&para;</a></h2>
+<p>Per scollegare un gestore da un evento, chiamare il metodo <strong>yii \ base \ Component :: off()</strong>. Per esempio:</p>
+<pre><code>// the handler is a global function
+$foo-&gt;off(Foo::EVENT_HELLO, 'function_name');
+
+// the handler is an object method
+$foo-&gt;off(Foo::EVENT_HELLO, [$object, 'methodName']);
+
+// the handler is a static class method
+$foo-&gt;off(Foo::EVENT_HELLO, ['app\components\Bar', 'methodName']);
+
+// the handler is an anonymous function
+$foo-&gt;off(Foo::EVENT_HELLO, $anonymousFunction);
+</code></pre>
+<p>Si noti che in generale non si dovrebbe provare a staccare una funzione anonima a meno che non la si memorizzi da qualche parte quando è collegata all'evento. Nell'esempio sopra, si presume che la funzione anonima sia memorizzata come variabile <code>$anonymousFunction</code>.</p>
+<p>Per rimuovere tutti i gestori da un evento, è sufficiente chiamare <strong>yii \ base \ Component :: off()</strong> senza il secondo parametro:</p>
+<pre><code>$foo-&gt;off(Foo::EVENT_HELLO);
+</code></pre>
+<h2 id="gestori-di-eventi-al-livello-di-una-classe">Gestori di eventi al livello di una classe<a class="headerlink" href="#gestori-di-eventi-al-livello-di-una-classe" title="Permanent link">&para;</a></h2>
+<p>Le sottosezioni sopra descritte descrivono come allegare un gestore a un evento a livello di un'istanza. A volte, potresti voler rispondere a un evento attivato da ogni istanza di una classe anziché solo da un'istanza specifica. Invece di collegare un gestore di eventi a ogni istanza, è possibile associare il gestore a livello di classe chiamando il metodo statico <strong>yii \ base \ Event :: on ()</strong>.</p>
+<p>Ad esempio, un oggetto <strong>ActiveRecord</strong> attiverà un evento <strong>EVENT_AFTER_INSERT</strong> ogni volta che inserisce un nuovo record nel database. Per tenere traccia degli inserimenti effettuati da ogni oggetto Active Record, è possibile utilizzare il seguente codice:</p>
+<pre><code>use Yii;
+use yii\base\Event;
+use yii\db\ActiveRecord;
+
+Event::on(ActiveRecord::className(), ActiveRecord::EVENT_AFTER_INSERT, function ($event) {
+    Yii::trace(get_class($event-&gt;sender) . ' is inserted');
+});
+</code></pre>
+<p>Il gestore eventi verrà richiamato ogni volta che un'istanza di ActiveRecord (o una delle sue classi secondarie) attiva l' evento <strong>EVENT_AFTER_INSERT</strong>. Nel gestore, puoi ottenere l'oggetto che ha attivato l'evento <code>$event-&gt;sender</code>.</p>
+<p>Quando un oggetto attiva un evento, chiamerà prima i gestori a livello di istanza, seguiti dai gestori a livello di classe.</p>
+<p>È possibile attivare un evento a livello di classe chiamando il metodo statico <strong>yii \ base \ Event :: trigger()</strong>. Un evento a livello di classe non è associato a un particolare oggetto. Di conseguenza, causerà solo l'invocazione di gestori di eventi a livello di classe. Per esempio:</p>
+<pre><code>use yii\base\Event;
+
+Event::on(Foo::className(), Foo::EVENT_HELLO, function ($event) {
+    var_dump($event-&gt;sender);  // displays "null"
+});
+
+Event::trigger(Foo::className(), Foo::EVENT_HELLO);
+</code></pre>
+<p>Nota che, in questo caso, l'<code>$event-&gt;sender</code> è posto a <code>null</code> all'interno dell'istanza dell'oggetto stesso.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Poiché un gestore a livello di classe risponderà a un evento attivato da qualsiasi istanza di quella classe, o qualsiasi classe figlia, dovresti usarlo attentamente, specialmente se la classe è una classe base di basso livello, come <strong>yii \ base \ BaseObject</strong>.</p>
+</div>
+<p>Per scollegare un gestore di eventi a livello di classe, chiamare <strong>yii \ base \ Event :: off ()</strong>. Per esempio:</p>
+<pre><code>// detach $handler
+Event::off(Foo::className(), Foo::EVENT_HELLO, $handler);
+
+// detach all handlers of Foo::EVENT_HELLO
+Event::off(Foo::className(), Foo::EVENT_HELLO);
+</code></pre>
+<h2 id="eventi-che-utilizzano-le-interfacce">Eventi che utilizzano le interfacce<a class="headerlink" href="#eventi-che-utilizzano-le-interfacce" title="Permanent link">&para;</a></h2>
+<p>C'è anche un modo più astratto per gestire gli eventi. Puoi creare un'interfaccia separata per l'evento speciale e implementarla nelle classi, dove ne hai bisogno.</p>
+<p>Ad esempio, possiamo creare la seguente interfaccia:</p>
+<pre><code>namespace app\interfaces;
+
+interface DanceEventInterface{
+
+    const EVENT_DANCE = 'dance';
+}
+</code></pre>
+<p>E due classi, che lo implementano:</p>
+<pre><code>class Dog extends Component implements DanceEventInterface{
+
+    public function meetBuddy(){
+
+        echo "Woof!";
+        $this-&gt;trigger(DanceEventInterface::EVENT_DANCE);
+    }
+}
+
+class Developer extends Component implements DanceEventInterface{
+
+    public function testsPassed(){
+
+        echo "Nau!";
+        $this-&gt;trigger(DanceEventInterface::EVENT_DANCE);
+    }
+}
+</code></pre>
+<p>Per gestire l'evento <code>EVENT_DANCE</code>, attivato da una di queste classi, chiamare <strong>Event :: on()</strong> e passare il nome della classe dell'interfaccia come primo argomento:</p>
+<pre><code>Event::on('app\interfaces\DanceEventInterface', DanceEventInterface::EVENT_DANCE, function ($event) {
+    Yii::trace(get_class($event-&gt;sender) . ' just danced'); // Will log that Dog or Developer danced
+});
+</code></pre>
+<p>Puoi attivare l'evento di tali classi:</p>
+<pre><code>// trigger event for Dog class
+Event::trigger(Dog::className(), DanceEventInterface::EVENT_DANCE);
+
+// trigger event for Developer class
+Event::trigger(Developer::className(), DanceEventInterface::EVENT_DANCE);
+</code></pre>
+<p>Ma si noti che non è possibile attivare tutte le classi che implementano l'interfaccia:</p>
+<pre><code>// DOES NOT WORK. Classes that implement this interface will NOT be triggered.
+Event::trigger('app\interfaces\DanceEventInterface', DanceEventInterface::EVENT_DANCE);
+</code></pre>
+<p>Per staccare il gestore di eventi, dovrete chiamare il metodo <strong>Event :: off()</strong>. Per esempio:</p>
+<pre><code>// detaches $handler
+Event::off('app\interfaces\DanceEventInterface', DanceEventInterface::EVENT_DANCE, $handler);
+
+// detaches all handlers of DanceEventInterface::EVENT_DANCE
+Event::off('app\interfaces\DanceEventInterface', DanceEventInterface::EVENT_DANCE);
+</code></pre>
+<h2 id="eventi-globali">Eventi globali<a class="headerlink" href="#eventi-globali" title="Permanent link">&para;</a></h2>
+<p>Yii supporta un cosiddetto evento globale, che in realtà è un trucco basato sul meccanismo degli eventi descritto sopra. L'evento globale richiede un "Singleton" accessibile a livello globale, come l' istanza dell'applicazione stessa.</p>
+<p>Per creare l'evento globale, un mittente dell'evento chiama il metodo Singleton <code>trigger()</code> per attivare l'evento, invece di chiamare il metodo <code>trigger()</code> del mittente . Allo stesso modo, i gestori di eventi sono collegati all'evento sul Singleton. Per esempio:</p>
+<pre><code>use Yii;
+use yii\base\Event;
+use app\components\Foo;
+
+Yii::$app-&gt;on('bar', function ($event) {
+    echo get_class($event-&gt;sender);  // displays "app\components\Foo"
+});
+
+Yii::$app-&gt;trigger('bar', new Event(['sender' =&gt; new Foo]));
+</code></pre>
+<p>Un vantaggio dell'utilizzo di eventi globali è che non è necessario un oggetto quando si collega un gestore all'evento che verrà attivato dall'oggetto. Invece, l'allegato del gestore e l'attivazione dell'evento vengono entrambi eseguiti tramite Singleton (ad esempio l'istanza dell'applicazione).</p>
+<p>Tuttavia, poiché lo spazio dei nomi degli eventi globali è condiviso da tutte le parti, è necessario nominare saggiamente gli eventi globali, ad esempio introducendo una sorta di spazio dei nomi (ad esempio "frontend.mail.sent", "backend.mail.sent").</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-properties/" title="Proprietà" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Proprietà
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-behaviors/" title="Comportamenti (Behaviors)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Comportamenti (Behaviors)
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-109845735-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>
