@@ -39,7 +39,12 @@ pages:
     - Alias: 'key-concepts/sub-alias.md'
     - Classe "Autoloading": 'key-concepts/sub-autoloading-class.md'
     - Localizzatore di servizi: 'key-concepts/sub-service-locator.md'
-    - Contenitore Dependency Injection: 'key-concepts/sub-dependency-injection-container.md'   
+    - Contenitore Dependency Injection: 'key-concepts/sub-dependency-injection-container.md'
+- Lavorare con i Database:
+    - Accesso ai dati tramite oggetti: 'working-with-databases/sub-data-access-object.md'
+    - Generatore di Query: 'working-with-databases/sub-query-builder.md'
+    - Active Record: 'working-with-databases/sub-active-record.md'
+    - Migrazoni: 'working-with-databases/sub-migrations.md'
 theme: 'material'
 extra:
       primary: 'teal'

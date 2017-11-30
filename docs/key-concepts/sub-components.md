@@ -1,7 +1,7 @@
 #Componenti
 
 
-I componenti sono gli elementi principali delle applicazioni Yii. I componenti sono istanze di ***yii \ base \ Componente*** o una classe estesa. Le tre funzionalità principali che i componenti forniscono ad altre classi sono:
+I componenti sono gli elementi principali delle applicazioni Yii. I componenti sono istanze di ***yii \ base \ Components*** o una classe estesa. Le tre funzionalità principali che i componenti forniscono ad altre classi sono:
 
 - Proprietà,
 - Eventi,
