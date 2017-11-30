@@ -1,0 +1,1656 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Guida italiana del framework PHP Yii 2.0">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Accesso ai dati tramite oggetti - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Lavorare con i Database
+                </span>
+              
+            
+            Accesso ai dati tramite oggetti
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../application-structure/sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../handling-requests/sub-request-overview/" title="Gestione delle richieste" class="md-tabs__link">
+          Gestione delle richieste
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="Lavorare con i Database" class="md-tabs__link md-tabs__link--active">
+          Lavorare con i Database
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Gestione delle richieste
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Gestione delle richieste
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-request-overview/" title="Panoramica sulla gestione delle richieste" class="md-nav__link">
+      Panoramica sulla gestione delle richieste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-bootstrapping/" title="Bootstrapping" class="md-nav__link">
+      Bootstrapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-routing-url-creation/" title="Routing e creazione degli URL" class="md-nav__link">
+      Routing e creazione degli URL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-requests/" title="Requests" class="md-nav__link">
+      Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-responses/" title="Responses" class="md-nav__link">
+      Responses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-session-cookies/" title="Session & Cookies" class="md-nav__link">
+      Session & Cookies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-handling-error/" title="Gestione degli errori" class="md-nav__link">
+      Gestione degli errori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-logging/" title="Registrazione" class="md-nav__link">
+      Registrazione
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Lavorare con i Database
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Lavorare con i Database
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Accesso ai dati tramite oggetti
+      </label>
+    
+    <a href="./" title="Accesso ai dati tramite oggetti" class="md-nav__link md-nav__link--active">
+      Accesso ai dati tramite oggetti
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-connesisoni-db" title="Creazione di connesisoni DB" class="md-nav__link">
+    Creazione di connesisoni DB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esecuzione-di-query-sql" title="Esecuzione di query SQL" class="md-nav__link">
+    Esecuzione di query SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametri-bindings" title="Parametri Bindings" class="md-nav__link">
+    Parametri Bindings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esecuzione-di-query-non-select" title="Esecuzione di query non SELECT" class="md-nav__link">
+    Esecuzione di query non SELECT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citazione-dei-noim-relativi-a-tabelle-e-colonne" title="Citazione dei noim relativi a tabelle e colonne" class="md-nav__link">
+    Citazione dei noim relativi a tabelle e colonne
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-del-prefisso-tabella" title="Utilizzo del prefisso tabella" class="md-nav__link">
+    Utilizzo del prefisso tabella
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esecuzione-di-transazioni" title="Esecuzione di transazioni" class="md-nav__link">
+    Esecuzione di transazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifica-dei-livelli-di-isolamento" title="Specifica dei livelli di isolamento" class="md-nav__link">
+    Specifica dei livelli di isolamento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annidamento-delle-transazioni" title="Annidamento delle transazioni" class="md-nav__link">
+    Annidamento delle transazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicazione-e-divisione-tra-lettura-scrittura" title="Duplicazione e divisione tra lettura / scrittura" class="md-nav__link">
+    Duplicazione e divisione tra lettura / scrittura
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lavorare-con-lo-schema-del-proprio-database" title="Lavorare con lo schema del proprio database" class="md-nav__link">
+    Lavorare con lo schema del proprio database
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-query-builder/" title="Generatore di Query" class="md-nav__link">
+      Generatore di Query
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-active-record/" title="Active Record" class="md-nav__link">
+      Active Record
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-migrations/" title="Migrazoni" class="md-nav__link">
+      Migrazoni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-connesisoni-db" title="Creazione di connesisoni DB" class="md-nav__link">
+    Creazione di connesisoni DB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esecuzione-di-query-sql" title="Esecuzione di query SQL" class="md-nav__link">
+    Esecuzione di query SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametri-bindings" title="Parametri Bindings" class="md-nav__link">
+    Parametri Bindings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esecuzione-di-query-non-select" title="Esecuzione di query non SELECT" class="md-nav__link">
+    Esecuzione di query non SELECT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citazione-dei-noim-relativi-a-tabelle-e-colonne" title="Citazione dei noim relativi a tabelle e colonne" class="md-nav__link">
+    Citazione dei noim relativi a tabelle e colonne
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizzo-del-prefisso-tabella" title="Utilizzo del prefisso tabella" class="md-nav__link">
+    Utilizzo del prefisso tabella
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esecuzione-di-transazioni" title="Esecuzione di transazioni" class="md-nav__link">
+    Esecuzione di transazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifica-dei-livelli-di-isolamento" title="Specifica dei livelli di isolamento" class="md-nav__link">
+    Specifica dei livelli di isolamento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annidamento-delle-transazioni" title="Annidamento delle transazioni" class="md-nav__link">
+    Annidamento delle transazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicazione-e-divisione-tra-lettura-scrittura" title="Duplicazione e divisione tra lettura / scrittura" class="md-nav__link">
+    Duplicazione e divisione tra lettura / scrittura
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lavorare-con-lo-schema-del-proprio-database" title="Lavorare con lo schema del proprio database" class="md-nav__link">
+    Lavorare con lo schema del proprio database
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/working-with-databases/sub-data-access-object.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="accesso-ai-dati-tramite-oggetti">Accesso ai dati tramite oggetti<a class="headerlink" href="#accesso-ai-dati-tramite-oggetti" title="Permanent link">&para;</a></h1>
+<p>Costruito su PDO , Yii DAO (Database Access Objects) fornisce un'API orientata agli oggetti per l'accesso ai database relazionali. È la base per altri metodi di accesso al database più avanzati, tra cui il generatore di query e l'Active Record.</p>
+<p>Quando si utilizza Yii DAO, si ha principalmente bisogno di gestire semplici SQL e array PHP. Di conseguenza, è il modo più efficiente per accedere ai database. Tuttavia, poiché la sintassi SQL può variare per diversi database, l'uso di Yii DAO significa anche che è necessario uno sforzo maggiore per creare un'applicazione indipendente dal database.</p>
+<p>Yii DAO supporta i seguenti database:</p>
+<ul>
+<li>MySQL</li>
+<li>MariaDB</li>
+<li>SQLite</li>
+<li>PostgreSQL: versione 8.4 o superiore</li>
+<li>CUBRID: verisone 9.3 o superiore</li>
+<li>Oracle</li>
+<li>MSSQL: versione 2008 o superiore</li>
+</ul>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>La nuova versione di pdo_oci per PHP 7 attualmente esiste solo come codice sorgente. Seguire le istruzioni fornite dalla comunità per compilarlo o utilizzare il livello di emulazione PDO.</p>
+</div>
+<h2 id="creazione-di-connesisoni-db">Creazione di connesisoni DB<a class="headerlink" href="#creazione-di-connesisoni-db" title="Permanent link">&para;</a></h2>
+<p>Per accedere a un database, è innanzitutto necessario connettersi ad esso creano un'istanza di <strong>yii \ db \ Connection ::</strong>:</p>
+<pre><code>$db = new yii\db\Connection([
+    'dsn' =&gt; 'mysql:host=localhost;dbname=example',
+    'username' =&gt; 'root',
+    'password' =&gt; '',
+    'charset' =&gt; 'utf8',
+]);
+</code></pre>
+<p>Poichè è spesso necessario accedere a una connessione DB in luoghi diversi del nostro progetto, è prassi comune configurarla in termini di un componente dell'applicazione, come il seguente:</p>
+<pre><code>return [
+    // ...
+    'components' =&gt; [
+        // ...
+        'db' =&gt; [
+            'class' =&gt; 'yii\db\Connection',
+            'dsn' =&gt; 'mysql:host=localhost;dbname=example',
+            'username' =&gt; 'root',
+            'password' =&gt; '',
+            'charset' =&gt; 'utf8',
+        ],
+    ],
+    // ...
+];
+</code></pre>
+<p>E' quindi possibile accedere alla connessione DB tramite l'espressione <code>Yii::$app-&gt;db</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>E' possibile configurare più componenti dell'applicazione DB se l'applicazione deve accedere a più database.</p>
+</div>
+<p>Quando si configura una connessione DB, è necessario specificare sempre il suo Database Source Name (DSN) tramite la proprietà <code>dsn</code>. Il formato di DSN varia per diversi database. Di seguito sono riportati alcuni esempi:</p>
+<ul>
+<li>MySQL, MariaDB: <code>mysql:host=localhost;dbname=mydatabase</code></li>
+<li>SQLite: <code>sqlite:/path/to/database/file</code></li>
+<li>PostgreSQL: <code>pgsql:host=localhost;port=5432;dbname=mydatabase</code></li>
+<li>cubrid: <code>cubrid:dbname=demodb;host=localhost;port=33000</code></li>
+<li>MS SQL Server (tramite driver sqlsrv): <code>sqlsrv:Server=localhost;Database=mydatabase</code></li>
+<li>MS SQL Server (tramite driver dblib): <code>dblib:host=localhost;dbname=mydatabase</code></li>
+<li>MS SQL Server (tramite driver mssql): <code>mssql:host=localhost;dbname=mydatabase</code></li>
+<li>Oracle: <code>oci:dbname=//localhost:1521/mydatabase</code></li>
+</ul>
+<p>Si noti che se ci si connette a un database tramite ODBC, è necessario configurare la proprietà <strong>yii \ db \ Connection :: driverName</strong> in modo che Yii possa conoscere il tipo di database effettivo. Per esempio,</p>
+<pre><code>'db' =&gt; [
+    'class' =&gt; 'yii\db\Connection',
+    'driverName' =&gt; 'mysql',
+    'dsn' =&gt; 'odbc:Driver={MySQL};Server=localhost;Database=test',
+    'username' =&gt; 'root',
+    'password' =&gt; '',
+],
+</code></pre>
+<p>Oltre alla prorpietà <code>dsn</code>, è spesso necessario configurare nome utente e password per accedervi.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A volte potresti voler eseguire alcune query subito dopo aver stabilito la connessione al database per inizializzare alcune variabili di ambiente (ad esempio, per impostare il fuso orario o il set di caratteri). È possibile farlo registrando un gestore di eventi per l' evento <code>afterOpen</code> nella connessione al database. Puoi registrare il gestore direttamente nella configurazione dell'applicazione in questo modo:</p>
+<pre><code>'db' =&gt; [
+    // ...
+    'on afterOpen' =&gt; function($event) {
+        // $event-&gt;sender refers to the DB connection
+        $event-&gt;sender-&gt;createCommand("SET time_zone = 'UTC'")-&gt;execute();
+    }
+],
+</code></pre>
+</div>
+<h2 id="esecuzione-di-query-sql">Esecuzione di query SQL<a class="headerlink" href="#esecuzione-di-query-sql" title="Permanent link">&para;</a></h2>
+<p>Una volta che si dispone di un'istanza di connessione al database, è possibile eseguire una query SQL effettuando le seguenti operazioni:</p>
+<ol>
+<li>Creare un comando <strong> yii \ db</strong> con una semplice query SQL;</li>
+<li>Parametri di binding (opzionale)</li>
+<li>Chiama uno dei metodi di esecuzione SQL in <strong><em> yii \ db \ Command </em></strong>.</li>
+</ol>
+<p>L'esempio seguente mostra vari modi di recuperare i dati da un database:</p>
+<pre><code>// return a set of rows. each row is an associative array of column names and values.
+// an empty array is returned if the query returned no results
+$posts = Yii::$app-&gt;db-&gt;createCommand('SELECT * FROM post')
+            -&gt;queryAll();
+
+// return a single row (the first row)
+// false is returned if the query has no result
+$post = Yii::$app-&gt;db-&gt;createCommand('SELECT * FROM post WHERE id=1')
+           -&gt;queryOne();
+
+// return a single column (the first column)
+// an empty array is returned if the query returned no results
+$titles = Yii::$app-&gt;db-&gt;createCommand('SELECT title FROM post')
+             -&gt;queryColumn();
+
+// return a scalar value
+// false is returned if the query has no result
+$count = Yii::$app-&gt;db-&gt;createCommand('SELECT COUNT(*) FROM post')
+             -&gt;queryScalar();
+</code></pre>
+<h2 id="parametri-bindings">Parametri Bindings<a class="headerlink" href="#parametri-bindings" title="Permanent link">&para;</a></h2>
+<p>Quando si crea un comando DB da un SQL con parametri, si dovrebbe quasi sempre utilizzare l'approccio dei parametri di binding per prevenire attacchi di SQL injection. Per esempio,</p>
+<pre><code>$post = Yii::$app-&gt;db-&gt;createCommand('SELECT * FROM post WHERE id=:id AND status=:status')
+           -&gt;bindValue(':id', $_GET['id'])
+           -&gt;bindValue(':status', 1)
+           -&gt;queryOne();
+</code></pre>
+<p>Nell'istruzione SQL, è possibile incorporare uno o più segnaposti dei parametri (ad esempio :<code>id</code> nell'esempio precedente). Un segnaposto di parametro dovrebbe essere una stringa che inizia con due punti. È quindi possibile chiamare uno dei seguenti metodi di associazione dei parametri per associare i valori dei parametri:</p>
+<ul>
+<li><strong>bindValue()</strong>: associa un valore di parametro singolo</li>
+<li><strong>bindValues()</strong>: associa più valori di parametro in una chiamata</li>
+<li><strong>bindParam()</strong>: simile a <strong>binadValue()</strong> ma supporta anche i riferimenti ai parametri di bind.</li>
+</ul>
+<p>L'esempio seguente mostra metodi alternativi per i parametri di binding:</p>
+<pre><code>$params = [':id' =&gt; $_GET['id'], ':status' =&gt; 1];
+
+$post = Yii::$app-&gt;db-&gt;createCommand('SELECT * FROM post WHERE id=:id AND status=:status')
+           -&gt;bindValues($params)
+           -&gt;queryOne();
+
+$post = Yii::$app-&gt;db-&gt;createCommand('SELECT * FROM post WHERE id=:id AND status=:status', $params)
+</code></pre>
+<p>Il binding dei parametri viene implementato tramite dichiarazioni preparate. Oltre a prevenire attacchi di SQL injection, può anche migliorare le prestazioni preparando una dichiarazione SQL una volta e eseguendola più volte con parametri diversi. Per esempio,</p>
+<pre><code>$command = Yii::$app-&gt;db-&gt;createCommand('SELECT * FROM post WHERE id=:id');
+
+$post1 = $command-&gt;bindValue(':id', 1)-&gt;queryOne(); 
+$post2 = $command-&gt;bindValue(':id', 2)-&gt;queryOne();
+// ...
+</code></pre>
+<p>Poichè <strong>bindParam()</strong> supporta i parametri di associazione per riferimento, il codice precedente può anche essere scritto come segue:</p>
+<pre><code>$command = Yii::$app-&gt;db-&gt;createCommand('SELECT * FROM post WHERE id=:id')
+              -&gt;bindParam(':id', $id);
+
+$id = 1;
+$post1 = $command-&gt;queryOne();
+
+$id = 2;
+$post2 = $command-&gt;queryOne();
+// ...
+</code></pre>
+<p>Si noti che si lega il segnaposto alla variabile <code>$id</code> prima dell'esecuzione e quindi si modifica il valore di tale variabile prima di ogni esecuzione successiva (spesso con loop). L'esecuzione di query in questo modo può essere notevolmente più efficiente rispetto all'esecuzione di una nuova query per ogni valore di parametro diverso.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Il collegamento dei parametri viene utilizzato solo in luoghi in cui è necessario inserire valori in stringhe che contengono SQL semplice. In molti posti in livelli di astrazione più alti, come il generatore di query e l'Active Record, si specifica spesso una serie di valori che verranno trasformati in SQL. In questi punti il ​​binding dei parametri viene eseguito internamente da Yii, quindi non è necessario specificare i parametri manualmente.</p>
+</div>
+<h2 id="esecuzione-di-query-non-select">Esecuzione di query non SELECT<a class="headerlink" href="#esecuzione-di-query-non-select" title="Permanent link">&para;</a></h2>
+<p>I metodi <code>queryXyz()</code> introdotti nelle sezioni precedenti riguardano tutti le query SELECT che prelevano i dati dai database. Per le query che non restituiscono dati, è necessario chiamare invece il metodo <strong>yii \ db \ Command :: execute()</strong>. Per esempio,</p>
+<pre><code>Yii::$app-&gt;db-&gt;createCommand('UPDATE post SET status=1 WHERE id=1')
+-&gt;execute();
+</code></pre>
+<p>Il metodo <strong>yii \ db \ Command :: execute()</strong> restituisce il numero di righe interessate dall'esecuzione SQL.</p>
+<p>Per le query INSERT, UPDATE e DELETE, invece di scrivere semplici SQL, è possibile chiamare <strong>insert()</strong>, <strong>update()</strong> , <strong>delete()</strong>, per creare gli SQL corrispondenti. Questi metodi indicheranno correttamente i nomi di tabelle e colonne e i valori dei parametri di bind. Per esempio,</p>
+<pre><code>// INSERT (table name, column values)
+Yii::$app-&gt;db-&gt;createCommand()-&gt;insert('user', [
+    'name' =&gt; 'Sam',
+    'age' =&gt; 30,
+])-&gt;execute();
+
+// UPDATE (table name, column values, condition)
+Yii::$app-&gt;db-&gt;createCommand()-&gt;update('user', ['status' =&gt; 1], 'age &gt; 30')-&gt;execute();
+
+// DELETE (table name, condition)
+Yii::$app-&gt;db-&gt;createCommand()-&gt;delete('user', 'status = 0')-&gt;execute();
+</code></pre>
+<p>Puoi anche chiamare <strong>batchInsert()</strong> per inserire più righe in un colpo, che è molto più efficiente dell'inserimento di una riga per volta:</p>
+<pre><code>// table name, column names, column values
+Yii::$app-&gt;db-&gt;createCommand()-&gt;batchInsert('user', ['name', 'age'], [
+    ['Tom', 30],
+    ['Jane', 20],
+    ['Linda', 25],
+])-&gt;execute();
+</code></pre>
+<p>Nota che i metodi sopra menzionati creano solo la query e devi sempre richiamare il metodo <strong>execute()</strong> per eseguirli.</p>
+<h2 id="citazione-dei-noim-relativi-a-tabelle-e-colonne">Citazione dei noim relativi a tabelle e colonne<a class="headerlink" href="#citazione-dei-noim-relativi-a-tabelle-e-colonne" title="Permanent link">&para;</a></h2>
+<p>Durante la scrittura di codice indipendente dal database, la citazione corretta dei nomi di tabelle e colonne è spesso un problema perché diversi database hanno regole di quoting diverse. Per superare questo problema, è possibile utilizzare la seguente sintassi di citazione introdotta da Yii:</p>
+<ul>
+<li><code>[[column name]]</code>: racchiude il nome di una colonna da citare tra parentesi quadre;</li>
+<li><code>{{table name}}</code>: racchiude il nome di una tabella da quotare tra parentesi graffe doppie.</li>
+</ul>
+<p>Yii DAO convertirà automaticamente tali costrutti nella colonna o nei nomi di tabella citati corrispondenti, utilizzando la sintassi specifica DBMS. Per esempio,</p>
+<pre><code>// executes this SQL for MySQL: SELECT COUNT(`id`) FROM `employee`
+$count = Yii::$app-&gt;db-&gt;createCommand("SELECT COUNT([[id]]) FROM {{employee}}")
+            -&gt;queryScalar();
+</code></pre>
+<h2 id="utilizzo-del-prefisso-tabella">Utilizzo del prefisso tabella<a class="headerlink" href="#utilizzo-del-prefisso-tabella" title="Permanent link">&para;</a></h2>
+<p>Se la maggior parte dei nomi delle tabelle DB condivide un prefisso comune, è possibile utilizzare la funzione <strong>tablePrefix</strong> fornita da Yii DAO.</p>
+<p>Per prima cosa, specifica il prefisso della tabella tramite la proprietà <strong>yii \ db \ Connection :: $ tablePrefix</strong> nella configurazione dell'applicazione:</p>
+<pre><code>return [
+    // ...
+    'components' =&gt; [
+        // ...
+        'db' =&gt; [
+            // ...
+            'tablePrefix' =&gt; 'tbl_',
+        ],
+    ],
+];
+</code></pre>
+<p>Quindi nel codice, ogni volta che è necessario fare riferimento a una tabella il cui nome contiene tale prefisso, utilizzare la sintassi <code>{{%table_name}}</code>. Il carattere percentuale verrà automaticamente sostituito con il prefisso tabella specificato durante la configurazione della connessione DB. Per esempio,</p>
+<pre><code>// executes this SQL for MySQL: SELECT COUNT(`id`) FROM `tbl_employee`
+$count = Yii::$app-&gt;db-&gt;createCommand("SELECT COUNT([[id]]) FROM {{%employee}}")
+            -&gt;queryScalar();
+</code></pre>
+<h2 id="esecuzione-di-transazioni">Esecuzione di transazioni<a class="headerlink" href="#esecuzione-di-transazioni" title="Permanent link">&para;</a></h2>
+<p>Quando si eseguono più query correlate in una sequenza, potrebbe essere necessario includerle in una transazione per garantire l'integrità e la coerenza del database. Se una qualsiasi delle query non riesce, il database verrà riportato allo stato come se nessuna di queste query fosse stata eseguita.</p>
+<p>Il codice seguente mostra un modo tipico di utilizzare le transazioni:</p>
+<pre><code>Yii::$app-&gt;db-&gt;transaction(function($db) {
+    $db-&gt;createCommand($sql1)-&gt;execute();
+    $db-&gt;createCommand($sql2)-&gt;execute();
+    // ... executing other SQL statements ...
+});
+</code></pre>
+<p>Il codice riportato sopra è equivalente al seguente, che offre un maggior controllo sul codice gestendo gli errori:</p>
+<pre><code>$db = Yii::$app-&gt;db;
+$transaction = $db-&gt;beginTransaction();
+try {
+    $db-&gt;createCommand($sql1)-&gt;execute();
+    $db-&gt;createCommand($sql2)-&gt;execute();
+    // ... executing other SQL statements ...
+
+    $transaction-&gt;commit();
+} catch(\Exception $e) {
+    $transaction-&gt;rollBack();
+    throw $e;
+} catch(\Throwable $e) {
+    $transaction-&gt;rollBack();
+    throw $e;
+}
+</code></pre>
+<p>Chiamando il metodo <strong>beginTransaction()</strong>, viene avviata una nuova transazione. La transazione è rappresentata come un oggetto <strong><em>yii \ db \ Transaction</em></strong> memorizzato nella variabile <code>$transaction</code>. Quindi, le query eseguite sono racchiuse in un blocco <code>try...catch...</code>. Se tutte le query vengono eseguite correttamente, il metodo <strong><em>commit()</em></strong> viene chiamato per eseguire il commit della transazione. Altrimenti, se verrà attivata e rilevata un'eccezione , viene chiamato il metodo <strong>rollBack()</strong> per eseguire il rollback delle modifiche apportate dalle query prima di quella query non riuscita nella transazione <code>throw $</code>. Quindi rilanciamo l'eccezione come se non l'avessimo catturata, e a questo punto il normale processo di gestione degli errori si prenderà cura di esso.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Nel codice precedente abbiamo due blocchi di cattura per la compatibilità con PHP 5.x e PHP 7.x. <code>\Exception</code> implementa l'interfaccia <code>\Throwable</code> da PHP 7.0, quindi puoi saltare la parte <code>\Exceptions</code> e la tua app utilizza solo PHP 7.0 e versioni successive.</p>
+</div>
+<h2 id="specifica-dei-livelli-di-isolamento">Specifica dei livelli di isolamento<a class="headerlink" href="#specifica-dei-livelli-di-isolamento" title="Permanent link">&para;</a></h2>
+<p>Yii supporta anche l'impostazione dei livelli di isolamento per le tue transazioni. Per impostazione predefinita, quando si avvia una nuova transazione, verrà utilizzato il livello di isolamento predefinito impostato dal sistema di database. È possibile sovrascrivere il livello di isolamento predefinito come segue,</p>
+<pre><code>$isolationLevel = \yii\db\Transaction::REPEATABLE_READ;
+
+Yii::$app-&gt;db-&gt;transaction(function ($db) {
+    ....
+}, $isolationLevel);
+
+// or alternatively
+
+$transaction = Yii::$app-&gt;db-&gt;beginTransaction($isolationLevel);
+</code></pre>
+<p>Yii fornisce quattro costranti per i livelli di isolamento più comuni:</p>
+<ul>
+<li><strong>yii \ db \ Transaction :: READ_UNCOMMITTED</strong> - il livello più debole. Possono esserci letture sporche o letture non ripetibili.</li>
+<li><strong>yii \ db \ Transaction ::READ_COMMITTED</strong> - evita le letture sporche.</li>
+<li><strong>yii \ db \ Transaction :: REPETABLE_READ</strong> - evita le letture sporche e letture non ripetibili.</li>
+<li><strong>yii \ db \ Transction :: SERIALIZABLE</strong> - il livello più forte, evita tutti i problemi sopra citati.</li>
+</ul>
+<p>Oltre a utilizzare le costanti sopra indicate per specificre i livelli di isolamento, è possibile utilizzare anche stringhe con una sintassi valida supportata dal DBMS che si sta utilizzando. Ad esempio, in PostgreSQL, puoi usare <code>"SERIALIZABLE READ ONLY DEFERRABLE"</code>.</p>
+<p>Si noti che alcuni DBMS consentono di impostare il livello di isolamento solo per l'intera connessione. Qualsiasi transazione successiva otterrà lo stesso livello di isolamento anche se non ne specifichiamo altre. Quando si utilizza questa funzione, potrebbe essere necessario impostare il livello di isolamento per tutte le transazioni in modo esplicito per evitare impostazioni in conflitto. Al momento della stesura di questo limite, solo MSSQL e SQLite sono interessati da questa limitazione.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>SQLite supporta solo due livelli di isolamento, quindi è possibile utilizzare solo <code>READ UNCOMMITTED</code> e <code>SERIALIZABLE</code>. L'utilizzo di altri livelli si tradurrà in un'eccezione generata.</p>
+</div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>PostgreSQL non consente di impostare il livello di isolamento prima dell'inizio della transazione, quindi non è possibile specificare direttamente il livello di isolamento quando si avvia la transazione. Devi chiamare <strong>yii \ db \ Transaction :: setIsolationLevel()</strong> in questo caso dopo l'avvio della transazione.</p>
+</div>
+<h2 id="annidamento-delle-transazioni">Annidamento delle transazioni<a class="headerlink" href="#annidamento-delle-transazioni" title="Permanent link">&para;</a></h2>
+<p>Se il DBMS supporta Savepoint, è possibile nidificare più transazioni come le seguenti:</p>
+<pre><code>Yii::$app-&gt;db-&gt;transaction(function ($db) {
+    // outer transaction
+
+    $db-&gt;transaction(function ($db) {
+        // inner transaction
+    });
+});
+</code></pre>
+<p>O in alternativa,</p>
+<pre><code>$db = Yii::$app-&gt;db;
+$outerTransaction = $db-&gt;beginTransaction();
+try {
+    $db-&gt;createCommand($sql1)-&gt;execute();
+
+    $innerTransaction = $db-&gt;beginTransaction();
+    try {
+        $db-&gt;createCommand($sql2)-&gt;execute();
+        $innerTransaction-&gt;commit();
+    } catch (\Exception $e) {
+        $innerTransaction-&gt;rollBack();
+        throw $e;
+    } catch (\Throwable $e) {
+        $innerTransaction-&gt;rollBack();
+        throw $e;
+    }
+
+    $outerTransaction-&gt;commit();
+} catch (\Exception $e) {
+    $outerTransaction-&gt;rollBack();
+    throw $e;
+} catch (\Throwable $e) {
+    $outerTransaction-&gt;rollBack();
+    throw $e;
+</code></pre>
+<h2 id="duplicazione-e-divisione-tra-lettura-scrittura">Duplicazione e divisione tra lettura / scrittura<a class="headerlink" href="#duplicazione-e-divisione-tra-lettura-scrittura" title="Permanent link">&para;</a></h2>
+<p>Molti DBMS supportano la replica del database per ottenere una migliore disponibilità del database e tempi di risposta del server più rapidi. Con la replica del database, i dati vengono replicati dai cosiddetti server master ai server slave . Tutte le scritture e gli aggiornamenti devono essere eseguiti sui server master, mentre le letture possono anche avvenire sui server slave.</p>
+<p>Per sfruttare la replica del database e ottenere la divisione read-write, è possibile configurare un componente <strong>yii \ db \ Connection</strong> come il seguente:</p>
+<pre><code>[
+    'class' =&gt; 'yii\db\Connection',
+
+    // configuration for the master
+    'dsn' =&gt; 'dsn for master server',
+    'username' =&gt; 'master',
+    'password' =&gt; '',
+
+    // common configuration for slaves
+    'slaveConfig' =&gt; [
+        'username' =&gt; 'slave',
+        'password' =&gt; '',
+        'attributes' =&gt; [
+            // use a smaller connection timeout
+            PDO::ATTR_TIMEOUT =&gt; 10,
+        ],
+    ],
+
+    // list of slave configurations
+    'slaves' =&gt; [
+        ['dsn' =&gt; 'dsn for slave server 1'],
+        ['dsn' =&gt; 'dsn for slave server 2'],
+        ['dsn' =&gt; 'dsn for slave server 3'],
+        ['dsn' =&gt; 'dsn for slave server 4'],
+    ],
+]
+</code></pre>
+<p>La configurazione scritta sopra, specifica un'impostazione con un singolo master e più slave. Uno degli slave verrà connesso e utilizzato per eseguire query di lettura, mentre il master verrà utilizzato per eseguire query di scrittura. Tale suddivisione in lettura-scrittura viene eseguita automaticamente con questa configurazione. Per esempio,</p>
+<pre><code>// create a Connection instance using the above configuration
+Yii::$app-&gt;db = Yii::createObject($config);
+
+// query against one of the slaves
+$rows = Yii::$app-&gt;db-&gt;createCommand('SELECT * FROM user LIMIT 10')-&gt;queryAll();
+
+// query against the master
+Yii::$app-&gt;db-&gt;createCommand("UPDATE user SET username='demo' WHERE id=1")-&gt;execute();
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Le query eseguite chiamando <strong>yii \ db \ Command :: execute()</strong> sono considerate query di scrittura, mentre tutte le altre query eseguite tramite uno dei metodi "query" di <strong>yii \ db \ Command</strong> sono query di lettura. È possibile ottenere la connessione slave attualmente attiva tramite <code>Yii::$app-&gt;db-&gt;slave</code>.</p>
+</div>
+<p>Il componente <code>Connection</code> supporta il bilanciamento del carico e il failover tra slave. Quando si esegue una query di lettura per la prima volta, il componente <code>Connection</code> sceglierà in modo casuale uno slave e prova a connettersi ad esso. Se lo slave viene trovato "morto" (cioè non dà nessuna risposta), ne prova un altro. Se nessuno degli slave è disponibile, si collegherà al master. Configurando una cache di stato del server, un server "morto" può essere ricordato in modo che non venga più provato durante un certo periodo di tempo .</p>
+<p>E' inoltre possibile configurare più master con più slave. Per esempio:</p>
+<pre><code>[
+    'class' =&gt; 'yii\db\Connection',
+
+    // common configuration for masters
+    'masterConfig' =&gt; [
+        'username' =&gt; 'master',
+        'password' =&gt; '',
+        'attributes' =&gt; [
+            // use a smaller connection timeout
+            PDO::ATTR_TIMEOUT =&gt; 10,
+        ],
+    ],
+
+    // list of master configurations
+    'masters' =&gt; [
+        ['dsn' =&gt; 'dsn for master server 1'],
+        ['dsn' =&gt; 'dsn for master server 2'],
+    ],
+
+    // common configuration for slaves
+    'slaveConfig' =&gt; [
+        'username' =&gt; 'slave',
+        'password' =&gt; '',
+        'attributes' =&gt; [
+            // use a smaller connection timeout
+            PDO::ATTR_TIMEOUT =&gt; 10,
+        ],
+    ],
+
+    // list of slave configurations
+    'slaves' =&gt; [
+        ['dsn' =&gt; 'dsn for slave server 1'],
+        ['dsn' =&gt; 'dsn for slave server 2'],
+        ['dsn' =&gt; 'dsn for slave server 3'],
+        ['dsn' =&gt; 'dsn for slave server 4'],
+    ],
+</code></pre>
+<p>La configurazione soprastante specifica due master e quattro slave. Il componente <code>Connection</code> supporta anche il bilanciamento del carico e il failover tra i master esattamente come avviene tra gli slave. Una differenza è che quando nessuno dei master è disponibile viene lanciata un'eccezione.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Quando si utilizza le proprietà per configurare uno o più master, tutte le altre proprietà per la specifica di una connessione al database (ad esempio dsn, username, password) con l'oggetto stesso <code>Connection</code> verrà ignorato.</p>
+</div>
+<p>Per impostazione predefinita, le transazioni utilizzano la connessione principale. E all'interno di una transazione, tutte le operazioni DB utilizzeranno la connessione principale. Per esempio,</p>
+<pre><code>$db = Yii::$app-&gt;db;
+// the transaction is started on the master connection
+$transaction = $db-&gt;beginTransaction();
+
+try {
+    // both queries are performed against the master
+    $rows = $db-&gt;createCommand('SELECT * FROM user LIMIT 10')-&gt;queryAll();
+    $db-&gt;createCommand("UPDATE user SET username='demo' WHERE id=1")-&gt;execute();
+
+    $transaction-&gt;commit();
+} catch(\Exception $e) {
+    $transaction-&gt;rollBack();
+    throw $e;
+} catch(\Throwable $e) {
+    $transaction-&gt;rollBack();
+    throw $e;
+}
+</code></pre>
+<p>Se si desidera avviare una transazione con la connessione slave, è necessario farlo in modo esplicito. Come il seguente:</p>
+<pre><code>$transaction = Yii::$app-&gt;db-&gt;slave-&gt;beginTransaction();
+</code></pre>
+<p>A volte, potresti voler forzare l'uso della connessione principale per eseguire una query di lettura. Questo può essere ottenuto con il metodo <code>useMaster()</code>:</p>
+<pre><code>$rows = Yii::$app-&gt;db-&gt;useMaster(function ($db) {
+    return $db-&gt;createCommand('SELECT * FROM user LIMIT 10')-&gt;queryAll();
+});
+</code></pre>
+<p>Si può anche impostare direttamente <code>Yii::$app-&gt;db.&gt;enableSlaves</code> di essere a <code>false</code> a indirizzare tutte le query al collegamento master.</p>
+<h2 id="lavorare-con-lo-schema-del-proprio-database">Lavorare con lo schema del proprio database<a class="headerlink" href="#lavorare-con-lo-schema-del-proprio-database" title="Permanent link">&para;</a></h2>
+<p>Yii DAO fornisce un intero set di metodi per consentire la manipolazione dello schema del database, come la creazione di nuove tabelle, il rilascio di una colonna da una tabella, ecc. Questi metodi sono elencati come segue:</p>
+<ul>
+<li><strong>createTable()</strong>: creazione di una tabella;</li>
+<li><strong>renameTable()</strong>: rinomina una tabella;</li>
+<li><strong>dropTable()</strong>: rimozione di una tabella;</li>
+<li><strong>truncateTable()</strong>: rimuove tutte le righe in una tabella;</li>
+<li><strong>addColumn()</strong>: aggiunta di una colonna;</li>
+<li><strong>renameColumn()</strong>: rinomina una colonna;</li>
+<li><strong>dropColumn()</strong>: rimuovendo una colonna;</li>
+<li><strong>alterColumn()</strong>: modifica di una colonna;</li>
+<li><strong>addPrimaryKey()</strong>: aggiunta di una chiave primaria;</li>
+<li><strong>dropPrimaryKey()</strong>: rimozione di una chiave primaria;</li>
+<li><strong>addForeignKey()</strong>: aggiunta di una chiave esterna;</li>
+<li><strong>dropForeignKey()</strong>: rimozione di una chiave esterna;</li>
+<li><strong>createIndex()</strong>: creazione di un indice;</li>
+<li><strong>dropIndex()</strong>: rimozione di un indice.</li>
+</ul>
+<p>Questi metodi possono essere utilizzati come i seguenti:</p>
+<pre><code>// CREATE TABLE
+Yii::$app-&gt;db-&gt;createCommand()-&gt;createTable('post', [
+    'id' =&gt; 'pk',
+    'title' =&gt; 'string',
+    'text' =&gt; 'text',
+]);
+</code></pre>
+<p>L'array sopra descritto descrive il nome e i tipi delle colonne da creare. Per i tipi di colonna, Yii fornisce un set di tipi di dati astratti, che consentono di definire uno schema agnostico del database. Questi vengono convertiti in definizioni accessibili dal DBMS dipendente dal database.</p>
+<p>Oltre a modificare lo schema del database, è anche possibile recuperare le informazioni sulla definizione di una tabella tramite il metodo <strong>getTableSchema()</strong> di una connessione DB. Per esempio,</p>
+<pre><code>$table = Yii::$app-&gt;db-&gt;getTableSchema('post');
+</code></pre>
+<p>Il metodo restituisce un oggetto <strong>yii \ db \ TableSchema</strong> che contiene le informazioni sulle colonne della tabella, le chiavi primarie, le chiavi esterne e così via. Tutte queste informazioni sono principalmente utilizzate dal generatore di query e dall'Active Record per consentire la scrittura del codice agnostico del database.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Contenitore Dependency Injection
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-query-builder/" title="Generatore di Query" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Generatore di Query
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-109845735-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1732 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Guida italiana del framework PHP Yii 2.0">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Generatore di Query - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Lavorare con i Database
+                </span>
+              
+            
+            Generatore di Query
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../application-structure/sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../handling-requests/sub-request-overview/" title="Gestione delle richieste" class="md-tabs__link">
+          Gestione delle richieste
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-data-access-object/" title="Lavorare con i Database" class="md-tabs__link md-tabs__link--active">
+          Lavorare con i Database
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Gestione delle richieste
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Gestione delle richieste
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-request-overview/" title="Panoramica sulla gestione delle richieste" class="md-nav__link">
+      Panoramica sulla gestione delle richieste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-bootstrapping/" title="Bootstrapping" class="md-nav__link">
+      Bootstrapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-routing-url-creation/" title="Routing e creazione degli URL" class="md-nav__link">
+      Routing e creazione degli URL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-requests/" title="Requests" class="md-nav__link">
+      Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-responses/" title="Responses" class="md-nav__link">
+      Responses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-session-cookies/" title="Session & Cookies" class="md-nav__link">
+      Session & Cookies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-handling-error/" title="Gestione degli errori" class="md-nav__link">
+      Gestione degli errori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-logging/" title="Registrazione" class="md-nav__link">
+      Registrazione
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Lavorare con i Database
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Lavorare con i Database
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-data-access-object/" title="Accesso ai dati tramite oggetti" class="md-nav__link">
+      Accesso ai dati tramite oggetti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Generatore di Query
+      </label>
+    
+    <a href="./" title="Generatore di Query" class="md-nav__link md-nav__link--active">
+      Generatore di Query
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#costruzione-di-una-query" title="Costruzione di una query" class="md-nav__link">
+    Costruzione di una query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select" title="SELECT()" class="md-nav__link">
+    SELECT()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from" title="FROM()" class="md-nav__link">
+    FROM()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where" title="WHERE()" class="md-nav__link">
+    WHERE()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orderby" title="OrderBy()" class="md-nav__link">
+    OrderBy()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupby" title="GroupBy()" class="md-nav__link">
+    GroupBy()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#having" title="Having()" class="md-nav__link">
+    Having()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-e-offset" title="Limit() e Offset()" class="md-nav__link">
+    Limit() e Offset()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join" title="Join()" class="md-nav__link">
+    Join()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#union" title="Union()" class="md-nav__link">
+    Union()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodi-di-ricerca" title="Metodi di ricerca" class="md-nav__link">
+    Metodi di ricerca
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risultati-di-una-query-da-indicizzare" title="Risultati di una query da indicizzare" class="md-nav__link">
+    Risultati di una query da indicizzare
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-query" title="Batch Query" class="md-nav__link">
+    Batch Query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitazioni-della-query-batch-in-mysql" title="Limitazioni della query batch in MySQL" class="md-nav__link">
+    Limitazioni della query batch in MySQL
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-active-record/" title="Active Record" class="md-nav__link">
+      Active Record
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-migrations/" title="Migrazoni" class="md-nav__link">
+      Migrazoni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#costruzione-di-una-query" title="Costruzione di una query" class="md-nav__link">
+    Costruzione di una query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select" title="SELECT()" class="md-nav__link">
+    SELECT()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from" title="FROM()" class="md-nav__link">
+    FROM()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where" title="WHERE()" class="md-nav__link">
+    WHERE()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orderby" title="OrderBy()" class="md-nav__link">
+    OrderBy()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupby" title="GroupBy()" class="md-nav__link">
+    GroupBy()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#having" title="Having()" class="md-nav__link">
+    Having()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-e-offset" title="Limit() e Offset()" class="md-nav__link">
+    Limit() e Offset()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join" title="Join()" class="md-nav__link">
+    Join()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#union" title="Union()" class="md-nav__link">
+    Union()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodi-di-ricerca" title="Metodi di ricerca" class="md-nav__link">
+    Metodi di ricerca
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risultati-di-una-query-da-indicizzare" title="Risultati di una query da indicizzare" class="md-nav__link">
+    Risultati di una query da indicizzare
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-query" title="Batch Query" class="md-nav__link">
+    Batch Query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitazioni-della-query-batch-in-mysql" title="Limitazioni della query batch in MySQL" class="md-nav__link">
+    Limitazioni della query batch in MySQL
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/working-with-databases/sub-query-builder.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="generatore-di-query-query-builder">Generatore di Query (Query Builder)<a class="headerlink" href="#generatore-di-query-query-builder" title="Permanent link">&para;</a></h1>
+<p>Basato sul DBO (Database Access Objects), il generatore di query consente di costruire una query SQL in modo programmatico e indipendente dal DBMS. Rispetto alla scrittura di istruzioni SQL non elaborate, l'utilizzo del query builder consente di scrivere codice SQL più leggibile e generare istruzioni SQL più sicure.</p>
+<p>L'utilizzo di Generatore di query prevede in genere due passaggi:</p>
+<ul>
+<li>Costruisci un oggetto <strong>yii \ db \ Query</strong> per rappresentare parti diverse (ad es SELECT. FROM) di un'istruzione SELECT SQL.</li>
+<li>Esegui un metodo di query (es. <code>all()</code>) di <strong>yii \ db \ Query</strong> per recuperare i dati dal database.</li>
+</ul>
+<p>Il codice seguente mostra un modo tipico di utilizzare il generatore di query:</p>
+<pre><code>$rows = (new \yii\db\Query())
+    -&gt;select(['id', 'email'])
+    -&gt;from('user')
+    -&gt;where(['last_name' =&gt; 'Smith'])
+    -&gt;limit(10)
+    -&gt;all();
+</code></pre>
+<p>Il codice precedente genera ed esegue la seguente query SQL, in cui il parametro <code>:last_name</code> è associato alla stringa <code>'Smith'</code>.</p>
+<pre><code>SELECT `id`, `email` 
+FROM `user`
+WHERE `last_name` = :last_name
+LIMIT 10
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Di solito si lavora principalmente con <strong>yii \ db \ Query</strong> invece di <strong>yii \ db \ QueryBuilder</strong>. Quest'ultimo viene invocato dal primo implicitamente quando si chiama uno dei metodi di query. <strong>yii \ db \ QueryBuilder</strong> è la classe responsabile della generazione di istruzioni SQL dipendenti da DBMS (ad esempio, citando in modo diverso nomi di tabelle / colonne) da oggetti <strong>yii \ db \ Query</strong> indipendenti da DBMS.</p>
+</div>
+<h2 id="costruzione-di-una-query">Costruzione di una query<a class="headerlink" href="#costruzione-di-una-query" title="Permanent link">&para;</a></h2>
+<p>Per costruire un oggetto <strong>yii \ db \ Query</strong>, si chiamano diversi metodi di creazione per specificare parti diverse di una query SQL. I nomi di questi metodi sono simili alle parole chiave SQL utilizzate nelle parti corrispondenti dell'istruzione. Ad esempio, per specificare la parte <code>FROM</code> di una query SQL, dobbiamo chiamare il metodo <strong>from()</strong>. Tutti i metodi di creazione query restituiscono l'oggetto query stesso, che consente di concatenare più chiamate contemporaneamente.</p>
+<p>Di seguito, descriveremo l'utilizzo di ciascun metodo di creazione di query.</p>
+<h2 id="select">SELECT()<a class="headerlink" href="#select" title="Permanent link">&para;</a></h2>
+<p>Il metodo <strong>select()</strong> specifica il frammentro <code>SELECT</code> di un'istruzione SQL. È possibile specificare le colonne da selezionare in una matrice o in una stringa, come nell'esempio seguente. I nomi delle colonne selezionati verranno automaticamente quotati quando l'istruzione SQL viene generata da un oggetto query.</p>
+<pre><code>$query-&gt;select(['id', 'email']);
+
+// equivalent to:
+
+$query-&gt;select('id, email');
+</code></pre>
+<p>I nomi delle colonne selezionate possono includere prefissi di tabelle e / o alias di colonne, come quando si scrivono query SQL non elaborate. Per esempio,</p>
+<pre><code>$query-&gt;select(['user.id AS user_id', 'email']);
+
+// equivalent to:
+
+$query-&gt;select('user.id AS user_id, email');
+</code></pre>
+<p>Se si utilizza il formato della matrice per specificare le colonne, è anche possibile utilizzare i tasti della matrice per specificare gli alias di colonna. Ad esempio, il codice sopra riportato può essere riscritto come segue,</p>
+<pre><code>$query-&gt;select(['user_id' =&gt; 'user.id', 'email']);
+</code></pre>
+<p>Se non si chiama il metodo <strong>select()</strong> durante la creazione di una query, con <code>*</code> verranno selezionate tutte le colonne.</p>
+<p>Oltre ai nomi delle colonne, è anche possibile selezionare le espressioni DB. È necessario utilizzare il formato di matrice quando si seleziona un'espressione DB che contiene virgole, per evitare virgolette automatiche errate. Per esempio,</p>
+<pre><code>$query-&gt;select(["CONCAT(first_name, ' ', last_name) AS full_name", 'email']);
+</code></pre>
+<p>Come per tutti i punti in cui è coinvolto l'SQL non elaborato, è possibile utilizzare <strong>DBMS agnostic quoting syntax</strong> per i nomi di tabelle e colonne quando si scrivono espressioni DB in select.</p>
+<p>A partire dalla versione 2.0.1, è possibile selezionare anche le sottoquery. È necessario specificare ogni sottoquery in termini di un oggetto <strong>yii \ db \ Query</strong>. Per esempio,</p>
+<pre><code>$subQuery = (new Query())-&gt;select('COUNT(*)')-&gt;from('user');
+
+// SELECT `id`, (SELECT COUNT(*) FROM `user`) AS `count` FROM `post`
+$query = (new Query())-&gt;select(['id', 'count' =&gt; $subQuery])-&gt;from('post');
+</code></pre>
+<p>Per selezionare righe distinte, puoi chiamare il metodo <strong>distinct()</strong> , come il seguente:</p>
+<pre><code>// SELECT DISTINCT `user_id` ...
+$query-&gt;select('user_id')-&gt;distinct();
+</code></pre>
+<p>Puoi chiamare <strong>addSelect()</strong> per selezionare colonne aggiuntive. Per esempio,</p>
+<pre><code>$query-&gt;select(['id', 'username'])
+    -&gt;addSelect(['email']);
+</code></pre>
+<h2 id="from">FROM()<a class="headerlink" href="#from" title="Permanent link">&para;</a></h2>
+<p>Il metodo <strong>from()</strong> specifica il frammento <code>FROM</code> di un'istruzione SQL. Per esempio,</p>
+<pre><code>// SELECT * FROM `user`
+$query-&gt;from('user');
+</code></pre>
+<p>È possibile specificare la / le tabella / i selezionata / i in una stringa o in una matrice. I nomi delle tabelle possono contenere prefissi dello schema e / o alias di tabelle, come quando si scrivono istruzioni SQL non elaborate. Per esempio,</p>
+<pre><code>$query-&gt;from(['public.user u', 'public.post p']);
+
+// equivalent to:
+
+$query-&gt;from('public.user u, public.post p');
+</code></pre>
+<p>Se si utilizza il formato di matrice, è anche possibile utilizzare le chiavi della matrice per specificare gli alias di tabella, come i seguenti:</p>
+<pre><code>$query-&gt;from(['u' =&gt; 'public.user', 'p' =&gt; 'public.post']);
+</code></pre>
+<p>Oltre ai nomi delle tabelle, è anche possibile selezionare delle subquery specificandole in termini di oggetti <strong>yii \ db \ Query</strong>. Per esempio,</p>
+<pre><code>$subQuery = (new Query())-&gt;select('id')-&gt;from('user')-&gt;where('status=1');
+
+// SELECT * FROM (SELECT `id` FROM `user` WHERE status=1) u 
+$query-&gt;from(['u' =&gt; $subQuery]);
+</code></pre>
+<h2 id="where">WHERE()<a class="headerlink" href="#where" title="Permanent link">&para;</a></h2>
+<p>Il metodo <strong>where()</strong> specifica il frammento <code>WHERE</code> di una query SQL. È possibile utilizzare uno dei tre formati per specificare una WHEREcondizione:</p>
+<ul>
+<li>formato stringa, ad es. <code>'status=1'</code></li>
+<li>formato hash, ad es <code>['status' =&gt; 1, 'type' =&gt; 2]</code></li>
+<li>formato operatore, ad es <code>['like', 'name', 'test']</code></li>
+</ul>
+<p><strong><em>Formato della stringa</em></strong></p>
+<p>Il formato stringa è il modo migliore per specificare condizioni molto semplici o se è necessario utilizzare le funzioni integrate del DBMS. Funziona come se si stesse scrivendo un SQL raw. Per esempio,</p>
+<pre><code>$query-&gt;where('status=1');
+
+// or use parameter binding to bind dynamic parameter values
+$query-&gt;where('status=:status', [':status' =&gt; $status]);
+
+// raw SQL using MySQL YEAR() function on a date field
+$query-&gt;where('YEAR(somedate) = 2015');
+</code></pre>
+<p>NON incorporare le variabili direttamente nella condizione come le seguenti, soprattutto se i valori delle variabili provengono da input dell'utente finale, poiché ciò renderà l'applicazione soggetta agli attacchi di SQL injection.</p>
+<pre><code>// Dangerous! Do NOT do this unless you are very certain $status must be an integer.
+$query-&gt;where("status=$status");
+</code></pre>
+<p>Quando si utilizza l'associazione dei parametri, è possibile chiamare il metodo <code>params()</code> o <code>addParams()</code> per specificare i parametri separatamente.</p>
+<pre><code>$query-&gt;where('status=:status')
+    -&gt;addParams([':status' =&gt; $status]);
+</code></pre>
+<p>Come per tutti i punti in cui è coinvolto l'SQL non elaborato, è possibile utilizzare la "DBMS agnostic quoting syntax" per i nomi di tabelle e colonne quando si scrivono le condizioni nel formato stringa.</p>
+<p><strong><em>Formato hash</em></strong></p>
+<p>Il formato hash viene utilizzato per specificare le sotto-condizioni concatenate come <code>AND</code>, ognuna delle quali è una semplice affermazione di uguaglianza. È scritto come un array le cui chiavi sono nomi di colonne e valori i valori corrispondenti che dovrebbero essere le colonne. Per esempio,</p>
+<pre><code>// ...WHERE (`status` = 10) AND (`type` IS NULL) AND (`id` IN (4, 8, 15))
+$query-&gt;where([
+    'status' =&gt; 10,
+    'type' =&gt; null,
+    'id' =&gt; [4, 8, 15],
+]);
+</code></pre>
+<p>Come puoi vedere, il generatore di query è abbastanza intelligente da gestire correttamente i valori null o array.</p>
+<p>Puoi anche utilizzare sottoquery con formato hash come il seguente:</p>
+<pre><code>$userQuery = (new Query())-&gt;select('id')-&gt;from('user');
+
+// ...WHERE `id` IN (SELECT `id` FROM `user`)
+$query-&gt;where(['id' =&gt; $userQuery]);
+</code></pre>
+<p>Usando il formato hash, Yii usa internamente il binding dei parametri, quindi in contrasto con il formato stringa. In questo caso non devi aggiungere parametri manualmente.</p>
+<p><strong><em>Formato dell'operatore</em></strong></p>
+<p>Il formato operatore consente di specificare condizioni arbitrarie in modo programmatico. Prende il seguente formato:</p>
+<pre><code>[operator, operand1, operand2, ...]
+</code></pre>
+<p>dove gli operandi possono essere specificati ciascuno in formato stringa, formato hash o formato operatore in modo ricorsivo, mentre l'operatore può essere uno dei seguenti:</p>
+<ul>
+<li>
+<p><code>and</code>: gli operandi dovrebbero essere concatenati insieme usando <code>AND</code>. Ad esempio, <code>['and', 'id=1', 'id=2']</code> genererà <code>id=1 AND id=2</code>. Se un operando è un array, verrà convertito in una stringa usando le regole descritte qui. Ad esempio,<code>['and', 'type=1', ['or', 'id=1', 'id=2']]</code> genererà <code>type=1 AND (id=1 OR id=2)</code>. Il metodo NON farà alcuna citazione o fuga.</p>
+</li>
+<li>
+<p><code>or</code>: simile all'operatore <code>and</code> tranne per il fatto che gli operandi sono concatenati usando <code>OR</code>.</p>
+</li>
+<li>
+<p><code>not</code>: richiede solo l'operando 1, che verrà incluso con <code>NOT()</code>. Ad esempio, <code>['not', 'id=1']genererà NOT (id=1)</code>. Operando 1 può anche essere una matrice per descrivere più espressioni. Ad esempio <code>['not', ['status' =&gt; 'draft', 'name' =&gt; 'example']]</code> genererà <code>NOT ((status='draft') AND (name='example'))</code>.</p>
+</li>
+<li>
+<p><code>between</code>: l'operando 1 dovrebbe essere il nome della colonna e l'operando 2 e 3 dovrebbe essere il valore iniziale e finale dell'intervallo in cui si trova la colonna. Ad esempio, <code>['between', 'id', 1, 10]</code> genererà <code>id BETWEEN 1 AND 10</code>.</p>
+</li>
+<li>
+<p><code>not between</code>: simile a <code>between</code>tranne che <code>BETWEEN</code> viene sostituito con <code>NOT BETWEEN</code> nella condizione generata.</p>
+</li>
+<li>
+<p><code>in</code>: l'operando 1 dovrebbe essere una colonna o un'espressione DB. L' operando 2 può essere un array o un oggetto <code>Query</code>. Genererà una condizione <code>IN</code> se l'operando 2 è una matrice, rappresenterà l'intervallo dei valori che dovrebbe essere la colonna o l'espressione DB; se l'operando 2 è un oggetto <code>Query</code>, verrà generata una sottoquery e utilizzata come intervallo della colonna o dell'espressione DB. Ad esempio, <code>['in', 'id', [1, 2, 3]]</code> genererà <code>id IN (1, 2, 3)</code>. Il metodo citerà correttamente il nome della colonna e i valori di escape nell'intervallo. L'operatore <code>in</code> supporta anche colonne composite. In questo caso, l'operando 1 dovrebbe essere una matrice delle colonne, mentre l'operando 2 dovrebbe essere una matrice di matrici o un oggetto <code>Query</code> che rappresenta l'intervallo delle colonne.</p>
+</li>
+<li>
+<p><code>not in</code>: simile all'operatore <code>in</code> tranne che <code>IN</code> viene sostituito con <code>NOT IN</code> nella condizione generata.</p>
+</li>
+<li>
+<p><code>like</code>: l'operando 1 deve essere una colonna o un'espressione DB e l'operando 2 deve essere una stringa o una matrice che rappresenta i valori che la colonna o l'espressione DB deve avere. Ad esempio, <code>['like', 'name', 'tester']</code> genererà <code>name LIKE '%tester%'</code>. Quando l'intervallo di valori viene fornito come matrice, i <code>LIKE</code> saranno di più e verranno concatenati utilizzando <code>AND</code>. Ad esempio, <code>['like', 'name', ['test', 'sample']]</code> genererà <code>name LIKE '%test%' AND name LIKE '%sample%'</code>. È anche possibile fornire un terzo operando opzionale per specificare come evitare caratteri speciali nei valori. L'operando dovrebbe essere una matrice di mapping dai caratteri speciali alle loro controparti fuggite. Se questo operando non viene fornito, verrà utilizzata una mappatura di escape predefinita. Puoi usare il valore <code>false</code> o una matrice vuota per indicare che i valori sono già stati presi e che non è necessario applicare alcuna escape. Si noti che quando si utilizza una mappatura di escape (o il terzo operando non è fornito), i valori saranno automaticamente racchiusi all'interno di una coppia di caratteri percentuali.</p>
+</li>
+</ul>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Quando si utilizza PostgreSQL è possibile utilizzare <code>ilike</code> al posto della corrispondenza <code>like</code> senza distinzione tra maiuscole e minuscole.</p>
+</div>
+<ul>
+<li>
+<p><code>or like</code>: simile all'operatore <code>like</code> tranne che <code>OR</code> è usato per concatenare i <code>LIKE</code> predicati quando l'operando 2 è una matrice.</p>
+</li>
+<li>
+<p><code>not like</code>: simile all'operatore <code>lik</code> tranne che <code>LIKE</code> viene sostituito con <code>NOT LIKE</code> nella condizione generata.</p>
+</li>
+<li>
+<p><code>or not like</code>: simile all'operatore <code>not like</code> tranne che <code>OR</code> è usato per concatenare i predicati <code>NOT LIKE</code>.</p>
+</li>
+<li>
+<p><code>exists</code>: richiede un operando che deve essere un'istanza di <strong>yii \ db \ Query</strong> che rappresenta la sottoquery. Costruirà un'espressione <code>EXISTS (sub-query)</code>.</p>
+</li>
+<li>
+<p><code>not exists</code>: simile all'operatore <code>exists</code> e crea un'espressione <code>NOT EXISTS (sub-query)</code>.</p>
+</li>
+<li>
+<p><code>&gt;, &lt;=</code> o qualsiasi altro operatore DB valido che accetta due operandi: il primo operando deve essere un nome di colonna mentre il secondo operando un valore. Ad esempio, <code>['&gt;', 'age', 10]</code> genererà <code>age&gt;10</code>.</p>
+</li>
+</ul>
+<p>Utilizzando il formato operatore, Yii utilizza internamente il binding dei parametri, in contrasto con il formato stringa , in questo caso non è necessario aggiungere parametri manualmente.</p>
+<p><strong><em>Aggiunta delle condizioni</em></strong></p>
+<p>È possibile utilizzare <strong>andWhere()</strong> o <strong>orWhere()</strong> per aggiungere condizioni aggiuntive a una esistente. Puoi chiamarli più volte per aggiungere più condizioni separatamente. Per esempio,</p>
+<pre><code>$status = 10;
+$search = 'yii';
+
+$query-&gt;where(['status' =&gt; $status]);
+
+if (!empty($search)) {
+    $query-&gt;andWhere(['like', 'title', $search]);
+}
+</code></pre>
+<p>Se <code>$search</code> non è vuoto, dalla proprietà <code>WHERE</code> verrà generata la seguente condizione:</p>
+<pre><code>WHERE (`status` = 10) AND (`title` LIKE '%yii%')
+</code></pre>
+<p><strong><em>Condizioni associati ai filtri</em></strong></p>
+<p>Quando si costruiscono le condizioni <code>WHERE</code> in base all'input degli utenti finali, in genere si desidera ignorare quei valori di input, che sono vuoti. Ad esempio, in un modulo di ricerca che consente di effettuare ricerche per nome utente ed e-mail, si desidera ignorare la condizione se l'utente non inserisce nulla nel campo di inserimento nome utente / email. È possibile raggiungere questo obiettivo utilizzando il metodo <code>filterWhere()</code>:</p>
+<pre><code>// $username and $email are from user inputs
+$query-&gt;filterWhere([
+    'username' =&gt; $username,
+    'email' =&gt; $email,
+]);
+</code></pre>
+<p>L'unica differenza tra <code>filterWhere()</code> e <code>where()</code> è che il primo ignorerà i valori vuoti forniti nella condizione in formato hash. Quindi se <code>$email</code> è vuoto mentre <code>$username</code> non lo è, il codice sopra comporterà la condizione <code>SQL WHERE username=:username</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+</div>
+<p>Un valore è considerato vuoto se ha come valore <code>null</code>, un array vuoto, una stringa vuota o una stringa composta solo da spazi bianchi.</p>
+<p>Come <strong>andWhere()</strong> e <strong>orWhere()</strong>, è possibile utilizzare i metodi <code>andFilterWhere()</code> e <code>orFilterWhere()</code> per aggiungere condizioni di filtro aggiuntive a quella esistente.
+Inoltre, vi è <strong>yii \ db \ Query :: andFilterCompare()</strong> che può determinare in modo intelligente l'operatore in base a cosa c'è nel valore:</p>
+<pre><code>$query-&gt;andFilterCompare('name', 'John Doe');
+$query-&gt;andFilterCompare('rating', '&gt;9');
+$query-&gt;andFilterCompare('value', '&lt;=100');
+</code></pre>
+<p>Puoi anche specificare esplicitamente l'operatore:</p>
+<pre><code>$query-&gt;andFilterCompare('name', 'Doe', 'like');
+</code></pre>
+<p>Yii 2.0.11 offre metodi simili per la condzione <code>HAVING</code>:</p>
+<ul>
+<li><strong>filterHaving()</strong></li>
+<li><strong>andFilterHaving()</strong></li>
+<li><strong>orFilterHaving()</strong></li>
+</ul>
+<h2 id="orderby">OrderBy()<a class="headerlink" href="#orderby" title="Permanent link">&para;</a></h2>
+<p>Il metodo <strong>orderBy()</strong> specifica il frammento <code>ORDER BY</code> di una query SQL. Per esempio,</p>
+<pre><code>// ... ORDER BY `id` ASC, `name` DESC
+$query-&gt;orderBy([
+    'id' =&gt; SORT_ASC,
+    'name' =&gt; SORT_DESC,
+]);
+</code></pre>
+<p>Nel codice precedente, le chiavi dell'array sono nomi di colonne, mentre i valori dell'array sono l'ordine corrispondente per direzioni. La costante PHP <code>SORT_ASC</code> specifica l'ordinamento crescente, mentre la costante <code>SORT_DESC</code> specifica quello decrescente.</p>
+<p>Se <code>ORDER BY</code> riguarda solo nomi di colonne semplici, è possibile specificarlo utilizzando una stringa, proprio come quando si scrivono istruzioni SQL non elaborate. Per esempio,</p>
+<pre><code>$query-&gt;orderBy('id ASC, name DESC');
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>E' necessario utilizzare il formato dell'array se <code>ORDER BY</code> include alcune espressioni DB.</p>
+</div>
+<p>Puoi chiamare il metodo <code>addOrderBy()</code> per aggiungere ulteriori colonne al frammento <code>ORDER BY</code>. Per esempio,</p>
+<pre><code>$query-&gt;orderBy('id ASC')
+    -&gt;addOrderBy('name DESC');
+</code></pre>
+<h2 id="groupby">GroupBy()<a class="headerlink" href="#groupby" title="Permanent link">&para;</a></h2>
+<p>Il metodo <strong>groupBy()</strong> specifica il frammento <code>GROUP BY</code> di una query SQL. Per esempio,</p>
+<pre><code>// ... GROUP BY `id`, `status`
+$query-&gt;groupBy(['id', 'status']);
+</code></pre>
+<p>Se <code>GROUP BY</code> riguarda solo nomi di colonne semplici, è possibile specificarlo utilizzando una stringa, proprio come quando si scrivono istruzioni SQL non elaborate. Per esempio,</p>
+<pre><code>$query-&gt;groupBy('id, status');
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>E' necessario utilizzare il formato dell'array se <code>GROUP BY</code> include alcune espressioni DB.</p>
+</div>
+<p>È possibile chiamare il metodo <code>addGroupBy()</code> per aggiungere ulteriori colonne al frammento <code>GROUP BY</code>. Per esempio,</p>
+<pre><code>$query-&gt;groupBy(['id', 'status'])
+    -&gt;addGroupBy('age');
+</code></pre>
+<h2 id="having">Having()<a class="headerlink" href="#having" title="Permanent link">&para;</a></h2>
+<p>Il metodo <strong>having()</strong> specifica il frammento <code>HAVING</code> di una query SQL. Prende una condizione che può essere specificata al solito modo di <strong><em>where()</em></strong>. Per esempio,</p>
+<pre><code>// ... HAVING `status` = 1
+$query-&gt;having(['status' =&gt; 1]);
+</code></pre>
+<p>Fare riferimento alla documentazione di where () per ulteriori dettagli su come specificare una condizione.</p>
+<p>È possibile chiamare i metodi <code>andHaving()</code> o <code>orHaving()</code> per aggiungere condizioni aggiuntive al frammento <code>HAVING</code>. Per esempio,</p>
+<pre><code>// ... HAVING (`status` = 1) AND (`age` &gt; 30)
+$query-&gt;having(['status' =&gt; 1])
+</code></pre>
+<h2 id="limit-e-offset">Limit() e Offset()<a class="headerlink" href="#limit-e-offset" title="Permanent link">&para;</a></h2>
+<p>I metodi <code>limit()</code> e <code>offset()</code> specificano i frammenti <code>LIMIT</code> e <code>OFFSET</code> di una query SQL. Per esempio,</p>
+<pre><code>// ... LIMIT 10 OFFSET 20
+$query-&gt;limit(10)-&gt;offset(20);
+</code></pre>
+<p>Se si specifica un limite o offset non valido (ad es. Un valore negativo), verrà ignorato.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Per DBMS che non supportano questi due frammenti (ad esempio MSSQL), il generatore di query genererà un'istruzione SQL che emula il comportamento di <code>LIMIT/ OFFSET</code>.</p>
+</div>
+<h2 id="join">Join()<a class="headerlink" href="#join" title="Permanent link">&para;</a></h2>
+<p>Il metodo <strong>join()</strong> specifica il frammento <code>JOIN</code> di una query SQL. Per esempio,</p>
+<pre><code>// ... LEFT JOIN `post` ON `post`.`user_id` = `user`.`id`
+$query-&gt;join('LEFT JOIN', 'post', 'post.user_id = user.id');
+</code></pre>
+<p>Il metodo <strong>join()</strong> accetta quattro parametri:</p>
+<ul>
+<li><code>$type</code>: indica tipo di join, ad es . <code>'INNER JOIN'</code>, <code>'LEFT JOIN'</code>.</li>
+<li><code>$table</code>: indica il nome del table da usare nella join.</li>
+<li><code>$on</code>: (facoltativo), indica la condizione di join, ovvero il frammento <code>ON</code>. Si prega di fare riferimento a <strong>where()</strong> per i dettagli su come specificare una condizione. Si noti che la sintassi dell'array non funziona per specificare una condizione basata su colonne, ad es. <code>['user.id' =&gt; 'comment.userId']</code>. Si verificherà una condizione in cui l'id dell'utente deve essere uguale alla stringa <code>'comment.userId'</code>. Dovresti invece utilizzare la sintassi della stringa e specificare la condizione come <code>'user.id = comment.userId'</code>.</li>
+<li><code>$params</code>: (facoltativo), indica i parametri da associare alla condizione di join.</li>
+</ul>
+<p>È possibile utilizzare i seguenti metodi di scelta rapida per specificare <code>INNER JOIN</code>, <code>LEFT JOIN</code> e <code>RIGHT JOIN</code>.</p>
+<ul>
+<li><strong>innerJoin()</strong></li>
+<li><strong>leftJoin()</strong></li>
+<li><strong>rightJoin()</strong></li>
+</ul>
+<p>Per esempio,</p>
+<pre><code>$query-&gt;leftJoin('post', 'post.user_id = user.id');
+</code></pre>
+<p>Per unire più tabelle, chiama più volte i metodi join, una volta per ogni tabella.</p>
+<p>Oltre a unirti alle tabelle, puoi anche unirti alle sottoquery. Per fare ciò, specificare le sottoquery da unire come oggetti di <strong>yii \ db \ Query</strong>. Per esempio,</p>
+<pre><code>$subQuery = (new \yii\db\Query())-&gt;from('post');
+$query-&gt;leftJoin(['u' =&gt; $subQuery], 'u.id = author_id');
+</code></pre>
+<p>In questo caso, è necessario inserire la sottoquery in una matrice e utilizzare la chiave dell'array per specificare l'alias.</p>
+<h2 id="union">Union()<a class="headerlink" href="#union" title="Permanent link">&para;</a></h2>
+<p>Il metodo <strong>union()</strong> specifica il frammento <code>UNION</code> di una query SQL. Per esempio,</p>
+<pre><code>$query1 = (new \yii\db\Query())
+    -&gt;select("id, category_id AS type, name")
+    -&gt;from('post')
+    -&gt;limit(10);
+
+$query2 = (new \yii\db\Query())
+    -&gt;select('id, type, name')
+    -&gt;from('user')
+    -&gt;limit(10);
+
+$query1-&gt;union($query2);
+</code></pre>
+<p>Puoi chiamare il metodo <code>union()</code> più volte per aggiungere altri frammneti <code>UNION</code>.</p>
+<h2 id="metodi-di-ricerca">Metodi di ricerca<a class="headerlink" href="#metodi-di-ricerca" title="Permanent link">&para;</a></h2>
+<p><strong>yii \ db \ Query</strong> fornisce un insieme completo di metodi per diversi scopi di ricerca:</p>
+<ul>
+<li><strong>all()</strong>: restituisce una matrice di righe dove ogni riga è vista come una matrice associativa di coppie nome-valore.</li>
+<li><strong>one()</strong>: restituisce la prima riga del risultato.</li>
+<li><strong>column()</strong>: restituisce la prima colonna del risultato.</li>
+<li><strong>scalar()</strong>: restituisce un valore scalare situato nella prima riga e nella prima colonna del risultato.</li>
+<li><strong>exists()</strong>: restituisce un valore che ci permette di capire se il valore della query esiste o meno.</li>
+<li><strong>count()</strong>: restituisce il risultato di una query <code>COUNT</code>.</li>
+</ul>
+<p>Altri metodi di aggregazione, tra cui <code>somma($ q)</code> , <code>media($ q)</code> , <code>max($ q)</code> , <code>min($ q)</code> . Il parametro <code>$q</code> è obbligatorio per questi metodi e può essere un nome di colonna o un'espressione DB.
+Per esempio,</p>
+<pre><code>// SELECT `id`, `email` FROM `user`
+$rows = (new \yii\db\Query())
+    -&gt;select(['id', 'email'])
+    -&gt;from('user')
+    -&gt;all();
+
+// SELECT * FROM `user` WHERE `username` LIKE `%test%`
+$row = (new \yii\db\Query())
+    -&gt;from('user')
+    -&gt;where(['like', 'username', 'test'])
+    -&gt;one();
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Il metodo <strong>one()</strong> restituisce solo la prima riga del risultato della query. NON aggiunge <code>LIMIT 1</code> all'istruzione SQL generata. Questo va bene ed è preferito se sai che la query restituirà solo una o poche righe di dati (ad esempio se stai interrogando con alcune chiavi primarie). Tuttavia, se la query potrebbe potenzialmente generare molte righe di dati, è necessario chiamare in modo esplicito <code>limit(1)</code> per migliorare le prestazioni, ad es <code>(new \yii\db\Query())-&gt;from('user')-&gt;limit(1)-&gt;one()</code>.</p>
+</div>
+<p>Tutti questi metodi di interrogazione richiedono un parametro <code>$db</code> facoltativo che rappresenta la connessione DB da utilizzare per eseguire una query DB. Se si omette questo parametro, il componente db dell'applicazione verrà utilizzato come connessione DB. Di seguito è riportato un altro esempio che utilizza il metodo di query <strong>count()</strong>:</p>
+<pre><code>// executes SQL: SELECT COUNT(*) FROM `user` WHERE `last_name`=:last_name
+$count = (new \yii\db\Query())
+    -&gt;from('user')
+    -&gt;where(['last_name' =&gt; 'Smith'])
+    -&gt;count();
+</code></pre>
+<p>Quando si chiama un metodo di query di <strong>yii \ db \ Query</strong>, in realtà esegue internamente il seguente lavoro:</p>
+<ul>
+<li>Chiamare <strong>yii \ db \ QueryBuilder</strong> per generare un'istruzione SQL in base al costrutto corrente di <strong>yii \ db \ Query</strong>;</li>
+<li>Creare un oggetto <strong>yii \ db \ Command</strong> con l'istruzione SQL generata;</li>
+<li>Chiamare un metodo di query (ad es. <code>QueryAll()</code> ) di <strong>yii \ db \ Command</strong> per eseguire l'istruzione SQL e recuperare i dati.</li>
+</ul>
+<p>A volte, potresti voler esaminare o usare l'istruzione SQL creata da un oggetto <strong>yii \ db \ Query</strong>. È possibile raggiungere questo obiettivo con il seguente codice:</p>
+<pre><code>$command = (new \yii\db\Query())
+    -&gt;select(['id', 'email'])
+    -&gt;from('user')
+    -&gt;where(['last_name' =&gt; 'Smith'])
+    -&gt;limit(10)
+    -&gt;createCommand();
+
+// show the SQL statement
+echo $command-&gt;sql;
+// show the parameters to be bound
+print_r($command-&gt;params);
+
+// returns all rows of the query result
+$rows = $command-&gt;queryAll();
+</code></pre>
+<h2 id="risultati-di-una-query-da-indicizzare">Risultati di una query da indicizzare<a class="headerlink" href="#risultati-di-una-query-da-indicizzare" title="Permanent link">&para;</a></h2>
+<p>Quando si chiama il metodo <strong>all()</strong>, verrà restituita una matrice di righe che sono indicizzate da numeri interi consecutivi. A volte potresti voler indicizzarli in modo diverso, come l'indicizzazione di una particolare colonna o valori di espressione. È possibile raggiungere questo obiettivo chiamando <code>indexBy()</code> prima di all() . Per esempio,</p>
+<pre><code>// returns [100 =&gt; ['id' =&gt; 100, 'username' =&gt; '...', ...], 101 =&gt; [...], 103 =&gt; [...], ...]
+$query = (new \yii\db\Query())
+    -&gt;from('user')
+    -&gt;limit(10)
+    -&gt;indexBy('id')
+    -&gt;all();
+</code></pre>
+<p>Per indicizzare per valori di espressione, passare una funzione anonima al metodo <strong>indexBy()</strong>:</p>
+<pre><code>$query = (new \yii\db\Query())
+    -&gt;from('user')
+    -&gt;indexBy(function ($row) {
+        return $row['id'] . $row['username'];
+    })-&gt;all();
+</code></pre>
+<p>La funzione anonima accetta un parametro <code>$row</code> che contiene i dati della riga corrente e deve restituire un valore scalare che verrà utilizzato come valore di indice.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Contrariamente ai metodi di query come <strong>groupBy()</strong> o <strong>orderBy()</strong> che vengono convertiti in SQL e fanno parte della query, questo metodo funziona dopo che i dati sono stati recuperati dal database. Ciò significa che possono essere utilizzati solo i nomi di colonna che sono stati parte di <code>SELECT</code> nella query. Inoltre, se hai selezionato una colonna con prefisso tabella, ad esempio <code>customer.id</code>, il set di risultati conterrà solo <code>id</code>, così che bisogna chiamare <code>-&gt;indexBy('id')</code> senza prefisso tabella.</p>
+</div>
+<h2 id="batch-query">Batch Query<a class="headerlink" href="#batch-query" title="Permanent link">&para;</a></h2>
+<p>Quando si lavora con grandi quantità di dati, metodi come <strong>yii \ db \ Query :: all()</strong> non sono adatti perché richiedono il caricamento dell'intero risultato della query nella memoria del client. Per risolvere questo problema, Yii fornisce supporto per query in batch. Il server mantiene il risultato della query e il client utilizza un cursore per scorrere il set di risultati un batch alla volta.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Esistono limiti noti e soluzioni alternative per l'implementazione MySQL di query batch. Vedi sotto.</p>
+</div>
+<p>La query batch può essere utilizzata come la seguente:</p>
+<pre><code>use yii\db\Query;
+
+$query = (new Query())
+    -&gt;from('user')
+    -&gt;orderBy('id');
+
+foreach ($query-&gt;batch() as $users) {
+    // $users is an array of 100 or fewer rows from the user table
+}
+
+// or to iterate the row one by one
+foreach ($query-&gt;each() as $user) {
+    // data is being fetched from the server in batches of 100,
+    // but $user represents one row of data from the user table
+}
+</code></pre>
+<p>Il metodo <strong>yii \ db \ Query :: batch()</strong> e <strong>yii \ db \ Query :: each()</strong> restituiscono un oggetto <strong>yii \ db \ BatchQueryResult</strong> che implementa l'interfaccia <code>Iterator</code> e quindi può essere utilizzato nel costrutto <code>foreach</code>. Durante la prima iterazione, viene eseguita una query SQL sul database. I dati vengono quindi recuperati in lotti nelle restanti iterazioni. Per impostazione predefinita, la dimensione del batch è 100, ovvero 100 file di dati vengono recuperati in ogni batch. È possibile modificare le dimensioni del batch passando il primo parametro al metodo <strong>batch()</strong> o <strong>each()</strong>.</p>
+<p>Rispetto a <strong>yii \ db \ Query :: all()</strong>, la query batch carica solo 100 righe di dati alla volta nella memoria.</p>
+<p>Se si specifica il risultato della query da indicizzare per alcune colonne tramite yii \ db \ Query :: indexBy () , la query batch manterrà comunque l'indice corretto.</p>
+<p>Per esempio:</p>
+<pre><code>$query = (new \yii\db\Query())
+    -&gt;from('user')
+    -&gt;indexBy('username');
+
+foreach ($query-&gt;batch() as $users) {
+    // $users is indexed by the "username" column
+}
+
+foreach ($query-&gt;each() as $username =&gt; $user) {
+    // ...
+}
+</code></pre>
+<h2 id="limitazioni-della-query-batch-in-mysql">Limitazioni della query batch in MySQL<a class="headerlink" href="#limitazioni-della-query-batch-in-mysql" title="Permanent link">&para;</a></h2>
+<p>L'implementazione MySQL di query batch si basa sulla libreria di driver PDO. Per impostazione predefinita, le query MySQL sono <code>buffered</code>. Ciò elimina lo scopo di utilizzare il cursore per ottenere i dati, poiché non impedisce che l'intero set di risultati venga caricato nella memoria del client dal driver.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Quando <code>libmysqlclient</code> viene utilizzato (tipico di PHP5), il limite di memoria di PHP non conterà la memoria utilizzata per i set di risultati. Potrebbe sembrare che le query batch funzionino correttamente, ma in realtà l'intero set di dati viene caricato nella memoria del client e ha il potenziale per utilizzarlo.</p>
+</div>
+<p>Per disabilitare il buffering e ridurre i requisiti di memoria del client, è necessario impostare la proprietà di connessione PDO <code>PDO::MYSQL_ATTR_USE_BUFFERED_QUERY</code> al valore di <code>false</code>. Tuttavia, fino a quando non viene recuperato l'intero set di dati, non è possibile effettuare altre query tramite la stessa connessione. Ciò potrebbe impedire all'ActiveRecord di creare una query per ottenere lo schema della tabella quando necessario. Se questo non è un problema (lo schema della tabella è già memorizzato nella cache), è possibile passare la connessione originale in modalità <code>unbuffered</code> e quindi eseguire il rollback al termine della query batch.</p>
+<pre><code>Yii::$app-&gt;db-&gt;pdo-&gt;setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+
+// Do batch query
+
+Yii::$app-&gt;db-&gt;pdo-&gt;setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Nel caso di MyISAM, per la durata della query batch, la tabella potrebbe bloccarsi, ritardare o negare l'accesso in scrittura per altre connessioni. Quando si utilizzano query senza buffer, provare a mantenere il cursore aperto per il minor tempo possibile.</p>
+</div>
+<p>Se lo schema non è memorizzato nella cache o è necessario eseguire altre query mentre viene elaborata la query batch, è possibile creare una connessione unbuffered separata al database:</p>
+<pre><code>$unbufferedDb = new \yii\db\Connection([
+    'dsn' =&gt; Yii::$app-&gt;db-&gt;dsn,
+    'username' =&gt; Yii::$app-&gt;db-&gt;username,
+    'password' =&gt; Yii::$app-&gt;db-&gt;password,
+    'charset' =&gt; Yii::$app-&gt;db-&gt;charset,
+]);
+$unbufferedDb-&gt;open();
+$unbufferedDb-&gt;pdo-&gt;setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+</code></pre>
+<p>Se vuoi assicurarti che <code>$unbufferedDb</code> abbia esattamente gli stessi attributi PDO come il buffer originale, il valore di <code>PDO::MYSQL_ATTR_USE_BUFFERED_QUERY</code> deve essere <code>false</code>.</p>
+<p>Quindi, le query vengono create normalmente. La nuova connessione viene utilizzata per eseguire query batch e recuperare i risultati in batch o uno per uno:</p>
+<pre><code>// getting data in batches of 1000
+foreach ($query-&gt;batch(1000, $unbufferedDb) as $users) {
+    // ...
+}
+
+// data is fetched from server in batches of 1000, but is iterated one by one 
+foreach ($query-&gt;each(1000, $unbufferedDb) as $user) {
+    // ...
+}
+</code></pre>
+<p>Quando la connessione non è più necessaria e il set di risultati è stato recuperato, può essere chiuso:</p>
+<pre><code>$unbufferedDb-&gt;close();
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>La query senza buffer utilizza meno memoria sul lato PHP, ma può aumentare il carico sul server MySQL. Si consiglia di progettare il proprio codice con la propria pratica di produzione per ottenere dati straordinari.</p>
+</div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-data-access-object/" title="Accesso ai dati tramite oggetti" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Accesso ai dati tramite oggetti
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-active-record/" title="Active Record" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Active Record
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-109845735-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>

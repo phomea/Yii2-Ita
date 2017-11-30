@@ -1,0 +1,2659 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Guida italiana del framework PHP Yii 2.0">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Active Record - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Lavorare con i Database
+                </span>
+              
+            
+            Active Record
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../application-structure/sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../handling-requests/sub-request-overview/" title="Gestione delle richieste" class="md-tabs__link">
+          Gestione delle richieste
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-data-access-object/" title="Lavorare con i Database" class="md-tabs__link md-tabs__link--active">
+          Lavorare con i Database
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Gestione delle richieste
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Gestione delle richieste
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-request-overview/" title="Panoramica sulla gestione delle richieste" class="md-nav__link">
+      Panoramica sulla gestione delle richieste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-bootstrapping/" title="Bootstrapping" class="md-nav__link">
+      Bootstrapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-routing-url-creation/" title="Routing e creazione degli URL" class="md-nav__link">
+      Routing e creazione degli URL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-requests/" title="Requests" class="md-nav__link">
+      Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-responses/" title="Responses" class="md-nav__link">
+      Responses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-session-cookies/" title="Session & Cookies" class="md-nav__link">
+      Session & Cookies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-handling-error/" title="Gestione degli errori" class="md-nav__link">
+      Gestione degli errori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-logging/" title="Registrazione" class="md-nav__link">
+      Registrazione
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Lavorare con i Database
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Lavorare con i Database
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-data-access-object/" title="Accesso ai dati tramite oggetti" class="md-nav__link">
+      Accesso ai dati tramite oggetti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-query-builder/" title="Generatore di Query" class="md-nav__link">
+      Generatore di Query
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Active Record
+      </label>
+    
+    <a href="./" title="Active Record" class="md-nav__link md-nav__link--active">
+      Active Record
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#impostare-il-nome-della-tabella" title="Impostare il nome della tabella" class="md-nav__link">
+    Impostare il nome della tabella
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connessione-al-database" title="Connessione al database" class="md-nav__link">
+    Connessione al database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dati-nelle-query" title="Dati nelle query" class="md-nav__link">
+    Dati nelle query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accesso-ai-dati" title="Accesso ai dati" class="md-nav__link">
+    Accesso ai dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trasformazione-dei-dati" title="Trasformazione dei dati" class="md-nav__link">
+    Trasformazione dei dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recupero-dei-dati-nelle-matrici" title="Recupero dei dati nelle matrici" class="md-nav__link">
+    Recupero dei dati nelle matrici
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recupero-dei-dati-in-lotti" title="Recupero dei dati in lotti" class="md-nav__link">
+    Recupero dei dati in lotti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvataggio-dei-dati" title="Salvataggio dei dati" class="md-nav__link">
+    Salvataggio dei dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convalida-dei-dati" title="Convalida dei dati" class="md-nav__link">
+    Convalida dei dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assegnazione-massiccia" title="Assegnazione massiccia" class="md-nav__link">
+    Assegnazione massiccia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggiornamento-dei-contatori" title="Aggiornamento dei contatori" class="md-nav__link">
+    Aggiornamento dei contatori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributi-dirty-sporchi" title="Attributi dirty (sporchi)" class="md-nav__link">
+    Attributi dirty (sporchi)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valori-predefiniti-di-un-attributo" title="Valori predefiniti di un attributo" class="md-nav__link">
+    Valori predefiniti di un attributo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributi-typecasting" title="Attributi Typecasting" class="md-nav__link">
+    Attributi Typecasting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggiornamento-di-piu-righe" title="Aggiornamento di più righe" class="md-nav__link">
+    Aggiornamento di più righe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eliminazione-dei-dati" title="Eliminazione dei dati" class="md-nav__link">
+    Eliminazione dei dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicli-di-vita-dellactive-record" title="Cicli di vita dell'Active Record" class="md-nav__link">
+    Cicli di vita dell'Active Record
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lavorare-con-le-transazioni" title="Lavorare con le transazioni" class="md-nav__link">
+    Lavorare con le transazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimistic-locks" title="Optimistic Locks" class="md-nav__link">
+    Optimistic Locks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lavorare-con-i-dati-relazionali" title="Lavorare con i dati relazionali" class="md-nav__link">
+    Lavorare con i dati relazionali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dichiarare-le-relazioni" title="Dichiarare le relazioni" class="md-nav__link">
+    Dichiarare le relazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accesso-ai-dati-relazionali" title="Accesso ai dati relazionali" class="md-nav__link">
+    Accesso ai dati relazionali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-con-relazioni-dinamiche" title="Query con relazioni dinamiche" class="md-nav__link">
+    Query con relazioni dinamiche
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relazioni-tramite-una-junction-table" title="Relazioni tramite una Junction Table" class="md-nav__link">
+    Relazioni tramite una Junction Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concatenare-le-definizioni-delle-relazioni-tramite-piu-tabelle" title="Concatenare le definizioni delle relazioni tramite più tabelle" class="md-nav__link">
+    Concatenare le definizioni delle relazioni tramite più tabelle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lazy-loading-e-eager-loading" title="Lazy Loading e Eager Loading" class="md-nav__link">
+    Lazy Loading e Eager Loading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-with-relations" title="Joining with relations" class="md-nav__link">
+    Joining with relations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alias-della-tabella-nelle-relazioni" title="Alias della tabella nelle relazioni" class="md-nav__link">
+    Alias della tabella nelle relazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relazioni-inverse" title="Relazioni inverse" class="md-nav__link">
+    Relazioni inverse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvataggio-delle-relazioni" title="Salvataggio delle relazioni" class="md-nav__link">
+    Salvataggio delle relazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relazioni-tra-database" title="Relazioni tra database" class="md-nav__link">
+    Relazioni tra database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizzazione-delle-classi-di-query" title="Personalizzazione delle classi di query" class="md-nav__link">
+    Personalizzazione delle classi di query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selezione-di-campi-aggiuntivi" title="Selezione di campi aggiuntivi" class="md-nav__link">
+    Selezione di campi aggiuntivi
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-migrations/" title="Migrazoni" class="md-nav__link">
+      Migrazoni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#impostare-il-nome-della-tabella" title="Impostare il nome della tabella" class="md-nav__link">
+    Impostare il nome della tabella
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connessione-al-database" title="Connessione al database" class="md-nav__link">
+    Connessione al database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dati-nelle-query" title="Dati nelle query" class="md-nav__link">
+    Dati nelle query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accesso-ai-dati" title="Accesso ai dati" class="md-nav__link">
+    Accesso ai dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trasformazione-dei-dati" title="Trasformazione dei dati" class="md-nav__link">
+    Trasformazione dei dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recupero-dei-dati-nelle-matrici" title="Recupero dei dati nelle matrici" class="md-nav__link">
+    Recupero dei dati nelle matrici
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recupero-dei-dati-in-lotti" title="Recupero dei dati in lotti" class="md-nav__link">
+    Recupero dei dati in lotti
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvataggio-dei-dati" title="Salvataggio dei dati" class="md-nav__link">
+    Salvataggio dei dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convalida-dei-dati" title="Convalida dei dati" class="md-nav__link">
+    Convalida dei dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assegnazione-massiccia" title="Assegnazione massiccia" class="md-nav__link">
+    Assegnazione massiccia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggiornamento-dei-contatori" title="Aggiornamento dei contatori" class="md-nav__link">
+    Aggiornamento dei contatori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributi-dirty-sporchi" title="Attributi dirty (sporchi)" class="md-nav__link">
+    Attributi dirty (sporchi)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valori-predefiniti-di-un-attributo" title="Valori predefiniti di un attributo" class="md-nav__link">
+    Valori predefiniti di un attributo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributi-typecasting" title="Attributi Typecasting" class="md-nav__link">
+    Attributi Typecasting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggiornamento-di-piu-righe" title="Aggiornamento di più righe" class="md-nav__link">
+    Aggiornamento di più righe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eliminazione-dei-dati" title="Eliminazione dei dati" class="md-nav__link">
+    Eliminazione dei dati
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicli-di-vita-dellactive-record" title="Cicli di vita dell'Active Record" class="md-nav__link">
+    Cicli di vita dell'Active Record
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lavorare-con-le-transazioni" title="Lavorare con le transazioni" class="md-nav__link">
+    Lavorare con le transazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimistic-locks" title="Optimistic Locks" class="md-nav__link">
+    Optimistic Locks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lavorare-con-i-dati-relazionali" title="Lavorare con i dati relazionali" class="md-nav__link">
+    Lavorare con i dati relazionali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dichiarare-le-relazioni" title="Dichiarare le relazioni" class="md-nav__link">
+    Dichiarare le relazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accesso-ai-dati-relazionali" title="Accesso ai dati relazionali" class="md-nav__link">
+    Accesso ai dati relazionali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-con-relazioni-dinamiche" title="Query con relazioni dinamiche" class="md-nav__link">
+    Query con relazioni dinamiche
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relazioni-tramite-una-junction-table" title="Relazioni tramite una Junction Table" class="md-nav__link">
+    Relazioni tramite una Junction Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concatenare-le-definizioni-delle-relazioni-tramite-piu-tabelle" title="Concatenare le definizioni delle relazioni tramite più tabelle" class="md-nav__link">
+    Concatenare le definizioni delle relazioni tramite più tabelle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lazy-loading-e-eager-loading" title="Lazy Loading e Eager Loading" class="md-nav__link">
+    Lazy Loading e Eager Loading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-with-relations" title="Joining with relations" class="md-nav__link">
+    Joining with relations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alias-della-tabella-nelle-relazioni" title="Alias della tabella nelle relazioni" class="md-nav__link">
+    Alias della tabella nelle relazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relazioni-inverse" title="Relazioni inverse" class="md-nav__link">
+    Relazioni inverse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvataggio-delle-relazioni" title="Salvataggio delle relazioni" class="md-nav__link">
+    Salvataggio delle relazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relazioni-tra-database" title="Relazioni tra database" class="md-nav__link">
+    Relazioni tra database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizzazione-delle-classi-di-query" title="Personalizzazione delle classi di query" class="md-nav__link">
+    Personalizzazione delle classi di query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selezione-di-campi-aggiuntivi" title="Selezione di campi aggiuntivi" class="md-nav__link">
+    Selezione di campi aggiuntivi
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/working-with-databases/sub-active-record.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="active-record">Active Record<a class="headerlink" href="#active-record" title="Permanent link">&para;</a></h1>
+<p>Active Record fornisce un'interfaccia orientata agli oggetti per l'accesso e la manipolazione dei dati memorizzati nei database. Una classe di Active Record è associata a una tabella di database, un'istanza di Active Record corrisponde a una riga di tale tabella e un attributo di un'istanza di Active Record, rappresenta il valore di una determinata colonna in tale riga. Invece di scrivere istruzioni SQL non elaborate, è necessario accedere agli attributi di Active Record e chiamare i metodi per accedere e manipolare i dati memorizzati nelle tabelle del database.</p>
+<p>Ad esempio, supponiamo che <code>Customer</code> sia una classe Active Record associata alla tabella <code>customer</code> e <code>name</code> sia una colonna della tabelle <code>customer</code>. Puoi scrivere il seguente codice per inserire una nuova riga nella tabelle <code>customer</code>:</p>
+<pre><code>$customer = new Customer();
+$customer-&gt;name = 'Qiang';
+$customer-&gt;save();
+</code></pre>
+<p>Il codice precedente equivale a utilizzare la seguente istruzione SQL raw per MySQL, che è meno intuitiva, più incline agli errori e potrebbe persino presentare problemi di compatibilità se si utilizza un tipo diverso di database:</p>
+<pre><code>$db-&gt;createCommand('INSERT INTO `customer` (`name`) VALUES (:name)', [
+    ':name' =&gt; 'Qiang',
+])-&gt;execute();
+</code></pre>
+<p>Yii fornisce il supporto Active Record per i seguenti database relazionali:</p>
+<ul>
+<li>MySQL 4.1 o versioni successive: tramite <strong>yii \ db \ ActiveRecord</strong></li>
+<li>PostgreSQL 7.3 o successivo: tramite <strong>yii \ db \ ActiveRecord</strong></li>
+<li>SQLite 2 e 3: tramite <strong>yii \ db \ ActiveRecord</strong></li>
+<li>Microsoft SQL Server 2008 o versioni successive: tramite <strong>yii \ db \ ActiveRecord</strong></li>
+<li>Oracle: tramite <strong>yii \ db \ ActiveRecord</strong></li>
+<li>CUBRID 9.3 o successivo: tramite <strong>yii \ db \ ActiveRecord</strong> (si noti che a causa di un bug nell'estensione PDO cubrid, la citazione dei valori non funzionerà, quindi è necessario CUBRID 9.3 come client e server)</li>
+<li>Sfinge: tramite <strong>yii \ sphinx \ ActiveRecord</strong> , richiede l'estensione <code>yii2-sphinx</code></li>
+<li>ElasticSearch: tramite <strong>yii \ elasticsearch \ ActiveRecord</strong>, richiede l'estensione <code>yii2-elasticsearch</code></li>
+</ul>
+<p>Inoltre, Yii supporta anche l'uso di Active Record con i seguenti database NoSQL:</p>
+<ul>
+<li>Redis 2.6.12 o successivo: tramite <strong>yii \ redis \ ActiveRecord</strong>, richiede l'estensione <code>yii2-redis</code></li>
+<li>MongoDB 1.3.0 o versioni successive: tramite <strong>yii \ mongodb \ ActiveRecord</strong>, richiede l'estensione <code>yii2-mongodb</code></li>
+</ul>
+<p>In questo tutorial, descriveremo principalmente l'utilizzo di Active Record per i database relazionali. Tuttavia, la maggior parte dei contenuti descritti qui sono applicabili anche a Active Record per database NoSQL.</p>
+<p><strong><em>Dichiarazione di classi di Active Record</em></strong></p>
+<p>Per iniziare, dobbiamo dichiarare una classe Active Record estendendo <strong><em> yii \ db \ ActiveRecord </em></strong>.</p>
+<h2 id="impostare-il-nome-della-tabella">Impostare il nome della tabella<a class="headerlink" href="#impostare-il-nome-della-tabella" title="Permanent link">&para;</a></h2>
+<p>Per impostazione predefinita ogni classe Active Record è associata alla sua tabella di database. Il metodo <code>tableName()</code> restituisce il nome della tabella convertendo il nome della classe tramite <strong>yii \ helpers \ Inflector :: camel2id()</strong>. È possibile sovrascrivere questo metodo se la tabella non viene denominata dopo questa convenzione.</p>
+<p>Può essere applicato anche un valore predefinito <code>tablePrefix</code>. Ad esempio se tablePrefix è <code>tbl_</code>, <code>Customer</code> diventa <code>tbl_customer</code> e <code>OrderItem</code> diventa <code>tbl_order_item</code>.</p>
+<p>Se il nome di una tabella è dato come <code>{{%TableName}}</code>, allora il carattere percentuale <code>%</code> verrà sostituito con il prefisso della tabella. Ad esempio, <code>{{%post}}</code> diventa <code>{{tbl_post}}</code>. Le parentesi attorno al nome della tabella vengono utilizzate per la citazione in una query SQL.</p>
+<p>Nell'esempio seguente, dichiariamo una classe Active Record chiamata <code>Customer</code> per la tabella <code>customer</code> del database.</p>
+<pre><code>namespace app\models;
+
+use yii\db\ActiveRecord;
+
+class Customer extends ActiveRecord{
+
+    const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 1;
+
+    /**
+     * @return string the name of the table associated with this ActiveRecord class.
+    */
+    public static function tableName(){
+
+        return '{{customer}}';
+    }
+}
+</code></pre>
+<p><strong><em>Gli Active Record sono chiamati come "modelli"</em></strong></p>
+<p>Le istanze di Active Record sono considerate come modelli. Per questo motivo, di solito mettiamo le classi di Active Record sotto il namespace <code>app\models</code> (o altri namespace per mantenere le classi del modello).</p>
+<p>Poiché <strong>yii \ db \ ActiveRecord</strong> si estende da <strong>yii \ base \ Model</strong>, eredita tutte le funzionalità del modello, come attributi, regole di convalida, serializzazione dei dati, ecc. </p>
+<h2 id="connessione-al-database">Connessione al database<a class="headerlink" href="#connessione-al-database" title="Permanent link">&para;</a></h2>
+<p>Per impostazione predefinita, Active Record utilizza il componente db dell'applicazione come connessione DB per accedere e manipolare i dati del database. Come spiegato in Database Access Objects, puoi configurare il componente db nella configurazione dell'applicazione come mostrato di seguito,</p>
+<pre><code>return [
+    'components' =&gt; [
+        'db' =&gt; [
+            'class' =&gt; 'yii\db\Connection',
+            'dsn' =&gt; 'mysql:host=localhost;dbname=testdb',
+            'username' =&gt; 'demo',
+            'password' =&gt; 'demo',
+        ],
+    ],
+];
+</code></pre>
+<p>Se si desidera utilizzare una connessione al database diversa dal dbcomponente, è necessario eseguire l'override del metodo <code>getDb()</code>:</p>
+<pre><code>class Customer extends ActiveRecord{
+
+    // ...
+
+    public static function getDb(){
+
+        // use the "db2" application component
+        return \Yii::$app-&gt;db2;  
+    }   
+}
+</code></pre>
+<h2 id="dati-nelle-query">Dati nelle query<a class="headerlink" href="#dati-nelle-query" title="Permanent link">&para;</a></h2>
+<p>Dopo aver dichiarato una classe Active Record, è possibile utilizzarla per eseguire query sui dati dalla tabella di database corrispondente. Il processo solitamente richiede i seguenti tre passaggi:</p>
+<ul>
+<li>Creare un nuovo oggetto query chiamando il metodo <strong>yii \ db \ ActiveRecord :: find()</strong>;</li>
+<li>Costruire l'oggetto query chiamando i metodi di costruzione delle query;</li>
+<li>Chiama un metodo di query per recuperare i dati in termini di istanze di record attivo.</li>
+</ul>
+<p>Come puoi vedere, questo è molto simile alla procedura con il generatore di query. L'unica differenza è che anziché utilizzare l'operatore <code>new</code> per creare un oggetto query, si chiama <strong>yii \ db \ ActiveRecord :: find()</strong> per restituire un nuovo oggetto query che è di classe <strong>yii \ db \ ActiveQuery</strong>.</p>
+<p>Di seguito sono riportati alcuni esempi che mostrano come utilizzare la Query attiva per interrogare i dati:</p>
+<pre><code>// return a single customer whose ID is 123
+// SELECT * FROM `customer` WHERE `id` = 123
+$customer = Customer::find()
+    -&gt;where(['id' =&gt; 123])
+    -&gt;one();
+
+// return all active customers and order them by their IDs
+// SELECT * FROM `customer` WHERE `status` = 1 ORDER BY `id`
+$customers = Customer::find()
+    -&gt;where(['status' =&gt; Customer::STATUS_ACTIVE])
+    -&gt;orderBy('id')
+    -&gt;all();
+
+// return the number of active customers
+// SELECT COUNT(*) FROM `customer` WHERE `status` = 1
+$count = Customer::find()
+    -&gt;where(['status' =&gt; Customer::STATUS_ACTIVE])
+    -&gt;count();
+
+// return all customers in an array indexed by customer IDs
+// SELECT * FROM `customer`
+$customers = Customer::find()
+    -&gt;indexBy('id')
+    -&gt;all();
+</code></pre>
+<p>In quanto spiegato sopra, <code>$customer</code> è un oggetto della class <code>Customer</code> mentre <code>$customers</code> è una matrice degli oggetti  <code>Customer</code>. Sono tutti popolati con i dati recuperati dalla tabella <code>customer</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Poiché <strong>yii \ db \ ActiveQuery</strong> si estende da <strong>yii \ db \ Query</strong>, è possibile utilizzare tutti i metodi di creazione di query e i metodi di query come descritto nella sezione Query Builder.</p>
+</div>
+<p>Poiché è un'attività comune per eseguire una query in base ai valori delle chiavi primarie o a un insieme di valori di colonna, Yii fornisce due metodi di scelta rapida per questo scopo:</p>
+<ul>
+<li><strong>yii \ db \ ActiveRecord :: findOne()</strong>: restituisce una singola istanza del record attivo popolata con la prima riga del risultato della query.</li>
+<li><strong>yii \ db \ ActiveRecord :: findAll()</strong>: restituisce una matrice di istanze di record attivo popolate con tutti i risultati della query.</li>
+</ul>
+<p>Entrambi i metodi possono assumere uno dei seguenti formati di parametro:</p>
+<ul>
+<li>un valore scalare: il valore viene considerato come il valore della chiave primaria desiderato da cercare. Yii determinerà automaticamente quale colonna è la colonna della chiave primaria leggendo le informazioni sullo schema del database.</li>
+<li>una matrice di valori scalari: la matrice viene considerata come i valori della chiave primaria desiderati da cercare.</li>
+<li>un array associativo: le chiavi sono nomi di colonne e i valori sono i corrispondenti valori di colonna desiderati da cercare. Si prega di fare riferimento al formato hash per maggiori dettagli.</li>
+</ul>
+<p>Il codice seguente mostra come utilizzare questi metodi:</p>
+<pre><code>// returns a single customer whose ID is 123
+// SELECT * FROM `customer` WHERE `id` = 123
+$customer = Customer::findOne(123);
+
+// returns customers whose ID is 100, 101, 123 or 124
+// SELECT * FROM `customer` WHERE `id` IN (100, 101, 123, 124)
+$customers = Customer::findAll([100, 101, 123, 124]);
+
+// returns an active customer whose ID is 123
+// SELECT * FROM `customer` WHERE `id` = 123 AND `status` = 1
+$customer = Customer::findOne([
+    'id' =&gt; 123,
+    'status' =&gt; Customer::STATUS_ACTIVE,
+]);
+
+// returns all inactive customers
+// SELECT * FROM `customer` WHERE `status` = 0
+$customers = Customer::findAll([
+    'status' =&gt; Customer::STATUS_INACTIVE,
+]);
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Né <strong>yii \ db \ ActiveRecord :: findOne()</strong> né <strong>yii \ db \ ActiveQuery :: one()</strong> verranno aggiunti <code>LIMIT 1</code> all'istruzione SQL generata. Se la tua query potrebbe restituire molte righe di dati, dovresti chiamare il metodo <code>limit(1)</code> per migliorare le prestazioni, ad es <code>Customer::find()-&gt;limit(1)-&gt;one()</code>.</p>
+</div>
+<p>Oltre a utilizzare metodi di creazione di query, è anche possibile scrivere SQL raw per eseguire query sui dati e popolare i risultati in oggetti Active Record. È possibile farlo chiamando il metodo <strong>yii \ db \ ActiveRecord :: findBySql()</strong>:</p>
+<pre><code>// returns all inactive customers
+$sql = 'SELECT * FROM customer WHERE status=:status';
+$customers = Customer::findBySql($sql, [':status' =&gt; Customer::STATUS_INACTIVE])-&gt;all();
+</code></pre>
+<p>Si consiglia di non chiamare metodi di creazione di query aggiuntivi dopo aver chiamato <strong>findBySql()</strong> poiché verranno ignorati.</p>
+<h2 id="accesso-ai-dati">Accesso ai dati<a class="headerlink" href="#accesso-ai-dati" title="Permanent link">&para;</a></h2>
+<p>Come indicato sopra, i dati richiamati dal database vengono popolati in istanze di Active Record e ogni riga del risultato della query corrisponde a una singola istanza dell'Active Record. È possibile accedere ai valori della colonna accedendo agli attributi delle sue istanze, ad esempio,</p>
+<pre><code>// "id" and "email" are the names of columns in the "customer" table
+$customer = Customer::findOne(123);
+$id = $customer-&gt;id;
+$email = $customer-&gt;email;
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Gli attributi dell'Active Record vengono denominati in base alla distinzione tra maiuscole e minuscole della tabella associata. Yii definisce automaticamente un attributo in Active Record per ogni colonna della tabella associata. NON si deve ridichiarare nessuno degli attributi.</p>
+</div>
+<p>Poiché gli attributi di Active Record prendono il nome da colonne di tabelle, è possibile che si stia scrivendo codice PHP simile a <code>$customer-&gt;first_name</code>, che utilizza caratteri di sottolineatura per separare le parole nei nomi di attributi se le colonne della tabella vengono denominate in questo modo. Se sei preoccupato della coerenza dello stile del codice, dovresti rinominare le colonne della tabella di conseguenza (per usare <code>camelCase</code>, ad esempio).</p>
+<h2 id="trasformazione-dei-dati">Trasformazione dei dati<a class="headerlink" href="#trasformazione-dei-dati" title="Permanent link">&para;</a></h2>
+<p>Accade spesso che i dati inseriti e / o visualizzati siano in un formato diverso da quello utilizzato per la memorizzazione dei dati in un database. Ad esempio, nel database si memorizzano i compleanni dei clienti come timestamp UNIX (che però non è un buon design), mentre nella maggior parte dei casi si desidera manipolare i compleanni come stringhe nel formato di 'YYYY/MM/DD'. Per raggiungere questo obiettivo, è possibile definire i metodi di trasformazione dei dati nella Customer classe Active Record come segue:</p>
+<pre><code>class Customer extends ActiveRecord{
+
+    // ...
+
+    public function getBirthdayText(){
+
+        return date('Y/m/d', $this-&gt;birthday);
+    }
+
+    public function setBirthdayText($value){
+
+        $this-&gt;birthday = strtotime($value);
+    }
+}
+</code></pre>
+<p>Ora nel tuo codice PHP, invece di accedere a <code>$customer-&gt;birthday</code>, accederai a <code>$customer-&gt;birthdayText</code>, il che ti consentirà di inserire e visualizzare i compleanni dei clienti nel formato di 'YYYY/MM/DD'.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>L'esempio sopra mostra un modo generico di trasformare i dati in diversi formati. Se stai lavorando con i valori di date, puoi utilizzare <code>DateValidator</code> e <code>DatePicker</code>, che sono più facili da usare e più potenti.</p>
+</div>
+<h2 id="recupero-dei-dati-nelle-matrici">Recupero dei dati nelle matrici<a class="headerlink" href="#recupero-dei-dati-nelle-matrici" title="Permanent link">&para;</a></h2>
+<p>Mentre il recupero dei dati in termini di oggetti Active Record è comodo e flessibile, non è sempre consigliabile quando si deve riportare una grande quantità di dati a causa del grande ingombro di memoria. In questo caso, puoi recuperare i dati utilizzando matrici PHP chiamando il metodo <strong>asArray()</strong> prima di eseguire un metodo di query:</p>
+<pre><code>// return all customers
+// each customer is returned as an associative array
+$customers = Customer::find()
+    -&gt;asArray()
+    -&gt;all();
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Mentre questo metodo consente di risparmiare memoria e migliorare le prestazioni, è più vicino al livello di astrazione DB inferiore, e si perderanno la maggior parte delle funzionalità di Active Record. Una distinzione molto importante si trova nel tipo di dati dei valori delle colonne. Quando restituisci i dati nelle istanze di Active Record, i valori delle colonne verranno automaticamente tipizzati in base ai tipi di colonna effettivi; d'altra parte quando si restituiscono i dati nelle matrici, i valori delle colonne saranno stringhe (poiché sono il risultato di PDO senza elaborazione), indipendentemente dai loro effettivi tipi di colonna.</p>
+</div>
+<h2 id="recupero-dei-dati-in-lotti">Recupero dei dati in lotti<a class="headerlink" href="#recupero-dei-dati-in-lotti" title="Permanent link">&para;</a></h2>
+<p>In Query Builder, abbiamo spiegato che è possibile utilizzare la query batch per ridurre al minimo l'utilizzo della memoria quando si esegue una query su una grande quantità di dati dal database. Puoi usare la stessa tecnica in Active Record. Per esempio,</p>
+<pre><code>// fetch 10 customers at a time
+foreach (Customer::find()-&gt;batch(10) as $customers) {
+    // $customers is an array of 10 or fewer Customer objects
+}
+
+// fetch 10 customers at a time and iterate them one by one
+foreach (Customer::find()-&gt;each(10) as $customer) {
+    // $customer is a Customer object
+}
+
+// batch query with eager loading
+foreach (Customer::find()-&gt;with('orders')-&gt;each() as $customer) {
+    // $customer is a Customer object with the 'orders' relation populated
+}
+</code></pre>
+<h2 id="salvataggio-dei-dati">Salvataggio dei dati<a class="headerlink" href="#salvataggio-dei-dati" title="Permanent link">&para;</a></h2>
+<p>Usando Active Record, puoi facilmente salvare i dati nel database seguendo i seguenti passi:</p>
+<ol>
+<li>Preparare un'istanza dell'Active Record</li>
+<li>Assegnare nuovi valori agli attributi dell'Active Record</li>
+<li>Chiamare <strong>yii \ db \ ActiveRecord :: save()</strong> per salvare i dati nel database.</li>
+</ol>
+<p>Per esempio,</p>
+<pre><code>// insert a new row of data
+$customer = new Customer();
+$customer-&gt;name = 'James';
+$customer-&gt;email = 'james@example.com';
+$customer-&gt;save();
+
+// update an existing row of data
+$customer = Customer::findOne(123);
+$customer-&gt;email = 'james@newexample.com';
+$customer-&gt;save();
+</code></pre>
+<p>Il metodo <strong>save()</strong> può inserire o aggiornare una riga di dati, a seconda dello stato dell'istanza dell'Active Record. Se l'istanza è stata appena creata dall'operatore <code>new</code>, la chiamata a <strong>save()</strong> causerà l'inserimento di una nuova riga; Se l'istanza è il risultato di un metodo di query, la chiamata a <strong>save()</strong> aggiornerà la riga associata all'istanza.</p>
+<p>È possibile differenziare i due stati di un'istanza di Active Record controllando il valore della proprietà <strong>yii \ db \ ActiveRecord :: isNewRecord</strong>. Questa proprietà viene anche utilizzata internamente da <strong>save()</strong> come segue:</p>
+<pre><code>public function save($runValidation = true, $attributeNames = null){
+
+    if ($this-&gt;getIsNewRecord()) {
+        return $this-&gt;insert($runValidation, $attributeNames);
+    } else {
+        return $this-&gt;update($runValidation, $attributeNames) !== false;
+    }
+}
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Puoi chiamare i metodi <strong>insert()</strong> o <strong>update()</strong> direttamente per inserire o aggiornare una riga.</p>
+</div>
+<h2 id="convalida-dei-dati">Convalida dei dati<a class="headerlink" href="#convalida-dei-dati" title="Permanent link">&para;</a></h2>
+<p>Poiché <strong>yii \ db \ ActiveRecord</strong> si estende da <strong>yii \ base \ Model</strong>, condivide la stessa funzione di convalida dei dati . È possibile dichiarare regole di convalida sovrascrivendo il metodo <strong>rules()</strong> ed eseguire la convalida dei dati chiamando il metodo <strong>validate()</strong>.</p>
+<p>Quando chiami <strong>save()</strong>, per impostazione predefinita chiamerà automaticamente <strong>validate()</strong>. Solo quando passa la convalida, in realtà salverà i dati; altrimenti verrà semplicemente restituito falsee sarà possibile controllare la proprietà <strong>yii \ db \ ActiveRecord :: errors</strong> per recuperare i messaggi di errore di convalida.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Se si è certi che i dati non necessitano di convalida (ad esempio, i dati provengono da fonti attendibili), è possibile chiamare <code>save</code> (false) per saltare la convalida.</p>
+</div>
+<h2 id="assegnazione-massiccia">Assegnazione massiccia<a class="headerlink" href="#assegnazione-massiccia" title="Permanent link">&para;</a></h2>
+<p>Come i modelli normali , anche le istanze di Active Record godono della massiccia funzione di assegnazione. Utilizzando questa funzione, è possibile assegnare valori a più attributi di un'istanza di Active Record in una singola istruzione PHP, come mostrato di seguito. Ricorda che solo gli attributi sicuri possono essere assegnati in modo massiccio, però.</p>
+<pre><code>$values = [
+    'name' =&gt; 'James',
+    'email' =&gt; 'james@example.com',
+];
+
+$customer = new Customer();
+
+$customer-&gt;attributes = $values;
+$customer-&gt;save();
+</code></pre>
+<h2 id="aggiornamento-dei-contatori">Aggiornamento dei contatori<a class="headerlink" href="#aggiornamento-dei-contatori" title="Permanent link">&para;</a></h2>
+<p>È un'attività comune incrementare o decrementare una colonna in una tabella di database. Chiamiamo queste colonne "counter columns". È possibile utilizzare <strong>updateCounters()</strong> per aggiornare una o più colonne contatore. Per esempio,</p>
+<pre><code>$post = Post::findOne(100);
+
+// UPDATE `post` SET `view_count` = `view_count` + 1 WHERE `id` = 100
+$post-&gt;updateCounters(['view_count' =&gt; 1]);
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Se si utilizza <strong>yii \ db \ ActiveRecord :: save()</strong> per aggiornare una colonna contatore, si potrebbe finire con un risultato inaccurato, poiché è probabile che lo stesso contatore venga salvato da più richieste che leggono e scrivono lo stesso valore contatore.</p>
+</div>
+<h2 id="attributi-dirty-sporchi">Attributi dirty (sporchi)<a class="headerlink" href="#attributi-dirty-sporchi" title="Permanent link">&para;</a></h2>
+<p>Quando si chiama il metodo <strong>save()</strong> per salvare un'istanza dell'Active Record, vengono salvati solo gli attributi dirty. Un attributo è considerato sporco se il suo valore è stato modificato poiché è stato caricato dal DB o salvato in DB più recentemente. Si noti che la convalida dei dati verrà eseguita indipendentemente dal fatto che l'istanza dell'Active Record abbia o meno attributi sporchi.</p>
+<p>L'Active Record mantiene automaticamente l'elenco degli attributi dirty. Lo fa mantenendo una versione precedente dei valori degli attributi e confrontandoli con l'ultima. È possibile chiamare <strong>yii \ db \ ActiveRecord :: getDirtyAttributes()</strong> per ottenere gli attributi attualmente sporchi. Puoi anche chiamare <strong>yii \ db \ ActiveRecord :: markAttributeDirty()</strong> per contrassegnare esplicitamente un attributo come dirty.</p>
+<p>Se sei interessato ai valori degli attributi prima della loro modifica più recente, puoi chiamare i metodi <code>getOldAttributes()</code> o <code>getOldAttribute()</code>.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Il confronto tra vecchi e nuovi valori verrà eseguito utilizzando l'operatore <code>===</code> in modo che un valore venga considerato sporco anche se ha lo stesso valore ma un tipo diverso. Questo è spesso il caso in cui il modello riceve input da moduli HTML in cui ogni valore è rappresentato come una stringa. Per assicurare che il tipo corretto per esempio valori interi si può applicare un filtro di convalida : <code>['attributeName', 'filter', 'filter' =&gt; 'intval']</code>. Funziona con tutte le funzioni di typecasting di PHP come <code>intval()</code> , <code>floatval()</code> , <code>boolval</code> , ecc ...</p>
+</div>
+<h2 id="valori-predefiniti-di-un-attributo">Valori predefiniti di un attributo<a class="headerlink" href="#valori-predefiniti-di-un-attributo" title="Permanent link">&para;</a></h2>
+<p>Alcune delle colonne della tabella possono avere valori predefiniti definiti nel database. A volte, è possibile pre-compilare il modulo Web per un'istanza dell'Active Record con questi valori predefiniti. Per evitare di scrivere nuovamente gli stessi valori predefiniti, è possibile chiamare <code>loadDefaultValues ​()</code> per popolare i valori predefiniti definiti dal DB negli attributi del record attivo corrispondente:</p>
+<pre><code>$customer = new Customer();
+$customer-&gt;loadDefaultValues();
+// $customer-&gt;xyz will be assigned the default value declared when defining the "xyz" column
+</code></pre>
+<h2 id="attributi-typecasting">Attributi Typecasting<a class="headerlink" href="#attributi-typecasting" title="Permanent link">&para;</a></h2>
+<p>Compilando i risultati della query <strong>yii \ db \ ActiveRecord</strong>, viene eseguito un typecast automatico per i suoi valori di attributo, utilizzando le informazioni dallo schema della tabella del database. Ciò consente ai dati recuperati dalla colonna della tabella dichiarata come numero intero di essere popolati nell'istanza dell'ActiveRecord con un valore PHP intero, booleano con booleano e così via. Tuttavia, il meccanismo di typecasting ha diverse limitazioni:</p>
+<ul>
+<li>I valori float non vengono convertiti e verranno rappresentati come stringhe, altrimenti potrebbero perdere precisione.</li>
+<li>La conversione dei valori interi dipende dalla capacità intera del sistema operativo che si utilizza. In particolare: i valori della colonna dichiarata come "intero senza segno" o "intero grande" saranno convertiti in intero PHP solo con il sistema operativo a 64 bit, mentre su quelli a 32 bit saranno rappresentati come stringhe.</li>
+</ul>
+<p>Si noti che l'attributo <code>typecast</code> viene eseguito solo durante il popolamento dell'istanza ActiveRecord dal risultato della query. Non esiste conversione automatica per i valori caricati dalla richiesta HTTP o impostati direttamente tramite l'accesso alla proprietà. Lo schema della tabella verrà utilizzato anche durante la preparazione delle istruzioni SQL per il salvataggio dei dati di ActiveRecord, garantendo che i valori siano associati alla query con il tipo corretto. Tuttavia, i valori degli attributi dell'istanza di ActiveRecord non verranno convertiti durante il processo di salvataggio.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>E' possibile utilizzare <strong>yii \ behaviors \ AttributeTypecastBehavior</strong> per facilitare i valori degli attributi typecasting sulla convalida o il salvataggio di ActiveRecord.</p>
+</div>
+<h2 id="aggiornamento-di-piu-righe">Aggiornamento di più righe<a class="headerlink" href="#aggiornamento-di-piu-righe" title="Permanent link">&para;</a></h2>
+<p>I metodi descritti sopra funzionano tutti su singole istanze di Active Record, causando l'inserimento o l'aggiornamento di singole righe di tabella. Per aggiornare più righe contemporaneamente, è necessario chiamare il metodo <code>updateAll()</code> , invece, che è un metodo statico.</p>
+<pre><code>// UPDATE `customer` SET `status` = 1 WHERE `email` LIKE `%@example.com%`
+Customer::updateAll(['status' =&gt; Customer::STATUS_ACTIVE], ['like', 'email', '@example.com']);
+</code></pre>
+<p>Allo stesso modo, puoi chiamare il metodo <code>updateAllCounters()</code> per aggiornare le colonne contatore di più righe contemporaneamente.</p>
+<pre><code>// UPDATE `customer` SET `age` = `age` + 1
+Customer::updateAllCounters(['age' =&gt; 1]);
+</code></pre>
+<h2 id="eliminazione-dei-dati">Eliminazione dei dati<a class="headerlink" href="#eliminazione-dei-dati" title="Permanent link">&para;</a></h2>
+<p>Per eliminare una singola riga di dati, dobbiamo recuperare prima l'istanza dell'Active Record corrispondente a quella riga e quindi chiamare il metodo <strong>yii \ db \ ActiveRecord :: delete()</strong>.</p>
+<pre><code>$customer = Customer::findOne(123);
+$customer-&gt;delete();
+</code></pre>
+<p>È possibile chiamare <strong>yii \ db \ ActiveRecord :: deleteAll()</strong> per eliminare più o tutte le righe di dati. Per esempio,</p>
+<pre><code>Customer::deleteAll(['status' =&gt; Customer::STATUS_INACTIVE]);
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Fai molta attenzione quando chiami <code>deleteAll()</code> perché potrebbe cancellare completamente tutti i dati dalla tua tabella se commetti un errore nel specificare la condizione.</p>
+</div>
+<h2 id="cicli-di-vita-dellactive-record">Cicli di vita dell'Active Record<a class="headerlink" href="#cicli-di-vita-dellactive-record" title="Permanent link">&para;</a></h2>
+<p>È importante comprendere i cicli di vita dell'Active Record quando viene utilizzato per scopi diversi. Durante ciascun ciclo di vita, verrà invocata una determinata sequenza di metodi e sarà possibile ignorare questi metodi per ottenere la possibilità di personalizzare il ciclo di vita. Puoi anche rispondere a determinati eventi dell'Active Record attivati ​​durante un ciclo di vita per iniettare il tuo codice personalizzato. Questi eventi sono particolarmente utili quando si sviluppano comportamenti Active Record che devono personalizzare i cicli di vita di un determinato Active Record.</p>
+<p>Di seguito, riassumeremo i vari cicli di vita dell'Active Record e i metodi / eventi coinvolti nei cicli di vita.  </p>
+<p><strong><em>Nuovo ciclo di vita</em></strong></p>
+<p>Quando si crea una nuova istanza Active Record tramite l'operatore <code>new</code>, si verificherà il seguente ciclo di vita:</p>
+<ol>
+<li>Istanziare il costruttre della classe.</li>
+<li><strong>init()</strong>: il metodo deve attivave un evento <strong>EVENT_INIT</strong>.</li>
+</ol>
+<p><strong><em>Interrogare il ciclo di vita sui dati richiesti</em></strong></p>
+<p>Quando si interrogano i dati tramite uno dei metodi di query , ciascun Active Record popolato di recente, subirà il seguente ciclo di vita:</p>
+<ol>
+<li>Istanziare il costruttre della classe.</li>
+<li><strong>init()</strong>: il metodo deve attivare un evento <strong>EVENT_INIT</strong>.</li>
+<li><strong>afterFind()</strong>: il metodo deve attivare un evento <strong>EVENT_AFTER_FIND</strong>.</li>
+</ol>
+<p><strong><em>Salvataggio del ciclo di vita sui dati richiesti</em></strong></p>
+<p>Quando si chiama il metodo <strong>save()</strong> per inserire o aggiornare un'istanza di Active Record, si verificherà il seguente ciclo di vita:</p>
+<ol>
+<li>Si verifica l'evento <strong>EVENT_BEFORE_VALIDATE</strong>. Se il metodo restituisce <code>false</code> o <strong>Yii \ base \ ModelEvent :: $ isValid</strong> è <code>false</code>, il resto dei passaggi verrà ignorato.</li>
+<li>Esegue la convalida dei dati. Se la convalida dei dati fallisce, i passaggi successivi al passaggio 3 verranno saltati.</li>
+<li>Si verifica l'evento <strong>EVENT_AFTER_VALIDATE</strong>.</li>
+<li>Si verifica l'evento <strong>EVENT_BEFORE_INSERT</strong> o <strong>EVENT_BEFORE_UPDATE</strong>. Se il metodo restituisce <code>false</code> o <strong>Yii \ base \ ModelEvent :: $ isValid</strong> è <code>false</code>, il resto dei passaggi verrà ignorato.</li>
+<li>Esegue l'inserimento o l'aggiornamento dei dati effettivi.</li>
+<li>Si verifica l'evento <strong>EVENT_AFTER_INSERT</strong> o <strong>EVENT_AFTER_UPDATE</strong>.</li>
+</ol>
+<p><strong><em>Eliminazione del ciclo di vita sui dati richiesti</em></strong></p>
+<p>Quando si chiama il metodo <strong>delete()</strong> per eliminare un'istanza di Active Record, si verificherà il seguente ciclo di vita:</p>
+<ol>
+<li>Si verifica l'evento <strong>EVENT_BEFORE_DELETE</strong>. Se il metodo restituisce <code>false</code> o <strong>Yii \ base \ ModelEvent :: $ isValid</strong> è <code>false</code>, il resto dei passaggi verrà ignorato.</li>
+<li>Esegue la cancellazione effettiva dei dati.</li>
+<li>Si verifica l'evento <strong>EVENT_AFTER_DELETE</strong>.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>La chiamata a uno dei seguenti metodi NON avvierà nessuno dei suddetti cicli di vita perché funzionano direttamente sul database e non su base record:</p>
+<pre><code>- ***Yii \ db \ ActiveRecord :: updateAll()***
+- ***Yii \ db \ ActiveRecord :: CancTutti()***
+- ***Yii \ db \ ActiveRecord :: updateCounters()***
+- ***Yii \ db \ ActiveRecord :: updateAllCounters()***
+</code></pre>
+</div>
+<p><strong><em>Refresh del ciclo di vita sui dati richiesti</em></strong></p>
+<p>Quando si chiama il metodo <strong>refresh()</strong> per aggiornare un'istanza dell'Active Record, l' evento <strong>EVENT_AFTER_REFRESH</strong> viene attivato se l'aggiornamento ha esito positivo e il metodo restituisce <code>true</code>.</p>
+<h2 id="lavorare-con-le-transazioni">Lavorare con le transazioni<a class="headerlink" href="#lavorare-con-le-transazioni" title="Permanent link">&para;</a></h2>
+<p>Esistono due modi per utilizzare le transazioni mentre si lavora con l'Active Record.</p>
+<p>Il primo modo è di includere esplicitamente le chiamate al metodo Active Record in un blocco transazionale, come mostrato di seguito,</p>
+<pre><code>$customer = Customer::findOne(123);
+
+Customer::getDb()-&gt;transaction(function($db) use ($customer) {
+    $customer-&gt;id = 200;
+    $customer-&gt;save();
+    // ...other DB operations...
+});
+
+// or alternatively
+
+$transaction = Customer::getDb()-&gt;beginTransaction();
+try {
+    $customer-&gt;id = 200;
+    $customer-&gt;save();
+    // ...other DB operations...
+    $transaction-&gt;commit();
+} catch(\Exception $e) {
+    $transaction-&gt;rollBack();
+    throw $e;
+} catch(\Throwable $e) {
+    $transaction-&gt;rollBack();
+    throw $e;
+}
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Nel codice precedente abbiamo due blocchi di try - catch per la compatibilità con PHP 5.x e PHP 7.x. <code>\Exception</code> implementa l'interfaccia  <code>\Throwable</code> da PHP 7.0, quindi puoi saltare la parte <code>\Exceptions</code> e la tua app utilizza solo PHP 7.0 e versioni successive.</p>
+</div>
+<p>Il secondo modo è elencare le operazioni DB che richiedono il supporto transazionale nel metodo <strong>yii \ db \ ActiveRecord :: transactions()</strong>. Per esempio,</p>
+<pre><code>class Customer extends ActiveRecord{
+
+    public function transactions(){
+
+        return [
+            'admin' =&gt; self::OP_INSERT,
+            'api' =&gt; self::OP_INSERT | self::OP_UPDATE | self::OP_DELETE,
+            // the above is equivalent to the following:
+            // 'api' =&gt; self::OP_ALL,
+        ];
+    }
+}
+</code></pre>
+<p>Il metodo <strong>yii \ db \ ActiveRecord :: transactions()</strong> dovrebbe restituire un array le cui chiavi sono nomi di scenario e i valori sono le operazioni corrispondenti che devono essere racchiuse tra le transazioni. È necessario utilizzare le seguenti costanti per fare riferimento a diverse operazioni DB:</p>
+<ul>
+<li><strong>OP_INSERT</strong>: operazione di inserimento eseguita dal metodo <strong>insert()</strong>;</li>
+<li><strong>OP_UPDATE</strong>: operazione di aggiornamento eseguita dal metodo <strong>update()</strong>;</li>
+<li><strong>OP_DELETE</strong>: operazione di cancellazione eseguita dal metodo <strong>delete()</strong>.</li>
+</ul>
+<p>Gli operatori <code>|</code> vengono usati per concatenare le costanti sopra indicate e anche per indicare più operazioni. È inoltre possibile utilizzare la costante di scelta rapida <strong>OP_ALL</strong> per fare riferimento a tutte e tre le operazioni precedenti.</p>
+<p>Le transazioni create utilizzando questo metodo verranno avviate prima di chiamare <strong>beforeSave()</strong> e verranno eseguite dopo l'esecuzione di <strong>afterSave()</strong>.</p>
+<h2 id="optimistic-locks">Optimistic Locks<a class="headerlink" href="#optimistic-locks" title="Permanent link">&para;</a></h2>
+<p>Il blocco ottimistico ( o optimistic locks ) è un modo per prevenire i conflitti che possono verificarsi quando una singola riga di dati viene aggiornata da più utenti. Ad esempio, sia l'utente A che l'utente B stanno modificando lo stesso articolo wiki allo stesso tempo. Dopo che l'utente A ha salvato le sue modifiche, l'utente B fa clic sul pulsante "Salva" nel tentativo di salvare anche le sue modifiche. Poiché l'utente B stava effettivamente lavorando su una versione obsoleta dell'articolo, sarebbe auspicabile avere un modo per impedirgli di salvare l'articolo e mostrargli un messaggio di suggerimento.</p>
+<p>L'optimistic locks risolve il problema precedente utilizzando una colonna per registrare il numero di versione di ogni riga. Quando una riga viene salvata con un numero di versione obsoleto, verrà generata un'eccezione <strong>yii \ db \ StaleObjectException</strong>, che impedisce il salvataggio della riga. L'optimistic locks è supportato solo quando si aggiorna o si elimina una riga di dati esistente utilizzando <strong>yii \ db \ ActiveRecord :: update()</strong> o <strong>yii \ db \ ActiveRecord :: delete()</strong>.</p>
+<p>Per utilizzarel'optimistic locks dobbiamo:</p>
+<ul>
+<li>Creare una colonna nella tabella DB associata alla classe dell'Active Record, per memorizzare il numero di versione di ogni riga. La colonna dovrebbe essere di tipo "big integer" (in MySQL sarebbe <code>BIGINT DEFAULT 0</code>).</li>
+<li>Sostituire il metodo <strong>yii \ db \ ActiveRecord :: optimisticLock()</strong> per restituire il nome di questa colonna.</li>
+<li>Nel modulo Web che accetta gli input dell'utente, aggiungere un campo nascosto per memorizzare il numero di versione corrente della riga in aggiornamento. Assicurati che l'attributo della versione contenga regole di convalida dell'input e convalidi correttamente.</li>
+<li>Nell'azione del controller che aggiorna la riga utilizzando l'Active Record, prova a rilevare l' eccezione <strong>yii \ db \ StaleObjectException</strong>. Implementare la logica aziendale necessaria (ad esempio unire le modifiche, richiamando i dati staled) per risolvere il conflitto.</li>
+</ul>
+<p>Ad esempio, supponi che la colonna della versione sia nominata come <code>version</code>. È possibile implementare il blocco ottimistico con il codice come il seguente.</p>
+<pre><code>// ------ view code -------
+
+use yii\helpers\Html;
+
+// ...other input fields
+echo Html::activeHiddenInput($model, 'version');
+
+
+// ------ controller code -------
+
+use yii\db\StaleObjectException;
+
+public function actionUpdate($id){
+
+    $model = $this-&gt;findModel($id);
+
+    try {
+        if ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;save()) {
+            return $this-&gt;redirect(['view', 'id' =&gt; $model-&gt;id]);
+        } else {
+            return $this-&gt;render('update', [
+                'model' =&gt; $model,
+            ]);
+        }
+    } catch (StaleObjectException $e) {
+        // logic to resolve the conflict
+    }
+}
+</code></pre>
+<h2 id="lavorare-con-i-dati-relazionali">Lavorare con i dati relazionali<a class="headerlink" href="#lavorare-con-i-dati-relazionali" title="Permanent link">&para;</a></h2>
+<p>Oltre a lavorare con le singole tabelle del database, l'Active Record è anche in grado di riunire i dati correlati, rendendoli facilmente accessibili attraverso i dati primari. Ad esempio, i dati del cliente sono correlati ai dati dell'ordine poiché un cliente potrebbe aver effettuato uno o più ordini. Con un'adeguata dichiarazione di questa relazione, sarete in grado di accedere alle informazioni sull'ordine di un cliente utilizzando l'espressione <code>$customer-&gt;orders</code> che restituisce le informazioni sull'ordine del cliente in termini di una serie di instanze <code>Order</code> dell'Active Record.</p>
+<h2 id="dichiarare-le-relazioni">Dichiarare le relazioni<a class="headerlink" href="#dichiarare-le-relazioni" title="Permanent link">&para;</a></h2>
+<p>Per lavorare con i dati relazionali utilizzando l'Active Record, è necessario innanzitutto dichiarare le relazioni nelle classi dell'Active Record. Il compito è semplice come dichiarare un metodo di relazione per ogni relazione interessata, come il seguente,</p>
+<pre><code>class Customer extends ActiveRecord{
+
+    // ...
+
+    public function getOrders(){
+
+        return $this-&gt;hasMany(Order::className(), ['customer_id' =&gt; 'id']);
+    }
+}
+
+class Order extends ActiveRecord{
+
+    // ...
+
+    public function getCustomer(){
+
+        return $this-&gt;hasOne(Customer::className(), ['id' =&gt; 'customer_id']);
+    }
+}
+</code></pre>
+<p>Nel codice precedente, abbiamo dichiarato una relazione <code>orders</code> per la classe <code>Customer</code> e una relazione <code>customer</code> per la classe <code>Order</code>.</p>
+<p>Ogni metodo di relazione deve essere nominato come <code>getXyz</code>. Chiamiamo <code>xyz</code>(la prima lettera è in minuscolo) il nome della relazione. Nota che i nomi delle relazioni sono case sensitive .</p>
+<p>Durante la dichiarazione di una relazione, è necessario specificare le seguenti informazioni:</p>
+<ul>
+<li>la molteplicità della relazione: specificata chiamando i metodi <strong>hasMany()</strong> o <strong>hasOne()</strong>. Nell'esempio sopra puoi leggere facilmente nelle dichiarazioni di relazione che un cliente ha molti ordini mentre un ordine ha un solo cliente.</li>
+<li>il nome della classe Active Record correlata: specificato come primo parametro su <strong>hasMany()</strong> o <strong>hasOne()</strong>. Si consiglia di chiamare <code>Xyz::className()</code> per ottenere la stringa del nome della classe in modo da poter ricevere il supporto per il completamento automatico IDE e il rilevamento degli errori in fase di compilazione.</li>
+<li>il collegamento tra i due tipi di dati: specifica le colonne attraverso le quali i due tipi di dati sono correlati. I valori dell'array sono le colonne dei dati primari (rappresentati dalla classe Active Record che stai dichiarando nelle relazioni), mentre le chiavi dell'array sono le colonne dei dati correlati.</li>
+</ul>
+<p>Una regola facile da ricordare è, come vedi nell'esempio sopra, che scrivi la colonna che appartiene al relativo Active Record direttamente accanto ad essa. Vedi lì che <code>customer_id</code> è una proprietà di <code>Order</code> ed <code>id</code> è una proprietà di <code>Customer</code>.</p>
+<h2 id="accesso-ai-dati-relazionali">Accesso ai dati relazionali<a class="headerlink" href="#accesso-ai-dati-relazionali" title="Permanent link">&para;</a></h2>
+<p>Dopo aver dichiarato le relazioni, puoi accedere ai dati relazionali attraverso i loro nomi. Questo è come accedere a una proprietà dell'oggetto definita dal metodo di una relazione. Per questo motivo, lo chiamiamo "proprietà relazionale". Per esempio,</p>
+<pre><code>// SELECT * FROM `customer` WHERE `id` = 123
+$customer = Customer::findOne(123);
+
+// SELECT * FROM `order` WHERE `customer_id` = 123
+// $orders is an array of Order objects
+$orders = $customer-&gt;orders;
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Quando dichiari una relazione denominata <code>xyz</code> tramite un metodo getter <code>getXyz()</code>, sarai in grado di accedere <code>xyz</code> come una proprietà dell'oggetto . Si noti che il nome è case sensitive.</p>
+</div>
+<p>Se una relazione è dichiarata con <strong>hasMany()</strong>, l'accesso a questa proprietà di relazione restituirà una matrice delle istanze relative all'Active Record;se una relazione viene dichiarata con il metodo <strong>hasOne()</strong>, l'accesso alla proprietà della relazione restituirà l'istanza relativa all'Active Record o  valore <code>null</code> se non viene trovato alcun dato correlato.</p>
+<p>Quando si accede a una proprietà di relazione per la prima volta, verrà eseguita un'istruzione SQL, come mostrato nell'esempio precedente. Se si accede nuovamente alla stessa proprietà, il risultato precedente verrà restituito senza rieseguire l'istruzione SQL. Per forzare la ri-esecuzione dell'istruzione SQL, è necessario eliminare la proprietà: <code>unset($customer-&gt;orders)</code>.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Sebbene questo concetto sia simile alla funzione della proprietà dell'oggetto, esiste una differenza importante. Per le normali proprietà il valore della proprietà è dello stesso tipo del metodo getter definitivo. Un metodo di relazione tuttavia restituisce un'istanza <strong>yii \ db \ ActiveQuer</strong>, mentre l'accesso a una proprietà di relazione restituirà un'istanza <strong>yii \ db \ ActiveRecord</strong> o una matrice di questi.</p>
+<p>$customer-&gt;orders; // is an array of <code>Order</code> objects
+$customer-&gt;getOrders(); // returns an ActiveQuery instance</p>
+</div>
+<p>Questo è utile per creare query personalizzate, come descritto nella prossima sezione.</p>
+<h2 id="query-con-relazioni-dinamiche">Query con relazioni dinamiche<a class="headerlink" href="#query-con-relazioni-dinamiche" title="Permanent link">&para;</a></h2>
+<p>Poiché un metodo di relazione restituisce un'istanza di <strong>yii \ db \ ActiveQuery</strong>, è possibile creare ulteriormente questa query utilizzando i metodi di creazione di query prima di eseguire la query DB. Per esempio,</p>
+<pre><code>$customer = Customer::findOne(123);
+
+// SELECT * FROM `order` WHERE `customer_id` = 123 AND `subtotal` &gt; 200 ORDER BY `id`
+$orders = $customer-&gt;getOrders()
+    -&gt;where(['&gt;', 'subtotal', 200])
+    -&gt;orderBy('id')
+    -&gt;all();
+</code></pre>
+<p>Ogni volta che si esegue una query relazionale dinamica tramite un metodo di relazione, verrà eseguita un'istruzione SQL, anche se prima veniva eseguita la stessa query relazionale dinamica.</p>
+<p>A volte potresti persino voler parametrizzare una dichiarazione di relazione in modo da poter eseguire più facilmente query relazionali dinamiche. Ad esempio, puoi dichiarare una relazione <code>bigOrders</code> come segue,</p>
+<pre><code>class Customer extends ActiveRecord{
+
+    public function getBigOrders($threshold = 100){
+
+        return $this-&gt;hasMany(Order::className(), ['customer_id' =&gt; 'id'])
+            -&gt;where('subtotal &gt; :threshold', [':threshold' =&gt; $threshold])
+            -&gt;orderBy('id');
+    }
+}
+</code></pre>
+<p>Quindi sarai in grado di eseguire le seguenti query relazionali:</p>
+<pre><code>// SELECT * FROM `order` WHERE `customer_id` = 123 AND `subtotal` &gt; 200 ORDER BY `id`
+$orders = $customer-&gt;getBigOrders(200)-&gt;all();
+
+// SELECT * FROM `order` WHERE `customer_id` = 123 AND `subtotal` &gt; 100 ORDER BY `id`
+$orders = $customer-&gt;bigOrders;
+</code></pre>
+<h2 id="relazioni-tramite-una-junction-table">Relazioni tramite una Junction Table<a class="headerlink" href="#relazioni-tramite-una-junction-table" title="Permanent link">&para;</a></h2>
+<p>Nella modellazione di database, quando la molteplicità tra due tabelle correlate è molti-a-molti, viene generalmente introdotta una tabella di giunzione . Ad esempio, la order tabel e la item tabel possono essere correlate tramite una tabella di giunzione denominata <code>order_item</code>. Un ordine corrisponderà quindi a più articoli dell'ordine, mentre un articolo prodotto corrisponderà anche a più articoli dell'ordine.</p>
+<p>Quando si dichiarano tali relazioni, si può chiamare <strong>via()</strong> o <strong>viaTabella()</strong> per specificare la tabella di giunzione. La differenza tra <strong>via()</strong> e <strong>viaTable()</strong> è che il primo specifica la tabella di congiunzione in termini di un nome di relazione esistente, mentre il secondo utilizza direttamente la tabella di giunzione. Per esempio,</p>
+<pre><code>class Order extends ActiveRecord{
+
+public function getItems(){
+
+        return $this-&gt;hasMany(Item::className(), ['id' =&gt; 'item_id'])
+            -&gt;viaTable('order_item', ['order_id' =&gt; 'id']);
+    }
+}
+</code></pre>
+<p>o in alternativa,</p>
+<pre><code>class Order extends ActiveRecord{
+
+    public function getOrderItems(){
+
+        return $this-&gt;hasMany(OrderItem::className(), ['order_id' =&gt; 'id']);
+    }
+
+    public function getItems(){
+
+        return $this-&gt;hasMany(Item::className(), ['id' =&gt; 'item_id'])
+            -&gt;via('orderItems');
+    }
+}
+</code></pre>
+<p>L'uso delle relazioni dichiarate con una tabella di giunzione è uguale a quello delle relazioni normali. Per esempio,</p>
+<pre><code>// SELECT * FROM `order` WHERE `id` = 100
+$order = Order::findOne(100);
+
+// SELECT * FROM `order_item` WHERE `order_id` = 100
+// SELECT * FROM `item` WHERE `item_id` IN (...)
+// returns an array of Item objects
+$items = $order-&gt;items;
+</code></pre>
+<h2 id="concatenare-le-definizioni-delle-relazioni-tramite-piu-tabelle">Concatenare le definizioni delle relazioni tramite più tabelle<a class="headerlink" href="#concatenare-le-definizioni-delle-relazioni-tramite-piu-tabelle" title="Permanent link">&para;</a></h2>
+<p>È inoltre possibile definire le relazioni tramite più tabelle concatenando le definizioni di relazione usando il metodo <strong>via()</strong>. Considerando gli esempi precedenti, abbiamo classi <code>Customer</code>, <code>Order</code> e <code>Item</code>. Possiamo aggiungere una relazione alla classe <code>Customer</code> che elenca tutti gli articoli da tutti gli ordini che hanno inserito e nominarla <code>getPurchasedItems()</code>, il concatenamento delle relazioni è mostrato nel seguente esempio di codice:</p>
+<pre><code>class Customer extends ActiveRecord{
+
+    // ...
+
+    public function getPurchasedItems(){
+
+        // customer's items, matching 'id' column of `Item` to 'item_id' in OrderItem
+        return $this-&gt;hasMany(Item::className(), ['id' =&gt; 'item_id'])
+                    -&gt;via('orderItems');
+    }
+
+    public function getOrderItems(){
+
+        // customer's order items, matching 'id' column of `Order` to 'order_id' in OrderItem
+        return $this-&gt;hasMany(OrderItem::className(), ['order_id' =&gt; 'id'])
+                    -&gt;via('orders');
+    }
+
+    public function getOrders(){
+
+        // same as above
+        return $this-&gt;hasMany(Order::className(), ['customer_id' =&gt; 'id']);
+    }
+}
+</code></pre>
+<h2 id="lazy-loading-e-eager-loading">Lazy Loading e Eager Loading<a class="headerlink" href="#lazy-loading-e-eager-loading" title="Permanent link">&para;</a></h2>
+<p>IN precedenza, quando abbiamo parlato all'accesso ai dati relazionali, abbiamo spiegato che è possibile accedere a una proprietà di relazione di un'istanza dell'Active Record come l'accesso a una normale proprietà dell'oggetto. Un'istruzione SQL verrà eseguita solo quando si accede alla proprietà della relazione la prima volta. Chiamiamo questo tipo di dati relazionali che accedono al metodo di "caricamento lazy". Per esempio,</p>
+<pre><code>// SELECT * FROM `customer` WHERE `id` = 123
+$customer = Customer::findOne(123);
+
+// SELECT * FROM `order` WHERE `customer_id` = 123
+$orders = $customer-&gt;orders;
+
+// no SQL executed
+$orders2 = $customer-&gt;orders;
+</code></pre>
+<p>Il caricamento lento è molto comodo da usare. Tuttavia, potrebbe verificarsi un problema di prestazioni quando è necessario accedere alla stessa proprietà di relazione in più istanze dell'Active Record. Considera il seguente esempio di codice. Quante istruzioni SQL saranno eseguite?</p>
+<pre><code>// SELECT * FROM `customer` LIMIT 100
+$customers = Customer::find()-&gt;limit(100)-&gt;all();
+
+foreach ($customers as $customer) {
+    // SELECT * FROM `order` WHERE `customer_id` = ...
+    $orders = $customer-&gt;orders;
+}
+</code></pre>
+<p>Come puoi vedere dal commento del codice sopra, ci sono 101 istruzioni SQL in esecuzione! Questo perché ogni volta che si accede alla proprietà di relazione <code>orders</code> di un oggetto <code>Customer</code> diverso nel ciclo for, verrà eseguita un'istruzione SQL.</p>
+<p>Per risolvere questo problema di prestazioni, è possibile utilizzare il cosiddetto "Eager Loading" come mostrato di seguito,</p>
+<pre><code>// SELECT * FROM `customer` LIMIT 100;
+// SELECT * FROM `orders` WHERE `customer_id` IN (...)
+$customers = Customer::find()
+    -&gt;with('orders')
+    -&gt;limit(100)
+    -&gt;all();
+
+foreach ($customers as $customer) {
+    // no SQL executed
+    $orders = $customer-&gt;orders;
+}
+</code></pre>
+<p>Chiamando <strong>yii \ db \ ActiveQuery :: with()</strong>, si istruisce l'Active Record per riportare gli ordini per i primi 100 clienti in una singola istruzione SQL. Di conseguenza, riduci il numero delle istruzioni SQL eseguite da 101 a 2!</p>
+<p>Puoi caricare avidamente una o più relazioni. Puoi anche caricare avidamente relazioni nidificate. Una relazione nidificata è una relazione dichiarata all'interno di una classe Active Record correlata. Ad esempio, <code>Customer</code> è correlato con <code>Order</code> attraverso la relazione <code>orders</code> ed <code>Order</code> è correlato con <code>Item</code> attraverso la relazione <code>items</code>. Quando si esegue una query per <code>Customer</code>, è possibile caricare <code>items</code> con impazienza utilizzando la notazione della relazione nidificata <code>orders.items</code>.</p>
+<p>Il seguente codice mostra l'uso differente di <strong>with()</strong>. Assumiamo che la classe <code>Customer</code> abbia due relazioni <code>orders</code> e <code>country</code>, mentre la classe <code>Order</code> ha una relazione <code>items</code>.</p>
+<pre><code>// eager loading both "orders" and "country"
+$customers = Customer::find()-&gt;with('orders', 'country')-&gt;all();
+// equivalent to the array syntax below
+$customers = Customer::find()-&gt;with(['orders', 'country'])-&gt;all();
+// no SQL executed 
+$orders= $customers[0]-&gt;orders;
+// no SQL executed 
+$country = $customers[0]-&gt;country;
+
+// eager loading "orders" and the nested relation "orders.items"
+$customers = Customer::find()-&gt;with('orders.items')-&gt;all();
+// access the items of the first order of the first customer
+// no SQL executed
+$items = $customers[0]-&gt;orders[0]-&gt;items;
+</code></pre>
+<p>Puoi caricare le relazioni in modo eagerly in modo annidato, come ad esempio <code>a.b.c.d</code>. Cioè, quando si chiama <strong>with()</strong> utilizzando <code>a.b.c.d</code>, avrai un caricamento lento come segue: <code>a</code>, <code>a.b</code>, <code>a.b.c</code> e <code>a.b.c.d</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In generale, quando si caricano in modo "eagerly (aviademnte) le <code>N</code> relazioni tra le quali le <code>M</code> relazioni vengono definite con una tabella di giunzione, <code>N+M+1</code> verrà eseguito un numero totale di istruzioni SQL. Si noti che una relazione nidificata <code>a.b.c.d</code> conta come 4 relazioni.</p>
+</div>
+<p>Quando si carica in modo eagerly una relazione, è possibile personalizzare la query relazionale corrispondente utilizzando una funzione anonima. Per esempio,</p>
+<pre><code>// find customers and bring back together their country and active orders
+// SELECT * FROM `customer`
+// SELECT * FROM `country` WHERE `id` IN (...)
+// SELECT * FROM `order` WHERE `customer_id` IN (...) AND `status` = 1
+$customers = Customer::find()-&gt;with([
+    'country',
+    'orders' =&gt; function ($query) {
+        $query-&gt;andWhere(['status' =&gt; Order::STATUS_ACTIVE]);
+    },
+])-&gt;all();
+</code></pre>
+<p>Quando si personalizza la query relazionale per una relazione, è necessario specificare il nome della relazione come chiave di array e utilizzare una funzione anonima come valore dell'array corrispondente. La funzione anonima riceverà un parametro <code>$query</code> che rappresenta l'oggetto <strong>yii \ db \ ActiveQuery</strong> utilizzato per eseguire la query relazionale per la relazione. Nell'esempio di codice sopra, stiamo modificando la query relazionale aggiungendo una condizione aggiuntiva sullo stato dell'ordine.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Se viene chiamato il metodo <strong>select()</strong>, dovete assicurarvi che le colonne referenziate nelle dichiarazioni di relazione siano selezionate. In caso contrario, i relativi modelli potrebbero non essere caricati correttamente. Per esempio,</p>
+<pre><code>$orders = Order::find()-&gt;select(['id', 'amount'])-&gt;with('customer')-&gt;all();
+// $orders[0]-&gt;customer is always `null`. To fix the problem, you should do the following:
+$orders = Order::find()-&gt;select(['id', 'amount', 'customer_id'])-&gt;with('customer')-&gt;all();
+</code></pre>
+</div>
+<h2 id="joining-with-relations">Joining with relations<a class="headerlink" href="#joining-with-relations" title="Permanent link">&para;</a></h2>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Il contenuto descritto in questa sottosezione è applicabile solo ai database relazionali, come MySQL, PostgreSQL, ecc.</p>
+</div>
+<p>Le query relazionalali che abbiamo descritto finora fanno riferimento solo alle colonne della tabella principale quando si esegue una query per i dati primari. In realtà spesso è necessario fare riferimento alle colonne nelle tabelle correlate. Ad esempio, potremmo voler riportare i clienti che hanno almeno un ordine attivo. Per risolvere questo problema, possiamo creare una query di join come la seguente:</p>
+<pre><code>// SELECT `customer`.* FROM `customer`
+// LEFT JOIN `order` ON `order`.`customer_id` = `customer`.`id`
+// WHERE `order`.`status` = 1
+// 
+// SELECT * FROM `order` WHERE `customer_id` IN (...)
+$customers = Customer::find()
+    -&gt;select('customer.*')
+    -&gt;leftJoin('order', '`order`.`customer_id` = `customer`.`id`')
+    -&gt;where(['order.status' =&gt; Order::STATUS_ACTIVE])
+    -&gt;with('orders')
+    -&gt;all();
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>E' importante togliere l'ambiguità ai nomi delle colonne quando si creano query relazionali che coinvolgono istruzioni SQL <code>JOIN</code>. Una pratica comune è di anteporre i nomi delle colonne ai loro nomi di tabelle corrispondenti.</p>
+</div>
+<p>Tuttavia, un approccio migliore è quello di sfruttare le dichiarazioni di relazione esistenti chiamando <strong>yii \ db \ ActiveQuery :: joinWith()</strong>:</p>
+<pre><code>$customers = Customer::find()
+    -&gt;joinWith('orders')
+    -&gt;where(['order.status' =&gt; Order::STATUS_ACTIVE])
+    -&gt;all();
+</code></pre>
+<p>Entrambi gli approcci eseguono lo stesso insieme di istruzioni SQL. Quest'ultimo approccio è molto più pulito e asciutto, però.</p>
+<p>Per impostazione predefinita, nel metodo <strong>joinWith()</strong> verrà utilizzato il comando <code>LEFT JOIN</code> per unirsi alla tabella primaria con la tabella correlata. È possibile specificare un tipo di join diverso (ad esempio <code>RIGHT JOIN</code>) tramite il terzo parametro <code>$joinType</code>. Se il tipo di join desiderato è <code>INNER JOIN</code>, puoi semplicemente chiamare il metodo <strong>innerJoinWith()</strong>.</p>
+<p>Chiamare <strong>joinWith()</strong> caricherà avidamente i dati relativi per impostazione predefinita. Se non vuoi inserire i dati relativi, puoi specificare il suo secondo parametro <code>$eagerLoading</code> a <code>false</code>.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Anche quando si utilizza <strong>joinWith()</strong> o <strong>innerJoinWith()</strong> con l'eager loading attivato, i dati correlati non verranno popolati dal risultato della query <code>JOIN</code>. Quindi c'è ancora una query aggiuntiva per ogni relazione unita.</p>
+</div>
+<p>Come con il metodo <strong>with()</strong>, puoi unirti a una o più relazioni; puoi personalizzare le query di relazione al volo; puoi unirti a relazioni nidificate; e puoi mescolare l'uso di <strong>with()</strong> e <strong>joinWith()</strong>. Per esempio,</p>
+<pre><code>$customers = Customer::find()-&gt;joinWith([
+    'orders' =&gt; function ($query) {
+        $query-&gt;andWhere(['&gt;', 'subtotal', 100]);
+    },
+])-&gt;with('country')
+    -&gt;all();
+</code></pre>
+<p>A volte quando si uniscono due tabelle, potrebbe essere necessario specificare alcune condizioni aggiuntive nella parte <code>ON</code> della query <code>JOIN</code>. Questo può essere fatto chiamando il metodo <strong>yii \ db \ ActiveQuery :: onCondition()</strong> come il seguente:</p>
+<pre><code>// SELECT `customer`.* FROM `customer`
+// LEFT JOIN `order` ON `order`.`customer_id` = `customer`.`id` AND `order`.`status` = 1 
+// 
+// SELECT * FROM `order` WHERE `customer_id` IN (...)
+$customers = Customer::find()-&gt;joinWith([
+    'orders' =&gt; function ($query) {
+        $query-&gt;onCondition(['order.status' =&gt; Order::STATUS_ACTIVE]);
+    },
+])-&gt;all();
+</code></pre>
+<p>Questa query sopra riportata riporta tutti i clienti e per ogni cliente riporta tutti gli ordini attivi. Si noti che questo differisce dal nostro esempio precedente che riporta solo i clienti che hanno almeno un ordine attivo.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Quando <strong>yii \ db \ ActiveQuery</strong> viene specificato con una condizione tramite il metodo <strong>onCondition()</strong>, la condizione verrà inserita nella parte <code>ON</code> se la query implica una query <code>JOIN</code>. Se la query non coinvolge un <code>JOIN</code>, la condizione <code>on</code> verrà automaticamente aggiunta alla parte <code>WHERE</code> della query. Pertanto può contenere solo condizioni comprese tra le colonne della tabella correlata.</p>
+</div>
+<h2 id="alias-della-tabella-nelle-relazioni">Alias della tabella nelle relazioni<a class="headerlink" href="#alias-della-tabella-nelle-relazioni" title="Permanent link">&para;</a></h2>
+<p>Come notato in precedenza, quando si utilizza <code>JOIN</code> in una query, è necessario distinguere i nomi delle colonne. Per questo un alias è definito per una tabella. Impostare un alias per la query relazionale sarebbe possibile personalizzando la query di relazione nel seguente modo:</p>
+<pre><code>$query-&gt;joinWith([
+    'orders' =&gt; function ($q) {
+        $q-&gt;from(['o' =&gt; Order::tableName()]);
+    },
+])
+</code></pre>
+<p>Ciò sembra molto complicato e comporta l'hardcoding del nome della tabella degli oggetti correlati o delle chiamate <code>Order::tableName()</code>. Dalla versione 2.0.7, Yii fornisce una scorciatoia per questo. Ora puoi definire e utilizzare l'alias per la tabella delle relazioni come segue:</p>
+<pre><code>// join the orders relation and sort the result by orders.id
+$query-&gt;joinWith(['orders o'])-&gt;orderBy('o.id');
+</code></pre>
+<p>La sintassi precedente funziona per relazioni semplici. Se hai bisogno di un alias per una tabella intermedia quando ti unisci alle relazioni annidate [<code>$query-&gt;joinWith(['orders.product'])</code>], per esempio, puoi nidificare le chiamate <strong>joinWith</strong> come nell'esempio seguente:</p>
+<pre><code>$query-&gt;joinWith(['orders o' =&gt; function($q) {
+        $q-&gt;joinWith('product p');
+    }])
+    -&gt;where('o.amount &gt; 100');
+</code></pre>
+<h2 id="relazioni-inverse">Relazioni inverse<a class="headerlink" href="#relazioni-inverse" title="Permanent link">&para;</a></h2>
+<p>Le dichiarazioni di relazione sono spesso reciproche tra due classi Active Record. Ad esempio, <code>Customer</code> è correlato a <code>Order</code> tramite la relazione <code>orders</code> ed <code>Order</code> è correlato a <code>Customer</code> tramite la relazione <code>customer</code>.</p>
+<pre><code>class Customer extends ActiveRecord{
+    public function getOrders(){
+
+        return $this-&gt;hasMany(Order::className(), ['customer_id' =&gt; 'id']);
+    }
+}
+
+class Order extends ActiveRecord{
+
+    public function getCustomer(){
+
+        return $this-&gt;hasOne(Customer::className(), ['id' =&gt; 'customer_id']);
+    }
+}
+</code></pre>
+<p>Ora considera il seguente pezzo di codice:</p>
+<pre><code>// SELECT * FROM `customer` WHERE `id` = 123
+$customer = Customer::findOne(123);
+
+// SELECT * FROM `order` WHERE `customer_id` = 123
+$order = $customer-&gt;orders[0];
+
+// SELECT * FROM `customer` WHERE `id` = 123
+$customer2 = $order-&gt;customer;
+
+// displays "not the same"
+echo $customer2 === $customer ? 'same' : 'not the same';
+</code></pre>
+<p>A questo punto, penseremmo che <code>$customer</code> e <code>$customer2</code> siano uguali, ma non lo sono! In realtà contengono gli stessi dati dei clienti, ma sono oggetti diversi. Durante l'accesso <code>$order-&gt;customer</code>, viene eseguita un'istruzione SQL aggiuntiva per popolare un nuovo oggetto <code>$customer2</code>.</p>
+<p>Per evitare l'esecuzione ridondante dell'ultima istruzione SQL nell'esempio precedente, dovremmo dire a Yii che <code>customer</code> è una relazione inversa di <code>orders</code> chiamando il metodo <strong>inverseOf()</strong> come mostrato di seguito:</p>
+<pre><code>class Customer extends ActiveRecord{
+
+    public function getOrders(){
+
+        return $this-&gt;hasMany(Order::className(), ['customer_id' =&gt; 'id'])-&gt;inverseOf('customer');
+    }
+}
+</code></pre>
+<p>Con questa dichiarazione di relazione modificata, avremo:</p>
+<pre><code>// SELECT * FROM `customer` WHERE `id` = 123
+$customer = Customer::findOne(123);
+
+// SELECT * FROM `order` WHERE `customer_id` = 123
+$order = $customer-&gt;orders[0];
+
+// No SQL will be executed
+$customer2 = $order-&gt;customer;
+
+// displays "same"
+echo $customer2 === $customer ? 'same' : 'not the same';
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Le relazioni inverse non possono essere definite relazioni che coinvolgono una junction table. Cioè, se una relazione è definita con il metodo <strong>via()</strong> o <strong>viaTable()</strong>, non c'è bisogno di chiamare il metodo <strong>inverseOf()</strong>.</p>
+</div>
+<h2 id="salvataggio-delle-relazioni">Salvataggio delle relazioni<a class="headerlink" href="#salvataggio-delle-relazioni" title="Permanent link">&para;</a></h2>
+<p>Quando si lavora con dati relazionali, è spesso necessario stabilire relazioni tra dati diversi o distruggere relazioni esistenti. Ciò richiede l'impostazione di valori appropriati per le colonne che definiscono le relazioni. Usando Active Record, potresti finire per scrivere il codice come segue:</p>
+<pre><code>$customer = Customer::findOne(123);
+$order = new Order();
+$order-&gt;subtotal = 100;
+// ...
+
+// setting the attribute that defines the "customer" relation in Order
+$order-&gt;customer_id = $customer-&gt;id;
+$order-&gt;save();
+</code></pre>
+<p>Active Record fornisce il metodo <strong>link()</strong> che consente di svolgere questo compito in modo più efficace:</p>
+<pre><code>$customer = Customer::findOne(123);
+$order = new Order();
+$order-&gt;subtotal = 100;
+// ...
+
+$order-&gt;link('customer', $customer);
+</code></pre>
+<p>Il metodo <strong>link()</strong> richiede di specificare il nome della relazione e l'istanza dell'Active Record di destinazione con cui deve essere stabilita la relazione. Il metodo modificherà i valori degli attributi che collegano due istanze Active Record e li salvano nel database. Nell'esempio sopra, imposterà l'attributo <code>customer_id</code> dell'istanza <code>Order</code> come valore dell'attributio <code>id</code> dell'istanza <code>Customer</code> e quindi lo salverà nel database.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Non è possibile collegare due istanze Active Record appena create.</p>
+</div>
+<p>Il vantaggio dell'uso del metodo <strong>link()</strong> è ancora più evidente quando una relazione viene definita tramite una tabella di giunzione. Ad esempio, è possibile utilizzare il codice seguente per collegare un'istanza <code>Order</code> con un'istanza <code>Item</code>:</p>
+<pre><code>$order-&gt;link('items', $item);
+</code></pre>
+<p>Il codice scritto sopra inserirà automaticamente una riga nella tabella di giunzione <code>order_item</code> per mettere in relazione l'ordine con l'articolo.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Il metodo <strong>link()</strong> NON esegue alcuna convalida dei dati durante il salvataggio dell'istanza Active Record interessata. È tua responsabilità convalidare qualsiasi dato di input prima di chiamare questo metodo.</p>
+</div>
+<p>L'operazione opposta a <strong>link()</strong> è <strong>unlink()</strong> che interrompe una relazione esistente tra due istanze Active Record. Per esempio,</p>
+<pre><code>$customer = Customer::find()-&gt;with('orders')-&gt;where(['id' =&gt; 123])-&gt;one();
+$customer-&gt;unlink('orders', $customer-&gt;orders[0]);
+</code></pre>
+<p>Per impostazione predefinita, il metodo <strong>unlink()</strong> imposterà i valori della chiave esterna che specificano la relazione esistente a <code>null</code>. Tuttavia, è possibile scegliere di eliminare la riga della tabella che contiene il valore della chiave esterna passando il parametro <code>$delete</code> con valore <code>true</code> al metodo.</p>
+<p>Quando una tabella di giunzione è coinvolta in una relazione, la chiamata di <strong>unlink()</strong> provoca la cancellazione delle chiavi esterne nella tabella di giunzione o la cancellazione della riga corrispondente nella tabella di giuntura, se il valore di <code>$delete</code> è <code>true</code>.</p>
+<h2 id="relazioni-tra-database">Relazioni tra database<a class="headerlink" href="#relazioni-tra-database" title="Permanent link">&para;</a></h2>
+<p>Active Record consente di dichiarare le relazioni tra classi Active Record alimentate da diversi database. I database possono essere di tipi diversi (ad esempio MySQL e PostgreSQL, o MS SQL e MongoDB) e possono essere eseguiti su server diversi. È possibile utilizzare la stessa sintassi per eseguire query relazionali. Per esempio,</p>
+<pre><code>// Customer is associated with the "customer" table in a relational database (e.g. MySQL)
+class Customer extends \yii\db\ActiveRecord{
+
+    public static function tableName(){
+
+        return 'customer';
+    }
+
+    public function getComments(){
+
+        // a customer has many comments
+        return $this-&gt;hasMany(Comment::className(), ['customer_id' =&gt; 'id']);
+    }
+}
+
+// Comment is associated with the "comment" collection in a MongoDB database
+class Comment extends \yii\mongodb\ActiveRecord{
+
+    public static function collectionName(){
+
+        return 'comment';
+    }
+
+    public function getCustomer(){
+
+        // a comment has one customer
+        return $this-&gt;hasOne(Customer::className(), ['id' =&gt; 'customer_id']);
+    }
+}
+
+$customers = Customer::find()-&gt;with('comments')-&gt;all();
+</code></pre>
+<p>È possibile utilizzare la maggior parte delle funzioni di query relazionali descritte in questa sezione.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>L'utilizzo del metodo <strong>joinWith()</strong> è limitato ai database che consentono query <code>JOIN</code> tra database. Per questo motivo, non è possibile utilizzare questo metodo nell'esempio precedente poiché MongoDB non supporta la <code>JOIN</code>.</p>
+</div>
+<h2 id="personalizzazione-delle-classi-di-query">Personalizzazione delle classi di query<a class="headerlink" href="#personalizzazione-delle-classi-di-query" title="Permanent link">&para;</a></h2>
+<p>Per impostazione predefinita, tutte le query degli Active Record sono supportate da <strong>yii \ db \ ActiveQuery</strong>. Per utilizzare una classe di query personalizzata in una classe Active Record, è necessario eseguire l'override del metodo <strong>yii \ db \ ActiveRecord :: find()</strong> e restituire un'istanza della classe di query personalizzata. Per esempio,</p>
+<pre><code>// file Comment.php
+namespace app\models;
+
+use yii\db\ActiveRecord;
+
+class Comment extends ActiveRecord{
+
+    public static function find(){
+
+        return new CommentQuery(get_called_class());
+    }
+}
+</code></pre>
+<p>Ora, quando si esegue una query (ad esempio <strong>find()</strong>, <strong>findOne()</strong>) o si definisce una relazione (ad esempio <strong>hasOne()</strong>) la classe <code>Comment</code>, si chiamerà un'istanza <code>CommentQuery</code> anziché <code>ActiveQuery</code>.</p>
+<p>Ora devi definire la classe <code>CommentQuery</code>, che può essere personalizzata in molti modi creativi per migliorare la tua esperienza nella creazione di query. Per esempio,</p>
+<pre><code>// file CommentQuery.php
+namespace app\models;
+
+use yii\db\ActiveQuery;
+
+class CommentQuery extends ActiveQuery{
+
+    // conditions appended by default (can be skipped)
+    public function init(){
+
+        $this-&gt;andOnCondition(['deleted' =&gt; false]);
+        parent::init();
+    }
+
+    // ... add customized query methods here ...
+
+    public function active($state = true){
+
+        return $this-&gt;andOnCondition(['active' =&gt; $state]);
+    }
+}
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Invece di chiamare <strong>onCondition()</strong>, di solito si dovrebbe chiamare il metodo <strong>andOnCondition()</strong> o <strong>orOnCondition()</strong> per aggiungere ulteriori condizioni al momento di definire nuovi metodi di costruzione di query in modo che le eventuali condizioni esistenti non vengono sovrascritti.</p>
+</div>
+<p>Questo ti permette di scrivere il codice di costruzione della query come il seguente:</p>
+<pre><code>$comments = Comment::find()-&gt;active()-&gt;all();
+$inactiveComments = Comment::find()-&gt;active(false)-&gt;all();
+</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Nei progetti di grandi dimensioni, si consiglia di utilizzare classi di query personalizzate per conservare la maggior parte del codice relativo alle query in modo che le classi Active Record possano essere mantenute pulite.</p>
+</div>
+<p>È inoltre possibile utilizzare i nuovi metodi di creazione di query quando si definiscono relazioni <code>Comment</code> e si esegue una query relazionale:</p>
+<pre><code>class Customer extends \yii\db\ActiveRecord{
+
+    public function getActiveComments(){
+
+        return $this-&gt;hasMany(Comment::className(), ['customer_id' =&gt; 'id'])-&gt;active();
+    }
+}
+
+$customers = Customer::find()-&gt;joinWith('activeComments')-&gt;all();
+
+// or alternatively
+class Customer extends \yii\db\ActiveRecord{
+
+    public function getComments(){
+
+        return $this-&gt;hasMany(Comment::className(), ['customer_id' =&gt; 'id']);
+    }
+}
+
+$customers = Customer::find()-&gt;joinWith([
+    'comments' =&gt; function($q) {
+        $q-&gt;active();
+    }
+])-&gt;all();
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In Yii 1.1, c'è un concetto chiamato <strong>scope</strong> . L'ambito non è più supportato direttamente in Yii 2.0 e per raggiungere lo stesso obiettivo è necessario utilizzare classi di query e metodi di query personalizzati.</p>
+</div>
+<h2 id="selezione-di-campi-aggiuntivi">Selezione di campi aggiuntivi<a class="headerlink" href="#selezione-di-campi-aggiuntivi" title="Permanent link">&para;</a></h2>
+<p>Quando l'istanza Active Record viene popolata dai risultati della query, i relativi attributi vengono riempiti dai corrispondenti valori di colonna dal set di dati ricevuti.</p>
+<p>È possibile recuperare ulteriori colonne o valori dalla query e memorizzarli all'interno dell'Active Record. Ad esempio, supponiamo di avere una tabella di nome <code>room</code>, che contiene informazioni sulle camere disponibili nell'hotel. Ogni camera memorizza le informazioni sulle sue dimensioni geometriche utilizzando i campi <code>length</code>, <code>width</code>, <code>height</code>. Immagina di dover recuperare l'elenco di tutte le stanze disponibili con il loro volume in ordine discendente. Quindi non puoi calcolare il volume usando PHP, perché abbiamo bisogno di ordinare i record in base al suo valore, ma tu vuoi anche che il volume possa essere visualizzato nella lista. Per raggiungere l'obiettivo, è necessario dichiarare un campo aggiuntivo nella classe <code>Room</code> Active Record,che memorizzerà il valore <code>volume</code>:</p>
+<pre><code>class Room extends \yii\db\ActiveRecord
+{
+    public $volume;
+
+    // ...
+}
+</code></pre>
+<p>Quindi è necessario comporre una query, che calcola il volume della stanza ed esegue l'ordinamento:</p>
+<pre><code>$rooms = Room::find()
+    -&gt;select([
+        '{{room}}.*', // select all columns
+        '([[length]] * [[width]] * [[height]]) AS volume', // calculate a volume
+    ])
+    -&gt;orderBy('volume DESC') // apply sort
+    -&gt;all();
+
+foreach ($rooms as $room) {
+    echo $room-&gt;volume; // contains value calculated by SQL
+}
+</code></pre>
+<p>La possibilità di selezionare campi aggiuntivi può essere eccezionalmente utile per le query di aggregazione. Supponiamo di dover visualizzare un elenco di clienti con il conteggio degli ordini effettuati. Prima di tutto, è necessario dichiarare una classe <code>Customer</code> con una relazione <code>orders</code> e campo aggiuntivo per la memorizzazione dei conteggi:</p>
+<pre><code>class Customer extends \yii\db\ ActiveRecord{
+
+    public $ordersCount;
+
+    // ...
+
+    public function getOrders(){
+
+        return $this-&gt;hasMany(Order::className(), ['customer_id' =&gt; 'id']);
+    }
+}
+</code></pre>
+<p>Quindi puoi comporre una query, che unisce gli ordini e calcola il loro conteggio:</p>
+<pre><code>$customers = Customer::find()
+    -&gt;select([
+        '{{customer}}.*', // select all customer fields
+        'COUNT({{order}}.id) AS ordersCount' // calculate orders count
+    ])
+    -&gt;joinWith('orders') // ensure table junction
+    -&gt;groupBy('{{customer}}.id') // group the result to ensure aggregation function works
+    -&gt;all();
+</code></pre>
+<p>Uno svantaggio dell'utilizzo di questo metodo sarebbe che, se l'informazione non è caricata nella query SQL, deve essere calcolata separatamente. Pertanto, se hai trovato record particolari tramite query regolari senza istruzioni select extra, non sarà in grado di restituire il valore effettivo per il campo extra. Lo stesso accadrà per il record appena salvato.</p>
+<pre><code>$room = new Room();
+$room-&gt;length = 100;
+$room-&gt;width = 50;
+$room-&gt;height = 2;
+</code></pre>
+<p>$   room-&gt;volume; // this value will be <code>null</code>, since it was not declared yet</p>
+<p>Usando i metodi magici <code>__get()</code> e <code>__set()</code> possiamo emulare il comportamento di una proprietà:</p>
+<pre><code>class Room extends \yii\db\ActiveRecord{
+
+    private $_volume;
+
+    public function setVolume($volume){
+
+        $this-&gt;_volume = (float) $volume;
+    }
+
+    public function getVolume(){
+
+        if (empty($this-&gt;length) || empty($this-&gt;width) || empty($this-&gt;height)) {
+            return null;
+        }
+
+        if ($this-&gt;_volume === null) {
+            $this-&gt;setVolume(
+                $this-&gt;length * $this-&gt;width * $this-&gt;height
+            );
+        }
+
+        return $this-&gt;_volume;
+    }
+
+    // ...
+}
+</code></pre>
+<p>Quando la query di selezione non fornisce il volume, il modello sarà in grado di calcolarlo automaticamente utilizzando gli attributi del modello.</p>
+<p>Puoi anche calcolare i campi di aggregazione usando le relazioni definite:</p>
+<pre><code>class Customer extends \yii\db\ActiveRecord{
+
+    private $_ordersCount;
+
+    public function setOrdersCount($count){
+
+        $this-&gt;_ordersCount = (int) $count;
+    }
+
+    public function getOrdersCount(){
+
+        if ($this-&gt;isNewRecord) {
+            return null; // this avoid calling a query searching for null primary keys
+        }
+
+        if ($this-&gt;_ordersCount === null) {
+            $this-&gt;setOrdersCount($this-&gt;getOrders()-&gt;count()); // calculate aggregation on demand from relation
+        }
+
+        return $this-&gt;_ordersCount;
+    }
+
+    // ...
+
+    public function getOrders(){
+
+        return $this-&gt;hasMany(Order::className(), ['customer_id' =&gt; 'id']);
+    }
+}
+</code></pre>
+<p>Con questo codice, nel caso in cui <code>'ordersCount'</code> sia presente nell'istruzione <code>'select' - Customer::ordersCount</code>, verrà popolato dai risultati dell'interrogazione, altrimenti verrà calcolato su richiesta utilizzando la relazione <code>Customer::orders</code>.</p>
+<p>Questo approccio può essere utilizzato anche per la creazione delle scorciatoie per alcuni dati relazionali, in particolare per l'aggregazione. Per esempio:</p>
+<pre><code>class Customer extends \yii\db\ActiveRecord{
+
+    /**
+    * Defines read-only virtual property for aggregation data.
+    */
+    public function getOrdersCount(){
+
+        if ($this-&gt;isNewRecord) {
+            return null; // this avoid calling a query searching for null primary keys
+        }
+
+        return empty($this-&gt;ordersAggregation) ? 0 : $this-&gt;ordersAggregation[0]['counted'];
+    }
+
+    /**
+    * Declares normal 'orders' relation.
+    */
+    public function getOrders(){
+
+        return $this-&gt;hasMany(Order::className(), ['customer_id' =&gt; 'id']);
+    }
+
+    /**
+    * Declares new relation based on 'orders', which provides aggregation.
+    */
+    public function getOrdersAggregation(){
+
+        return $this-&gt;getOrders()
+            -&gt;select(['customer_id', 'counted' =&gt; 'count(*)'])
+            -&gt;groupBy('customer_id')
+            -&gt;asArray(true);
+    }
+
+    // ...
+}
+
+foreach (Customer::find()-&gt;with('ordersAggregation')-&gt;all() as $customer) {
+    echo $customer-&gt;ordersCount; // outputs aggregation data from relation without extra query due to eager loading
+}
+
+$customer = Customer::findOne($pk);
+$customer-&gt;ordersCount; // output aggregation data from lazy loaded relation
+</code></pre>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-query-builder/" title="Generatore di Query" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Generatore di Query
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../sub-migrations/" title="Migrazoni" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Migrazoni
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-109845735-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>

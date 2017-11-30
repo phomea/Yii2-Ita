@@ -1,0 +1,2101 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Guida italiana del framework PHP Yii 2.0">
+      
+      
+      
+        <meta name="author" content="Lorenzo Milicia">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.languages" content="">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+    
+    
+      
+        <title>Migrazoni - YII2 - La guida italiana</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-04ea671600.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="YII2 - La guida italiana" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Lavorare con i Database
+                </span>
+              
+            
+            Migrazoni
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Homepage" class="md-tabs__link">
+        Homepage
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/sub-installing-Yii/" title="Come Iniziare" class="md-tabs__link">
+          Come Iniziare
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../application-structure/sub-overview/" title="Struttura dell'Applicazione" class="md-tabs__link">
+          Struttura dell'Applicazione
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../handling-requests/sub-request-overview/" title="Gestione delle richieste" class="md-tabs__link">
+          Gestione delle richieste
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/sub-components/" title="Concetti chiave" class="md-tabs__link">
+          Concetti chiave
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../sub-data-access-object/" title="Lavorare con i Database" class="md-tabs__link md-tabs__link--active">
+          Lavorare con i Database
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </span>
+    YII2 - La guida italiana
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Milicia4/Yii2-Ita.git" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Homepage" class="md-nav__link">
+      Homepage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Come Iniziare
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Come Iniziare
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-installing-Yii/" title="Installazione di Yii" class="md-nav__link">
+      Installazione di Yii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-saying-hello/" title="Iniziamo con un "Ciao"" class="md-nav__link">
+      Iniziamo con un "Ciao"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-forms/" title="Lavoriamo con i moduli" class="md-nav__link">
+      Lavoriamo con i moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-working-with-database/" title="Lavoriamo con i database" class="md-nav__link">
+      Lavoriamo con i database
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-generate-code-gii/" title="Generare codice con Gii" class="md-nav__link">
+      Generare codice con Gii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/sub-looking-ahead/" title="Guardiamo avanti" class="md-nav__link">
+      Guardiamo avanti
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Struttura dell'Applicazione
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Struttura dell'Applicazione
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-overview/" title="Panoramica" class="md-nav__link">
+      Panoramica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-entry-script/" title="Entry Script" class="md-nav__link">
+      Entry Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-applications/" title="Applicazioni" class="md-nav__link">
+      Applicazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-application-components/" title="Componenti applicativi" class="md-nav__link">
+      Componenti applicativi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-controllers/" title="Controllori" class="md-nav__link">
+      Controllori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-models/" title="Modelli" class="md-nav__link">
+      Modelli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-views/" title="Viste" class="md-nav__link">
+      Viste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-modules/" title="Moduli" class="md-nav__link">
+      Moduli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-filters/" title="Filtri" class="md-nav__link">
+      Filtri
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-widget/" title="Widget" class="md-nav__link">
+      Widget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-assets/" title="Assets" class="md-nav__link">
+      Assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../application-structure/sub-extensions/" title="Estensioni" class="md-nav__link">
+      Estensioni
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Gestione delle richieste
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Gestione delle richieste
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-request-overview/" title="Panoramica sulla gestione delle richieste" class="md-nav__link">
+      Panoramica sulla gestione delle richieste
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-bootstrapping/" title="Bootstrapping" class="md-nav__link">
+      Bootstrapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-routing-url-creation/" title="Routing e creazione degli URL" class="md-nav__link">
+      Routing e creazione degli URL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-requests/" title="Requests" class="md-nav__link">
+      Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-responses/" title="Responses" class="md-nav__link">
+      Responses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-session-cookies/" title="Session & Cookies" class="md-nav__link">
+      Session & Cookies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-handling-error/" title="Gestione degli errori" class="md-nav__link">
+      Gestione degli errori
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling-requests/sub-logging/" title="Registrazione" class="md-nav__link">
+      Registrazione
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Concetti chiave
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Concetti chiave
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-components/" title="Componenti" class="md-nav__link">
+      Componenti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-properties/" title="Proprietà" class="md-nav__link">
+      Proprietà
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-events/" title="Eventi" class="md-nav__link">
+      Eventi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-behaviors/" title="Comportamenti (Behaviors)" class="md-nav__link">
+      Comportamenti (Behaviors)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-configurations/" title="Configurazioni" class="md-nav__link">
+      Configurazioni
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-alias/" title="Alias" class="md-nav__link">
+      Alias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-autoloading-class/" title="Classe "Autoloading"" class="md-nav__link">
+      Classe "Autoloading"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-service-locator/" title="Localizzatore di servizi" class="md-nav__link">
+      Localizzatore di servizi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/sub-dependency-injection-container/" title="Contenitore Dependency Injection" class="md-nav__link">
+      Contenitore Dependency Injection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Lavorare con i Database
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Lavorare con i Database
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-data-access-object/" title="Accesso ai dati tramite oggetti" class="md-nav__link">
+      Accesso ai dati tramite oggetti
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-query-builder/" title="Generatore di Query" class="md-nav__link">
+      Generatore di Query
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sub-active-record/" title="Active Record" class="md-nav__link">
+      Active Record
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Migrazoni
+      </label>
+    
+    <a href="./" title="Migrazoni" class="md-nav__link md-nav__link--active">
+      Migrazoni
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-una-migrazione" title="Creazione di una migrazione" class="md-nav__link">
+    Creazione di una migrazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generare-una-migrazioni" title="Generare una migrazioni" class="md-nav__link">
+    Generare una migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-una-tabella" title="Creazione di una tabella" class="md-nav__link">
+    Creazione di una tabella
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chiavi-esterne-foreign-key" title="Chiavi esterne (foreign key)" class="md-nav__link">
+    Chiavi esterne (foreign key)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-table" title="Drop Table" class="md-nav__link">
+    Drop Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggiungere-una-colonna" title="Aggiungere una colonna" class="md-nav__link">
+    Aggiungere una colonna
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-column" title="Drop Column" class="md-nav__link">
+    Drop Column
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggiungi-tuan-junction-table" title="Aggiungi tuan "Junction Table"" class="md-nav__link">
+    Aggiungi tuan "Junction Table"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrazioni-transazionali" title="Migrazioni transazionali" class="md-nav__link">
+    Migrazioni transazionali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodi-di-accesso-al-database" title="Metodi di accesso al database" class="md-nav__link">
+    Metodi di accesso al database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applicazione-delle-migrazioni" title="Applicazione delle migrazioni" class="md-nav__link">
+    Applicazione delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripristino-delle-migrazioni" title="Ripristino delle migrazioni" class="md-nav__link">
+    Ripristino delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripristino-delle-migrazioni_1" title="Ripristino delle migrazioni" class="md-nav__link">
+    Ripristino delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refreshing-delle-migrazioni" title="Refreshing delle migrazioni" class="md-nav__link">
+    Refreshing delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elenco-delle-migrazioni" title="Elenco delle migrazioni" class="md-nav__link">
+    Elenco delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifica-della-cronologia-delle-migrazioni" title="Modifica della cronologia delle migrazioni" class="md-nav__link">
+    Modifica della cronologia delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizzazione-delle-migrazioni" title="Personalizzazione delle migrazioni" class="md-nav__link">
+    Personalizzazione delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurazione-del-comando-a-livello-globale" title="Configurazione del comando a livello globale" class="md-nav__link">
+    Configurazione del comando a livello globale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrazioni-con-i-namespace" title="Migrazioni con i namespace" class="md-nav__link">
+    Migrazioni con i namespace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrazioni-separate" title="Migrazioni separate" class="md-nav__link">
+    Migrazioni separate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrazione-di-piu-database" title="Migrazione di più database" class="md-nav__link">
+    Migrazione di più database
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-una-migrazione" title="Creazione di una migrazione" class="md-nav__link">
+    Creazione di una migrazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generare-una-migrazioni" title="Generare una migrazioni" class="md-nav__link">
+    Generare una migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creazione-di-una-tabella" title="Creazione di una tabella" class="md-nav__link">
+    Creazione di una tabella
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chiavi-esterne-foreign-key" title="Chiavi esterne (foreign key)" class="md-nav__link">
+    Chiavi esterne (foreign key)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-table" title="Drop Table" class="md-nav__link">
+    Drop Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggiungere-una-colonna" title="Aggiungere una colonna" class="md-nav__link">
+    Aggiungere una colonna
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-column" title="Drop Column" class="md-nav__link">
+    Drop Column
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggiungi-tuan-junction-table" title="Aggiungi tuan "Junction Table"" class="md-nav__link">
+    Aggiungi tuan "Junction Table"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrazioni-transazionali" title="Migrazioni transazionali" class="md-nav__link">
+    Migrazioni transazionali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodi-di-accesso-al-database" title="Metodi di accesso al database" class="md-nav__link">
+    Metodi di accesso al database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applicazione-delle-migrazioni" title="Applicazione delle migrazioni" class="md-nav__link">
+    Applicazione delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripristino-delle-migrazioni" title="Ripristino delle migrazioni" class="md-nav__link">
+    Ripristino delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripristino-delle-migrazioni_1" title="Ripristino delle migrazioni" class="md-nav__link">
+    Ripristino delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refreshing-delle-migrazioni" title="Refreshing delle migrazioni" class="md-nav__link">
+    Refreshing delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elenco-delle-migrazioni" title="Elenco delle migrazioni" class="md-nav__link">
+    Elenco delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifica-della-cronologia-delle-migrazioni" title="Modifica della cronologia delle migrazioni" class="md-nav__link">
+    Modifica della cronologia delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizzazione-delle-migrazioni" title="Personalizzazione delle migrazioni" class="md-nav__link">
+    Personalizzazione delle migrazioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurazione-del-comando-a-livello-globale" title="Configurazione del comando a livello globale" class="md-nav__link">
+    Configurazione del comando a livello globale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrazioni-con-i-namespace" title="Migrazioni con i namespace" class="md-nav__link">
+    Migrazioni con i namespace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrazioni-separate" title="Migrazioni separate" class="md-nav__link">
+    Migrazioni separate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrazione-di-piu-database" title="Migrazione di più database" class="md-nav__link">
+    Migrazione di più database
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Milicia4/Yii2-Ita.git/edit/master/docs/working-with-databases/sub-migrations.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="migrazione-del-database">Migrazione del Database<a class="headerlink" href="#migrazione-del-database" title="Permanent link">&para;</a></h1>
+<p>Durante lo sviluppo e il mantenimento di un'applicazione basata su database, la struttura del database in uso si evolve proprio come fa il codice sorgente. Ad esempio, durante lo sviluppo di un'applicazione, possiamo aver bisogno di una nuova tabella; dopo che l'applicazione è stata distribuita in produzione, è possibile che venga creato un indice per migliorare le prestazioni della query; e così via. Poiché una modifica della struttura del database richiede spesso alcune modifiche al codice sorgente, Yii supporta la cosiddetta funzione di migrazione del database che consente di tenere traccia delle modifiche del database in termini di migrazioni del database controllate dalla versione insieme al codice sorgente.</p>
+<p>Le seguenti fasi mostrano come la migrazione del database può essere utilizzata da un team durante lo sviluppo:</p>
+<ol>
+<li>Luca crea una nuova migrazione (ad esempio crea una nuova tabella, cambia una definizione di colonna, ecc.).</li>
+<li>Luca usa la nuova migrazione nel sistema di controllo del codice sorgente (es. Git, Mercurial).</li>
+<li>Andrea aggiorna il suo repository dal sistema di controllo del codice sorgente e riceve la nuova migrazione.</li>
+<li>Andrea applica la migrazione al suo database di sviluppo locale, sincronizzando così il suo database per riflettere le modifiche apportate da Tim.</li>
+</ol>
+<p>E i seguenti passaggi mostrano come distribuire una nuova versione con le migrazioni del database alla produzione:</p>
+<ol>
+<li>Scott crea un tag di rilascio per il repository del progetto che contiene alcune nuove migrazioni del database.</li>
+<li>Scott aggiorna il codice sorgente sul server di produzione sul tag di rilascio.</li>
+<li>Scott applica eventuali migrazioni di database accumulate al database di produzione.</li>
+</ol>
+<p>Yii fornisce una serie di strumenti per la riga di comando di migrazione che consentono di:</p>
+<ul>
+<li>creare nuove migrazioni;</li>
+<li>applicare le migrazioni;</li>
+<li>ripristinare le migrazioni;</li>
+<li>riapplicare le migrazioni;</li>
+<li>mostra la cronologia e lo stato della migrazione.</li>
+</ul>
+<p>Tutti questi strumenti sono accessibili tramite il comando <code>yii migrate</code>. In questa sezione descriveremo in dettaglio come eseguire varie attività utilizzando questi strumenti. È inoltre possibile ottenere l'utilizzo di ogni strumento tramite il comando di aiuto <code>yii help migrate</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Le migrazioni potrebbero influire non solo sullo schema del database, ma anche sui dati esistenti per adattarsi al nuovo schema, creare la gerarchia RBAC o pulire la cache.</p>
+</div>
+<h2 id="creazione-di-una-migrazione">Creazione di una migrazione<a class="headerlink" href="#creazione-di-una-migrazione" title="Permanent link">&para;</a></h2>
+<p>Per creare una nuova migrazione, eseguire il seguente comando:</p>
+<pre><code>yii migrate/create &lt;name&gt;
+</code></pre>
+<p>L'argomento <code>name</code> richiesto fornisce una breve descrizione della nuova migrazione. Ad esempio, se la migrazione riguarda la creazione di una nuova tabella denominata <code>notizie</code>, è possibile utilizzare il nome <code>create_news_table</code> ed eseguire il seguente comando:</p>
+<pre><code>yii migrate/create create_news_table
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Poiché l'argomento <code>name</code> verrà utilizzato come parte del nome della classe di migrazione generato, dovrebbe contenere solo lettere, cifre e / o caratteri di sottolineatura.</p>
+</div>
+<p>Il comando precedente creerà un nuovo file di classe PHP chiamato <code>m150101_185401_create_news_table.php</code> nella <code>@app/migrationsdirectory</code>. Il file contiene il seguente codice che dichiara principalmente una classe di migrazione <code>m150101_185401_create_news_table</code> con il codice scheletro:</p>
+<pre><code>&lt;?php
+
+use yii\db\Migration;
+
+class m150101_185401_create_news_table extends Migration{
+
+    public function up(){
+
+    }
+
+    public function down(){
+
+        echo "m101129_185401_create_news_table cannot be reverted.\n";
+
+        return false;
+    }
+
+    /*
+    // Use safeUp/safeDown to run migration code within a transaction
+    public function safeUp(){
+
+    }
+
+    public function safeDown(){
+
+    }
+    */
+}
+</code></pre>
+<p>Ogni migrazione del database è definita come una classe PHP che si estende da <strong>yii \ db \ Migration</strong>. Il nome della classe di migrazione viene generato automaticamente nel formato di <code>m&lt;YYMMDD_HHMMSS&gt;_&lt;Name&gt;</code>, dove</p>
+<ul>
+<li><code>&lt;YYMMDD_HHMMSS&gt;</code> fa riferimento al datetime UTC in cui viene eseguito il comando di creazione della migrazione.</li>
+<li><code>&lt;Name&gt;</code> è uguale al valore dell'argomento <code>name</code> che fornisci al comando.</li>
+</ul>
+<p>Nella classe di migrazione, è previsto che si scriva codice nel metodo <strong>up()</strong> che apporta modifiche alla struttura del database. Si consiglia inoltre di scrivere il codice nel metodo <strong>down()</strong> per annullare le modifiche apportate da <strong>up()</strong>. Il metodo <strong>up()</strong> viene richiamato quando si aggiorna il database con questa migrazione, mentre il metodo <strong>down()</strong> viene richiamato quando si esegue il downgrade del database. Il codice seguente mostra come è possibile implementare la classe di migrazione per creare una tabella <code>news</code>:</p>
+<pre><code>&lt;?php
+
+use yii\db\Schema;
+use yii\db\Migration;
+
+class m150101_185401_create_news_table extends Migration{
+
+    public function up(){
+
+            $this-&gt;createTable('news', [
+            'id' =&gt; Schema::TYPE_PK,
+            'title' =&gt; Schema::TYPE_STRING . ' NOT NULL',
+            'content' =&gt; Schema::TYPE_TEXT,
+        ]);
+    }
+
+    public function down(){
+
+        $this-&gt;dropTable('news');
+    }
+}
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Non tutte le migrazioni sono reversibili. Ad esempio, se il metodo <strong>up()</strong> elimina una riga di una tabella, potresti non essere in grado di recuperare questa riga nel metodo <strong>down()</strong>. A volte, potresti essere troppo pigro per implementare il metodo <strong>down()</strong>, perché non è molto comune ripristinare le migrazioni del database. In questo caso, è necessario tornare un valore <code>false</code> nel metodo <strong>down()</strong> per indicare che la migrazione non è reversibile.</p>
+</div>
+<p>La classe di migrazione di base <strong>yii \ db \ Migration</strong> espone una connessione al database tramite la proprietà <code>db</code>. È possibile utilizzarlo per manipolare lo schema del database utilizzando i metodi descritti in "Operazioni con lo schema del database".</p>
+<p>Anziché utilizzare tipi fisici, durante la creazione di una tabella o colonna è necessario utilizzare i tipi astratti in modo che le migrazioni siano indipendenti da DBMS specifici. La classe <strong>yii \ db \ Schema</strong> definisce un insieme di costanti per rappresentare i tipi astratti supportati. Queste costanti sono denominate nel formato di <code>TYPE_&lt;Name&gt;</code>. Ad esempio, <code>TYPE_PK</code> si riferisce al tipo di chiave primaria auto-incrementale; <code>TYPE_STRING</code> si riferisce a un tipo di stringa. Quando una migrazione viene applicata a un determinato database, i tipi astratti verranno tradotti nei corrispondenti tipi fisici. Nel caso di MySQL, <code>TYPE_PK</code> verrà trasformato in <code>int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY</code>, mentre <code>TYPE_STRING</code>diventa <code>varchar(255)</code>.</p>
+<p>È possibile aggiungere ulteriori vincoli quando si utilizzano i tipi astratti. Nell'esempio sopra, <code>NOT NULL</code> viene aggiunto a <code>Schema::TYPE_STRING</code> per specificare che la colonna non può essere <code>null</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>La mappatura tra tipi astratti e tipi fisici è specificata dalla proprietà <strong>$typeMap</strong> in ogni clsse <strong>QueryBuilder</strong>.</p>
+</div>
+<p>Dalla versione 2.0.6, è possibile utilizzare il generatore di schemi appena introdotto che fornisce un modo più conveniente di definire lo schema di colonna. Quindi la migrazione sopra potrebbe essere scritta come la seguente:</p>
+<pre><code>&lt;?php
+
+use yii\db\Migration;
+
+class m150101_185401_create_news_table extends Migration{
+
+    public function up(){
+
+        $this-&gt;createTable('news', [
+            'id' =&gt; $this-&gt;primaryKey(),
+            'title' =&gt; $this-&gt;string()-&gt;notNull(),
+            'content' =&gt; $this-&gt;text(),
+        ]);
+    }
+
+    public function down(){
+
+        $this-&gt;dropTable('news');
+    }
+}
+</code></pre>
+<p>Un elenco di tutti i metodi disponibili per la definizione dei tipi di colonna è disponibile nella documentazione API di <strong>yii \ db \ SchemaBuilderTrait</strong>.</p>
+<h2 id="generare-una-migrazioni">Generare una migrazioni<a class="headerlink" href="#generare-una-migrazioni" title="Permanent link">&para;</a></h2>
+<p>La console di migrazione della versione 2.0.7 offre un modo conveniente per creare migrazioni.</p>
+<p>Se il nome della migrazione è di un modulo speciale, ad esempio <code>create_xxx_table</code> o <code>drop_xxx_table</code> il file di migrazione generato conterrà codice aggiuntivo, in questo caso la creazione / eliminazione di tabelle. Di seguito sono descritte tutte le varianti di questa funzione.</p>
+<h2 id="creazione-di-una-tabella">Creazione di una tabella<a class="headerlink" href="#creazione-di-una-tabella" title="Permanent link">&para;</a></h2>
+<pre><code>yii migrate/create create_post_table
+</code></pre>
+<p>genera</p>
+<pre><code>/**
+* Handles the creation for table `post`.
+*/
+
+class m150811_220037_create_post_table extends Migration{
+
+    /**
+    * @inheritdoc
+    */
+    public function up(){
+
+        $this-&gt;createTable('post', [
+            'id' =&gt; $this-&gt;primaryKey()
+        ]);
+    }
+
+    /**
+    * @inheritdoc
+    */
+    public function down(){
+
+        $this-&gt;dropTable('post');
+    }
+}
+</code></pre>
+<p>Per creare subito i campi tabella, dobbiamo specificarli tramite l'opzione <code>--fields</code>.</p>
+<pre><code>yii migrate/create create_post_table --fields="title:string,body:text"
+</code></pre>
+<p>genera</p>
+<pre><code>/**
+* Handles the creation for table `post`.
+*/
+class m150811_220037_create_post_table extends Migration{
+
+    /**
+    * @inheritdoc
+    */
+    public function up(){
+
+        $this-&gt;createTable('post', [
+            'id' =&gt; $this-&gt;primaryKey(),
+            'title' =&gt; $this-&gt;string(),
+            'body' =&gt; $this-&gt;text(),
+        ]);
+    }
+
+    /**
+    * @inheritdoc
+    */
+    public function down(){
+
+        $this-&gt;dropTable('post');
+    }
+}
+</code></pre>
+<p>È possibile specificare più parametri di campo.</p>
+<pre><code>yii migrate/create create_post_table --fields="title:string(12):notNull:unique,body:text"
+</code></pre>
+<p>genera</p>
+<pre><code>/**
+ * Handles the creation for table `post`.
+*/
+class m150811_220037_create_post_table extends Migration{
+
+    /**
+    * @inheritdoc
+    */
+    public function up(){
+
+        $this-&gt;createTable('post', [
+            'id' =&gt; $this-&gt;primaryKey(),
+            'title' =&gt; $this-&gt;string(12)-&gt;notNull()-&gt;unique(),
+            'body' =&gt; $this-&gt;text()
+        ]);
+    }
+
+    /**
+    * @inheritdoc
+    */
+    public function down(){
+
+        $this-&gt;dropTable('post');
+    }
+}
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>La chiave primaria viene aggiunta automaticamente e viene denominata <code>id</code> per impostazione predefinita. Se vuoi usare un altro nome, puoi specificarlo esplicitamente <code>--fields="name:primaryKey"</code>.</p>
+</div>
+<h2 id="chiavi-esterne-foreign-key">Chiavi esterne (foreign key)<a class="headerlink" href="#chiavi-esterne-foreign-key" title="Permanent link">&para;</a></h2>
+<p>Dal momento che 2.0.8 il generatore supporta chiavi esterne utilizzando la la chiave <code>foreignKey</code>.</p>
+<pre><code>yii migrate/create create_post_table --fields="author_id:integer:notNull:foreignKey(user),category_id:integer:defaultValue(1):foreignKey,title:string,body:text"
+</code></pre>
+<p>genera</p>
+<pre><code>/**
+* Handles the creation for table `post`.
+* Has foreign keys to the tables:
+*
+* - `user`
+* - `category`
+*/
+class m160328_040430_create_post_table extends Migration{
+
+    /**
+    * @inheritdoc
+    */
+    public function up(){
+
+        $this-&gt;createTable('post', [
+            'id' =&gt; $this-&gt;primaryKey(),
+            'author_id' =&gt; $this-&gt;integer()-&gt;notNull(),
+            'category_id' =&gt; $this-&gt;integer()-&gt;defaultValue(1),
+            'title' =&gt; $this-&gt;string(),
+            'body' =&gt; $this-&gt;text(),
+        ]);
+
+        // creates index for column `author_id`
+        $this-&gt;createIndex(
+            'idx-post-author_id',
+            'post',
+            'author_id'
+        );
+
+        // add foreign key for table `user`
+        $this-&gt;addForeignKey(
+            'fk-post-author_id',
+            'post',
+            'author_id',
+            'user',
+            'id',
+            'CASCADE'
+        );
+
+        // creates index for column `category_id`
+        $this-&gt;createIndex(
+            'idx-post-category_id',
+            'post',
+            'category_id'
+        );
+
+        // add foreign key for table `category`
+        $this-&gt;addForeignKey(
+            'fk-post-category_id',
+            'post',
+            'category_id',
+            'category',
+            'id',
+            'CASCADE'
+        );
+    }
+
+    /**
+    * @inheritdoc
+    */
+    public function down(){
+
+        // drops foreign key for table `user`
+        $this-&gt;dropForeignKey(
+            'fk-post-author_id',
+            'post'
+        );
+
+        // drops index for column `author_id`
+        $this-&gt;dropIndex(
+            'idx-post-author_id',
+            'post'
+        );
+
+        // drops foreign key for table `category`
+        $this-&gt;dropForeignKey(
+            'fk-post-category_id',
+            'post'
+        );
+
+        // drops index for column `category_id`
+        $this-&gt;dropIndex(
+            'idx-post-category_id',
+            'post'
+        );
+
+        $this-&gt;dropTable('post');
+    }
+}
+</code></pre>
+<p>La posizione della parola chiave <code>foreignKey</code> nella descrizione della colonna non modifica il codice generato. Questo significa:</p>
+<ul>
+<li><code>author_id:integer:notNull:foreignKey(user)</code></li>
+<li><code>author_id:integer:foreignKey(user):notNull</code></li>
+<li><code>author_id:foreignKey(user):integer:notNull</code></li>
+</ul>
+<p>Tutti generano lo stesso codice.</p>
+<p>La parola chiave <code>foreignKey</code> può prendere un parametro tra parentesi che sarà il nome della tabella correlata per la chiave esterna generata. Se non viene passato alcun parametro, il nome della tabella sarà dedotto dal nome della colonna.</p>
+<p>Nell'esempio sopra <code>author_id:integer:notNull:foreignKey(user)</code> genererà una colonna denominata <code>author_id</code> con una chiave esterna per la tabella <code>user</code> mentre <code>category_id:integer:defaultValue(1):foreignKey</code> genererà una colonna <code>category_id</code> con una chiave esterna per la tabella <code>category</code>.</p>
+<p>Dalla 2.0.11, la parola chiave <code>foreignKey</code> accetta un secondo parametro, separato da uno spazio bianco. Accetta il nome della colonna correlata per la chiave esterna generata. Se non viene passato nessun secondo parametro, il nome della colonna verrà recuperato dallo schema della tabella. Se non esiste uno schema, la chiave primaria non è impostata o è composta, e verrà utilizzato il nome predefinito <code>id</code>.</p>
+<h2 id="drop-table">Drop Table<a class="headerlink" href="#drop-table" title="Permanent link">&para;</a></h2>
+<pre><code>yii migrate/create drop_post_table --fields="title:string(12):notNull:unique,body:text"
+</code></pre>
+<p>genera</p>
+<pre><code>class m150811_220037_drop_post_table extends Migration{
+
+    public function up(){
+
+        $this-&gt;dropTable('post');
+    }
+
+    public function down(){
+
+        $this-&gt;createTable('post', [
+            'id' =&gt; $this-&gt;primaryKey(),
+            'title' =&gt; $this-&gt;string(12)-&gt;notNull()-&gt;unique(),
+            'body' =&gt; $this-&gt;text()
+        ]);
+    }
+}
+</code></pre>
+<h2 id="aggiungere-una-colonna">Aggiungere una colonna<a class="headerlink" href="#aggiungere-una-colonna" title="Permanent link">&para;</a></h2>
+<p>Se il nome della migrazione è del modulo, il contenuto del file <code>add_xxx_column_to_yyy_table</code> conterrà <code>addColumn</code> e le istruzioni necessarie <code>dropColumn</code>.</p>
+<p>Per aggiungere una colonna:</p>
+<pre><code>yii migrate/create add_position_column_to_post_table --fields="position:integer"
+</code></pre>
+<p>genera</p>
+<pre><code>class m150811_220037_add_position_column_to_post_table extends Migration{
+
+    public function up(){
+
+        $this-&gt;addColumn('post', 'position', $this-&gt;integer());
+    }
+
+    public function down(){
+
+        $this-&gt;dropColumn('post', 'position');
+    }
+}
+</code></pre>
+<p>È possibile specificare più colonne come segue:</p>
+<pre><code>yii migrate/create add_xxx_column_yyy_column_to_zzz_table --fields="xxx:integer,yyy:text"
+</code></pre>
+<h2 id="drop-column">Drop Column<a class="headerlink" href="#drop-column" title="Permanent link">&para;</a></h2>
+<p>Se il nome della migrazione è del modulo, il contenuto del file <code>drop_xxx_column_from_yyy_table</code> conterrà <code>addColumn</code> e le istruzioni necessarie <code>dropColumn</code>.</p>
+<pre><code>yii migrate/create drop_position_column_from_post_table --fields="position:integer"
+</code></pre>
+<p>genera</p>
+<pre><code>class m150811_220037_drop_position_column_from_post_table extends Migration{
+
+    public function up(){
+
+        $this-&gt;dropColumn('post', 'position');
+    }
+
+    public function down(){
+
+        $this-&gt;addColumn('post', 'position', $this-&gt;integer());
+    }
+}
+</code></pre>
+<h2 id="aggiungi-tuan-junction-table">Aggiungi tuan "Junction Table"<a class="headerlink" href="#aggiungi-tuan-junction-table" title="Permanent link">&para;</a></h2>
+<p>Se il nome della migrazione è nella forma <code>create_junction_table_for_xxx_and_yyy_tables</code> o <code>create_junction_xxx_and_yyy_tables</code>, significa che è necessario creare una tabella di collegamento.</p>
+<pre><code>yii migrate/create create_junction_table_for_post_and_tag_tables --fields="created_at:dateTime"
+</code></pre>
+<p>genera</p>
+<pre><code>/**
+* Handles the creation for table `post_tag`.
+* Has foreign keys to the tables:
+*
+* - `post`
+* - `tag`
+*/
+class m160328_041642_create_junction_table_for_post_and_tag_tables extends Migration{
+
+    /**
+    * @inheritdoc
+    */
+    public function up(){
+
+        $this-&gt;createTable('post_tag', [
+            'post_id' =&gt; $this-&gt;integer(),
+            'tag_id' =&gt; $this-&gt;integer(),
+            'created_at' =&gt; $this-&gt;dateTime(),
+        'PRIMARY KEY(post_id, tag_id)',
+        ]);
+
+        // creates index for column `post_id`
+        $this-&gt;createIndex(
+            'idx-post_tag-post_id',
+            'post_tag',
+            'post_id'
+        );
+
+        // add foreign key for table `post`
+        $this-&gt;addForeignKey(
+            'fk-post_tag-post_id',
+            'post_tag',
+            'post_id',
+            'post',
+            'id',
+            'CASCADE'
+        );
+
+        // creates index for column `tag_id`
+        $this-&gt;createIndex(
+            'idx-post_tag-tag_id',
+            'post_tag',
+            'tag_id'
+        );
+
+        // add foreign key for table `tag`
+        $this-&gt;addForeignKey(
+            'fk-post_tag-tag_id',
+            'post_tag',
+            'tag_id',
+            'tag',
+            'id',
+            'CASCADE'
+        );
+    }
+
+    /**
+    * @inheritdoc
+    */
+    public function down(){
+
+        // drops foreign key for table `post`
+        $this-&gt;dropForeignKey(
+            'fk-post_tag-post_id',
+            'post_tag'
+        );
+
+        // drops index for column `post_id`
+        $this-&gt;dropIndex(
+            'idx-post_tag-post_id',
+            'post_tag'
+        );
+
+        // drops foreign key for table `tag`
+        $this-&gt;dropForeignKey(
+            'fk-post_tag-tag_id',
+        'post_tag'
+        );
+
+        // drops index for column `tag_id`
+        $this-&gt;dropIndex(
+            'idx-post_tag-tag_id',
+            'post_tag'
+        );
+
+        $this-&gt;dropTable('post_tag');
+    }
+}
+</code></pre>
+<p>Nel caso in cui la tabella non sia definita nello schema o la chiave primaria non sia impostata o sia composta, viene utilizzato il nome predefinito <code>id</code>.</p>
+<h2 id="migrazioni-transazionali">Migrazioni transazionali<a class="headerlink" href="#migrazioni-transazionali" title="Permanent link">&para;</a></h2>
+<p>Durante l'esecuzione di migrazioni di DB complesse, è importante garantire che ogni migrazione abbia esito positivo o negativo nel suo insieme, in modo che il database possa mantenere integrità e coerenza. Per raggiungere questo obiettivo,si consiglia di includere le operazioni DB di ogni migrazione in una transazione .</p>
+<p>Un modo ancora più semplice di implementare le migrazioni transazionali è inserire il codice di migrazione nei metodi <strong>safeUp()</strong> e <strong>safeDown()</strong>. Questi due metodi differiscono da <strong>up()</strong> e <strong>down()</strong> in quanto sono inclusi implicitamente in una transazione. Di conseguenza, se qualsiasi operazione in questi metodi fallisce, tutte le operazioni precedenti verranno automaticamente ripristinate.</p>
+<p>Nell'esempio seguente, oltre a creare la tabella <code>news</code>, inseriamo anche una riga iniziale in questa tabella.</p>
+<pre><code>&lt;?php
+
+use yii\db\Migration;
+
+class m150101_185401_create_news_table extends Migration{
+
+    public function safeUp(){
+
+        $this-&gt;createTable('news', [
+            'id' =&gt; $this-&gt;primaryKey(),
+            'title' =&gt; $this-&gt;string()-&gt;notNull(),
+            'content' =&gt; $this-&gt;text(),
+        ]);
+
+        $this-&gt;insert('news', [
+            'title' =&gt; 'test 1',
+            'content' =&gt; 'content 1',
+        ]);
+    }
+
+    public function safeDown(){
+
+        $this-&gt;delete('news', ['id' =&gt; 1]);
+        $this-&gt;dropTable('news');
+    }
+}
+</code></pre>
+<p>Si noti che di solito quando si eseguono più operazioni DB in <strong>safeUp()</strong>, è necessario invertire il loro ordine di esecuzione <strong>safeDown()</strong>. Nell'esempio sopra, prima creiamo la tabella e poi inseriamo una riga in <strong>safeUp()</strong>; mentre in <strong>safeDown()</strong> prima eliminiamo la riga e poi rilasciamo la tabella.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Non tutti i DBMS supportano le transazioni. E alcune query DB non possono essere inserite in una transazione. Per alcuni esempi, fai riferimento a commit impliciti. Se questo è il caso, dovresti comunque implementare <strong>up()</strong> e <strong>down()</strong>, invece.</p>
+</div>
+<h2 id="metodi-di-accesso-al-database">Metodi di accesso al database<a class="headerlink" href="#metodi-di-accesso-al-database" title="Permanent link">&para;</a></h2>
+<p>La classe di migrazione di base <strong>yii \ db \ Migration</strong> fornisce un insieme di metodi per consentire l'accesso e la manipolazione dei database. È possibile che questi metodi vengano denominati in modo simile ai metodi DAO forniti dalla classe <strong>yii \ db \ Command</strong>. Ad esempio, il metodo <strong>yii \ db \ Migration :: createTable()</strong> consente di creare una nuova tabella, proprio come fa <strong>yii \ db \ Command :: createTable()</strong>.</p>
+<p>Il vantaggio dell'utilizzo dei metodi forniti da <strong>yii \ db \ Migration</strong> è che non è necessario creare esplicitamente istanze <strong>yii \ db \ Command</strong> e l'esecuzione di ogni metodo mostrerà automaticamente messaggi utili che indicano quali operazioni di database sono eseguite e quanto tempo prendere.</p>
+<p>Di seguito è riportato l'elenco di tutti questi metodi di accesso al database:</p>
+<ul>
+<li><strong>execute()</strong>: esecuzione di un'istruzione SQL</li>
+<li><strong>insert()</strong>: inserimento di una singola riga</li>
+<li><strong>batchInsert()</strong>: inserimento di più righe</li>
+<li><strong>update()</strong>: aggiornamento delle righe</li>
+<li><strong>delete()</strong>: eliminazione di righe</li>
+<li><strong>createTable()</strong>: creazione di una tabella</li>
+<li><strong>renameTable()</strong>: rinomina una tabella</li>
+<li><strong>dropTable()</strong>: rimozione di una tabella</li>
+<li><strong>truncateTable()</strong>: rimuove tutte le righe in una tabella</li>
+<li><strong>addColumn()</strong>: aggiunta di una colonna</li>
+<li><strong>renameColumn()</strong>: rinomina una colonna</li>
+<li><strong>dropColumn()</strong>: rimuovendo una colonna</li>
+<li><strong>alterColumn()</strong>: modifica di una colonna</li>
+<li><strong>addPrimaryKey()</strong>: aggiunta di una chiave primaria</li>
+<li><strong>dropPrimaryKey()</strong>: rimozione di una chiave primaria</li>
+<li><strong>addForeignKey()</strong>: aggiunta di una chiave esterna</li>
+<li><strong>dropForeignKey()</strong>: rimozione di una chiave esterna</li>
+<li><strong>createIndex()</strong>: creazione di un indice</li>
+<li><strong>dropIndex()</strong>: rimozione di un indice</li>
+<li><strong>addCommentOnColumn()</strong>: aggiunta di commenti alla colonna</li>
+<li><strong>dropCommentFromColumn()</strong>: eliminazione del commento dalla colonna</li>
+<li><strong>addCommentOnTable()</strong>: aggiunta di commenti alla tabella</li>
+<li><strong>dropCommentFromTable()</strong>: eliminazione del commento dalla tabella</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>yii \ db \ Migration</strong> non fornisce un metodo di query del database. Questo perché normalmente non è necessario visualizzare un messaggio aggiuntivo sul recupero dei dati da un database. È anche possibile utilizzare il potente generatore di query per creare ed eseguire query complesse. L'utilizzo di Query Builder in una migrazione potrebbe essere simile a questo:</p>
+<pre><code>// update status field for all users
+foreach((new Query)-&gt;from('users')-&gt;each() as $user) {
+    $this-&gt;update('users', ['status' =&gt; 1], ['id' =&gt; $user['id']]);
+}
+</code></pre>
+</div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Quando si manipolano i dati utilizzando una migrazione, è possibile che l'utilizzo delle classi Active Record, possa essere utile poiché parte della logica è già implementata lì. Tuttavia, tenere presente che, contrariamente al codice scritto nelle migrazioni, la cui natura è di rimanere costante per sempre, la logica dell'applicazione è soggetta a modifiche. Pertanto, quando si utilizza l'Active Record nel codice di migrazione, le modifiche apportate alla logica nel livello Active Record possono interrompere accidentalmente le migrazioni esistenti. Per questo motivo il codice di migrazione dovrebbe essere tenuto indipendente da altre logiche applicative come le classi di record attivi.</p>
+</div>
+<h2 id="applicazione-delle-migrazioni">Applicazione delle migrazioni<a class="headerlink" href="#applicazione-delle-migrazioni" title="Permanent link">&para;</a></h2>
+<p>Per aggiornare un database alla sua ultima struttura, è necessario applicare tutte le nuove migrazioni disponibili utilizzando il seguente comando:</p>
+<pre><code>yii migrate
+</code></pre>
+<p>Questo comando elencherà tutte le migrazioni che non sono state applicate finora. Se confermi di voler applicare queste migrazioni, eseguirà il metodo <strong>up()</strong> o <strong>safeUp()</strong> in ogni nuova classe di migrazione, una dopo l'altra, nell'ordine dei loro valori di timestamp. Se una qualsiasi delle migrazioni fallisce, il comando si chiude senza applicare il resto delle migrazioni.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Nel caso in cui tu non abbia una linea di comando sul tuo server puoi provare l' estensione della <strong>web shell</strong>.</p>
+</div>
+<p>Per ogni migrazione che è stata applicata correttamente, il comando inserirà una riga in una tabella di database chiamata <code>migration</code> per registrare l'applicazione corretta della migrazione. Ciò consentirà allo strumento di migrazione di identificare quali migrazioni sono state applicate e quali no.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Lo strumento di migrazione crea automaticamente la tabella <code>migration</code> nel database specificato dall'opzione <code>db</code> del comando. Per impostazione predefinita, il database è specificato dal componente dell'applicazione <code>db</code>.</p>
+</div>
+<p>A volte, puoi solo applicare una o alcune nuove migrazioni, invece di tutte le migrazioni disponibili. È possibile farlo specificando il numero di migrazioni che si desidera applicare durante l'esecuzione del comando. Ad esempio, il seguente comando proverà ad applicare le successive tre migrazioni disponibili:</p>
+<pre><code>yii migrate 3
+</code></pre>
+<p>È inoltre possibile specificare in modo esplicito una migrazione particolare a cui il database deve essere migrato utilizzando il migrate/tocomando in uno dei seguenti formati:</p>
+<pre><code>yii migrate/to 150101_185401                      # using timestamp to specify the migration
+yii migrate/to "2015-01-01 18:54:01"              # using a string that can be parsed by strtotime()
+yii migrate/to m150101_185401_create_news_table   # using full name
+yii migrate/to 1392853618                         # using UNIX timestamp
+</code></pre>
+<p>Se sono presenti migrazioni non applicate precedenti a quella specificata, verranno tutte applicate prima che venga applicata la migrazione specificata.</p>
+<p>Se la migrazione specificata è già stata applicata in precedenza, tutte le successive migrazioni applicate verranno ripristinate.</p>
+<h2 id="ripristino-delle-migrazioni">Ripristino delle migrazioni<a class="headerlink" href="#ripristino-delle-migrazioni" title="Permanent link">&para;</a></h2>
+<p>Per annullare una o più migrazioni precedentemente applicate, è possibile eseguire il seguente comando:</p>
+<pre><code>yii migrate/down     # revert the most recently applied migration
+yii migrate/down 3   # revert the most 3 recently applied migrations
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Non tutte le migrazioni sono reversibili. Il tentativo di annullare tali migrazioni causerà un errore e interromperà l'intero processo di ripristino.</p>
+</div>
+<h2 id="ripristino-delle-migrazioni_1">Ripristino delle migrazioni<a class="headerlink" href="#ripristino-delle-migrazioni_1" title="Permanent link">&para;</a></h2>
+<p>Ripristinare le migrazioni significa innanzitutto ripristinare le migrazioni specificate e quindi applicare nuovamente. Questo può essere fatto come segue:</p>
+<pre><code>yii migrate/redo        # redo the last applied migration
+yii migrate/redo 3      # redo the last 3 applied migrations
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Se una migrazione non è reversibile, non sarà possibile ripristinarla.</p>
+</div>
+<h2 id="refreshing-delle-migrazioni">Refreshing delle migrazioni<a class="headerlink" href="#refreshing-delle-migrazioni" title="Permanent link">&para;</a></h2>
+<p>Dal momento che Yii 2.0.13 è possibile eliminare tutte le tabelle e le chiavi esterne dal database e applicare tutte le migrazioni dall'inizio.</p>
+<pre><code>yii migrate/fresh       # Truncate the database and
+</code></pre>
+<h2 id="elenco-delle-migrazioni">Elenco delle migrazioni<a class="headerlink" href="#elenco-delle-migrazioni" title="Permanent link">&para;</a></h2>
+<p>Per elencare quali migrazioni sono state applicate e quali no, puoi utilizzare i seguenti comandi:</p>
+<pre><code>yii migrate/history     # showing the last 10 applied migrations
+yii migrate/history 5   # showing the last 5 applied migrations
+yii migrate/history all # showing all applied migrations
+
+yii migrate/new         # showing the first 10 new migrations
+yii migrate/new 5       # showing the first 5 new migrations
+yii migrate/new all     # showing all new migrations
+</code></pre>
+<h2 id="modifica-della-cronologia-delle-migrazioni">Modifica della cronologia delle migrazioni<a class="headerlink" href="#modifica-della-cronologia-delle-migrazioni" title="Permanent link">&para;</a></h2>
+<p>Invece di applicare o ripristinare le migrazioni, a volte potresti semplicemente voler segnalare che il tuo database è stato aggiornato a una particolare migrazione. Ciò accade spesso quando si modifica manualmente il database in uno stato particolare e non si desidera che le migrazioni per tale modifica vengano applicate nuovamente in un secondo momento. È possibile raggiungere questo obiettivo con il seguente comando:</p>
+<pre><code>yii migrate/mark 150101_185401                      # using timestamp to specify the migration
+yii migrate/mark "2015-01-01 18:54:01"              # using a string that can be parsed by strtotime()
+yii migrate/mark m150101_185401_create_news_table   # using full name
+yii migrate/mark 1392853618                         # using UNIX timestamp
+</code></pre>
+<p>Il comando modificherà la tabella <code>migration</code> aggiungendo o eliminando determinate righe per indicare che il database ha applicato le migrazioni a quella specificata. Nessuna migrazione verrà applicata o ripristinata da questo comando.</p>
+<h2 id="personalizzazione-delle-migrazioni">Personalizzazione delle migrazioni<a class="headerlink" href="#personalizzazione-delle-migrazioni" title="Permanent link">&para;</a></h2>
+<p>Esistono diversi modi per personalizzare il comando di migrazione.</p>
+<p><strong><em>Utilizzo delle opzioni della riga di comando</em></strong></p>
+<p>Il comando di migrazione viene fornito con alcune opzioni della riga di comando che possono essere utilizzate per personalizzare i suoi comportamenti:</p>
+<ul>
+<li>
+<p><code>interactive</code>: booleano (predefinito su <code>true</code>), specifica se eseguire le migrazioni in modalità interattiva. Quando questo è <code>true</code>, l'utente verrà richiesto prima che il comando esegua determinate azioni. Si consiglia di impostarlo su <code>false</code> se il comando viene utilizzato in un processo in background.</p>
+</li>
+<li>
+<p><code>migrationPath</code>: string | array (predefinito su <code>@app/migrations</code>), specifica la directory che memorizza tutti i file classe di migrazione. Questo può essere specificato come un percorso di directory o un alias di percorso. Si noti che la directory deve esistere o che il comando potrebbe generare un errore. Dalla versione 2.0.12 è possibile specificare un array per il caricamento delle migrazioni da più origini.</p>
+</li>
+<li>
+<p><code>migrationTable</code>: string (predefinito su <code>migration</code>), specifica il nome della tabella del database per la memorizzazione delle informazioni sulla cronologia della migrazione. La tabella verrà automaticamente creata dal comando se non esiste. Puoi anche crearlo manualmente usando la struttura <code>version varchar(255) primary key, apply_time integer</code>.</p>
+</li>
+<li>
+<p><code>db</code>: string (predefinito su <code>db</code>), specifica l'ID del componente dell'applicazione di database. Rappresenta il database che verrà migrato utilizzando questo comando.</p>
+</li>
+<li>
+<p><code>templateFile</code>: string (predefinito su <code>@yii/views/migration.php</code>), specifica il percorso del file modello utilizzato per generare file di classe di migrazione scheletro. Questo può essere specificato come percorso del file o alias del percorso. Il file modello è uno script PHP in cui è possibile utilizzare una variabile predefinita denominata $classNameper ottenere il nome della classe di migrazione.</p>
+</li>
+<li>
+<p><code>generatorTemplateFiles</code>: array (predefinito su `[</p>
+<p>'create_table' =&gt; '@yii/views/createTableMigration.php',
+'drop_table' =&gt; '@yii/views/dropTableMigration.php',
+'add_column' =&gt; '@yii/views/addColumnMigration.php',
+'drop_column' =&gt; '@yii/views/dropColumnMigration.php',
+'create_junction' =&gt; '@yii/views/createTableMigration.php'</p>
+</li>
+</ul>
+<p>] `), specifica i file modello per generare il codice di migrazione.</p>
+<ul>
+<li><code>fields</code>: array di stringhe di definizione della colonna utilizzate per la creazione del codice di migrazione. Predefinito a <code>[]</code>. Il formato di ciascuna definizione è <code>COLUMN_NAME:COLUMN_TYPE:COLUMN_DECORATOR</code>. Ad esempio, <code>--fields=name:string(12):notNull</code> produce una colonna di stringa di dimensioni 12 che non lo è <code>null</code>.</li>
+</ul>
+<p>L'esempio seguente mostra come è possibile utilizzare queste opzioni.</p>
+<p>Ad esempio, se vogliamo migrare un modulo <code>forum</code> i cui file di migrazione si trovano all'interno della directory <code>migrations</code> del modulo , quindi possiamo usare il seguente comando:</p>
+<pre><code># migrate the migrations in a forum module non-interactively
+yii migrate --migrationPath=@app/modules/forum/migrations --interactive=0
+</code></pre>
+<h2 id="configurazione-del-comando-a-livello-globale">Configurazione del comando a livello globale<a class="headerlink" href="#configurazione-del-comando-a-livello-globale" title="Permanent link">&para;</a></h2>
+<p>Invece di immettere gli stessi valori di opzione ogni volta che si esegue il comando di migrazione, è possibile configurarlo una volta per tutte nella configurazione dell'applicazione come mostrato di seguito:</p>
+<pre><code>return [
+    'controllerMap' =&gt; [
+        'migrate' =&gt; [
+            'class' =&gt; 'yii\console\controllers\MigrateController',
+            'migrationTable' =&gt; 'backend_migration',
+        ],
+    ],
+];
+</code></pre>
+<p>Con la configurazione precedente, ogni volta che si esegue il comando di migrazione, la tabella <code>backend_migration</code> verrà utilizzata per registrare la cronologia di migrazione. Non è più necessario specificarlo tramite l'opzione <code>migrationTable</code> della riga di comando.</p>
+<h2 id="migrazioni-con-i-namespace">Migrazioni con i namespace<a class="headerlink" href="#migrazioni-con-i-namespace" title="Permanent link">&para;</a></h2>
+<p>Dalla versione 2.0.10 è possibile utilizzare i namespace per le classi di migrazione. È possibile specificare l'elenco dei namespace di migrazione tramite <code>migrationNamespaces</code>. L'utilizzo dei namespace per le classi di migrazione consente l'utilizzo delle diverse posizioni di origine per le migrazioni. Per esempio:</p>
+<pre><code>return [
+    'controllerMap' =&gt; [
+        'migrate' =&gt; [
+            'class' =&gt; 'yii\console\controllers\MigrateController',
+            'migrationPath' =&gt; null, // disable non-namespaced migrations if app\migrations is listed below
+            'migrationNamespaces' =&gt; [
+                'app\migrations', // Common migrations for the whole application
+                'module\migrations', // Migrations for the specific project's module
+                'some\extension\migrations', // Migrations for the specific extension
+            ],
+        ],
+    ],
+];
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Le migrazioni applicate da diversi namespace creeranno un'unica cronologia di migrazione, ad esempio potresti non essere in grado di applicare o ripristinare le migrazioni da un determinato namespace.</p>
+</div>
+<p>Durante l'esecuzione delle migrazioni con namespace: possiamo crearne uno nuovo, ripristinarne uno,  e così via. E' necessario specificare il namespace completo prima del nome della migrazione. Si noti che il simbolo <code>\</code> è solitamente considerato un carattere speciale nella shell, quindi è necessario eseguirlo correttamente per evitare errori di shell o comportamenti scorretti. Per esempio:</p>
+<pre><code>yii migrate/create 'app\\migrations\\createUserTable'
+</code></pre>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Le migrazioni specificate tramite <code>migrationPath</code> non possono contenere un namespace, quindi la migrazione dei namespace può essere applicata solo tramite la proprietà <strong>yii \ console \ controllers \ MigrateController :: $ migrationNamespaces</strong>.</p>
+</div>
+<p>Dalla versione 2.0.12 la proprietà <code>migrationPath</code> accetta anche una matrice per specificare più directory che contengono migrazioni senza un namespace. Questo è principalmente aggiunto per essere utilizzato in progetti esistenti che utilizzano migrazioni da luoghi diversi. Queste migrazioni provengono principalmente da fonti esterne, come le estensioni Yii sviluppate da altri sviluppatori, che non possono essere modificate per utilizzare facilmente spazi dei nomi quando si inizia a utilizzare il nuovo approccio.</p>
+<h2 id="migrazioni-separate">Migrazioni separate<a class="headerlink" href="#migrazioni-separate" title="Permanent link">&para;</a></h2>
+<p>A volte l'utilizzo di un'unica cronologia di migrazione per tutte le migrazioni di progetto non è auspicabile. Ad esempio: è possibile installare alcune estensioni "blog", che contengono funzionalità completamente separate e contengono le proprie migrazioni, che non dovrebbero influire su quelle dedicate alle funzionalità del progetto principale.</p>
+<p>Se si desidera che diverse migrazioni vengano applicate e tracciate completamente separate l'una dall'altra, è possibile configurare più comandi di migrazione che utilizzeranno diversi spazi dei nomi e tabelle della cronologia delle migrazioni:</p>
+<pre><code>return [
+    'controllerMap' =&gt; [
+        // Common migrations for the whole application
+        'migrate-app' =&gt; [
+            'class' =&gt; 'yii\console\controllers\MigrateController',
+            'migrationNamespaces' =&gt; ['app\migrations'],
+            'migrationTable' =&gt; 'migration_app',
+            'migrationPath' =&gt; null,
+        ],
+        // Migrations for the specific project's module
+        'migrate-module' =&gt; [
+            'class' =&gt; 'yii\console\controllers\MigrateController',
+            'migrationNamespaces' =&gt; ['module\migrations'],
+            'migrationTable' =&gt; 'migration_module',
+            'migrationPath' =&gt; null,
+        ],
+        // Migrations for the specific extension
+        'migrate-rbac' =&gt; [
+            'class' =&gt; 'yii\console\controllers\MigrateController',
+            'migrationPath' =&gt; '@yii/rbac/migrations',
+            'migrationTable' =&gt; 'migration_rbac',
+        ],
+    ],
+];
+</code></pre>
+<p>Nota che per sincronizzare il database ora devi eseguire più comandi invece di uno:</p>
+<pre><code>yii migrate-app
+yii migrate-module
+yii migrate-rbac
+</code></pre>
+<h2 id="migrazione-di-piu-database">Migrazione di più database<a class="headerlink" href="#migrazione-di-piu-database" title="Permanent link">&para;</a></h2>
+<p>Per impostazione predefinita, le migrazioni vengono applicate allo stesso database specificato dal componente <code>db</code> dell'applicazione. Se vuoi che vengano applicati a un altro database, puoi specificare l'opzione <code>db</code> della riga di comando come mostrato di seguito,</p>
+<pre><code>yii migrate --db=db2
+</code></pre>
+<p>Il comando precedente applicherà le migrazioni al database <code>db2</code>. </p>
+<p>A volte può succedere che si voglia applicare alcune delle migrazioni a un database, mentre altre ad un altro database. Per raggiungere questo obiettivo, quando si implementa una classe di migrazione, è necessario specificare esplicitamente l'ID del componente DB utilizzato dalla migrazione, come nel seguente esempio:</p>
+<pre><code>&lt;?php
+
+use yii\db\Migration;
+
+class m150101_185401_create_news_table extends Migration{
+
+    public function init(){
+
+        $this-&gt;db = 'db2';
+        parent::init();
+    }
+}
+</code></pre>
+<p>La suddetta migrazione verrà applicata a <code>db2</code> anche se si specifica un altro database tramite l'opzione <code>db</code> della riga di comando. Si noti che la cronologia delle migrazioni verrà comunque registrata nel database specificato dall'opzione <code>db</code> della riga di comando.</p>
+<p>Se si dispone di più migrazioni che utilizzano lo stesso database, si consiglia di creare una classe di migrazione di base con il codice precedente <strong>init()</strong>. Quindi ogni classe di migrazione può estendersi da questa classe base.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Oltre a impostare la proprietà db, puoi anche operare su diversi database creando nuove connessioni database nelle classi di migrazione. Quindi si utilizzano i metodi DAO con queste connessioni per manipolare diversi database.</p>
+</div>
+<p>Un'altra strategia che è possibile eseguire per migrare più database consiste nel mantenere le migrazioni per diversi database in diversi percorsi di migrazione. Quindi è possibile migrare questi database in comandi separati come il seguente:</p>
+<pre><code>yii migrate --migrationPath=@app/migrations/db1 --db=db1
+yii migrate --migrationPath=@app/migrations/db2 --db=db2
+...
+</code></pre>
+<p>Il primo comando si applicherà migrazioni in <code>@app/migrations/db1</code> al database <code>db1</code>, il secondo comando si applicherà migrazioni in <code>@app/migrations/db2</code> a <code>db2</code>, e così via.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../sub-active-record/" title="Active Record" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Active Record
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © MIT - Lorenzo Milicia - 2017
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-946997f430.js"></script>
+      
+      
+      <script>app.initialize({version:"0.16.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-109845735-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>
