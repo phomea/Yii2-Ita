@@ -103,7 +103,7 @@ Se tutto va bene, l'azione renderà una vista denominata ```entry-confirm``` per
 ##Creazione di Viste
 
 
-Infine, dobbiamo creare due file view denominati ```entry-form``` e ```entry```. All'interno del primo file avverrà la visualizzazione del nome e dell'email inseriti dall'utente. Questi dati devono essere memorizzati nella seguente directory: ```views/site/entry-confirm.php```.
+Infine, dobbiamo creare due file view denominati ```entry-confirm``` e ```entry```. All'interno del primo file avverrà la visualizzazione del nome e dell'email inseriti dall'utente. Questo file deve essere memorizzato nel seguente percorso: ```views/site/entry-confirm.php```.
 
 **ENTRY-CONFIRM.php**
 
@@ -117,7 +117,7 @@ Infine, dobbiamo creare due file view denominati ```entry-form``` e ```entry```.
         <li><label>Email</label>: <?= Html::encode($model->email) ?></li>
     </ul>
 
-All'interno del file ```entry``` ci sarà la visualizzazione del modulo in HTML dove l'utente dovrà inserire i propri dati. Questo file deve essere memorizzato nella seguente directory: ```views/site/entry.php```.
+All'interno del file ```entry``` ci sarà la visualizzazione del modulo in HTML dove l'utente dovrà inserire i propri dati. Questo file deve essere memorizzato nel seguente percorso: ```views/site/entry.php```.
 
 **ENTRY.php**
 
